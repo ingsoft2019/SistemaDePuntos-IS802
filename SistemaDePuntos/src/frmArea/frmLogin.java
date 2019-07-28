@@ -140,12 +140,12 @@ public class frmLogin extends javax.swing.JFrame {
     private void btn_ingresarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarLoginActionPerformed
         // TODO add your handling code here:
          String usuario= "is802";
-        String contraseña= "asd.456";
+        String contrasena= "asd.456";
         
         String pass= new String(getTxt_contrasena().getPassword());
         String user= new String(getTxt_usuario().getText());
         
-        if (user.equals(usuario) && pass.equals(contraseña)){
+        if (user.equals(usuario) && pass.equals(contrasena)){
             frmMenuPrincipal ver=new frmMenuPrincipal();
             ver.setVisible(true); // visible ventana del objeto
             this.setVisible(false); // ocultar
