@@ -5,6 +5,8 @@
  */
 package frmArea;
 
+import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -48,11 +50,25 @@ public class frmLogin extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
+        panel_login.setLayout(null);
+
         jl_Usuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_Usuario.setText("Usuario");
+        panel_login.add(jl_Usuario);
+        jl_Usuario.setBounds(17, 17, 45, 17);
+
+        txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_usuarioKeyPressed(evt);
+            }
+        });
+        panel_login.add(txt_usuario);
+        txt_usuario.setBounds(115, 17, 312, 20);
 
         jl_contrasena.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_contrasena.setText("Contraseña");
+        panel_login.add(jl_contrasena);
+        jl_contrasena.setBounds(17, 69, 70, 17);
 
         btn_ingresarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/ingresarLogin.png"))); // NOI18N
         btn_ingresarLogin.setText("Ingresar");
@@ -61,9 +77,13 @@ public class frmLogin extends javax.swing.JFrame {
                 btn_ingresarLoginActionPerformed(evt);
             }
         });
+        panel_login.add(btn_ingresarLogin);
+        btn_ingresarLogin.setBounds(17, 123, 125, 57);
 
         btn_recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/pass-cambio.png"))); // NOI18N
         btn_recuperar.setText("Recuperar");
+        panel_login.add(btn_recuperar);
+        btn_recuperar.setBounds(160, 123, 133, 57);
 
         btn_SalirLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/salirSistema.png"))); // NOI18N
         btn_SalirLogin.setText("Salir");
@@ -72,48 +92,16 @@ public class frmLogin extends javax.swing.JFrame {
                 btn_SalirLoginActionPerformed(evt);
             }
         });
+        panel_login.add(btn_SalirLogin);
+        btn_SalirLogin.setBounds(311, 123, 116, 57);
 
-        javax.swing.GroupLayout panel_loginLayout = new javax.swing.GroupLayout(panel_login);
-        panel_login.setLayout(panel_loginLayout);
-        panel_loginLayout.setHorizontalGroup(
-            panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_loginLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_loginLayout.createSequentialGroup()
-                        .addComponent(btn_ingresarLogin)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_recuperar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_SalirLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
-                    .addGroup(panel_loginLayout.createSequentialGroup()
-                        .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jl_contrasena)
-                            .addComponent(jl_Usuario))
-                        .addGap(28, 28, 28)
-                        .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_usuario)
-                            .addComponent(txt_contrasena))))
-                .addGap(23, 23, 23))
-        );
-        panel_loginLayout.setVerticalGroup(
-            panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_loginLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_Usuario)
-                    .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jl_contrasena, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txt_contrasena, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_SalirLogin)
-                    .addComponent(btn_recuperar)
-                    .addComponent(btn_ingresarLogin))
-                .addGap(30, 30, 30))
-        );
+        txt_contrasena.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_contrasenaKeyPressed(evt);
+            }
+        });
+        panel_login.add(txt_contrasena);
+        txt_contrasena.setBounds(115, 66, 312, 20);
 
         getContentPane().add(panel_login);
         panel_login.setBounds(20, 290, 450, 210);
@@ -156,6 +144,25 @@ public class frmLogin extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btn_ingresarLoginActionPerformed
+
+    private void txt_usuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usuarioKeyPressed
+
+        // TODO add your handling code here:
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+           txt_usuario.requestFocus();
+           txt_contrasena.setBackground(Color.WHITE);
+        } 
+    }//GEN-LAST:event_txt_usuarioKeyPressed
+
+    private void txt_contrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_contrasenaKeyPressed
+
+        // TODO add your handling code here:
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+           txt_contrasena.requestFocus();
+           btn_ingresarLogin.setBackground(Color.WHITE);
+        } 
+        
+    }//GEN-LAST:event_txt_contrasenaKeyPressed
 
     /**
      * @param args the command line arguments
