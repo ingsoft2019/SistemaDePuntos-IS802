@@ -1,10 +1,13 @@
 /*
 AL crear la base de datos nueva asegurence de elegir el 'COLLATION' COMO: SQL_Latin1_General_CP1_CI_AS
 SQL_Latin1_General_CP1_CI_AS ---->  Es el cotejamiento que tiene la base de  datos que nos mando Palma. 
+
+    Nombres de las BD estar configuradas con Intercalacion SQL_Latin1_General_CP1_CI_AS
+    FA 
+    SistemaPuntos
 */
 
---Fue el nombre que yo le puse a la base de datos pero debemos definir un para todos
-USE DineroRegis; 
+USE SistemaPuntos; 
 
 CREATE TABLE Zona (
   id_zona INT NOT NULL IDENTITY(1,1),
