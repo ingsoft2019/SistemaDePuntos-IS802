@@ -20,7 +20,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     public frmRegistroClientes() {
         initComponents();
          this.setLocationRelativeTo(null); //para ponerse en el centro
-          cargarZonas();
+          cargarZonas();//  Cargar las zonas en el combobox zonas
     }
 
     /**
@@ -309,12 +309,13 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jt_telefono3ActionPerformed
 
+    //Guardar clientes
     private void btn_guardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarClienteActionPerformed
         
         String sexo = (String) jC_Sexo.getSelectedItem();
         if (jT_primerNombre.getText().isEmpty() || jT_primerApellido.getText().isEmpty() || jT_noIdentidad.getText().isEmpty()
                 || Jt_telefono1.getText().isEmpty() || sexo.isEmpty() || jDC_fechaNacimiento.getDate() == null
-                || jC_zona.getSelectedItem() == null) {
+                || jC_zona.getSelectedItem()==null) {
 
             JOptionPane.showMessageDialog(this, "Se dejaron vacios campos que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -354,7 +355,22 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                     Procedimientos.ProcedimientosCliente.guardarCliente(fechaRegistro, Persona.UltimoRegistro());
 
                     JOptionPane.showMessageDialog(this, "Registro guardado");
-
+                    
+                    //Limpiar los campos
+                    jT_primerNombre.setText("");
+                    jT_segundoNombre.setText("");
+                    jT_primerApellido.setText("");
+                    jT_segundoApellido.setText("");
+                    jT_noIdentidad.setText("");
+                    jT_correoElectronico.setText("");
+                    Jt_telefono1.setText("");
+                    jt_telefono2.setText("");
+                    jt_telefono3.setText("");
+                    jC_Sexo.setSelectedIndex(0);
+                    jC_zona.setSelectedIndex(0);
+                    descripcion.setText("");
+                    
+                    
                 }
             } catch (SQLException e) {
             }
