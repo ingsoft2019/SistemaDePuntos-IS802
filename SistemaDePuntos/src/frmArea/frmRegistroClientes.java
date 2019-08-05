@@ -318,7 +318,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(this, "Se dejaron vacios campos que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            try {
+            try {   //Esta consulta es para validar que no se inserte un registro duplicado
                 res = Conexion.Conexion.consulta("SELECT COUNT(identidad) from persona WHERE identidad='" + jT_noIdentidad.getText() + "'");
                 try {
                     while (res.next()) {
@@ -326,14 +326,14 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                     }
                 } catch (SQLException e) {
                 }
-
                 if (cont >= 1) {
                     JOptionPane.showMessageDialog(this, "Esta persona ya está registrada", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 
                 } else {
-
-                    java.sql.Date fechaNac = new java.sql.Date(jDC_fechaNacimiento.getDate().getTime());//PREPARO LA FECHA PARA ENVIARLA
-
+                    //PREPARO LA FECHA PARA ENVIARLA    
+                    java.sql.Date fechaNac = new java.sql.Date(jDC_fechaNacimiento.getDate().getTime());
+                    
+                    //Consulto el id de la zona que eligio el usuario para registrarla en la tabla clientes
                     ResultSet respuesta = Zona.consultarIdZona((String) jC_zona.getSelectedItem());
                     int idZona = 0;
 
