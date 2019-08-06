@@ -35,7 +35,6 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         btn_ReportesMenu = new javax.swing.JButton();
         btn_configuracion = new javax.swing.JButton();
         btn_SalirMenuPrincipal = new javax.swing.JButton();
-        jLabelFondoMenuPrincipal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Munu Principal");
@@ -45,7 +44,6 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jl_tituloMenuPrincipal.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jl_tituloMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         jl_tituloMenuPrincipal.setText("Sistema de Puntos IS802");
         getContentPane().add(jl_tituloMenuPrincipal);
         jl_tituloMenuPrincipal.setBounds(110, 40, 570, 40);
@@ -54,24 +52,44 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
 
         btn_ClienteMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/cliente.png"))); // NOI18N
         btn_ClienteMenu.setText("Cliente");
+        btn_ClienteMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ClienteMenuActionPerformed(evt);
+            }
+        });
         panel_menuPrincipal.add(btn_ClienteMenu);
-        btn_ClienteMenu.setBounds(52, 63, 166, 63);
+        btn_ClienteMenu.setBounds(40, 40, 180, 70);
 
         btn_PuntosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/gestionPuntos.png"))); // NOI18N
         btn_PuntosMenu.setText("Puntos");
+        btn_PuntosMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_PuntosMenuActionPerformed(evt);
+            }
+        });
         panel_menuPrincipal.add(btn_PuntosMenu);
-        btn_PuntosMenu.setBounds(283, 56, 173, 77);
+        btn_PuntosMenu.setBounds(280, 40, 190, 77);
 
         btn_ReportesMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/reporte.png"))); // NOI18N
         btn_ReportesMenu.setText("Reportes");
+        btn_ReportesMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ReportesMenuActionPerformed(evt);
+            }
+        });
         panel_menuPrincipal.add(btn_ReportesMenu);
-        btn_ReportesMenu.setBounds(52, 178, 166, 69);
+        btn_ReportesMenu.setBounds(40, 160, 180, 70);
 
         btn_configuracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/administrador.png"))); // NOI18N
         btn_configuracion.setText("Configuración");
         btn_configuracion.setToolTipText("");
+        btn_configuracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_configuracionActionPerformed(evt);
+            }
+        });
         panel_menuPrincipal.add(btn_configuracion);
-        btn_configuracion.setBounds(283, 178, 173, 69);
+        btn_configuracion.setBounds(270, 160, 190, 69);
 
         btn_SalirMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/salirSistema.png"))); // NOI18N
         btn_SalirMenuPrincipal.setText("Salir");
@@ -81,17 +99,10 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_SalirMenuPrincipal);
-        btn_SalirMenuPrincipal.setBounds(174, 258, 161, 57);
+        btn_SalirMenuPrincipal.setBounds(170, 260, 170, 70);
 
         getContentPane().add(panel_menuPrincipal);
-        panel_menuPrincipal.setBounds(100, 150, 500, 330);
-
-        jLabelFondoMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/fondo-menuPrincial.jpg"))); // NOI18N
-        jLabelFondoMenuPrincipal.setMaximumSize(new java.awt.Dimension(680, 530));
-        jLabelFondoMenuPrincipal.setMinimumSize(new java.awt.Dimension(680, 530));
-        jLabelFondoMenuPrincipal.setPreferredSize(new java.awt.Dimension(680, 530));
-        getContentPane().add(jLabelFondoMenuPrincipal);
-        jLabelFondoMenuPrincipal.setBounds(0, 0, 680, 530);
+        panel_menuPrincipal.setBounds(90, 140, 500, 350);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -100,6 +111,33 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
           System.exit(0); // salir del sistema 
     }//GEN-LAST:event_btn_SalirMenuPrincipalActionPerformed
+
+    private void btn_configuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_configuracionActionPerformed
+         frmLoginModuloConfiguracion ver=new frmLoginModuloConfiguracion();
+            ver.setVisible(true); // visible ventana del objeto
+            this.setVisible(false); // ocultar
+    }//GEN-LAST:event_btn_configuracionActionPerformed
+
+    private void btn_ReportesMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ReportesMenuActionPerformed
+         frmSubMenuReporte ver=new frmSubMenuReporte();
+            ver.setVisible(true); // visible ventana del objeto
+            this.setVisible(false); // ocultar
+
+    }//GEN-LAST:event_btn_ReportesMenuActionPerformed
+
+    private void btn_ClienteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClienteMenuActionPerformed
+        frmSubMenuCliente ver=new frmSubMenuCliente();
+            ver.setVisible(true); // visible ventana del objeto
+            this.setVisible(false); // ocultar
+        
+    }//GEN-LAST:event_btn_ClienteMenuActionPerformed
+
+    private void btn_PuntosMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PuntosMenuActionPerformed
+        frmSubMenuPuntos ver=new frmSubMenuPuntos();
+            ver.setVisible(true); // visible ventana del objeto
+            this.setVisible(false); // ocultar
+        
+    }//GEN-LAST:event_btn_PuntosMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,7 +180,6 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_ReportesMenu;
     private javax.swing.JButton btn_SalirMenuPrincipal;
     private javax.swing.JButton btn_configuracion;
-    private javax.swing.JLabel jLabelFondoMenuPrincipal;
     private javax.swing.JLabel jl_tituloMenuPrincipal;
     private java.awt.Panel panel_menuPrincipal;
     // End of variables declaration//GEN-END:variables
