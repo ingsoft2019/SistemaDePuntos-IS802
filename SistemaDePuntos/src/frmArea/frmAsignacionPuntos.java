@@ -5,6 +5,11 @@
  */
 package frmArea;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author pc
@@ -34,6 +39,7 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         txtNombreCliente = new javax.swing.JTextField();
         btnAsignar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,11 +48,24 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
 
         lblIdFactura.setText("Id Facura:");
 
-        lblNombreCliente.setText("Nombre del Cliente:");
+        lblNombreCliente.setText("ID del Cliente:");
 
         btnAsignar.setText("Asignar");
+        btnAsignar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsignarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
+
+        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
+        btn_RegresarAlMenuPrincipal.setText("Regresar");
+        btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RegresarAlMenuPrincipalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -55,7 +74,7 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblIdFactura)
                             .addComponent(lblNombreCliente))
@@ -65,13 +84,15 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
                             .addComponent(txtNombreCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(99, 99, 99)
-                        .addComponent(lblAsignacionPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(btnAsignar)
-                        .addGap(88, 88, 88)
-                        .addComponent(btnCancelar)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addComponent(lblAsignacionPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(57, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(btnAsignar)
+                .addGap(18, 18, 18)
+                .addComponent(btnCancelar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(btn_RegresarAlMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,15 +107,41 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreCliente)
                     .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAsignar)
-                    .addComponent(btnCancelar))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAsignar)
+                            .addComponent(btnCancelar)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_RegresarAlMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
+        frmMenuPrincipal ver=new frmMenuPrincipal();
+        ver.setVisible(true); // visible ventana del objeto
+        this.setVisible(false); // ocultar
+
+    }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
+
+    private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
+        // TODO add your handling code here:
+        if (txtIdFactura.getText().isEmpty()|| txtNombreCliente.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Hay campos vacios que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+        } 
+        else {try {
+            Procedimientos.ProcedimientoAsignacionPuntos.guardarMovimiento(Integer.parseInt( txtNombreCliente.getText()), 0.02, 1, "JRODAS", Integer.parseInt(txtIdFactura.getText()) );
+            } catch (SQLException ex) {
+                Logger.getLogger(frmAsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }//GEN-LAST:event_btnAsignarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,6 +181,7 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAsignar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JLabel lblAsignacionPuntos;
     private javax.swing.JLabel lblIdFactura;
     private javax.swing.JLabel lblNombreCliente;

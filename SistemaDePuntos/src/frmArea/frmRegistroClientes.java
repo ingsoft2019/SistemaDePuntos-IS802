@@ -392,7 +392,10 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jT_primerNombreActionPerformed
 
     private void btn_menuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuInicioActionPerformed
-        // TODO add your handling code here:
+            frmMenuPrincipal ver=new frmMenuPrincipal();
+            ver.setVisible(true); // visible ventana del objeto
+            this.setVisible(false); // ocultar
+        
     }//GEN-LAST:event_btn_menuInicioActionPerformed
 
     private void Jt_telefono1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jt_telefono1ActionPerformed

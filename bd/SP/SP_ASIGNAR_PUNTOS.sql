@@ -10,7 +10,7 @@ END;
 -- Inicio de Procedimiento
 CREATE PROCEDURE SP_ASIGNAR_PUNTOS (
 	@pi_id_cliente INT,
-	@pd_porcentaje_puntos DECIMAL,
+	@pd_porcentaje_puntos DECIMAL(18,4),
 	@pi_id_tipo_movimiento INT,
 	@pi_GEN_USR_id NVARCHAR(50),
 	@pi_VEN_FAC_id INT,
@@ -18,10 +18,11 @@ CREATE PROCEDURE SP_ASIGNAR_PUNTOS (
 	@pi_codigo INT OUT
 ) AS
 
-BEGIN 
+BEGIN
 	DECLARE @vn_conteo INT, @diferencia_dias INT, @vn_puntos_asignados INT;
 	DECLARE @vc_temp_mensaje VARCHAR(5000);
 	DECLARE @vd_ganancia DECIMAL(18,4), @vd_paga_total DECIMAL(18,4), @vd_costo_total DECIMAL(18,4);
+	DECLARE @pi_puntos_actuales INT;
 	SET @vc_temp_mensaje = '';
 
 	--validacion de campos
@@ -93,6 +94,17 @@ BEGIN
 		RETURN;
 	END;
 
+	--Asignar puntos solo una vez por factura
+	SELECT @vn_conteo = COUNT(*) FROM Movimiento
+	WHERE VEN_FAC_id = @pi_VEN_FAC_id;
+
+	IF @vn_conteo >0 BEGIN
+	  	SET @pv_mensaje = 'A esta factura ya se le asigno puntos';
+		SET @pi_codigo = 1;
+		RETURN;
+	
+	END;
+
 	--Encontrar el pago total y el costo total de la factura a asignar puntos.
 	SELECT @vd_paga_total= SUM(paga), @vd_costo_total= SUM(costo) FROM FA.dbo.VEN_PXF
 	WHERE @pi_VEN_FAC_id = FA.dbo.VEN_PXF.fac;
@@ -135,11 +147,15 @@ BEGIN
            ,@pi_GEN_USR_id
            ,@pi_VEN_FAC_id);
 
+	SELECT @pi_puntos_actuales = puntos_actuales FROM Cliente
+	WHERE id_cliente = @pi_id_cliente;
+
+	UPDATE [dbo].[Cliente]
+	SET [puntos_actuales] = FLOOR(@vn_puntos_asignados)+ @pi_puntos_actuales
+	WHERE id_cliente = @pi_id_cliente;
+	
 	SET @pv_mensaje = 'Los puntos fueron asignados correctamente';
 	SET @pi_codigo = 0;
 
-	IF @pi_codigo = 0 BEGIN
-		COMMIT;
-	END;
 
 END;
