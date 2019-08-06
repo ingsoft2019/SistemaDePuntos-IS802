@@ -2,6 +2,7 @@
 package frmArea;
 
 import Clases.Persona;
+import Clases.Validar;
 import Clases.Zona;
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -16,11 +17,20 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     Date fecha = new Date(1);
     ResultSet res = null;
     int cont = 0;
+    Validar v = new Validar();
     
     public frmRegistroClientes() {
         initComponents();
          this.setLocationRelativeTo(null); //para ponerse en el centro
           cargarZonas();//  Cargar las zonas en el combobox zonas
+          v.ValidarSoloLetras(jT_primerNombre);
+          v.ValidarSoloLetras(jT_segundoNombre);
+          v.ValidarSoloLetras(jT_primerApellido);
+          v.ValidarSoloLetras(jT_segundoApellido);
+          v.ValidarSolonumeros(Jt_telefono1);
+          v.ValidarSolonumeros(jt_telefono2);
+          v.ValidarSolonumeros(jt_telefono3);
+          v.ValidarSolonumeros(jT_noIdentidad);
     }
 
     /**

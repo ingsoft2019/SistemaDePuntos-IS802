@@ -16,6 +16,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
      */
     public frmConsultarCliente() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -145,7 +146,9 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        frmRegistroClientes RC = new frmRegistroClientes();
+        RC.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
