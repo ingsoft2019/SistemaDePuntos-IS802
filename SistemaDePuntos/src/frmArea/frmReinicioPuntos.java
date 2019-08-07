@@ -15,7 +15,8 @@ public class frmReinicioPuntos extends javax.swing.JFrame {
      * Creates new form frmReinicioPuntos
      */
     public frmReinicioPuntos() {
-        initComponents();
+         initComponents();
+        this.setLocationRelativeTo(null); //para ponerse en el centro
     }
 
     /**

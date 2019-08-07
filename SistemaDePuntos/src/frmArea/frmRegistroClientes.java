@@ -20,8 +20,9 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     Validar v = new Validar();
     
     public frmRegistroClientes() {
-        initComponents();
-         this.setLocationRelativeTo(null); //para ponerse en el centro
+         initComponents();
+        this.setLocationRelativeTo(null); //para ponerse en el centro
+        
           cargarZonas();//  Cargar las zonas en el combobox zonas
           v.ValidarSoloLetras(jT_primerNombre);
           v.ValidarSoloLetras(jT_segundoNombre);

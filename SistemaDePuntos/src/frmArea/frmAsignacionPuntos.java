@@ -20,7 +20,8 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
      * Creates new form frmAsignacionPuntos
      */
     public frmAsignacionPuntos() {
-        initComponents();
+         initComponents();
+        this.setLocationRelativeTo(null); //para ponerse en el centro
     }
 
     /**

@@ -15,7 +15,8 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
      * Creates new form frmConfiguracionPorcentajePuntos
      */
     public frmConfiguracionPorcentajePuntos() {
-        initComponents();
+         initComponents();
+        this.setLocationRelativeTo(null); //para ponerse en el centro
     }
 
     /**

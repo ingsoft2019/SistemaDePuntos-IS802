@@ -15,7 +15,8 @@ public class frmModificarCliente extends javax.swing.JFrame {
      * Creates new form frmModificarCliente
      */
     public frmModificarCliente() {
-        initComponents();
+         initComponents();
+        this.setLocationRelativeTo(null); //para ponerse en el centro
     }
 
     /**
