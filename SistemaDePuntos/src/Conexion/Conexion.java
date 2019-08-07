@@ -17,9 +17,9 @@ public class Conexion {
     //static String db = "PR";
     
     public static Connection getConexion(){
+        String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=RP";
         String user = "sa";
         String pass = "123";
-        String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=RP";
         
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

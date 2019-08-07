@@ -7,7 +7,7 @@ SQL_Latin1_General_CP1_CI_AS ---->  Es el cotejamiento que tiene la base de  dat
     SP
 */
 
-USE SP; 
+USE PR; 
 
 CREATE TABLE Zona (
   id_zona INT NOT NULL IDENTITY(1,1),
@@ -60,10 +60,10 @@ CREATE TABLE Movimiento (
   id_cliente INT NOT NULL,
   fecha_movimiento DATE NOT NULL,
   hora_movimiento TIME NOT NULL,
-  porcentaje_puntos DECIMAL NULL,
-  costo_total DECIMAL NOT NULL,
-  paga_total DECIMAL NOT NULL,
-  ganancia DECIMAL NOT NULL,
+  porcentaje_puntos DECIMAL(18,4) NULL,
+  costo_total DECIMAL(18,4) NOT NULL,
+  paga_total DECIMAL(18,4) NOT NULL,
+  ganancia DECIMAL(18,4) NOT NULL,
   puntos_asignados INT NOT NULL,
   id_tipo_movimiento INT NOT NULL,
   GEN_USR_id NVARCHAR(45) NOT NULL,

@@ -5,6 +5,11 @@
  */
 package frmArea;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author pc
@@ -43,9 +48,14 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
 
         lblIdFactura.setText("Id Facura:");
 
-        lblNombreCliente.setText("Nombre del Cliente:");
+        lblNombreCliente.setText("ID del Cliente:");
 
         btnAsignar.setText("Asignar");
+        btnAsignar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsignarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
 
@@ -64,11 +74,10 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblIdFactura)
-                            .addComponent(lblNombreCliente)
-                            .addComponent(btnAsignar))
+                            .addComponent(lblNombreCliente))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtIdFactura)
@@ -76,9 +85,11 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(99, 99, 99)
                         .addComponent(lblAsignacionPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(137, 137, 137)
+                .addGap(50, 50, 50)
+                .addComponent(btnAsignar)
+                .addGap(18, 18, 18)
                 .addComponent(btnCancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(btn_RegresarAlMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -117,6 +128,20 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         this.setVisible(false); // ocultar
 
     }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
+
+    private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
+        // TODO add your handling code here:
+        if (txtIdFactura.getText().isEmpty()|| txtNombreCliente.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Hay campos vacios que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+        } 
+        else {try {
+            Procedimientos.ProcedimientoAsignacionPuntos.guardarMovimiento(Integer.parseInt( txtNombreCliente.getText()), 0.02, 1, "JRODAS", Integer.parseInt(txtIdFactura.getText()) );
+            } catch (SQLException ex) {
+                Logger.getLogger(frmAsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }//GEN-LAST:event_btnAsignarActionPerformed
 
     /**
      * @param args the command line arguments
