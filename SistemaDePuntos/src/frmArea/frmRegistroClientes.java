@@ -96,40 +96,42 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         SegundoNombre.setText("Segundo nombre:");
         SegundoNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(SegundoNombre);
-        SegundoNombre.setBounds(10, 37, 98, 20);
+        SegundoNombre.setBounds(10, 37, 110, 20);
 
         PrimerApellido.setText("Primer apellido:");
         PrimerApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(PrimerApellido);
-        PrimerApellido.setBounds(10, 63, 98, 20);
+        PrimerApellido.setBounds(10, 63, 110, 20);
 
         SegundoApelliido.setText("Segundo apellido:");
         SegundoApelliido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(SegundoApelliido);
-        SegundoApelliido.setBounds(10, 89, 98, 20);
+        SegundoApelliido.setBounds(10, 89, 110, 20);
 
         NoIdentidad.setText("No. Identidad:");
         NoIdentidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(NoIdentidad);
-        NoIdentidad.setBounds(10, 115, 98, 20);
+        NoIdentidad.setBounds(10, 115, 110, 20);
 
         Telefono.setText("Teléfono:");
         Telefono.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(Telefono);
-        Telefono.setBounds(10, 141, 98, 20);
+        Telefono.setBounds(10, 141, 110, 20);
 
         CorreoElectronico.setText("Correo electrónico:");
         CorreoElectronico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(CorreoElectronico);
-        CorreoElectronico.setBounds(10, 167, 98, 20);
+        CorreoElectronico.setBounds(10, 167, 110, 20);
 
+        jT_primerNombre.setMinimumSize(new java.awt.Dimension(8, 22));
+        jT_primerNombre.setPreferredSize(new java.awt.Dimension(8, 24));
         jT_primerNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jT_primerNombreActionPerformed(evt);
             }
         });
         jP1_DatosCliente.add(jT_primerNombre);
-        jT_primerNombre.setBounds(112, 11, 311, 20);
+        jT_primerNombre.setBounds(120, 10, 301, 24);
 
         jT_segundoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,7 +139,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         jP1_DatosCliente.add(jT_segundoNombre);
-        jT_segundoNombre.setBounds(112, 37, 311, 20);
+        jT_segundoNombre.setBounds(120, 37, 301, 24);
 
         jT_primerApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +147,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         jP1_DatosCliente.add(jT_primerApellido);
-        jT_primerApellido.setBounds(112, 63, 311, 20);
+        jT_primerApellido.setBounds(120, 63, 301, 24);
 
         jT_segundoApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +155,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         jP1_DatosCliente.add(jT_segundoApellido);
-        jT_segundoApellido.setBounds(112, 89, 311, 20);
+        jT_segundoApellido.setBounds(120, 89, 301, 24);
 
         jT_noIdentidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +163,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         jP1_DatosCliente.add(jT_noIdentidad);
-        jT_noIdentidad.setBounds(112, 115, 311, 20);
+        jT_noIdentidad.setBounds(120, 115, 301, 24);
 
         jt_telefono3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,14 +171,14 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         jP1_DatosCliente.add(jt_telefono3);
-        jt_telefono3.setBounds(320, 140, 100, 20);
+        jt_telefono3.setBounds(321, 141, 100, 24);
 
         PrimerNombre.setText("Primer nombre:");
         PrimerNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(PrimerNombre);
-        PrimerNombre.setBounds(10, 11, 98, 20);
+        PrimerNombre.setBounds(10, 11, 110, 20);
         jP1_DatosCliente.add(jT_correoElectronico);
-        jT_correoElectronico.setBounds(112, 167, 311, 20);
+        jT_correoElectronico.setBounds(120, 167, 301, 24);
 
         jP2_DatosCliente.setLayout(null);
 
@@ -184,19 +186,19 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         jL_Sexo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jL_Sexo.setPreferredSize(new java.awt.Dimension(98, 20));
         jP2_DatosCliente.add(jL_Sexo);
-        jL_Sexo.setBounds(0, 0, 100, 20);
+        jL_Sexo.setBounds(0, 0, 110, 20);
 
         jC_Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
         jC_Sexo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jP2_DatosCliente.add(jC_Sexo);
-        jC_Sexo.setBounds(100, 0, 130, 20);
+        jC_Sexo.setBounds(110, 0, 130, 24);
 
         jL_fechaNacimiento.setText("Fecha nacimiento dd-mm-yy :");
         jL_fechaNacimiento.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP2_DatosCliente.add(jL_fechaNacimiento);
-        jL_fechaNacimiento.setBounds(0, 30, 200, 30);
+        jL_fechaNacimiento.setBounds(0, 30, 200, 24);
         jP2_DatosCliente.add(jDC_fechaNacimiento);
-        jDC_fechaNacimiento.setBounds(200, 30, 210, 30);
+        jDC_fechaNacimiento.setBounds(200, 30, 210, 24);
 
         jP1_DatosCliente.add(jP2_DatosCliente);
         jP2_DatosCliente.setBounds(10, 200, 413, 69);
@@ -228,7 +230,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         jL_Zona.setBounds(10, 26, 76, 20);
 
         jP_DatosDireccion.add(jC_zona);
-        jC_zona.setBounds(90, 26, 180, 20);
+        jC_zona.setBounds(90, 24, 180, 24);
 
         jP1_DatosCliente.add(jP_DatosDireccion);
         jP_DatosDireccion.setBounds(0, 270, 460, 160);
@@ -239,7 +241,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         jP1_DatosCliente.add(Jt_telefono1);
-        Jt_telefono1.setBounds(112, 141, 100, 20);
+        Jt_telefono1.setBounds(120, 141, 99, 24);
 
         jt_telefono2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,7 +249,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         jP1_DatosCliente.add(jt_telefono2);
-        jt_telefono2.setBounds(220, 140, 90, 20);
+        jt_telefono2.setBounds(220, 141, 100, 24);
 
         getContentPane().add(jP1_DatosCliente);
         jP1_DatosCliente.setBounds(30, 10, 470, 430);
