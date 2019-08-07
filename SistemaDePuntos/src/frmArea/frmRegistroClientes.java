@@ -77,10 +77,13 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         btn_menuInicio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gestión cliente");
-        setMinimumSize(new java.awt.Dimension(490, 550));
+        setTitle("Registro cliente");
+        setMaximumSize(new java.awt.Dimension(512, 539));
+        setMinimumSize(new java.awt.Dimension(512, 539));
         setName("Registro Cliente"); // NOI18N
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(512, 539));
+        getContentPane().setLayout(null);
 
         jP1_DatosCliente.setLayout(null);
 
@@ -240,6 +243,9 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         jP1_DatosCliente.add(jt_telefono2);
         jt_telefono2.setBounds(220, 140, 90, 20);
 
+        getContentPane().add(jP1_DatosCliente);
+        jP1_DatosCliente.setBounds(30, 10, 470, 430);
+
         btn_guardarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/guardar.png"))); // NOI18N
         btn_guardarCliente.setText("Guardar");
         btn_guardarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -277,25 +283,8 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                     .addComponent(btn_menuInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(j_Botones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jP1_DatosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(430, 430, 430)
-                .addComponent(j_Botones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jP1_DatosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(j_Botones);
+        j_Botones.setBounds(30, 430, 410, 80);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -32,7 +32,15 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu de puntos");
+        setMaximumSize(new java.awt.Dimension(680, 528));
+        setMinimumSize(new java.awt.Dimension(680, 528));
+        setName("Menu Puntos"); // NOI18N
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(680, 528));
         getContentPane().setLayout(null);
+
+        jPanel1.setLayout(null);
 
         btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
@@ -41,26 +49,11 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
                 btn_RegresarAlMenuPrincipalActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(btn_RegresarAlMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(btn_RegresarAlMenuPrincipal)
-                .addContainerGap(37, Short.MAX_VALUE))
-        );
+        jPanel1.add(btn_RegresarAlMenuPrincipal);
+        btn_RegresarAlMenuPrincipal.setBounds(410, 360, 166, 67);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 40, 320, 220);
+        jPanel1.setBounds(20, 40, 630, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

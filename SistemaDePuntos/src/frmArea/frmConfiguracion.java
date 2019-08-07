@@ -43,6 +43,11 @@ public class frmConfiguracion extends javax.swing.JFrame {
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Configuración");
+        setMaximumSize(new java.awt.Dimension(680, 528));
+        setMinimumSize(new java.awt.Dimension(680, 528));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(680, 528));
         getContentPane().setLayout(null);
 
         jLabel1.setText("jLabel1");
@@ -76,7 +81,7 @@ public class frmConfiguracion extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(60, 20, 590, 80);
+        jPanel1.setBounds(60, 60, 590, 80);
 
         jButton2.setText("jButton2");
 
@@ -114,7 +119,7 @@ public class frmConfiguracion extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(80, 120, 600, 100);
+        jPanel2.setBounds(50, 210, 600, 100);
 
         jButton6.setText("jButton6");
 
@@ -137,9 +142,9 @@ public class frmConfiguracion extends javax.swing.JFrame {
                 .addComponent(jButton6)
                 .addGap(124, 124, 124)
                 .addComponent(jButton7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(btn_RegresarAlMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(23, 23, 23))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,7 +158,7 @@ public class frmConfiguracion extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(60, 250, 610, 100);
+        jPanel3.setBounds(50, 370, 610, 100);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

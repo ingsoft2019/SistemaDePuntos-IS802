@@ -37,7 +37,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         btn_SalirMenuPrincipal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Munu Principal");
+        setTitle("Munu Principal del Sistema de Puntos");
         setMinimumSize(new java.awt.Dimension(680, 530));
         setName("Menu Princial Sistema de Puntos"); // NOI18N
         setUndecorated(true);

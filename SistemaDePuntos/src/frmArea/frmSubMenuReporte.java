@@ -32,7 +32,17 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu Reportes");
+        setMaximumSize(new java.awt.Dimension(680, 530));
+        setMinimumSize(new java.awt.Dimension(680, 528));
+        setName("Menu Reporte"); // NOI18N
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(680, 530));
         getContentPane().setLayout(null);
+
+        jPanel1.setMinimumSize(new java.awt.Dimension(680, 530));
+        jPanel1.setPreferredSize(new java.awt.Dimension(680, 530));
+        jPanel1.setLayout(null);
 
         btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
@@ -41,26 +51,11 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
                 btn_RegresarAlMenuPrincipalActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(126, Short.MAX_VALUE)
-                .addComponent(btn_RegresarAlMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(179, Short.MAX_VALUE)
-                .addComponent(btn_RegresarAlMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
-        );
+        jPanel1.add(btn_RegresarAlMenuPrincipal);
+        btn_RegresarAlMenuPrincipal.setBounds(400, 330, 150, 60);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(74, 11, 325, 278);
+        jPanel1.setBounds(60, 80, 580, 410);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
