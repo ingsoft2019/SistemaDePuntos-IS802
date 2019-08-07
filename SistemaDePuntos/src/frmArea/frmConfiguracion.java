@@ -15,7 +15,8 @@ public class frmConfiguracion extends javax.swing.JFrame {
      * Creates new form frmConfiguracion
      */
     public frmConfiguracion() {
-        initComponents();
+         initComponents();
+        this.setLocationRelativeTo(null); //para ponerse en el centro
     }
 
     /**

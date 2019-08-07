@@ -15,7 +15,8 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
      * Creates new form frmSubMenuReporte
      */
     public frmSubMenuReporte() {
-        initComponents();
+         initComponents();
+        this.setLocationRelativeTo(null); //para ponerse en el centro
     }
 
     /**
