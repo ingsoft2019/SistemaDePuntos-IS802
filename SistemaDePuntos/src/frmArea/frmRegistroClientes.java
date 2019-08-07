@@ -28,10 +28,16 @@ public class frmRegistroClientes extends javax.swing.JFrame {
           v.ValidarSoloLetras(jT_segundoNombre);
           v.ValidarSoloLetras(jT_primerApellido);
           v.ValidarSoloLetras(jT_segundoApellido);
-          v.ValidarSolonumeros(Jt_telefono1);
-          v.ValidarSolonumeros(jt_telefono2);
-          v.ValidarSolonumeros(jt_telefono3);
-          v.ValidarSolonumeros(jT_noIdentidad);
+          v.ValidarTelefono(Jt_telefono1);
+          v.ValidarTelefono(jt_telefono2);
+          v.ValidarTelefono(jt_telefono3);
+          v.ValidarIdentidad(jT_noIdentidad);
+          v.limitarCaracteres(Jt_telefono1, 13);
+          v.limitarCaracteres(jt_telefono2, 13);
+          v.limitarCaracteres(jt_telefono3, 13);
+          v.limitarCaracteres(jT_noIdentidad,15);
+         
+          
     }
 
     /**

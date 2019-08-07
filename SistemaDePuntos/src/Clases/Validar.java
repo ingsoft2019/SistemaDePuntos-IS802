@@ -37,13 +37,30 @@ public class Validar {
 });
     }
     
-    public void ValidarSolonumeros(JTextField campo){
+    public void ValidarIdentidad(JTextField campo){
         campo.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e){
                 char c = e.getKeyChar();
                 
                if((int)e.getKeyChar()>=32 && (int)e.getKeyChar()<=44
                        || (int)e.getKeyChar()>=46 && (int)e.getKeyChar()<=47
+                       || (int)e.getKeyChar()>=58 && (int)e.getKeyChar()<=126){
+                   e.consume();
+                   JOptionPane.showMessageDialog(null, "No puedes agregar letras o caracteres");
+                   campo.setText(null);
+               }
+            }
+});
+    }
+    
+    
+    public void ValidarTelefono(JTextField campo){
+        campo.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e){
+                char c = e.getKeyChar();
+                
+               if((int)e.getKeyChar()>=32 && (int)e.getKeyChar()<=39
+                       || (int)e.getKeyChar()>=42 && (int)e.getKeyChar()<=47
                        || (int)e.getKeyChar()>=58 && (int)e.getKeyChar()<=126){
                    e.consume();
                    JOptionPane.showMessageDialog(null, "No puedes agregar letras o caracteres");
@@ -60,11 +77,29 @@ public class Validar {
                 int tamaño =campo.getText().length();
                 if (tamaño>=cantidad){
                     e.consume();
-                    JOptionPane.showMessageDialog(null,"Estas introducuiendo caracteres de mas");
+                    JOptionPane.showMessageDialog(null,"Estas pasando el limite de caracteres");
                     
                 }
             }
 });
     }
+     
+    /* public void validarDetalleDireccion(JTextField campo){
+        campo.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e){
+                char c = e.getKeyChar();  
+                if((int)e.getKeyChar()>32 && (int)e.getKeyChar()<=43
+                        || (int)e.getKeyChar()>=58 && (int)e.getKeyChar()<=64
+                        || (int)e.getKeyChar()>=91 && (int)e.getKeyChar()<=96
+                        || (int)e.getKeyChar()>=123 && (int)e.getKeyChar()<=126){
+                    e.consume();
+                    JOptionPane.showMessageDialog(null,"No puedes agregar caracteres ajenos al alfabeto");
+                    campo.setText(null);
+                    campo.setCursor(null);
+                    
+                }
+            }
+});
+    }*/
     
 }
