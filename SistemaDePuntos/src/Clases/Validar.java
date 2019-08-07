@@ -83,5 +83,23 @@ public class Validar {
             }
 });
     }
+     
+    /* public void validarDetalleDireccion(JTextField campo){
+        campo.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e){
+                char c = e.getKeyChar();  
+                if((int)e.getKeyChar()>32 && (int)e.getKeyChar()<=43
+                        || (int)e.getKeyChar()>=58 && (int)e.getKeyChar()<=64
+                        || (int)e.getKeyChar()>=91 && (int)e.getKeyChar()<=96
+                        || (int)e.getKeyChar()>=123 && (int)e.getKeyChar()<=126){
+                    e.consume();
+                    JOptionPane.showMessageDialog(null,"No puedes agregar caracteres ajenos al alfabeto");
+                    campo.setText(null);
+                    campo.setCursor(null);
+                    
+                }
+            }
+});
+    }*/
     
 }

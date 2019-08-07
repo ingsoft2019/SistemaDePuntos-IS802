@@ -36,6 +36,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
           v.limitarCaracteres(jt_telefono2, 13);
           v.limitarCaracteres(jt_telefono3, 13);
           v.limitarCaracteres(jT_noIdentidad,15);
+         
           
     }
 
