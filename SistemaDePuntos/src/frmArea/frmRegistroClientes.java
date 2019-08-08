@@ -81,6 +81,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         j_Botones = new javax.swing.JPanel();
         btn_guardarCliente = new javax.swing.JButton();
         btn_menuInicio = new javax.swing.JButton();
+        btn_limpiarCampos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro cliente");
@@ -254,7 +255,9 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         getContentPane().add(jP1_DatosCliente);
         jP1_DatosCliente.setBounds(30, 10, 470, 430);
 
-        btn_guardarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/guardar.png"))); // NOI18N
+        j_Botones.setLayout(null);
+
+        btn_guardarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/guardar.png"))); // NOI18N
         btn_guardarCliente.setText("Guardar");
         btn_guardarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_guardarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -262,8 +265,10 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                 btn_guardarClienteActionPerformed(evt);
             }
         });
+        j_Botones.add(btn_guardarCliente);
+        btn_guardarCliente.setBounds(20, 20, 105, 49);
 
-        btn_menuInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
+        btn_menuInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_menuInicio.setText("Atrás");
         btn_menuInicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_menuInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -271,28 +276,16 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                 btn_menuInicioActionPerformed(evt);
             }
         });
+        j_Botones.add(btn_menuInicio);
+        btn_menuInicio.setBounds(320, 20, 95, 49);
 
-        javax.swing.GroupLayout j_BotonesLayout = new javax.swing.GroupLayout(j_Botones);
-        j_Botones.setLayout(j_BotonesLayout);
-        j_BotonesLayout.setHorizontalGroup(
-            j_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(j_BotonesLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(btn_guardarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(btn_menuInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        j_BotonesLayout.setVerticalGroup(
-            j_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(j_BotonesLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(j_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_guardarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_menuInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
+        btn_limpiarCampos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
+        btn_limpiarCampos.setText("Limpiar");
+        j_Botones.add(btn_limpiarCampos);
+        btn_limpiarCampos.setBounds(170, 20, 110, 50);
 
         getContentPane().add(j_Botones);
-        j_Botones.setBounds(30, 430, 410, 80);
+        j_Botones.setBounds(30, 440, 450, 80);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -468,6 +461,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     private javax.swing.JLabel SegundoNombre;
     private javax.swing.JLabel Telefono;
     private javax.swing.JButton btn_guardarCliente;
+    private javax.swing.JButton btn_limpiarCampos;
     private javax.swing.JButton btn_menuInicio;
     private javax.swing.JTextArea descripcion;
     private javax.swing.JComboBox<String> jC_Sexo;

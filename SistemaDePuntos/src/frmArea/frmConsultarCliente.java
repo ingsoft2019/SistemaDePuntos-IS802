@@ -72,15 +72,17 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(10, 18, 350, 30);
+        jTextField1.setBounds(10, 8, 350, 40);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/buscar.png"))); // NOI18N
         jButton1.setText("Buscar");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1.setPreferredSize(new java.awt.Dimension(35, 30));
         jPanel1.add(jButton1);
-        jButton1.setBounds(380, 20, 90, 30);
+        jButton1.setBounds(380, 10, 100, 40);
 
-        jButton5.setText("+");
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/agregar.png"))); // NOI18N
+        jButton5.setText("Agregar");
         jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,8 +90,9 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton5);
-        jButton5.setBounds(380, 310, 90, 30);
+        jButton5.setBounds(370, 310, 120, 40);
 
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/cliente.png"))); // NOI18N
         jButton7.setText("Gestion Cliente");
         jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton7.setMultiClickThreshhold(30L);
@@ -99,9 +102,9 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton7);
-        jButton7.setBounds(380, 100, 90, 30);
+        jButton7.setBounds(370, 250, 120, 40);
 
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
+        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
         btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +112,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(340, 410, 150, 60);
+        btn_RegresarAlMenuPrincipal.setBounds(370, 360, 120, 40);
 
         BuscarInactivos.setLabel("Buscar inactivos");
         BuscarInactivos.setName("Buscar Inactivos"); // NOI18N
@@ -117,7 +120,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         BuscarInactivos.setBounds(380, 60, 120, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(30, 10, 500, 480);
+        jPanel1.setBounds(30, 10, 500, 430);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

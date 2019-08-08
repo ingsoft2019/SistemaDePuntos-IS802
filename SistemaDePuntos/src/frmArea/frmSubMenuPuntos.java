@@ -30,6 +30,11 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jl_TituloPrincipal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu de puntos");
@@ -42,7 +47,7 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
+        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
         btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,10 +55,31 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(410, 360, 166, 67);
+        btn_RegresarAlMenuPrincipal.setBounds(270, 330, 120, 50);
+
+        jButton1.setText("jButton1");
+        jPanel1.add(jButton1);
+        jButton1.setBounds(90, 60, 73, 20);
+
+        jButton2.setText("jButton2");
+        jPanel1.add(jButton2);
+        jButton2.setBounds(400, 60, 73, 23);
+
+        jButton3.setText("jButton3");
+        jPanel1.add(jButton3);
+        jButton3.setBounds(100, 160, 73, 23);
+
+        jButton4.setText("jButton4");
+        jPanel1.add(jButton4);
+        jButton4.setBounds(390, 170, 73, 23);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 40, 630, 450);
+        jPanel1.setBounds(20, 90, 630, 400);
+
+        jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jl_TituloPrincipal.setText("Menu de Gestión Puntos");
+        getContentPane().add(jl_TituloPrincipal);
+        jl_TituloPrincipal.setBounds(190, 30, 310, 29);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -62,7 +88,6 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
         frmMenuPrincipal ver=new frmMenuPrincipal();
         ver.setVisible(true); // visible ventana del objeto
         this.setVisible(false); // ocultar
-
     }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
 
     /**
@@ -102,6 +127,11 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jl_TituloPrincipal;
     // End of variables declaration//GEN-END:variables
 }

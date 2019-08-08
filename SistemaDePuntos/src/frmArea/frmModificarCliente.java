@@ -28,6 +28,8 @@ public class frmModificarCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jl_TituloPrincipal = new javax.swing.JLabel();
+        jpanel_SubMenu = new javax.swing.JPanel();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -36,15 +38,26 @@ public class frmModificarCliente extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(680, 528));
         getContentPane().setLayout(null);
 
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
+        jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jl_TituloPrincipal.setText("Modificar Cliente");
+        getContentPane().add(jl_TituloPrincipal);
+        jl_TituloPrincipal.setBounds(290, 30, 230, 30);
+
+        jpanel_SubMenu.setMinimumSize(new java.awt.Dimension(680, 530));
+        jpanel_SubMenu.setLayout(null);
+
+        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
         btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_RegresarAlMenuPrincipalActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(430, 380, 150, 60);
+        jpanel_SubMenu.add(btn_RegresarAlMenuPrincipal);
+        btn_RegresarAlMenuPrincipal.setBounds(240, 340, 120, 50);
+
+        getContentPane().add(jpanel_SubMenu);
+        jpanel_SubMenu.setBounds(110, 90, 580, 410);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -53,7 +66,6 @@ public class frmModificarCliente extends javax.swing.JFrame {
         frmMenuPrincipal ver=new frmMenuPrincipal();
         ver.setVisible(true); // visible ventana del objeto
         this.setVisible(false); // ocultar
-
     }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
 
     /**
@@ -93,5 +105,7 @@ public class frmModificarCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
+    private javax.swing.JLabel jl_TituloPrincipal;
+    private javax.swing.JPanel jpanel_SubMenu;
     // End of variables declaration//GEN-END:variables
 }
