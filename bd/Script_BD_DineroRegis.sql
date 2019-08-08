@@ -7,7 +7,7 @@ SQL_Latin1_General_CP1_CI_AS ---->  Es el cotejamiento que tiene la base de  dat
     SP
 */
 
-USE PR; 
+USE SP; 
 
 CREATE TABLE Zona (
   id_zona INT NOT NULL IDENTITY(1,1),

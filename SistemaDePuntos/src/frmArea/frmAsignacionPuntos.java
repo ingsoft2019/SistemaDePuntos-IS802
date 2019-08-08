@@ -40,6 +40,8 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         txtNombreCliente = new javax.swing.JTextField();
         btnAsignar = new javax.swing.JButton();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
+        btn_asignar = new javax.swing.JButton();
+        btn_limpiarCampos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Asignación de Puntos");
@@ -50,9 +52,9 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         lblAsignacionPuntos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblAsignacionPuntos.setText("Asignacion de Puntos");
+        lblAsignacionPuntos.setText("Asignación de Puntos");
         getContentPane().add(lblAsignacionPuntos);
-        lblAsignacionPuntos.setBounds(120, 30, 194, 38);
+        lblAsignacionPuntos.setBounds(110, 20, 194, 38);
 
         lblIdFactura.setText("Id Facura:");
         getContentPane().add(lblIdFactura);
@@ -82,17 +84,17 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         btnAsignar.setText("Asignar");
         btnAsignar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAsignarActionPerformed(evt);
+                btn_RegresarAlMenuPrincipalActionPerformed(evt);
             }
         });
         getContentPane().add(btnAsignar);
         btnAsignar.setBounds(50, 190, 140, 80);
 
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
-        btn_RegresarAlMenuPrincipal.setText("Regresar");
-        btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+        btn_limpiarCampos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
+        btn_limpiarCampos.setText("Limpiar");
+        btn_limpiarCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RegresarAlMenuPrincipalActionPerformed(evt);
+                btn_limpiarCamposActionPerformed(evt);
             }
         });
         getContentPane().add(btn_RegresarAlMenuPrincipal);
@@ -108,7 +110,13 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
 
-    private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
+    private void btn_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarActionPerformed
+
+    
+    }//GEN-LAST:event_btn_asignarActionPerformed
+
+    private void btn_limpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarCamposActionPerformed
+
         // TODO add your handling code here:
         if (txtIdFactura.getText().isEmpty()|| txtNombreCliente.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Hay campos vacios que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
@@ -176,6 +184,8 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAsignar;
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
+    private javax.swing.JButton btn_asignar;
+    private javax.swing.JButton btn_limpiarCampos;
     private javax.swing.JLabel lblAsignacionPuntos;
     private javax.swing.JLabel lblIdFactura;
     private javax.swing.JLabel lblNombreCliente;

@@ -70,7 +70,7 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
         panel_login.add(jl_contrasena);
         jl_contrasena.setBounds(17, 69, 70, 17);
 
-        btn_ingresarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/ingresarLogin.png"))); // NOI18N
+        btn_ingresarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/ingresar.png"))); // NOI18N
         btn_ingresarLogin.setText("Ingresar");
         btn_ingresarLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,14 +78,14 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
             }
         });
         panel_login.add(btn_ingresarLogin);
-        btn_ingresarLogin.setBounds(17, 123, 130, 57);
+        btn_ingresarLogin.setBounds(17, 123, 130, 41);
 
-        btn_recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/pass-cambio.png"))); // NOI18N
+        btn_recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/pass-contrasena.png"))); // NOI18N
         btn_recuperar.setText("Recuperar");
         panel_login.add(btn_recuperar);
-        btn_recuperar.setBounds(150, 120, 133, 57);
+        btn_recuperar.setBounds(150, 120, 119, 41);
 
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
+        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
         btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +93,7 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
             }
         });
         panel_login.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(290, 120, 150, 60);
+        btn_RegresarAlMenuPrincipal.setBounds(290, 120, 150, 40);
 
         txt_contrasena.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -104,13 +104,13 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
         txt_contrasena.setBounds(115, 66, 312, 20);
 
         getContentPane().add(panel_login);
-        panel_login.setBounds(20, 290, 450, 210);
+        panel_login.setBounds(20, 330, 450, 180);
 
-        jl_iconoPersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/login-Usuario.png"))); // NOI18N
+        jl_iconoPersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/login-Usuario.png"))); // NOI18N
         getContentPane().add(jl_iconoPersonas);
         jl_iconoPersonas.setBounds(120, 40, 260, 240);
 
-        jl_fondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/fondo_login.jpg"))); // NOI18N
+        jl_fondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/fondo_login.jpg"))); // NOI18N
         jl_fondoLogin.setMaximumSize(new java.awt.Dimension(488, 541));
         jl_fondoLogin.setMinimumSize(new java.awt.Dimension(488, 541));
         jl_fondoLogin.setPreferredSize(new java.awt.Dimension(488, 541));

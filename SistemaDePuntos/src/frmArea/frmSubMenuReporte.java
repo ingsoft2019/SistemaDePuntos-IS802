@@ -28,8 +28,9 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jpanel_SubMenu = new javax.swing.JPanel();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
+        jl_TituloPrincipal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Reportes");
@@ -40,22 +41,27 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(680, 530));
         getContentPane().setLayout(null);
 
-        jPanel1.setMinimumSize(new java.awt.Dimension(680, 530));
-        jPanel1.setPreferredSize(new java.awt.Dimension(680, 530));
-        jPanel1.setLayout(null);
+        jpanel_SubMenu.setMinimumSize(new java.awt.Dimension(680, 530));
+        jpanel_SubMenu.setPreferredSize(new java.awt.Dimension(680, 530));
+        jpanel_SubMenu.setLayout(null);
 
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
+        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
         btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_RegresarAlMenuPrincipalActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(400, 330, 150, 60);
+        jpanel_SubMenu.add(btn_RegresarAlMenuPrincipal);
+        btn_RegresarAlMenuPrincipal.setBounds(240, 340, 120, 50);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(60, 80, 580, 410);
+        getContentPane().add(jpanel_SubMenu);
+        jpanel_SubMenu.setBounds(60, 90, 580, 410);
+
+        jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jl_TituloPrincipal.setText("Menu de reportes");
+        getContentPane().add(jl_TituloPrincipal);
+        jl_TituloPrincipal.setBounds(240, 30, 230, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -104,6 +110,7 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jl_TituloPrincipal;
+    private javax.swing.JPanel jpanel_SubMenu;
     // End of variables declaration//GEN-END:variables
 }
