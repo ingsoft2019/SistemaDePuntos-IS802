@@ -32,14 +32,14 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
         jToolBar1 = new javax.swing.JToolBar();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
         btn_buscar = new javax.swing.JButton();
         btn_agregarCliente = new javax.swing.JButton();
         btn_clientes = new javax.swing.JButton();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
-        chbox_BuscarInactivos = new java.awt.Checkbox();
+        BuscarInactivos = new java.awt.Checkbox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
         jl_Titulo = new javax.swing.JLabel();
         barraMenu = new javax.swing.JMenuBar();
         menu_InicioSistema = new javax.swing.JMenu();
@@ -53,14 +53,46 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consultar Cliente");
         setFocusable(false);
-        setMaximumSize(new java.awt.Dimension(517, 504));
-        setMinimumSize(new java.awt.Dimension(517, 504));
-        setName("ConsultaR Cliente"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(517, 504));
-        getContentPane().setLayout(null);
+        setMaximumSize(new java.awt.Dimension(600, 530));
+        setMinimumSize(new java.awt.Dimension(600, 530));
 
         jPanel1.setFocusable(false);
-        jPanel1.setLayout(null);
+
+        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/buscar.png"))); // NOI18N
+        btn_buscar.setText("Buscar");
+        btn_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_buscar.setPreferredSize(new java.awt.Dimension(35, 30));
+
+        btn_agregarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/agregar.png"))); // NOI18N
+        btn_agregarCliente.setText("Agregar");
+        btn_agregarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_agregarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarClienteActionPerformed(evt);
+            }
+        });
+
+        btn_clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/cliente.png"))); // NOI18N
+        btn_clientes.setText("Gestion Cliente");
+        btn_clientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_clientes.setMultiClickThreshhold(30L);
+        btn_clientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_clientesActionPerformed(evt);
+            }
+        });
+
+        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
+        btn_RegresarAlMenuPrincipal.setText("Regresar");
+        btn_RegresarAlMenuPrincipal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RegresarAlMenuPrincipalActionPerformed(evt);
+            }
+        });
+
+        BuscarInactivos.setLabel("Buscar inactivos");
+        BuscarInactivos.setName("Buscar Inactivos"); // NOI18N
 
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -71,72 +103,56 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre Cliente", "Telefono", "ID", "Puntos"
+                "Nombre Cliente", "ID", "Telefono", "Puntos"
             }
         ));
         jTable1.setMaximumSize(new java.awt.Dimension(300, 64));
         jTable1.setMinimumSize(new java.awt.Dimension(300, 64));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 70, 350, 330);
-
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(10, 8, 350, 40);
 
-        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/buscar.png"))); // NOI18N
-        btn_buscar.setText("Buscar");
-        btn_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btn_buscar.setPreferredSize(new java.awt.Dimension(35, 30));
-        jPanel1.add(btn_buscar);
-        btn_buscar.setBounds(380, 10, 100, 40);
-
-        btn_agregarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/agregar.png"))); // NOI18N
-        btn_agregarCliente.setText("Agregar");
-        btn_agregarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btn_agregarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_agregarClienteActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_agregarCliente);
-        btn_agregarCliente.setBounds(370, 270, 120, 40);
-
-        btn_clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/cliente.png"))); // NOI18N
-        btn_clientes.setText("Cliente");
-        btn_clientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btn_clientes.setMultiClickThreshhold(30L);
-        btn_clientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_clientesActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_clientes);
-        btn_clientes.setBounds(370, 200, 120, 40);
-
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
-        btn_RegresarAlMenuPrincipal.setText("Regresar");
-        btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RegresarAlMenuPrincipalActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(370, 340, 120, 40);
-
-        chbox_BuscarInactivos.setLabel("Buscar inactivos");
-        chbox_BuscarInactivos.setName("Buscar Inactivos"); // NOI18N
-        jPanel1.add(chbox_BuscarInactivos);
-        chbox_BuscarInactivos.setBounds(380, 60, 120, 30);
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 50, 500, 420);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
+                    .addComponent(jTextField1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_agregarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_RegresarAlMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BuscarInactivos, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(btn_buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(BuscarInactivos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_agregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_RegresarAlMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE))
+                .addContainerGap())
+        );
 
         jl_Titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jl_Titulo.setText("Consultar Cliente");
-        getContentPane().add(jl_Titulo);
-        jl_Titulo.setBounds(170, 10, 220, 30);
 
         menu_InicioSistema.setText("Inicio del Sistema ");
         barraMenu.add(menu_InicioSistema);
@@ -154,6 +170,23 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         barraMenu.add(menu_ayuda);
 
         setJMenuBar(barraMenu);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -214,12 +247,12 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Checkbox BuscarInactivos;
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JButton btn_agregarCliente;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_clientes;
-    private java.awt.Checkbox chbox_BuscarInactivos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

@@ -90,11 +90,21 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
 
         btn_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
         btn_limpiar.setText("Limpiar");
+        btn_limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limpiarActionPerformed(evt);
+            }
+        });
         jPanel2.add(btn_limpiar);
         btn_limpiar.setBounds(20, 180, 120, 41);
 
         btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
         btn_asignar.setText("Asignar");
+        btn_asignar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_asignarActionPerformed(evt);
+            }
+        });
         jPanel2.add(btn_asignar);
         btn_asignar.setBounds(160, 180, 130, 41);
 
@@ -132,13 +142,6 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarActionPerformed
-
-    
-    }//GEN-LAST:event_btn_asignarActionPerformed
-
-    private void btn_limpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-
-        // TODO add your handling code here:
         if (txtIdFactura.getText().isEmpty()|| txtNombreCliente.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Hay campos vacios que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
         } 
@@ -153,7 +156,10 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
          //
    
         }
-    }                                          
+    
+    }//GEN-LAST:event_btn_asignarActionPerformed
+
+                                            
 
     private void txtIdFacturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdFacturaKeyTyped
         char c = evt.getKeyChar();
@@ -174,6 +180,11 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
             
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_VolverMenuActionPerformed
+
+    private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
+        txtIdFactura.setText("");
+        txtNombreCliente.setText("");
+    }//GEN-LAST:event_btn_limpiarActionPerformed
 
     /**
      * @param args the command line arguments
