@@ -48,6 +48,8 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txt_telefono2 = new javax.swing.JTextField();
         txt_telefono3 = new javax.swing.JTextField();
+        txt_email = new javax.swing.JTextField();
+        jL_email = new javax.swing.JLabel();
         btn_editarCliente = new javax.swing.JButton();
         btn_desactivarCliente = new javax.swing.JButton();
         btn_imprimirDireccion = new javax.swing.JButton();
@@ -62,8 +64,6 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txt_puntoRifa = new javax.swing.JTextField();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
-        jL_email = new javax.swing.JLabel();
-        txt_email = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestion Cliente");
@@ -81,33 +81,33 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
 
         jL_primerNombre.setText("Primer nombre:");
         jPanel2.add(jL_primerNombre);
-        jL_primerNombre.setBounds(10, 14, 100, 14);
+        jL_primerNombre.setBounds(0, 10, 100, 14);
 
         jL_segundoNombre.setText("Segundo nombre:");
         jPanel2.add(jL_segundoNombre);
-        jL_segundoNombre.setBounds(10, 52, 100, 14);
+        jL_segundoNombre.setBounds(0, 40, 100, 14);
 
         jL_primerApellido.setText("Primer Apellido:");
         jPanel2.add(jL_primerApellido);
-        jL_primerApellido.setBounds(10, 90, 100, 14);
+        jL_primerApellido.setBounds(0, 70, 100, 14);
 
         jL_segundoApellido.setText("Segundo Apellido:");
         jPanel2.add(jL_segundoApellido);
-        jL_segundoApellido.setBounds(10, 128, 100, 14);
+        jL_segundoApellido.setBounds(0, 100, 100, 14);
 
         jL_identidad.setText("Identidad:");
         jPanel2.add(jL_identidad);
-        jL_identidad.setBounds(10, 166, 100, 14);
+        jL_identidad.setBounds(0, 130, 100, 14);
 
         jL_sexo.setText("Sexo :");
         jPanel2.add(jL_sexo);
-        jL_sexo.setBounds(10, 204, 100, 14);
+        jL_sexo.setBounds(0, 160, 100, 14);
 
         jL_telefono.setText("Telefono 1:");
         jPanel2.add(jL_telefono);
-        jL_telefono.setBounds(10, 242, 100, 14);
+        jL_telefono.setBounds(0, 190, 100, 14);
         jPanel2.add(txt_primerNombre);
-        txt_primerNombre.setBounds(108, 11, 180, 24);
+        txt_primerNombre.setBounds(100, 10, 180, 24);
 
         txt_segundoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,29 +115,35 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txt_segundoNombre);
-        txt_segundoNombre.setBounds(108, 49, 180, 24);
+        txt_segundoNombre.setBounds(100, 40, 180, 24);
         jPanel2.add(txt_primerApellido);
-        txt_primerApellido.setBounds(108, 87, 180, 24);
+        txt_primerApellido.setBounds(100, 70, 180, 24);
         jPanel2.add(txt_segundoApellido);
-        txt_segundoApellido.setBounds(108, 125, 180, 24);
+        txt_segundoApellido.setBounds(100, 100, 180, 24);
         jPanel2.add(txt_identidad);
-        txt_identidad.setBounds(108, 163, 180, 24);
+        txt_identidad.setBounds(100, 130, 180, 24);
         jPanel2.add(txt_sexo);
-        txt_sexo.setBounds(108, 201, 180, 24);
+        txt_sexo.setBounds(100, 160, 180, 24);
         jPanel2.add(txt_telefono1);
-        txt_telefono1.setBounds(108, 239, 180, 24);
+        txt_telefono1.setBounds(100, 190, 180, 24);
 
         jLabel1.setText("Telefono 2:");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(10, 280, 100, 14);
+        jLabel1.setBounds(0, 220, 100, 14);
 
         jLabel2.setText("Telefono 3:");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(10, 320, 100, 14);
+        jLabel2.setBounds(0, 250, 100, 14);
         jPanel2.add(txt_telefono2);
-        txt_telefono2.setBounds(108, 277, 180, 24);
+        txt_telefono2.setBounds(100, 220, 180, 24);
         jPanel2.add(txt_telefono3);
-        txt_telefono3.setBounds(108, 319, 180, 24);
+        txt_telefono3.setBounds(100, 250, 180, 24);
+        jPanel2.add(txt_email);
+        txt_email.setBounds(100, 280, 180, 24);
+
+        jL_email.setText("Email:");
+        jPanel2.add(jL_email);
+        jL_email.setBounds(0, 280, 100, 14);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(20, 110, 380, 350);
@@ -245,12 +251,6 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         });
         jPanel3.add(btn_RegresarAlMenuPrincipal);
         btn_RegresarAlMenuPrincipal.setBounds(210, 220, 160, 70);
-
-        jL_email.setText("Email:");
-        jPanel3.add(jL_email);
-        jL_email.setBounds(22, 130, 100, 14);
-        jPanel3.add(txt_email);
-        txt_email.setBounds(120, 130, 180, 24);
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(410, 134, 390, 340);

@@ -28,6 +28,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToolBar1 = new javax.swing.JToolBar();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -36,13 +37,18 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
+        BuscarInactivos = new java.awt.Checkbox();
+
+        jToolBar1.setRollover(true);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consultar Cliente");
+        setFocusable(false);
         setMaximumSize(new java.awt.Dimension(680, 528));
         setMinimumSize(new java.awt.Dimension(680, 528));
         getContentPane().setLayout(null);
 
+        jPanel1.setFocusable(false);
         jPanel1.setLayout(null);
 
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -57,20 +63,22 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 "Nombre Cliente", "Telefono", "ID", "Puntos"
             }
         ));
+        jTable1.setMaximumSize(new java.awt.Dimension(300, 64));
+        jTable1.setMinimumSize(new java.awt.Dimension(300, 64));
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 59, 302, 436);
+        jScrollPane1.setBounds(10, 70, 350, 330);
 
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(10, 18, 302, 30);
+        jTextField1.setBounds(10, 18, 350, 30);
 
         jButton1.setText("Buscar");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1.setPreferredSize(new java.awt.Dimension(35, 30));
         jPanel1.add(jButton1);
-        jButton1.setBounds(322, 18, 90, 30);
+        jButton1.setBounds(380, 20, 90, 30);
 
         jButton5.setText("+");
         jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -80,7 +88,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton5);
-        jButton5.setBounds(322, 391, 90, 30);
+        jButton5.setBounds(380, 310, 90, 30);
 
         jButton7.setText("Gestion Cliente");
         jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -91,7 +99,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton7);
-        jButton7.setBounds(322, 59, 90, 30);
+        jButton7.setBounds(380, 100, 90, 30);
 
         btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
@@ -101,10 +109,15 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(322, 435, 150, 60);
+        btn_RegresarAlMenuPrincipal.setBounds(340, 410, 150, 60);
+
+        BuscarInactivos.setLabel("Buscar inactivos");
+        BuscarInactivos.setName("Buscar Inactivos"); // NOI18N
+        jPanel1.add(BuscarInactivos);
+        BuscarInactivos.setBounds(380, 60, 120, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(100, 10, 510, 506);
+        jPanel1.setBounds(30, 10, 500, 480);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -164,6 +177,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Checkbox BuscarInactivos;
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
@@ -172,5 +186,6 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }
