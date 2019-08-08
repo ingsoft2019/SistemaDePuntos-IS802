@@ -81,6 +81,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         j_Botones = new javax.swing.JPanel();
         btn_guardarCliente = new javax.swing.JButton();
         btn_menuInicio = new javax.swing.JButton();
+        btn_limpiarCampos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro cliente");
@@ -96,40 +97,42 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         SegundoNombre.setText("Segundo nombre:");
         SegundoNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(SegundoNombre);
-        SegundoNombre.setBounds(10, 37, 98, 20);
+        SegundoNombre.setBounds(10, 37, 110, 20);
 
         PrimerApellido.setText("Primer apellido:");
         PrimerApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(PrimerApellido);
-        PrimerApellido.setBounds(10, 63, 98, 20);
+        PrimerApellido.setBounds(10, 63, 110, 20);
 
         SegundoApelliido.setText("Segundo apellido:");
         SegundoApelliido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(SegundoApelliido);
-        SegundoApelliido.setBounds(10, 89, 98, 20);
+        SegundoApelliido.setBounds(10, 89, 110, 20);
 
         NoIdentidad.setText("No. Identidad:");
         NoIdentidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(NoIdentidad);
-        NoIdentidad.setBounds(10, 115, 98, 20);
+        NoIdentidad.setBounds(10, 115, 110, 20);
 
         Telefono.setText("Teléfono:");
         Telefono.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(Telefono);
-        Telefono.setBounds(10, 141, 98, 20);
+        Telefono.setBounds(10, 141, 110, 20);
 
         CorreoElectronico.setText("Correo electrónico:");
         CorreoElectronico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(CorreoElectronico);
-        CorreoElectronico.setBounds(10, 167, 98, 20);
+        CorreoElectronico.setBounds(10, 167, 110, 20);
 
+        jT_primerNombre.setMinimumSize(new java.awt.Dimension(8, 22));
+        jT_primerNombre.setPreferredSize(new java.awt.Dimension(8, 24));
         jT_primerNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jT_primerNombreActionPerformed(evt);
             }
         });
         jP1_DatosCliente.add(jT_primerNombre);
-        jT_primerNombre.setBounds(112, 11, 311, 20);
+        jT_primerNombre.setBounds(120, 10, 301, 24);
 
         jT_segundoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,7 +140,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         jP1_DatosCliente.add(jT_segundoNombre);
-        jT_segundoNombre.setBounds(112, 37, 311, 20);
+        jT_segundoNombre.setBounds(120, 37, 301, 24);
 
         jT_primerApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +148,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         jP1_DatosCliente.add(jT_primerApellido);
-        jT_primerApellido.setBounds(112, 63, 311, 20);
+        jT_primerApellido.setBounds(120, 63, 301, 24);
 
         jT_segundoApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +156,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         jP1_DatosCliente.add(jT_segundoApellido);
-        jT_segundoApellido.setBounds(112, 89, 311, 20);
+        jT_segundoApellido.setBounds(120, 89, 301, 24);
 
         jT_noIdentidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +164,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         jP1_DatosCliente.add(jT_noIdentidad);
-        jT_noIdentidad.setBounds(112, 115, 311, 20);
+        jT_noIdentidad.setBounds(120, 115, 301, 24);
 
         jt_telefono3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,14 +172,14 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         jP1_DatosCliente.add(jt_telefono3);
-        jt_telefono3.setBounds(320, 140, 100, 20);
+        jt_telefono3.setBounds(321, 141, 100, 24);
 
         PrimerNombre.setText("Primer nombre:");
         PrimerNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(PrimerNombre);
-        PrimerNombre.setBounds(10, 11, 98, 20);
+        PrimerNombre.setBounds(10, 11, 110, 20);
         jP1_DatosCliente.add(jT_correoElectronico);
-        jT_correoElectronico.setBounds(112, 167, 311, 20);
+        jT_correoElectronico.setBounds(120, 167, 301, 24);
 
         jP2_DatosCliente.setLayout(null);
 
@@ -184,19 +187,19 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         jL_Sexo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jL_Sexo.setPreferredSize(new java.awt.Dimension(98, 20));
         jP2_DatosCliente.add(jL_Sexo);
-        jL_Sexo.setBounds(0, 0, 100, 20);
+        jL_Sexo.setBounds(0, 0, 110, 20);
 
         jC_Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
         jC_Sexo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jP2_DatosCliente.add(jC_Sexo);
-        jC_Sexo.setBounds(100, 0, 130, 20);
+        jC_Sexo.setBounds(110, 0, 130, 24);
 
         jL_fechaNacimiento.setText("Fecha nacimiento dd-mm-yy :");
         jL_fechaNacimiento.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP2_DatosCliente.add(jL_fechaNacimiento);
-        jL_fechaNacimiento.setBounds(0, 30, 200, 30);
+        jL_fechaNacimiento.setBounds(0, 30, 200, 24);
         jP2_DatosCliente.add(jDC_fechaNacimiento);
-        jDC_fechaNacimiento.setBounds(200, 30, 210, 30);
+        jDC_fechaNacimiento.setBounds(200, 30, 210, 24);
 
         jP1_DatosCliente.add(jP2_DatosCliente);
         jP2_DatosCliente.setBounds(10, 200, 413, 69);
@@ -228,7 +231,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         jL_Zona.setBounds(10, 26, 76, 20);
 
         jP_DatosDireccion.add(jC_zona);
-        jC_zona.setBounds(90, 26, 180, 20);
+        jC_zona.setBounds(90, 24, 180, 24);
 
         jP1_DatosCliente.add(jP_DatosDireccion);
         jP_DatosDireccion.setBounds(0, 270, 460, 160);
@@ -239,7 +242,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         jP1_DatosCliente.add(Jt_telefono1);
-        Jt_telefono1.setBounds(112, 141, 100, 20);
+        Jt_telefono1.setBounds(120, 141, 99, 24);
 
         jt_telefono2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,12 +250,14 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         jP1_DatosCliente.add(jt_telefono2);
-        jt_telefono2.setBounds(220, 140, 90, 20);
+        jt_telefono2.setBounds(220, 141, 100, 24);
 
         getContentPane().add(jP1_DatosCliente);
         jP1_DatosCliente.setBounds(30, 10, 470, 430);
 
-        btn_guardarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/guardar.png"))); // NOI18N
+        j_Botones.setLayout(null);
+
+        btn_guardarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/guardar.png"))); // NOI18N
         btn_guardarCliente.setText("Guardar");
         btn_guardarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_guardarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -260,8 +265,10 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                 btn_guardarClienteActionPerformed(evt);
             }
         });
+        j_Botones.add(btn_guardarCliente);
+        btn_guardarCliente.setBounds(20, 20, 105, 49);
 
-        btn_menuInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
+        btn_menuInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_menuInicio.setText("Atrás");
         btn_menuInicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_menuInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -269,28 +276,16 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                 btn_menuInicioActionPerformed(evt);
             }
         });
+        j_Botones.add(btn_menuInicio);
+        btn_menuInicio.setBounds(320, 20, 95, 49);
 
-        javax.swing.GroupLayout j_BotonesLayout = new javax.swing.GroupLayout(j_Botones);
-        j_Botones.setLayout(j_BotonesLayout);
-        j_BotonesLayout.setHorizontalGroup(
-            j_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(j_BotonesLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(btn_guardarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(btn_menuInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        j_BotonesLayout.setVerticalGroup(
-            j_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(j_BotonesLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(j_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_guardarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_menuInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
+        btn_limpiarCampos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
+        btn_limpiarCampos.setText("Limpiar");
+        j_Botones.add(btn_limpiarCampos);
+        btn_limpiarCampos.setBounds(170, 20, 110, 50);
 
         getContentPane().add(j_Botones);
-        j_Botones.setBounds(30, 430, 410, 80);
+        j_Botones.setBounds(30, 440, 450, 80);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -466,6 +461,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     private javax.swing.JLabel SegundoNombre;
     private javax.swing.JLabel Telefono;
     private javax.swing.JButton btn_guardarCliente;
+    private javax.swing.JButton btn_limpiarCampos;
     private javax.swing.JButton btn_menuInicio;
     private javax.swing.JTextArea descripcion;
     private javax.swing.JComboBox<String> jC_Sexo;

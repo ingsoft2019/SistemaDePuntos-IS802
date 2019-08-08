@@ -32,7 +32,7 @@ public class frmLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_login = new java.awt.Panel();
+        panel_login_Principal = new java.awt.Panel();
         jl_Usuario = new javax.swing.JLabel();
         txt_usuario = new javax.swing.JTextField();
         jl_contrasena = new javax.swing.JLabel();
@@ -45,72 +45,74 @@ public class frmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Sistema De Puntos");
-        setMinimumSize(new java.awt.Dimension(488, 541));
+        setMaximumSize(new java.awt.Dimension(490, 541));
+        setMinimumSize(new java.awt.Dimension(490, 541));
         setName("Loguin del Sistema de Puntos"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(490, 541));
         setResizable(false);
         getContentPane().setLayout(null);
 
-        panel_login.setLayout(null);
+        panel_login_Principal.setLayout(null);
 
         jl_Usuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_Usuario.setText("Usuario");
-        panel_login.add(jl_Usuario);
-        jl_Usuario.setBounds(17, 17, 45, 17);
+        panel_login_Principal.add(jl_Usuario);
+        jl_Usuario.setBounds(20, 30, 45, 17);
 
         txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_usuarioKeyPressed(evt);
             }
         });
-        panel_login.add(txt_usuario);
-        txt_usuario.setBounds(115, 17, 312, 20);
+        panel_login_Principal.add(txt_usuario);
+        txt_usuario.setBounds(120, 30, 312, 20);
 
         jl_contrasena.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_contrasena.setText("Contraseña");
-        panel_login.add(jl_contrasena);
-        jl_contrasena.setBounds(17, 69, 70, 17);
+        panel_login_Principal.add(jl_contrasena);
+        jl_contrasena.setBounds(20, 80, 70, 17);
 
-        btn_ingresarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/ingresarLogin.png"))); // NOI18N
+        btn_ingresarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/ingresar.png"))); // NOI18N
         btn_ingresarLogin.setText("Ingresar");
         btn_ingresarLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ingresarLoginActionPerformed(evt);
             }
         });
-        panel_login.add(btn_ingresarLogin);
-        btn_ingresarLogin.setBounds(17, 123, 125, 57);
+        panel_login_Principal.add(btn_ingresarLogin);
+        btn_ingresarLogin.setBounds(20, 130, 120, 41);
 
-        btn_recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/pass-cambio.png"))); // NOI18N
+        btn_recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/pass-contrasena.png"))); // NOI18N
         btn_recuperar.setText("Recuperar");
-        panel_login.add(btn_recuperar);
-        btn_recuperar.setBounds(160, 123, 133, 57);
+        panel_login_Principal.add(btn_recuperar);
+        btn_recuperar.setBounds(160, 130, 130, 41);
 
-        btn_SalirLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/salirSistema.png"))); // NOI18N
+        btn_SalirLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/salir sistema.png"))); // NOI18N
         btn_SalirLogin.setText("Salir");
         btn_SalirLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_SalirLoginActionPerformed(evt);
             }
         });
-        panel_login.add(btn_SalirLogin);
-        btn_SalirLogin.setBounds(311, 123, 116, 57);
+        panel_login_Principal.add(btn_SalirLogin);
+        btn_SalirLogin.setBounds(310, 130, 120, 41);
 
         txt_contrasena.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_contrasenaKeyPressed(evt);
             }
         });
-        panel_login.add(txt_contrasena);
-        txt_contrasena.setBounds(115, 66, 312, 20);
+        panel_login_Principal.add(txt_contrasena);
+        txt_contrasena.setBounds(120, 80, 312, 20);
 
-        getContentPane().add(panel_login);
-        panel_login.setBounds(20, 290, 450, 210);
+        getContentPane().add(panel_login_Principal);
+        panel_login_Principal.setBounds(20, 310, 450, 190);
 
-        jl_iconoPersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/login-Usuario.png"))); // NOI18N
+        jl_iconoPersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/login-Usuario.png"))); // NOI18N
         getContentPane().add(jl_iconoPersonas);
         jl_iconoPersonas.setBounds(120, 40, 260, 240);
 
-        jl_fondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/fondo_login.jpg"))); // NOI18N
+        jl_fondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/fondo_login.jpg"))); // NOI18N
         jl_fondoLogin.setMaximumSize(new java.awt.Dimension(488, 541));
         jl_fondoLogin.setMinimumSize(new java.awt.Dimension(488, 541));
         jl_fondoLogin.setPreferredSize(new java.awt.Dimension(488, 541));
@@ -207,7 +209,7 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jl_contrasena;
     private javax.swing.JLabel jl_fondoLogin;
     private javax.swing.JLabel jl_iconoPersonas;
-    private java.awt.Panel panel_login;
+    private java.awt.Panel panel_login_Principal;
     private javax.swing.JPasswordField txt_contrasena;
     private javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables

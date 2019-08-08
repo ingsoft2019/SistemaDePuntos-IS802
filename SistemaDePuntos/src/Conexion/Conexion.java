@@ -16,8 +16,15 @@ public class Conexion {
     //static String pass = "123";
     //static String db = "PR";
     
+    /*
+        Datos para maquina de Luis Estrada 
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=PR";
+        String user = "sa";
+        String pass = "asd.456";  
+    */
+    
     public static Connection getConexion(){
-        String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=RP";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=PR";
         String user = "sa";
         String pass = "123";
         

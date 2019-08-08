@@ -94,11 +94,11 @@ insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos
 insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos_rifa_actuales, fecha_vencimiento_puntos) values ('2018-12-14', 37, 'A', 0, 0, '2019-05-05');
 insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos_rifa_actuales, fecha_vencimiento_puntos) values ('2019-05-18', 38, 'A', 0, 0, '2019-01-09');
 insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos_rifa_actuales, fecha_vencimiento_puntos) values ('2019-01-11', 39, 'A', 0, 0, '2019-05-23');
-insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos_rifa_actuales, fecha_vencimiento_puntos) values ('2019-02-11', 40, 'A', 0, , '2019-04-10');
+insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos_rifa_actuales, fecha_vencimiento_puntos) values ('2019-02-11', 40, 'A', 0, 0, '2019-04-10');
 insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos_rifa_actuales, fecha_vencimiento_puntos) values ('2019-06-26', 41, 'A', 0, 0, '2019-05-20');
 insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos_rifa_actuales, fecha_vencimiento_puntos) values ('2019-03-31', 42, 'A', 0, 0, '2019-12-30');
 insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos_rifa_actuales, fecha_vencimiento_puntos) values ('2018-09-28', 43, 'A', 0, 0, '2019-02-20');
-insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos_rifa_actuales, fecha_vencimiento_puntos) values ('2018-12-24', 44, 'A', 0, , '2019-06-30');
+insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos_rifa_actuales, fecha_vencimiento_puntos) values ('2018-12-24', 44, 'A', 0, 0, '2019-06-30');
 insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos_rifa_actuales, fecha_vencimiento_puntos) values ('2019-07-23', 45, 'A', 0, 0, '2019-02-16');
 insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos_rifa_actuales, fecha_vencimiento_puntos) values ('2019-05-08', 46, 'A', 0, 0, '2019-10-16');
 insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos_rifa_actuales, fecha_vencimiento_puntos) values ('2019-06-10', 47, 'A', 0, 0, '2019-09-30');

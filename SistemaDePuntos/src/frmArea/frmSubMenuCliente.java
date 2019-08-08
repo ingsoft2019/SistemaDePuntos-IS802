@@ -28,244 +28,257 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jpanel_AreaSubMenu = new javax.swing.JPanel();
+        jpanel_datos1 = new javax.swing.JPanel();
+        jL_primerNombre = new javax.swing.JLabel();
+        jL_segundoNombre = new javax.swing.JLabel();
+        jL_primerApellido = new javax.swing.JLabel();
+        jL_segundoApellido = new javax.swing.JLabel();
+        jL_identidad = new javax.swing.JLabel();
+        jL_sexo = new javax.swing.JLabel();
+        jL_telefono = new javax.swing.JLabel();
+        txt_primerNombre = new javax.swing.JTextField();
+        txt_segundoNombre = new javax.swing.JTextField();
+        txt_primerApellido = new javax.swing.JTextField();
+        txt_segundoApellido = new javax.swing.JTextField();
+        txt_identidad = new javax.swing.JTextField();
+        txt_sexo = new javax.swing.JTextField();
+        txt_telefono1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        txt_telefono2 = new javax.swing.JTextField();
+        txt_telefono3 = new javax.swing.JTextField();
+        txt_email = new javax.swing.JTextField();
+        jL_email = new javax.swing.JLabel();
+        btn_editarCliente = new javax.swing.JButton();
+        btn_desactivarCliente = new javax.swing.JButton();
+        btn_imprimirDireccion = new javax.swing.JButton();
+        btn_imprimirPuntos = new javax.swing.JButton();
+        btn_canjearPuntos = new javax.swing.JButton();
+        btn_asignarFactura = new javax.swing.JButton();
+        jpanel_datos2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        txt_puntosRegis = new javax.swing.JTextField();
+        jL_vencimiento = new javax.swing.JLabel();
+        txt_vencimiento = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        txt_puntoRifa = new javax.swing.JTextField();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestion Cliente");
-        setMaximumSize(new java.awt.Dimension(700, 525));
-        setMinimumSize(new java.awt.Dimension(700, 525));
+        setMaximumSize(new java.awt.Dimension(833, 509));
+        setMinimumSize(new java.awt.Dimension(833, 509));
         setName("Menu Cliente"); // NOI18N
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(700, 525));
+        setPreferredSize(new java.awt.Dimension(833, 509));
         getContentPane().setLayout(null);
 
-        jPanel1.setLayout(null);
+        jpanel_AreaSubMenu.setPreferredSize(new java.awt.Dimension(100, 500));
+        jpanel_AreaSubMenu.setLayout(null);
 
-        jLabel1.setText("Primer nombre");
+        jpanel_datos1.setLayout(null);
 
-        jLabel2.setText("Segundo nombre");
+        jL_primerNombre.setText("Primer nombre:");
+        jpanel_datos1.add(jL_primerNombre);
+        jL_primerNombre.setBounds(0, 10, 100, 14);
 
-        jLabel3.setText("Primer Apellido");
+        jL_segundoNombre.setText("Segundo nombre:");
+        jpanel_datos1.add(jL_segundoNombre);
+        jL_segundoNombre.setBounds(0, 40, 100, 14);
 
-        jLabel4.setText("Segundo Apellido");
+        jL_primerApellido.setText("Primer Apellido:");
+        jpanel_datos1.add(jL_primerApellido);
+        jL_primerApellido.setBounds(0, 70, 100, 14);
 
-        jLabel5.setText("Identidad");
+        jL_segundoApellido.setText("Segundo Apellido:");
+        jpanel_datos1.add(jL_segundoApellido);
+        jL_segundoApellido.setBounds(0, 100, 100, 14);
 
-        jLabel6.setText("Sexo ");
+        jL_identidad.setText("Identidad:");
+        jpanel_datos1.add(jL_identidad);
+        jL_identidad.setBounds(0, 130, 100, 14);
 
-        jLabel7.setText("Telefono");
+        jL_sexo.setText("Sexo :");
+        jpanel_datos1.add(jL_sexo);
+        jL_sexo.setBounds(0, 160, 100, 14);
 
-        jLabel8.setText("Email");
+        jL_telefono.setText("Telefono 1:");
+        jpanel_datos1.add(jL_telefono);
+        jL_telefono.setBounds(0, 190, 100, 14);
+        jpanel_datos1.add(txt_primerNombre);
+        txt_primerNombre.setBounds(150, 10, 180, 24);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(10, 130, 308, 324);
-
-        jButton1.setText("Editar");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        txt_segundoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                txt_segundoNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(10, 11, 92, 30);
+        jpanel_datos1.add(txt_segundoNombre);
+        txt_segundoNombre.setBounds(150, 40, 180, 24);
+        jpanel_datos1.add(txt_primerApellido);
+        txt_primerApellido.setBounds(150, 70, 180, 24);
+        jpanel_datos1.add(txt_segundoApellido);
+        txt_segundoApellido.setBounds(150, 100, 180, 24);
+        jpanel_datos1.add(txt_identidad);
+        txt_identidad.setBounds(150, 130, 180, 24);
+        jpanel_datos1.add(txt_sexo);
+        txt_sexo.setBounds(150, 160, 180, 24);
+        jpanel_datos1.add(txt_telefono1);
+        txt_telefono1.setBounds(150, 190, 180, 24);
 
-        jButton2.setText("Desactivar");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jButton2);
-        jButton2.setBounds(112, 11, 92, 30);
+        jLabel1.setText("Telefono 2:");
+        jpanel_datos1.add(jLabel1);
+        jLabel1.setBounds(0, 220, 100, 14);
 
-        jButton3.setText("Imprimir dirección");
-        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jButton3);
-        jButton3.setBounds(214, 11, 110, 30);
+        jLabel2.setText("Telefono 3:");
+        jpanel_datos1.add(jLabel2);
+        jLabel2.setBounds(0, 250, 100, 14);
+        jpanel_datos1.add(txt_telefono2);
+        txt_telefono2.setBounds(150, 220, 180, 24);
+        jpanel_datos1.add(txt_telefono3);
+        txt_telefono3.setBounds(150, 250, 180, 24);
+        jpanel_datos1.add(txt_email);
+        txt_email.setBounds(150, 280, 180, 24);
 
-        jButton4.setText("Imprimir puntos");
-        jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jL_email.setText("Email:");
+        jpanel_datos1.add(jL_email);
+        jL_email.setBounds(0, 280, 100, 14);
+
+        jpanel_AreaSubMenu.add(jpanel_datos1);
+        jpanel_datos1.setBounds(50, 100, 380, 350);
+
+        btn_editarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/modificar.png"))); // NOI18N
+        btn_editarCliente.setText("Editar");
+        btn_editarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_editarCliente.setMaximumSize(new java.awt.Dimension(90, 55));
+        btn_editarCliente.setMinimumSize(new java.awt.Dimension(90, 55));
+        btn_editarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btn_editarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4);
-        jButton4.setBounds(334, 11, 100, 30);
+        jpanel_AreaSubMenu.add(btn_editarCliente);
+        btn_editarCliente.setBounds(10, 10, 100, 50);
 
-        jButton5.setText("Canjear Puntos");
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jButton5);
-        jButton5.setBounds(444, 11, 90, 30);
-
-        jButton6.setText("Asignar Fact");
-        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jButton6);
-        jButton6.setBounds(544, 11, 90, 30);
-
-        jPanel3.setLayout(null);
-
-        jLabel9.setText("Puntos Regis");
-        jPanel3.add(jLabel9);
-        jLabel9.setBounds(10, 14, 62, 14);
-
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        btn_desactivarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/deshabilitar.png"))); // NOI18N
+        btn_desactivarCliente.setText("Desactivar");
+        btn_desactivarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_desactivarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                btn_desactivarClienteActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField9);
-        jTextField9.setBounds(90, 11, 210, 20);
+        jpanel_AreaSubMenu.add(btn_desactivarCliente);
+        btn_desactivarCliente.setBounds(120, 10, 110, 50);
 
-        jLabel10.setText("Vencimiento");
-        jPanel3.add(jLabel10);
-        jLabel10.setBounds(10, 52, 57, 14);
-        jPanel3.add(jTextField10);
-        jTextField10.setBounds(90, 49, 210, 20);
+        btn_imprimirDireccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato entrega.png"))); // NOI18N
+        btn_imprimirDireccion.setText("Imprimir dirección");
+        btn_imprimirDireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpanel_AreaSubMenu.add(btn_imprimirDireccion);
+        btn_imprimirDireccion.setBounds(240, 10, 140, 50);
 
-        jLabel11.setText("Puntos rifa");
-        jPanel3.add(jLabel11);
-        jLabel11.setBounds(10, 90, 52, 14);
-        jPanel3.add(jTextField11);
-        jTextField11.setBounds(90, 87, 210, 20);
+        btn_imprimirPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato puntos.png"))); // NOI18N
+        btn_imprimirPuntos.setText("Imprimir puntos");
+        btn_imprimirPuntos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_imprimirPuntos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_imprimirPuntosActionPerformed(evt);
+            }
+        });
+        jpanel_AreaSubMenu.add(btn_imprimirPuntos);
+        btn_imprimirPuntos.setBounds(390, 10, 130, 50);
 
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
+        btn_canjearPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/gestion_de_puntos.png"))); // NOI18N
+        btn_canjearPuntos.setText("Canjear Puntos");
+        btn_canjearPuntos.setAlignmentY(0.0F);
+        btn_canjearPuntos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_canjearPuntos.setIconTextGap(0);
+        btn_canjearPuntos.setMaximumSize(new java.awt.Dimension(165, 71));
+        btn_canjearPuntos.setMinimumSize(new java.awt.Dimension(165, 71));
+        btn_canjearPuntos.setPreferredSize(new java.awt.Dimension(165, 71));
+        jpanel_AreaSubMenu.add(btn_canjearPuntos);
+        btn_canjearPuntos.setBounds(530, 10, 120, 50);
+
+        btn_asignarFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
+        btn_asignarFactura.setText("Asignar Factura");
+        btn_asignarFactura.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_asignarFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_asignarFacturaActionPerformed(evt);
+            }
+        });
+        jpanel_AreaSubMenu.add(btn_asignarFactura);
+        btn_asignarFactura.setBounds(660, 10, 130, 50);
+
+        jpanel_datos2.setLayout(null);
+
+        jLabel9.setText("Puntos Regis:");
+        jpanel_datos2.add(jLabel9);
+        jLabel9.setBounds(22, 10, 100, 14);
+
+        txt_puntosRegis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_puntosRegisActionPerformed(evt);
+            }
+        });
+        jpanel_datos2.add(txt_puntosRegis);
+        txt_puntosRegis.setBounds(120, 10, 180, 24);
+
+        jL_vencimiento.setText("Vencimiento:");
+        jpanel_datos2.add(jL_vencimiento);
+        jL_vencimiento.setBounds(22, 50, 100, 14);
+
+        txt_vencimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_vencimientoActionPerformed(evt);
+            }
+        });
+        jpanel_datos2.add(txt_vencimiento);
+        txt_vencimiento.setBounds(120, 50, 180, 24);
+
+        jLabel11.setText("Puntos rifa:");
+        jpanel_datos2.add(jLabel11);
+        jLabel11.setBounds(22, 90, 100, 14);
+
+        txt_puntoRifa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_puntoRifaActionPerformed(evt);
+            }
+        });
+        jpanel_datos2.add(txt_puntoRifa);
+        txt_puntoRifa.setBounds(120, 90, 180, 24);
+
+        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
         btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_RegresarAlMenuPrincipalActionPerformed(evt);
             }
         });
-        jPanel3.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(133, 237, 150, 60);
+        jpanel_datos2.add(btn_RegresarAlMenuPrincipal);
+        btn_RegresarAlMenuPrincipal.setBounds(260, 280, 120, 50);
 
-        jPanel1.add(jPanel3);
-        jPanel3.setBounds(330, 140, 320, 324);
+        jpanel_AreaSubMenu.add(jpanel_datos2);
+        jpanel_datos2.setBounds(410, 114, 390, 340);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 20, 660, 480);
+        getContentPane().add(jpanel_AreaSubMenu);
+        jpanel_AreaSubMenu.setBounds(20, 20, 800, 470);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_editarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_editarClienteActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btn_imprimirPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirPuntosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btn_imprimirPuntosActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void txt_puntosRegisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_puntosRegisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_txt_puntosRegisActionPerformed
 
     private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
         frmMenuPrincipal ver=new frmMenuPrincipal();
@@ -273,6 +286,30 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         this.setVisible(false); // ocultar
 
     }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
+
+    private void btn_desactivarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_desactivarClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_desactivarClienteActionPerformed
+
+    private void txt_segundoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_segundoNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_segundoNombreActionPerformed
+
+    private void txt_vencimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_vencimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_vencimientoActionPerformed
+
+    private void txt_puntoRifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_puntoRifaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_puntoRifaActionPerformed
+
+    private void btn_asignarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarFacturaActionPerformed
+            frmAsignacionPuntos ver=new frmAsignacionPuntos();
+        ver.setVisible(true); // visible ventana del objeto
+        this.setVisible(false); // ocultar
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_asignarFacturaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,36 +348,40 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btn_asignarFactura;
+    private javax.swing.JButton btn_canjearPuntos;
+    private javax.swing.JButton btn_desactivarCliente;
+    private javax.swing.JButton btn_editarCliente;
+    private javax.swing.JButton btn_imprimirDireccion;
+    private javax.swing.JButton btn_imprimirPuntos;
+    private javax.swing.JLabel jL_email;
+    private javax.swing.JLabel jL_identidad;
+    private javax.swing.JLabel jL_primerApellido;
+    private javax.swing.JLabel jL_primerNombre;
+    private javax.swing.JLabel jL_segundoApellido;
+    private javax.swing.JLabel jL_segundoNombre;
+    private javax.swing.JLabel jL_sexo;
+    private javax.swing.JLabel jL_telefono;
+    private javax.swing.JLabel jL_vencimiento;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JPanel jpanel_AreaSubMenu;
+    private javax.swing.JPanel jpanel_datos1;
+    private javax.swing.JPanel jpanel_datos2;
+    private javax.swing.JTextField txt_email;
+    private javax.swing.JTextField txt_identidad;
+    private javax.swing.JTextField txt_primerApellido;
+    private javax.swing.JTextField txt_primerNombre;
+    private javax.swing.JTextField txt_puntoRifa;
+    private javax.swing.JTextField txt_puntosRegis;
+    private javax.swing.JTextField txt_segundoApellido;
+    private javax.swing.JTextField txt_segundoNombre;
+    private javax.swing.JTextField txt_sexo;
+    private javax.swing.JTextField txt_telefono1;
+    private javax.swing.JTextField txt_telefono2;
+    private javax.swing.JTextField txt_telefono3;
+    private javax.swing.JTextField txt_vencimiento;
     // End of variables declaration//GEN-END:variables
 }
