@@ -30,36 +30,40 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jL_primerNombre = new javax.swing.JLabel();
+        jL_segundoNombre = new javax.swing.JLabel();
+        jL_primerApellido = new javax.swing.JLabel();
+        jL_segundoApellido = new javax.swing.JLabel();
+        jL_identidad = new javax.swing.JLabel();
+        jL_sexo = new javax.swing.JLabel();
+        jL_telefono = new javax.swing.JLabel();
+        txt_primerNombre = new javax.swing.JTextField();
+        txt_segundoNombre = new javax.swing.JTextField();
+        txt_primerApellido = new javax.swing.JTextField();
+        txt_segundoApellido = new javax.swing.JTextField();
+        txt_identidad = new javax.swing.JTextField();
+        txt_sexo = new javax.swing.JTextField();
+        txt_telefono1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        txt_telefono2 = new javax.swing.JTextField();
+        txt_telefono3 = new javax.swing.JTextField();
+        btn_editarCliente = new javax.swing.JButton();
+        btn_desactivarCliente = new javax.swing.JButton();
+        btn_imprimirDireccion = new javax.swing.JButton();
+        btn_imprimirPuntos = new javax.swing.JButton();
+        btn_canjearPuntos = new javax.swing.JButton();
+        btn_asognarFactura = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txt_puntosRegis = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        txt_vencimiento = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        txt_puntoRifa = new javax.swing.JTextField();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        txt_email = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestion Cliente");
@@ -72,143 +76,119 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        jLabel1.setText("Primer nombre");
+        jPanel2.setLayout(null);
 
-        jLabel2.setText("Segundo nombre");
+        jL_primerNombre.setText("Primer nombre");
+        jPanel2.add(jL_primerNombre);
+        jL_primerNombre.setBounds(10, 14, 69, 14);
 
-        jLabel3.setText("Primer Apellido");
+        jL_segundoNombre.setText("Segundo nombre");
+        jPanel2.add(jL_segundoNombre);
+        jL_segundoNombre.setBounds(10, 52, 81, 14);
 
-        jLabel4.setText("Segundo Apellido");
+        jL_primerApellido.setText("Primer Apellido");
+        jPanel2.add(jL_primerApellido);
+        jL_primerApellido.setBounds(10, 90, 70, 14);
 
-        jLabel5.setText("Identidad");
+        jL_segundoApellido.setText("Segundo Apellido");
+        jPanel2.add(jL_segundoApellido);
+        jL_segundoApellido.setBounds(10, 128, 82, 14);
 
-        jLabel6.setText("Sexo ");
+        jL_identidad.setText("Identidad");
+        jPanel2.add(jL_identidad);
+        jL_identidad.setBounds(10, 166, 46, 14);
 
-        jLabel7.setText("Telefono");
+        jL_sexo.setText("Sexo ");
+        jPanel2.add(jL_sexo);
+        jL_sexo.setBounds(10, 204, 27, 14);
 
-        jLabel8.setText("Email");
+        jL_telefono.setText("Telefono 1");
+        jPanel2.add(jL_telefono);
+        jL_telefono.setBounds(10, 242, 60, 14);
+        jPanel2.add(txt_primerNombre);
+        txt_primerNombre.setBounds(108, 11, 250, 20);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
+        txt_segundoNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_segundoNombreActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txt_segundoNombre);
+        txt_segundoNombre.setBounds(108, 49, 190, 20);
+        jPanel2.add(txt_primerApellido);
+        txt_primerApellido.setBounds(108, 87, 190, 20);
+        jPanel2.add(txt_segundoApellido);
+        txt_segundoApellido.setBounds(108, 125, 190, 20);
+        jPanel2.add(txt_identidad);
+        txt_identidad.setBounds(108, 163, 190, 20);
+        jPanel2.add(txt_sexo);
+        txt_sexo.setBounds(108, 201, 190, 20);
+        jPanel2.add(txt_telefono1);
+        txt_telefono1.setBounds(108, 239, 190, 20);
+
+        jLabel1.setText("Telefono 2");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(10, 280, 60, 14);
+
+        jLabel2.setText("Telefono 3");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(10, 320, 70, 14);
+        jPanel2.add(txt_telefono2);
+        txt_telefono2.setBounds(108, 277, 190, 20);
+        jPanel2.add(txt_telefono3);
+        txt_telefono3.setBounds(108, 319, 190, 20);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(10, 130, 308, 324);
+        jPanel2.setBounds(10, 130, 380, 350);
 
-        jButton1.setText("Editar");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_editarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/guardar.png"))); // NOI18N
+        btn_editarCliente.setText("Editar");
+        btn_editarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_editarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_editarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(10, 11, 92, 30);
+        jPanel1.add(btn_editarCliente);
+        btn_editarCliente.setBounds(10, 10, 100, 70);
 
-        jButton2.setText("Desactivar");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jButton2);
-        jButton2.setBounds(112, 11, 92, 30);
-
-        jButton3.setText("Imprimir dirección");
-        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jButton3);
-        jButton3.setBounds(214, 11, 110, 30);
-
-        jButton4.setText("Imprimir puntos");
-        jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btn_desactivarCliente.setText("Desactivar");
+        btn_desactivarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_desactivarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btn_desactivarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4);
-        jButton4.setBounds(334, 11, 100, 30);
+        jPanel1.add(btn_desactivarCliente);
+        btn_desactivarCliente.setBounds(130, 10, 120, 70);
 
-        jButton5.setText("Canjear Puntos");
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jButton5);
-        jButton5.setBounds(444, 11, 90, 30);
+        btn_imprimirDireccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/reporte.png"))); // NOI18N
+        btn_imprimirDireccion.setText("Imprimir dirección");
+        btn_imprimirDireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(btn_imprimirDireccion);
+        btn_imprimirDireccion.setBounds(260, 10, 150, 70);
 
-        jButton6.setText("Asignar Fact");
-        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jButton6);
-        jButton6.setBounds(544, 11, 90, 30);
+        btn_imprimirPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/reporte.png"))); // NOI18N
+        btn_imprimirPuntos.setText("Imprimir puntos");
+        btn_imprimirPuntos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_imprimirPuntos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_imprimirPuntosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_imprimirPuntos);
+        btn_imprimirPuntos.setBounds(430, 10, 150, 70);
+
+        btn_canjearPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/gestionPuntos.png"))); // NOI18N
+        btn_canjearPuntos.setText("Canjear Puntos");
+        btn_canjearPuntos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(btn_canjearPuntos);
+        btn_canjearPuntos.setBounds(630, 10, 160, 70);
+
+        btn_asognarFactura.setText("Asignar Fact");
+        btn_asognarFactura.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(btn_asognarFactura);
+        btn_asognarFactura.setBounds(650, 90, 90, 30);
 
         jPanel3.setLayout(null);
 
@@ -216,25 +196,25 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         jPanel3.add(jLabel9);
         jLabel9.setBounds(10, 14, 62, 14);
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        txt_puntosRegis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                txt_puntosRegisActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField9);
-        jTextField9.setBounds(90, 11, 210, 20);
+        jPanel3.add(txt_puntosRegis);
+        txt_puntosRegis.setBounds(90, 11, 210, 20);
 
         jLabel10.setText("Vencimiento");
         jPanel3.add(jLabel10);
         jLabel10.setBounds(10, 52, 57, 14);
-        jPanel3.add(jTextField10);
-        jTextField10.setBounds(90, 49, 210, 20);
+        jPanel3.add(txt_vencimiento);
+        txt_vencimiento.setBounds(90, 49, 210, 20);
 
         jLabel11.setText("Puntos rifa");
         jPanel3.add(jLabel11);
         jLabel11.setBounds(10, 90, 52, 14);
-        jPanel3.add(jTextField11);
-        jTextField11.setBounds(90, 87, 210, 20);
+        jPanel3.add(txt_puntoRifa);
+        txt_puntoRifa.setBounds(90, 87, 210, 20);
 
         btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
@@ -244,28 +224,34 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
             }
         });
         jPanel3.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(133, 237, 150, 60);
+        btn_RegresarAlMenuPrincipal.setBounds(160, 230, 160, 70);
+
+        jLabel8.setText("Email");
+        jPanel3.add(jLabel8);
+        jLabel8.setBounds(20, 140, 24, 14);
+        jPanel3.add(txt_email);
+        txt_email.setBounds(100, 140, 190, 20);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(330, 140, 320, 324);
+        jPanel3.setBounds(410, 150, 370, 324);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 20, 660, 480);
+        jPanel1.setBounds(20, 20, 810, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_editarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_editarClienteActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btn_imprimirPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirPuntosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btn_imprimirPuntosActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void txt_puntosRegisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_puntosRegisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_txt_puntosRegisActionPerformed
 
     private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
         frmMenuPrincipal ver=new frmMenuPrincipal();
@@ -273,6 +259,14 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         this.setVisible(false); // ocultar
 
     }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
+
+    private void btn_desactivarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_desactivarClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_desactivarClienteActionPerformed
+
+    private void txt_segundoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_segundoNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_segundoNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,36 +305,40 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btn_asognarFactura;
+    private javax.swing.JButton btn_canjearPuntos;
+    private javax.swing.JButton btn_desactivarCliente;
+    private javax.swing.JButton btn_editarCliente;
+    private javax.swing.JButton btn_imprimirDireccion;
+    private javax.swing.JButton btn_imprimirPuntos;
+    private javax.swing.JLabel jL_identidad;
+    private javax.swing.JLabel jL_primerApellido;
+    private javax.swing.JLabel jL_primerNombre;
+    private javax.swing.JLabel jL_segundoApellido;
+    private javax.swing.JLabel jL_segundoNombre;
+    private javax.swing.JLabel jL_sexo;
+    private javax.swing.JLabel jL_telefono;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField txt_email;
+    private javax.swing.JTextField txt_identidad;
+    private javax.swing.JTextField txt_primerApellido;
+    private javax.swing.JTextField txt_primerNombre;
+    private javax.swing.JTextField txt_puntoRifa;
+    private javax.swing.JTextField txt_puntosRegis;
+    private javax.swing.JTextField txt_segundoApellido;
+    private javax.swing.JTextField txt_segundoNombre;
+    private javax.swing.JTextField txt_sexo;
+    private javax.swing.JTextField txt_telefono1;
+    private javax.swing.JTextField txt_telefono2;
+    private javax.swing.JTextField txt_telefono3;
+    private javax.swing.JTextField txt_vencimiento;
     // End of variables declaration//GEN-END:variables
 }
