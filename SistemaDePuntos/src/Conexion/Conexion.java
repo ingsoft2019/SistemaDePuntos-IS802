@@ -12,17 +12,21 @@ import java.sql.Statement;
  */
 public class Conexion {
     static Connection contacto = null;
-    //static String user = "sa";
-    //static String pass = "123";
-    //static String db = "PR";
+    
+    //Datos para conecion de la BD de Bayron 
+    static String servidor = "localhost"; //Nombre del servidor
+    static String user = "sa";// nombre de usuario
+    static String pass = "123"; // contrasena 
+    static String db = "PR"; //nombre de la BD 
     
     /*
-        Datos para maquina de Luis Estrada 
-        String url = "jdbc:sqlserver://localhost:1433;databaseName=PR";
-        String user = "sa";
-        String pass = "asd.456";  
+    //Datos para conexion de la BD de Luis Estrada  jdbc:sqlserver://DESKTOP-F99GN1I\MSSQLSERVER12:1433;databaseName=SP
+    static String servidor = "DESKTOP-F99GN1I";
+    static String user = "LuisEstrada";
+    static String pass = "asd.456";
+    static String db = "SP";
     */
-    
+ 
     public static Connection getConexion(){
         String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=RP";
         String user = "sa";

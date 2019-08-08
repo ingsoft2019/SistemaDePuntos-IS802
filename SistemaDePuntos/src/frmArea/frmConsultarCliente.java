@@ -17,6 +17,8 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     public frmConsultarCliente() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false); //Desactivar botón maximizar de una ventana
+        
     }
 
     /**
@@ -60,7 +62,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btn_agregarClienteActionPerformed(evt);
             }
         });
 
@@ -70,7 +72,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         jButton7.setMultiClickThreshhold(30L);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btn_clientesActionPerformed(evt);
             }
         });
 
@@ -163,17 +165,18 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btn_agregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarClienteActionPerformed
         frmRegistroClientes RC = new frmRegistroClientes();
         RC.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btn_agregarClienteActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
+
         frmSubMenuCliente SMC = new frmSubMenuCliente();
         SMC.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btn_clientesActionPerformed
 
     private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
         frmMenuPrincipal ver=new frmMenuPrincipal();
@@ -218,15 +221,22 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Checkbox BuscarInactivos;
+    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton btn_agregarCliente;
+    private javax.swing.JButton btn_buscar;
+    private javax.swing.JButton btn_clientes;
+    private java.awt.Checkbox chbox_BuscarInactivos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel jl_Titulo;
+    private javax.swing.JMenu menu_Cliente;
+    private javax.swing.JMenu menu_InicioSistema;
+    private javax.swing.JMenu menu_Puntos;
+    private javax.swing.JMenu menu_Reportes;
+    private javax.swing.JMenu menu_ayuda;
     // End of variables declaration//GEN-END:variables
 }

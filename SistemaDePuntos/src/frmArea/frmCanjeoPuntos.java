@@ -17,6 +17,7 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
     public frmCanjeoPuntos() {
          initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
+        this.setResizable(false); //Desactivar botón maximizar de una ventana
     }
 
     /**
@@ -33,32 +34,37 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
         txtCliente = new javax.swing.JTextField();
         lblPuntosCanjear = new javax.swing.JLabel();
         txtPuntosCanjear = new javax.swing.JTextField();
-        btnAceptar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
-        btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
+        btn_asignar = new javax.swing.JButton();
+        btn_limpiar = new javax.swing.JButton();
+        btn_VolverMenu = new javax.swing.JButton();
+        barraMenu = new javax.swing.JMenuBar();
+        menu_InicioSistema = new javax.swing.JMenu();
+        menu_Cliente = new javax.swing.JMenu();
+        menu_Puntos = new javax.swing.JMenu();
+        menu_Reportes = new javax.swing.JMenu();
+        menu_ayuda = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Canjeo de Puntos");
         setMaximumSize(new java.awt.Dimension(446, 323));
         setMinimumSize(new java.awt.Dimension(446, 323));
-        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(446, 323));
         getContentPane().setLayout(null);
 
         lblCanjeoPuntos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCanjeoPuntos.setText("Canjeo de Puntos");
         getContentPane().add(lblCanjeoPuntos);
-        lblCanjeoPuntos.setBounds(140, 30, 150, 38);
+        lblCanjeoPuntos.setBounds(150, 10, 150, 38);
 
         lblCliente.setText("Cliente:");
         getContentPane().add(lblCliente);
-        lblCliente.setBounds(58, 112, 37, 14);
+        lblCliente.setBounds(30, 80, 110, 14);
         getContentPane().add(txtCliente);
-        txtCliente.setBounds(99, 109, 252, 20);
+        txtCliente.setBounds(142, 70, 230, 30);
 
         lblPuntosCanjear.setText("Puntos a canjear:");
         getContentPane().add(lblPuntosCanjear);
-        lblPuntosCanjear.setBounds(60, 170, 85, 14);
+        lblPuntosCanjear.setBounds(25, 150, 110, 14);
 
         txtPuntosCanjear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,25 +72,49 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtPuntosCanjear);
-        txtPuntosCanjear.setBounds(150, 160, 72, 34);
+        txtPuntosCanjear.setBounds(140, 140, 230, 30);
 
-        btnAceptar.setText("Aceptar");
-        getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(60, 244, 71, 23);
-
-        btnCancelar.setText("Cancelar");
-        getContentPane().add(btnCancelar);
-        btnCancelar.setBounds(171, 244, 75, 23);
-
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
-        btn_RegresarAlMenuPrincipal.setText("Regresar");
-        btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+        btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
+        btn_asignar.setText("Asignar");
+        btn_asignar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RegresarAlMenuPrincipalActionPerformed(evt);
+                btn_asignarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(264, 225, 150, 60);
+        getContentPane().add(btn_asignar);
+        btn_asignar.setBounds(30, 200, 105, 41);
+
+        btn_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
+        btn_limpiar.setText("Limpiar");
+        getContentPane().add(btn_limpiar);
+        btn_limpiar.setBounds(170, 200, 101, 41);
+
+        btn_VolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
+        btn_VolverMenu.setText("Volver");
+        btn_VolverMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_VolverMenuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_VolverMenu);
+        btn_VolverMenu.setBounds(310, 200, 110, 40);
+
+        menu_InicioSistema.setText("Inicio del Sistema ");
+        barraMenu.add(menu_InicioSistema);
+
+        menu_Cliente.setText("Clientes");
+        barraMenu.add(menu_Cliente);
+
+        menu_Puntos.setText("Puntos");
+        barraMenu.add(menu_Puntos);
+
+        menu_Reportes.setText("Reportes");
+        barraMenu.add(menu_Reportes);
+
+        menu_ayuda.setText("Ayuda");
+        barraMenu.add(menu_ayuda);
+
+        setJMenuBar(barraMenu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -93,12 +123,16 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPuntosCanjearActionPerformed
 
-    private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
-        frmMenuPrincipal ver=new frmMenuPrincipal();
+    private void btn_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_asignarActionPerformed
+
+    private void btn_VolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverMenuActionPerformed
+       frmMenuPrincipal ver=new frmMenuPrincipal();
         ver.setVisible(true); // visible ventana del objeto
         this.setVisible(false); // ocultar
-
-    }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_VolverMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,12 +170,18 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptar;
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btn_RegresarAlMenuPrincipal;
+    private javax.swing.JMenuBar barraMenu;
+    private javax.swing.JButton btn_VolverMenu;
+    private javax.swing.JButton btn_asignar;
+    private javax.swing.JButton btn_limpiar;
     private javax.swing.JLabel lblCanjeoPuntos;
     private javax.swing.JLabel lblCliente;
     private javax.swing.JLabel lblPuntosCanjear;
+    private javax.swing.JMenu menu_Cliente;
+    private javax.swing.JMenu menu_InicioSistema;
+    private javax.swing.JMenu menu_Puntos;
+    private javax.swing.JMenu menu_Reportes;
+    private javax.swing.JMenu menu_ayuda;
     private javax.swing.JTextField txtCliente;
     private javax.swing.JTextField txtPuntosCanjear;
     // End of variables declaration//GEN-END:variables

@@ -17,6 +17,8 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
     public frmSubMenuReporte() {
          initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
+        this.setResizable(false); //Desactivar botón maximizar de una ventana
+
     }
 
     /**
@@ -28,22 +30,33 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jpanel_SubMenu = new javax.swing.JPanel();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jpanel_reporte = new javax.swing.JPanel();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
+        btn_cliente = new javax.swing.JButton();
+        brn_puntos = new javax.swing.JButton();
+        btn_graficas = new javax.swing.JButton();
         jl_TituloPrincipal = new javax.swing.JLabel();
+        barraMenu = new javax.swing.JMenuBar();
+        menu_InicioSistema = new javax.swing.JMenu();
+        menu_Cliente = new javax.swing.JMenu();
+        menu_Puntos = new javax.swing.JMenu();
+        menu_Reportes = new javax.swing.JMenu();
+        menu_ayuda = new javax.swing.JMenu();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Reportes");
-        setMaximumSize(new java.awt.Dimension(680, 530));
-        setMinimumSize(new java.awt.Dimension(680, 528));
+        setMaximumSize(new java.awt.Dimension(680, 461));
+        setMinimumSize(new java.awt.Dimension(680, 461));
         setName("Menu Reporte"); // NOI18N
-        setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(680, 530));
+        setPreferredSize(new java.awt.Dimension(680, 461));
         getContentPane().setLayout(null);
 
-        jpanel_SubMenu.setMinimumSize(new java.awt.Dimension(680, 530));
-        jpanel_SubMenu.setPreferredSize(new java.awt.Dimension(680, 530));
-        jpanel_SubMenu.setLayout(null);
+        jpanel_reporte.setMinimumSize(new java.awt.Dimension(680, 530));
+        jpanel_reporte.setPreferredSize(new java.awt.Dimension(680, 530));
+        jpanel_reporte.setLayout(null);
 
         btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
@@ -52,16 +65,48 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
                 btn_RegresarAlMenuPrincipalActionPerformed(evt);
             }
         });
-        jpanel_SubMenu.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(240, 340, 120, 50);
+        jpanel_reporte.add(btn_RegresarAlMenuPrincipal);
+        btn_RegresarAlMenuPrincipal.setBounds(220, 270, 150, 50);
 
-        getContentPane().add(jpanel_SubMenu);
-        jpanel_SubMenu.setBounds(60, 90, 580, 410);
+        btn_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/cliente.png"))); // NOI18N
+        btn_cliente.setText("Clientes");
+        jpanel_reporte.add(btn_cliente);
+        btn_cliente.setBounds(40, 90, 130, 60);
+
+        brn_puntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/estadistica puntos.png"))); // NOI18N
+        brn_puntos.setText("Puntos");
+        jpanel_reporte.add(brn_puntos);
+        brn_puntos.setBounds(220, 90, 150, 60);
+
+        btn_graficas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/grafica.png"))); // NOI18N
+        btn_graficas.setText("Graficas");
+        jpanel_reporte.add(btn_graficas);
+        btn_graficas.setBounds(420, 90, 130, 60);
 
         jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jl_TituloPrincipal.setText("Menu de reportes");
-        getContentPane().add(jl_TituloPrincipal);
-        jl_TituloPrincipal.setBounds(240, 30, 230, 30);
+        jl_TituloPrincipal.setText("Menú de Reportes");
+        jpanel_reporte.add(jl_TituloPrincipal);
+        jl_TituloPrincipal.setBounds(180, 20, 230, 30);
+
+        getContentPane().add(jpanel_reporte);
+        jpanel_reporte.setBounds(40, 40, 580, 360);
+
+        menu_InicioSistema.setText("Inicio del Sistema ");
+        barraMenu.add(menu_InicioSistema);
+
+        menu_Cliente.setText("Clientes");
+        barraMenu.add(menu_Cliente);
+
+        menu_Puntos.setText("Puntos");
+        barraMenu.add(menu_Puntos);
+
+        menu_Reportes.setText("Reportes");
+        barraMenu.add(menu_Reportes);
+
+        menu_ayuda.setText("Ayuda");
+        barraMenu.add(menu_ayuda);
+
+        setJMenuBar(barraMenu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -109,8 +154,18 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar barraMenu;
+    private javax.swing.JButton brn_puntos;
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
+    private javax.swing.JButton btn_cliente;
+    private javax.swing.JButton btn_graficas;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel jl_TituloPrincipal;
-    private javax.swing.JPanel jpanel_SubMenu;
+    private javax.swing.JPanel jpanel_reporte;
+    private javax.swing.JMenu menu_Cliente;
+    private javax.swing.JMenu menu_InicioSistema;
+    private javax.swing.JMenu menu_Puntos;
+    private javax.swing.JMenu menu_Reportes;
+    private javax.swing.JMenu menu_ayuda;
     // End of variables declaration//GEN-END:variables
 }

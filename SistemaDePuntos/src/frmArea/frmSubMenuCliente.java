@@ -17,6 +17,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     public frmSubMenuCliente() {
          initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
+        this.setResizable(false); //Desactivar botón maximizar de una ventana
     }
 
     /**
@@ -64,13 +65,18 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txt_puntoRifa = new javax.swing.JTextField();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
+        barraMenu = new javax.swing.JMenuBar();
+        menu_InicioSistema = new javax.swing.JMenu();
+        menu_Cliente = new javax.swing.JMenu();
+        menu_Puntos = new javax.swing.JMenu();
+        menu_Reportes = new javax.swing.JMenu();
+        menu_ayuda = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestion Cliente");
         setMaximumSize(new java.awt.Dimension(833, 509));
         setMinimumSize(new java.awt.Dimension(833, 509));
         setName("Menu Cliente"); // NOI18N
-        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(833, 509));
         getContentPane().setLayout(null);
 
@@ -257,7 +263,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
             }
         });
         jpanel_datos2.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(260, 280, 120, 50);
+        btn_RegresarAlMenuPrincipal.setBounds(250, 210, 120, 50);
 
         jpanel_AreaSubMenu.add(jpanel_datos2);
         jpanel_datos2.setBounds(410, 114, 390, 340);
@@ -265,11 +271,31 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         getContentPane().add(jpanel_AreaSubMenu);
         jpanel_AreaSubMenu.setBounds(20, 20, 800, 470);
 
+        menu_InicioSistema.setText("Inicio del Sistema ");
+        barraMenu.add(menu_InicioSistema);
+
+        menu_Cliente.setText("Clientes");
+        barraMenu.add(menu_Cliente);
+
+        menu_Puntos.setText("Puntos");
+        barraMenu.add(menu_Puntos);
+
+        menu_Reportes.setText("Reportes");
+        barraMenu.add(menu_Reportes);
+
+        menu_ayuda.setText("Ayuda");
+        barraMenu.add(menu_ayuda);
+
+        setJMenuBar(barraMenu);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_editarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarClienteActionPerformed
         // TODO add your handling code here:
+        frmModificarCliente ver=new frmModificarCliente();
+        ver.setVisible(true); // visible ventana del objeto
+        this.setVisible(false); 
     }//GEN-LAST:event_btn_editarClienteActionPerformed
 
     private void btn_imprimirPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirPuntosActionPerformed
@@ -288,6 +314,10 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
 
     private void btn_desactivarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_desactivarClienteActionPerformed
+            frmDeshabilitarCliente ver2 = new frmDeshabilitarCliente();
+        ver2.setVisible(true);
+        this.dispose();
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_desactivarClienteActionPerformed
 
@@ -347,6 +377,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JButton btn_asignarFactura;
     private javax.swing.JButton btn_canjearPuntos;
@@ -370,6 +401,11 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jpanel_AreaSubMenu;
     private javax.swing.JPanel jpanel_datos1;
     private javax.swing.JPanel jpanel_datos2;
+    private javax.swing.JMenu menu_Cliente;
+    private javax.swing.JMenu menu_InicioSistema;
+    private javax.swing.JMenu menu_Puntos;
+    private javax.swing.JMenu menu_Reportes;
+    private javax.swing.JMenu menu_ayuda;
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_identidad;
     private javax.swing.JTextField txt_primerApellido;
