@@ -1,9 +1,9 @@
-
 package frmArea;
 
 import Clases.Persona;
 import Clases.Validar;
 import Clases.Zona;
+import java.awt.event.KeyEvent;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,34 +11,35 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/** @author bayron*/
+/**
+ * @author bayron
+ */
 public class frmRegistroClientes extends javax.swing.JFrame {
 
     Date fecha = new Date(1);
     ResultSet res = null;
     int cont = 0;
     Validar v = new Validar();
-    
+
     public frmRegistroClientes() {
-         initComponents();
+        initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro         
         this.setResizable(false); //Desactivar botón maximizar de una ventana
-        
-          cargarZonas();//  Cargar las zonas en el combobox zonas
-          v.ValidarSoloLetras(txt_primerNombre);
-          v.ValidarSoloLetras(txt_segundoNombre);
-          v.ValidarSoloLetras(txt_primerApellido);
-          v.ValidarSoloLetras(txt_segundoApellido);
-          v.ValidarTelefono(txt_telefono1);
-          v.ValidarTelefono(txt_telefono2);
-          v.ValidarTelefono(txt_telefono3);
-          v.ValidarIdentidad(txt_noIdentidad);
-          v.limitarCaracteres(txt_telefono1, 13);
-          v.limitarCaracteres(txt_telefono2, 13);
-          v.limitarCaracteres(txt_telefono3, 13);
-          v.limitarCaracteres(txt_noIdentidad,15);
-         
-          
+
+        cargarZonas();//  Cargar las zonas en el combobox zonas
+        v.ValidarSoloLetras(txt_primerNombre);
+        v.ValidarSoloLetras(txt_segundoNombre);
+        v.ValidarSoloLetras(txt_primerApellido);
+        v.ValidarSoloLetras(txt_segundoApellido);
+        v.ValidarTelefono(txt_telefono1);
+        v.ValidarTelefono(txt_telefono2);
+        v.ValidarTelefono(txt_telefono3);
+        v.ValidarIdentidad(txt_noIdentidad);
+        v.limitarCaracteres(txt_telefono1, 13);
+        v.limitarCaracteres(txt_telefono2, 13);
+        v.limitarCaracteres(txt_telefono3, 13);
+        v.limitarCaracteres(txt_noIdentidad, 15);
+
     }
 
     /**
@@ -140,12 +141,22 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                 txt_primerNombreActionPerformed(evt);
             }
         });
+        txt_primerNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_primerNombreKeyPressed(evt);
+            }
+        });
         jP1_DatosCliente.add(txt_primerNombre);
         txt_primerNombre.setBounds(120, 10, 330, 24);
 
         txt_segundoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_segundoNombreActionPerformed(evt);
+            }
+        });
+        txt_segundoNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_segundoNombreKeyPressed(evt);
             }
         });
         jP1_DatosCliente.add(txt_segundoNombre);
@@ -156,12 +167,22 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                 txt_primerApellidoActionPerformed(evt);
             }
         });
+        txt_primerApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_primerApellidoKeyPressed(evt);
+            }
+        });
         jP1_DatosCliente.add(txt_primerApellido);
         txt_primerApellido.setBounds(120, 63, 330, 24);
 
         txt_segundoApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_segundoApellidoActionPerformed(evt);
+            }
+        });
+        txt_segundoApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_segundoApellidoKeyPressed(evt);
             }
         });
         jP1_DatosCliente.add(txt_segundoApellido);
@@ -172,12 +193,22 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                 txt_noIdentidadActionPerformed(evt);
             }
         });
+        txt_noIdentidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_noIdentidadKeyPressed(evt);
+            }
+        });
         jP1_DatosCliente.add(txt_noIdentidad);
         txt_noIdentidad.setBounds(120, 115, 330, 24);
 
         txt_telefono3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_telefono3ActionPerformed(evt);
+            }
+        });
+        txt_telefono3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_telefono3KeyPressed(evt);
             }
         });
         jP1_DatosCliente.add(txt_telefono3);
@@ -187,8 +218,14 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         PrimerNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(PrimerNombre);
         PrimerNombre.setBounds(10, 11, 110, 20);
+
+        txt_correoElectronico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_correoElectronicoKeyPressed(evt);
+            }
+        });
         jP1_DatosCliente.add(txt_correoElectronico);
-        txt_correoElectronico.setBounds(120, 230, 330, 20);
+        txt_correoElectronico.setBounds(120, 230, 330, 24);
 
         jP2_DatosCliente.setLayout(null);
 
@@ -200,6 +237,13 @@ public class frmRegistroClientes extends javax.swing.JFrame {
 
         jC_Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
         jC_Sexo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jC_Sexo.setMinimumSize(new java.awt.Dimension(33, 24));
+        jC_Sexo.setPreferredSize(new java.awt.Dimension(33, 24));
+        jC_Sexo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jC_SexoKeyPressed(evt);
+            }
+        });
         jP2_DatosCliente.add(jC_Sexo);
         jC_Sexo.setBounds(110, 0, 330, 24);
 
@@ -207,6 +251,14 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         jL_fechaNacimiento.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP2_DatosCliente.add(jL_fechaNacimiento);
         jL_fechaNacimiento.setBounds(0, 30, 200, 24);
+
+        jDC_fechaNacimiento.setMinimumSize(new java.awt.Dimension(27, 24));
+        jDC_fechaNacimiento.setPreferredSize(new java.awt.Dimension(95, 24));
+        jDC_fechaNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jDC_fechaNacimientoKeyPressed(evt);
+            }
+        });
         jP2_DatosCliente.add(jDC_fechaNacimiento);
         jDC_fechaNacimiento.setBounds(200, 30, 240, 24);
 
@@ -218,12 +270,22 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                 txt_telefono1ActionPerformed(evt);
             }
         });
+        txt_telefono1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_telefono1KeyPressed(evt);
+            }
+        });
         jP1_DatosCliente.add(txt_telefono1);
         txt_telefono1.setBounds(120, 141, 330, 24);
 
         txt_telefono2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_telefono2ActionPerformed(evt);
+            }
+        });
+        txt_telefono2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_telefono2KeyPressed(evt);
             }
         });
         jP1_DatosCliente.add(txt_telefono2);
@@ -255,6 +317,13 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         jP_DatosDireccion.add(jL_Zona);
         jL_Zona.setBounds(10, 26, 76, 20);
 
+        jC_zona.setMinimumSize(new java.awt.Dimension(28, 24));
+        jC_zona.setPreferredSize(new java.awt.Dimension(28, 24));
+        jC_zona.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jC_zonaKeyPressed(evt);
+            }
+        });
         jP_DatosDireccion.add(jC_zona);
         jC_zona.setBounds(90, 24, 180, 24);
 
@@ -297,6 +366,11 @@ public class frmRegistroClientes extends javax.swing.JFrame {
 
         btn_limpiarCampos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
         btn_limpiarCampos.setText("Limpiar");
+        btn_limpiarCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limpiarCamposActionPerformed(evt);
+            }
+        });
         panel_botonesBasicos.add(btn_limpiarCampos);
         btn_limpiarCampos.setBounds(160, 10, 110, 50);
 
@@ -328,8 +402,6 @@ public class frmRegistroClientes extends javax.swing.JFrame {
 
         setJMenuBar(barraMenu);
 
-        getAccessibleContext().setAccessibleName("Registro Cliente");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -355,11 +427,11 @@ public class frmRegistroClientes extends javax.swing.JFrame {
 
     //Guardar clientes
     private void btn_guardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarClienteActionPerformed
-        
+
         String sexo = (String) jC_Sexo.getSelectedItem();
         if (txt_primerNombre.getText().isEmpty() || txt_primerApellido.getText().isEmpty() || txt_noIdentidad.getText().isEmpty()
-                || txt_telefono1.getText().isEmpty() || sexo.isEmpty() || jDC_fechaNacimiento.getDate() == null
-                || jC_zona.getSelectedItem()==null) {
+                || txt_telefono1.getText().isEmpty() || sexo.isEmpty() || jDC_fechaNacimiento.getCalendar() == null
+                || jC_zona.getSelectedItem() == null) {
 
             JOptionPane.showMessageDialog(this, "Se dejaron vacios campos que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -377,7 +449,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                 } else {
                     //PREPARO LA FECHA PARA ENVIARLA    
                     java.sql.Date fechaNac = new java.sql.Date(jDC_fechaNacimiento.getDate().getTime());
-                    
+
                     //Consulto el id de la zona que eligio el usuario para registrarla en la tabla clientes
                     ResultSet respuesta = Zona.consultarIdZona((String) jC_zona.getSelectedItem());
                     int idZona = 0;
@@ -391,15 +463,6 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                             sexo, fechaNac, idZona, descripcion.getText(), txt_telefono1.getText(), txt_telefono2.getText(),
                             txt_telefono3.getText());
 
-                    //Obtener fecha del sistema para agregarla como fecha de registro del cliente
-                    java.util.Date fechaActual = new java.util.Date();
-                    java.sql.Date fechaRegistro = new java.sql.Date(fechaActual.getTime());//Convertir a fecha compatible con sql
-
-                    //Almancena el id de la persona en la tabla de clientes
-                    Procedimientos.ProcedimientosCliente.guardarCliente(fechaRegistro, Persona.UltimoRegistro());
-
-                    JOptionPane.showMessageDialog(this, "Registro guardado");
-                    
                     //Limpiar los campos
                     txt_primerNombre.setText("");
                     txt_segundoNombre.setText("");
@@ -411,10 +474,32 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                     txt_telefono2.setText("");
                     txt_telefono3.setText("");
                     jC_Sexo.setSelectedIndex(0);
+                    jDC_fechaNacimiento.setCalendar(null);
                     jC_zona.setSelectedIndex(0);
                     descripcion.setText("");
-                    
-                    
+                    txt_primerNombre.requestFocus();
+                    txt_segundoNombre.requestFocus();
+                    txt_primerApellido.requestFocus();
+                    txt_segundoApellido.requestFocus();
+                    txt_noIdentidad.requestFocus();
+                    txt_correoElectronico.requestFocus();
+                    txt_telefono1.requestFocus();
+                    txt_telefono2.requestFocus();
+                    txt_telefono3.requestFocus();
+                    jC_Sexo.requestFocus();
+                    jDC_fechaNacimiento.requestFocus();
+                    jC_zona.requestFocus();
+                    descripcion.requestFocus();
+
+                    //Obtener fecha del sistema para agregarla como fecha de registro del cliente
+                    java.util.Date fechaActual = new java.util.Date();
+                    java.sql.Date fechaRegistro = new java.sql.Date(fechaActual.getTime());//Convertir a fecha compatible con sql
+
+                    //Almancena el id de la persona en la tabla de clientes
+                    Procedimientos.ProcedimientosCliente.guardarCliente(fechaRegistro, Persona.UltimoRegistro());
+
+                    JOptionPane.showMessageDialog(this, "Registro guardado");
+
                 }
             } catch (SQLException e) {
             }
@@ -422,14 +507,14 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_guardarClienteActionPerformed
 
     private void txt_primerNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_primerNombreActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txt_primerNombreActionPerformed
 
     private void btn_menuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuInicioActionPerformed
-            frmMenuPrincipal ver=new frmMenuPrincipal();
-            ver.setVisible(true); // visible ventana del objeto
-            this.setVisible(false); // ocultar
-        
+        frmMenuPrincipal ver = new frmMenuPrincipal();
+        ver.setVisible(true); // visible ventana del objeto
+        this.setVisible(false); // ocultar
+
     }//GEN-LAST:event_btn_menuInicioActionPerformed
 
     private void txt_telefono1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefono1ActionPerformed
@@ -439,7 +524,93 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     private void txt_telefono2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefono2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_telefono2ActionPerformed
-    
+
+    //Limpiar los campos
+    private void btn_limpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarCamposActionPerformed
+
+        txt_primerNombre.setText("");
+        txt_segundoNombre.setText("");
+        txt_primerApellido.setText("");
+        txt_segundoApellido.setText("");
+        txt_noIdentidad.setText("");
+        txt_correoElectronico.setText("");
+        txt_telefono1.setText("");
+        txt_telefono2.setText("");
+        txt_telefono3.setText("");
+        jC_Sexo.setSelectedIndex(0);
+        jDC_fechaNacimiento.setCalendar(null);
+        jC_zona.setSelectedIndex(0);
+        descripcion.setText("");
+    }//GEN-LAST:event_btn_limpiarCamposActionPerformed
+
+    private void txt_primerNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_primerNombreKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_segundoNombre.requestFocus();
+        }
+    }//GEN-LAST:event_txt_primerNombreKeyPressed
+
+    private void txt_segundoNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_segundoNombreKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_primerApellido.requestFocus();
+        }
+    }//GEN-LAST:event_txt_segundoNombreKeyPressed
+
+    private void txt_primerApellidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_primerApellidoKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_segundoApellido.requestFocus();
+        }
+    }//GEN-LAST:event_txt_primerApellidoKeyPressed
+
+    private void txt_segundoApellidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_segundoApellidoKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_noIdentidad.requestFocus();
+        }
+    }//GEN-LAST:event_txt_segundoApellidoKeyPressed
+
+    private void txt_noIdentidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_noIdentidadKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_telefono1.requestFocus();
+        }
+    }//GEN-LAST:event_txt_noIdentidadKeyPressed
+
+    private void txt_telefono1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefono1KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_telefono2.requestFocus();
+        }
+    }//GEN-LAST:event_txt_telefono1KeyPressed
+
+    private void txt_telefono2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefono2KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_telefono3.requestFocus();
+        }
+    }//GEN-LAST:event_txt_telefono2KeyPressed
+
+    private void txt_telefono3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefono3KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txt_correoElectronico.requestFocus();
+        }
+    }//GEN-LAST:event_txt_telefono3KeyPressed
+
+    private void txt_correoElectronicoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_correoElectronicoKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+            jC_Sexo.requestFocus();
+    }//GEN-LAST:event_txt_correoElectronicoKeyPressed
+
+    private void jC_SexoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jC_SexoKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+            jDC_fechaNacimiento.requestFocus();
+    }//GEN-LAST:event_jC_SexoKeyPressed
+
+    private void jDC_fechaNacimientoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDC_fechaNacimientoKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+            jC_zona.requestFocus();
+    }//GEN-LAST:event_jDC_fechaNacimientoKeyPressed
+
+    private void jC_zonaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jC_zonaKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+            descripcion.requestFocus();
+    }//GEN-LAST:event_jC_zonaKeyPressed
+
     //Metodo para llenar el combobox zonas
     public void cargarZonas() {
         ResultSet zonas = Zona.mostrarZonas();
@@ -457,8 +628,6 @@ public class frmRegistroClientes extends javax.swing.JFrame {
 
     }
 
-
-    
     /**
      * @param args the command line arguments
      */
