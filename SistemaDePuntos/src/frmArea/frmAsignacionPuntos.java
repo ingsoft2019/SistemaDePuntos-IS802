@@ -39,7 +39,6 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         txtIdFactura = new javax.swing.JTextField();
         txtNombreCliente = new javax.swing.JTextField();
         btnAsignar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,16 +56,29 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
 
         lblIdFactura.setText("Id Facura:");
         getContentPane().add(lblIdFactura);
-        lblIdFactura.setBounds(50, 100, 50, 14);
+        lblIdFactura.setBounds(60, 100, 50, 14);
 
         lblNombreCliente.setText("ID del Cliente:");
         getContentPane().add(lblNombreCliente);
         lblNombreCliente.setBounds(40, 150, 68, 14);
+
+        txtIdFactura.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdFacturaKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtIdFactura);
         txtIdFactura.setBounds(110, 100, 240, 20);
+
+        txtNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreClienteKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtNombreCliente);
         txtNombreCliente.setBounds(110, 150, 240, 20);
 
+        btnAsignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/guardar.png"))); // NOI18N
         btnAsignar.setText("Asignar");
         btnAsignar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,11 +86,7 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAsignar);
-        btnAsignar.setBounds(80, 220, 69, 23);
-
-        btnCancelar.setText("Cancelar");
-        getContentPane().add(btnCancelar);
-        btnCancelar.setBounds(160, 220, 75, 23);
+        btnAsignar.setBounds(50, 190, 140, 80);
 
         btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
@@ -88,7 +96,7 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(270, 190, 150, 60);
+        btn_RegresarAlMenuPrincipal.setBounds(240, 190, 150, 80);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,13 +114,29 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Hay campos vacios que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
         } 
         else {try {
-            Procedimientos.ProcedimientoAsignacionPuntos.guardarMovimiento(Integer.parseInt( txtNombreCliente.getText()), 0.02, 1, "JRODAS", Integer.parseInt(txtIdFactura.getText()) );
+                int codigo=JOptionPane.showConfirmDialog(null, "¿Estas seguro de asignar los puntos?", "Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
+                if (codigo==JOptionPane.YES_OPTION){
+                    Procedimientos.ProcedimientoAsignacionPuntos.guardarMovimiento(Integer.parseInt( txtNombreCliente.getText()), 0.02, 1, "JRODAS", Integer.parseInt(txtIdFactura.getText()) );
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(frmAsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+         //
+   
         }
     }//GEN-LAST:event_btnAsignarActionPerformed
+
+    private void txtIdFacturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdFacturaKeyTyped
+        char c = evt.getKeyChar();
+        
+        if (c< '0'|| c>'9') evt.consume();
+    }//GEN-LAST:event_txtIdFacturaKeyTyped
+
+    private void txtNombreClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreClienteKeyTyped
+        char c = evt.getKeyChar();
+        
+        if (c< '0'|| c>'9') evt.consume();
+    }//GEN-LAST:event_txtNombreClienteKeyTyped
 
     /**
      * @param args the command line arguments
@@ -151,7 +175,6 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAsignar;
-    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JLabel lblAsignacionPuntos;
     private javax.swing.JLabel lblIdFactura;
