@@ -77,7 +77,6 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(833, 509));
         setMinimumSize(new java.awt.Dimension(833, 509));
         setName("Menu Cliente"); // NOI18N
-        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(833, 509));
 
         jpanel_AreaSubMenu.setPreferredSize(new java.awt.Dimension(100, 500));

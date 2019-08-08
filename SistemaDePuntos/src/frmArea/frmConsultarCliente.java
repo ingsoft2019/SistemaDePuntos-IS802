@@ -55,7 +55,6 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         setFocusable(false);
         setMaximumSize(new java.awt.Dimension(600, 530));
         setMinimumSize(new java.awt.Dimension(600, 530));
-        setUndecorated(true);
 
         jPanel1.setFocusable(false);
 
