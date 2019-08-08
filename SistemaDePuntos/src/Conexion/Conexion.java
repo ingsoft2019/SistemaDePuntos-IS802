@@ -24,7 +24,7 @@ public class Conexion {
     */
     
     public static Connection getConexion(){
-        String url = "jdbc:sqlserver://localhost:1433;databaseName=PR";
+        String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=RP";
         String user = "sa";
         String pass = "123";
         
