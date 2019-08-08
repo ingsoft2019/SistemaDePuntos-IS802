@@ -38,10 +38,9 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         lblNombreCliente = new javax.swing.JLabel();
         txtIdFactura = new javax.swing.JTextField();
         txtNombreCliente = new javax.swing.JTextField();
-        btnAsignar = new javax.swing.JButton();
-        btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
         btn_asignar = new javax.swing.JButton();
-        btn_limpiarCampos = new javax.swing.JButton();
+        btn_limpiar = new javax.swing.JButton();
+        btn_VolverMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Asignación de Puntos");
@@ -80,42 +79,30 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         getContentPane().add(txtNombreCliente);
         txtNombreCliente.setBounds(110, 150, 240, 20);
 
-        btnAsignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/guardar.png"))); // NOI18N
-        btnAsignar.setText("Asignar");
-        btnAsignar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RegresarAlMenuPrincipalActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAsignar);
-        btnAsignar.setBounds(50, 190, 140, 80);
+        btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
+        btn_asignar.setText("Asignar");
+        getContentPane().add(btn_asignar);
+        btn_asignar.setBounds(30, 220, 105, 41);
 
-        btn_limpiarCampos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
-        btn_limpiarCampos.setText("Limpiar");
-        btn_limpiarCampos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_limpiarCamposActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(240, 190, 150, 80);
+        btn_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
+        btn_limpiar.setText("Limpiar");
+        getContentPane().add(btn_limpiar);
+        btn_limpiar.setBounds(150, 220, 101, 41);
+
+        btn_VolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
+        btn_VolverMenu.setText("Volver");
+        getContentPane().add(btn_VolverMenu);
+        btn_VolverMenu.setBounds(270, 220, 110, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
-        frmMenuPrincipal ver=new frmMenuPrincipal();
-        ver.setVisible(true); // visible ventana del objeto
-        this.setVisible(false); // ocultar
-
-    }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
 
     private void btn_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarActionPerformed
 
     
     }//GEN-LAST:event_btn_asignarActionPerformed
 
-    private void btn_limpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarCamposActionPerformed
+    private void btn_limpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {                                                  
 
         // TODO add your handling code here:
         if (txtIdFactura.getText().isEmpty()|| txtNombreCliente.getText().isEmpty()){
@@ -132,7 +119,7 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
          //
    
         }
-    }//GEN-LAST:event_btnAsignarActionPerformed
+    }                                          
 
     private void txtIdFacturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdFacturaKeyTyped
         char c = evt.getKeyChar();
@@ -182,10 +169,9 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAsignar;
-    private javax.swing.JButton btn_RegresarAlMenuPrincipal;
+    private javax.swing.JButton btn_VolverMenu;
     private javax.swing.JButton btn_asignar;
-    private javax.swing.JButton btn_limpiarCampos;
+    private javax.swing.JButton btn_limpiar;
     private javax.swing.JLabel lblAsignacionPuntos;
     private javax.swing.JLabel lblIdFactura;
     private javax.swing.JLabel lblNombreCliente;

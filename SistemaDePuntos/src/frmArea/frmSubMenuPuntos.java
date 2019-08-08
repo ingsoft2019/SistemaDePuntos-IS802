@@ -30,8 +30,6 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jl_TituloPrincipal = new javax.swing.JLabel();
@@ -55,23 +53,17 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(270, 330, 120, 50);
+        btn_RegresarAlMenuPrincipal.setBounds(240, 270, 170, 50);
 
-        jButton1.setText("jButton1");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(90, 60, 73, 20);
-
-        jButton2.setText("jButton2");
-        jPanel1.add(jButton2);
-        jButton2.setBounds(400, 60, 73, 23);
-
-        jButton3.setText("jButton3");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
+        jButton3.setText("Asignar Puntos");
         jPanel1.add(jButton3);
-        jButton3.setBounds(100, 160, 73, 23);
+        jButton3.setBounds(250, 60, 160, 41);
 
-        jButton4.setText("jButton4");
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/gestion_de_puntos.png"))); // NOI18N
+        jButton4.setText("Canjear Puntos");
         jPanel1.add(jButton4);
-        jButton4.setBounds(390, 170, 73, 23);
+        jButton4.setBounds(250, 150, 160, 50);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(20, 90, 630, 400);
@@ -127,8 +119,6 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;

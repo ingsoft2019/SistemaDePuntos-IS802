@@ -30,16 +30,11 @@ public class frmConfiguracion extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txt_busqueda = new javax.swing.JTextField();
+        btn_buscar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,11 +45,14 @@ public class frmConfiguracion extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(680, 528));
         getContentPane().setLayout(null);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Busqueda");
 
-        jTextField1.setText("jTextField1");
-
-        jButton1.setText("jButton1");
+        btn_buscar.setText("Buscar");
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -64,9 +62,9 @@ public class frmConfiguracion extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
                 .addGap(85, 85, 85)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(txt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(btn_buscar)
                 .addGap(26, 26, 26))
         );
         jPanel1Layout.setVerticalGroup(
@@ -75,99 +73,48 @@ public class frmConfiguracion extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(txt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_buscar))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(60, 60, 590, 80);
 
-        jButton2.setText("jButton2");
+        jPanel2.setLayout(null);
 
-        jButton3.setText("jButton3");
+        jButton2.setText("Realizar Rifa");
+        jPanel2.add(jButton2);
+        jButton2.setBounds(80, 60, 140, 50);
 
-        jButton4.setText("jButton4");
+        jButton5.setText("Recetear puntos");
+        jPanel2.add(jButton5);
+        jButton5.setBounds(370, 60, 140, 50);
 
-        jButton5.setText("jButton5");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jButton2)
-                .addGap(70, 70, 70)
-                .addComponent(jButton3)
-                .addGap(87, 87, 87)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addGap(38, 38, 38))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(50, 210, 600, 100);
-
-        jButton6.setText("jButton6");
-
-        jButton7.setText("jButton7");
-
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
+        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
         btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_RegresarAlMenuPrincipalActionPerformed(evt);
             }
         });
+        jPanel2.add(btn_RegresarAlMenuPrincipal);
+        btn_RegresarAlMenuPrincipal.setBounds(230, 210, 170, 50);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(jButton6)
-                .addGap(124, 124, 124)
-                .addComponent(jButton7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(btn_RegresarAlMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(btn_RegresarAlMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel3);
-        jPanel3.setBounds(50, 370, 610, 100);
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(40, 160, 600, 280);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
         frmMenuPrincipal ver=new frmMenuPrincipal();
         ver.setVisible(true); // visible ventana del objeto
         this.setVisible(false); // ocultar
-
     }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
 
     /**
@@ -207,17 +154,12 @@ public class frmConfiguracion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_buscar;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txt_busqueda;
     // End of variables declaration//GEN-END:variables
 }

@@ -30,6 +30,10 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
 
         jpanel_SubMenu = new javax.swing.JPanel();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
+        btn_cliente = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jl_TituloPrincipal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,10 +57,26 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
             }
         });
         jpanel_SubMenu.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(240, 340, 120, 50);
+        btn_RegresarAlMenuPrincipal.setBounds(220, 310, 120, 50);
+
+        btn_cliente.setText("Clientes");
+        jpanel_SubMenu.add(btn_cliente);
+        btn_cliente.setBounds(100, 80, 120, 60);
+
+        jButton2.setText("Zonas");
+        jpanel_SubMenu.add(jButton2);
+        jButton2.setBounds(350, 80, 120, 60);
+
+        jButton3.setText("Ventas");
+        jpanel_SubMenu.add(jButton3);
+        jButton3.setBounds(110, 210, 120, 60);
+
+        jButton4.setText("Graficas");
+        jpanel_SubMenu.add(jButton4);
+        jButton4.setBounds(360, 210, 110, 60);
 
         getContentPane().add(jpanel_SubMenu);
-        jpanel_SubMenu.setBounds(60, 90, 580, 410);
+        jpanel_SubMenu.setBounds(60, 90, 580, 390);
 
         jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jl_TituloPrincipal.setText("Menu de reportes");
@@ -110,6 +130,10 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
+    private javax.swing.JButton btn_cliente;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jl_TituloPrincipal;
     private javax.swing.JPanel jpanel_SubMenu;
     // End of variables declaration//GEN-END:variables
