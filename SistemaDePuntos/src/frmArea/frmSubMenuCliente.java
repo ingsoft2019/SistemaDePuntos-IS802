@@ -53,60 +53,61 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         btn_imprimirDireccion = new javax.swing.JButton();
         btn_imprimirPuntos = new javax.swing.JButton();
         btn_canjearPuntos = new javax.swing.JButton();
-        btn_asognarFactura = new javax.swing.JButton();
+        btn_asignarFactura = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         txt_puntosRegis = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
+        jL_vencimiento = new javax.swing.JLabel();
         txt_vencimiento = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txt_puntoRifa = new javax.swing.JTextField();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        jL_email = new javax.swing.JLabel();
         txt_email = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestion Cliente");
-        setMaximumSize(new java.awt.Dimension(700, 525));
-        setMinimumSize(new java.awt.Dimension(700, 525));
+        setMaximumSize(new java.awt.Dimension(840, 525));
+        setMinimumSize(new java.awt.Dimension(840, 525));
         setName("Menu Cliente"); // NOI18N
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(700, 525));
+        setPreferredSize(new java.awt.Dimension(840, 525));
         getContentPane().setLayout(null);
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(100, 500));
         jPanel1.setLayout(null);
 
         jPanel2.setLayout(null);
 
-        jL_primerNombre.setText("Primer nombre");
+        jL_primerNombre.setText("Primer nombre:");
         jPanel2.add(jL_primerNombre);
-        jL_primerNombre.setBounds(10, 14, 69, 14);
+        jL_primerNombre.setBounds(10, 14, 100, 14);
 
-        jL_segundoNombre.setText("Segundo nombre");
+        jL_segundoNombre.setText("Segundo nombre:");
         jPanel2.add(jL_segundoNombre);
-        jL_segundoNombre.setBounds(10, 52, 81, 14);
+        jL_segundoNombre.setBounds(10, 52, 100, 14);
 
-        jL_primerApellido.setText("Primer Apellido");
+        jL_primerApellido.setText("Primer Apellido:");
         jPanel2.add(jL_primerApellido);
-        jL_primerApellido.setBounds(10, 90, 70, 14);
+        jL_primerApellido.setBounds(10, 90, 100, 14);
 
-        jL_segundoApellido.setText("Segundo Apellido");
+        jL_segundoApellido.setText("Segundo Apellido:");
         jPanel2.add(jL_segundoApellido);
-        jL_segundoApellido.setBounds(10, 128, 82, 14);
+        jL_segundoApellido.setBounds(10, 128, 100, 14);
 
-        jL_identidad.setText("Identidad");
+        jL_identidad.setText("Identidad:");
         jPanel2.add(jL_identidad);
-        jL_identidad.setBounds(10, 166, 46, 14);
+        jL_identidad.setBounds(10, 166, 100, 14);
 
-        jL_sexo.setText("Sexo ");
+        jL_sexo.setText("Sexo :");
         jPanel2.add(jL_sexo);
-        jL_sexo.setBounds(10, 204, 27, 14);
+        jL_sexo.setBounds(10, 204, 100, 14);
 
-        jL_telefono.setText("Telefono 1");
+        jL_telefono.setText("Telefono 1:");
         jPanel2.add(jL_telefono);
-        jL_telefono.setBounds(10, 242, 60, 14);
+        jL_telefono.setBounds(10, 242, 100, 14);
         jPanel2.add(txt_primerNombre);
-        txt_primerNombre.setBounds(108, 11, 250, 20);
+        txt_primerNombre.setBounds(108, 11, 180, 24);
 
         txt_segundoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,43 +115,45 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txt_segundoNombre);
-        txt_segundoNombre.setBounds(108, 49, 190, 20);
+        txt_segundoNombre.setBounds(108, 49, 180, 24);
         jPanel2.add(txt_primerApellido);
-        txt_primerApellido.setBounds(108, 87, 190, 20);
+        txt_primerApellido.setBounds(108, 87, 180, 24);
         jPanel2.add(txt_segundoApellido);
-        txt_segundoApellido.setBounds(108, 125, 190, 20);
+        txt_segundoApellido.setBounds(108, 125, 180, 24);
         jPanel2.add(txt_identidad);
-        txt_identidad.setBounds(108, 163, 190, 20);
+        txt_identidad.setBounds(108, 163, 180, 24);
         jPanel2.add(txt_sexo);
-        txt_sexo.setBounds(108, 201, 190, 20);
+        txt_sexo.setBounds(108, 201, 180, 24);
         jPanel2.add(txt_telefono1);
-        txt_telefono1.setBounds(108, 239, 190, 20);
+        txt_telefono1.setBounds(108, 239, 180, 24);
 
-        jLabel1.setText("Telefono 2");
+        jLabel1.setText("Telefono 2:");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(10, 280, 60, 14);
+        jLabel1.setBounds(10, 280, 100, 14);
 
-        jLabel2.setText("Telefono 3");
+        jLabel2.setText("Telefono 3:");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(10, 320, 70, 14);
+        jLabel2.setBounds(10, 320, 100, 14);
         jPanel2.add(txt_telefono2);
-        txt_telefono2.setBounds(108, 277, 190, 20);
+        txt_telefono2.setBounds(108, 277, 180, 24);
         jPanel2.add(txt_telefono3);
-        txt_telefono3.setBounds(108, 319, 190, 20);
+        txt_telefono3.setBounds(108, 319, 180, 24);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(10, 130, 380, 350);
+        jPanel2.setBounds(20, 110, 380, 350);
 
         btn_editarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/guardar.png"))); // NOI18N
         btn_editarCliente.setText("Editar");
         btn_editarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_editarCliente.setMaximumSize(new java.awt.Dimension(90, 55));
+        btn_editarCliente.setMinimumSize(new java.awt.Dimension(90, 55));
         btn_editarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_editarClienteActionPerformed(evt);
             }
         });
         jPanel1.add(btn_editarCliente);
-        btn_editarCliente.setBounds(10, 10, 100, 70);
+        btn_editarCliente.setBounds(0, 10, 165, 70);
 
         btn_desactivarCliente.setText("Desactivar");
         btn_desactivarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -160,13 +163,13 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_desactivarCliente);
-        btn_desactivarCliente.setBounds(130, 10, 120, 70);
+        btn_desactivarCliente.setBounds(130, 10, 165, 70);
 
         btn_imprimirDireccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/reporte.png"))); // NOI18N
         btn_imprimirDireccion.setText("Imprimir dirección");
         btn_imprimirDireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(btn_imprimirDireccion);
-        btn_imprimirDireccion.setBounds(260, 10, 150, 70);
+        btn_imprimirDireccion.setBounds(290, 10, 165, 70);
 
         btn_imprimirPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/reporte.png"))); // NOI18N
         btn_imprimirPuntos.setText("Imprimir puntos");
@@ -177,24 +180,29 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_imprimirPuntos);
-        btn_imprimirPuntos.setBounds(430, 10, 150, 70);
+        btn_imprimirPuntos.setBounds(460, 10, 165, 70);
 
         btn_canjearPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/gestionPuntos.png"))); // NOI18N
         btn_canjearPuntos.setText("Canjear Puntos");
+        btn_canjearPuntos.setAlignmentY(0.0F);
         btn_canjearPuntos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_canjearPuntos.setIconTextGap(0);
+        btn_canjearPuntos.setMaximumSize(new java.awt.Dimension(165, 71));
+        btn_canjearPuntos.setMinimumSize(new java.awt.Dimension(165, 71));
+        btn_canjearPuntos.setPreferredSize(new java.awt.Dimension(165, 71));
         jPanel1.add(btn_canjearPuntos);
-        btn_canjearPuntos.setBounds(630, 10, 160, 70);
+        btn_canjearPuntos.setBounds(630, 10, 165, 70);
 
-        btn_asognarFactura.setText("Asignar Fact");
-        btn_asognarFactura.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(btn_asognarFactura);
-        btn_asognarFactura.setBounds(650, 90, 90, 30);
+        btn_asignarFactura.setText("Asignar Fact");
+        btn_asignarFactura.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(btn_asignarFactura);
+        btn_asignarFactura.setBounds(650, 90, 90, 30);
 
         jPanel3.setLayout(null);
 
-        jLabel9.setText("Puntos Regis");
+        jLabel9.setText("Puntos Regis:");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(10, 14, 62, 14);
+        jLabel9.setBounds(22, 10, 100, 14);
 
         txt_puntosRegis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,19 +210,31 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
             }
         });
         jPanel3.add(txt_puntosRegis);
-        txt_puntosRegis.setBounds(90, 11, 210, 20);
+        txt_puntosRegis.setBounds(120, 10, 180, 24);
 
-        jLabel10.setText("Vencimiento");
-        jPanel3.add(jLabel10);
-        jLabel10.setBounds(10, 52, 57, 14);
+        jL_vencimiento.setText("Vencimiento:");
+        jPanel3.add(jL_vencimiento);
+        jL_vencimiento.setBounds(22, 50, 100, 14);
+
+        txt_vencimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_vencimientoActionPerformed(evt);
+            }
+        });
         jPanel3.add(txt_vencimiento);
-        txt_vencimiento.setBounds(90, 49, 210, 20);
+        txt_vencimiento.setBounds(120, 50, 180, 24);
 
-        jLabel11.setText("Puntos rifa");
+        jLabel11.setText("Puntos rifa:");
         jPanel3.add(jLabel11);
-        jLabel11.setBounds(10, 90, 52, 14);
+        jLabel11.setBounds(22, 90, 100, 14);
+
+        txt_puntoRifa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_puntoRifaActionPerformed(evt);
+            }
+        });
         jPanel3.add(txt_puntoRifa);
-        txt_puntoRifa.setBounds(90, 87, 210, 20);
+        txt_puntoRifa.setBounds(120, 90, 180, 24);
 
         btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgenesProyecto/VolverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
@@ -224,19 +244,19 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
             }
         });
         jPanel3.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(160, 230, 160, 70);
+        btn_RegresarAlMenuPrincipal.setBounds(210, 220, 160, 70);
 
-        jLabel8.setText("Email");
-        jPanel3.add(jLabel8);
-        jLabel8.setBounds(20, 140, 24, 14);
+        jL_email.setText("Email:");
+        jPanel3.add(jL_email);
+        jL_email.setBounds(22, 130, 100, 14);
         jPanel3.add(txt_email);
-        txt_email.setBounds(100, 140, 190, 20);
+        txt_email.setBounds(120, 130, 180, 24);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(410, 150, 370, 324);
+        jPanel3.setBounds(410, 134, 390, 340);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 20, 810, 500);
+        jPanel1.setBounds(20, 20, 800, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -267,6 +287,14 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     private void txt_segundoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_segundoNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_segundoNombreActionPerformed
+
+    private void txt_vencimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_vencimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_vencimientoActionPerformed
+
+    private void txt_puntoRifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_puntoRifaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_puntoRifaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -305,12 +333,13 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
-    private javax.swing.JButton btn_asognarFactura;
+    private javax.swing.JButton btn_asignarFactura;
     private javax.swing.JButton btn_canjearPuntos;
     private javax.swing.JButton btn_desactivarCliente;
     private javax.swing.JButton btn_editarCliente;
     private javax.swing.JButton btn_imprimirDireccion;
     private javax.swing.JButton btn_imprimirPuntos;
+    private javax.swing.JLabel jL_email;
     private javax.swing.JLabel jL_identidad;
     private javax.swing.JLabel jL_primerApellido;
     private javax.swing.JLabel jL_primerNombre;
@@ -318,11 +347,10 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jL_segundoNombre;
     private javax.swing.JLabel jL_sexo;
     private javax.swing.JLabel jL_telefono;
+    private javax.swing.JLabel jL_vencimiento;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
