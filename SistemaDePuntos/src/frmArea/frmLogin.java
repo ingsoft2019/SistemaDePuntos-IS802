@@ -21,6 +21,7 @@ public class frmLogin extends javax.swing.JFrame {
     public frmLogin() {
         initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
+        this.setResizable(false); //Desactivar botón maximizar de una ventana
     }
 
     /**

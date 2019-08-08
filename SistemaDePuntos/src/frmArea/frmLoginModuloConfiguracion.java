@@ -21,6 +21,7 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
     public frmLoginModuloConfiguracion() {
         initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
+        this.setResizable(false); //Desactivar botón maximizar de una ventana
     }
 
     /**
@@ -78,12 +79,12 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
             }
         });
         panel_login.add(btn_ingresarLogin);
-        btn_ingresarLogin.setBounds(17, 123, 130, 41);
+        btn_ingresarLogin.setBounds(30, 120, 130, 40);
 
         btn_recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/pass-contrasena.png"))); // NOI18N
         btn_recuperar.setText("Recuperar");
         panel_login.add(btn_recuperar);
-        btn_recuperar.setBounds(150, 120, 119, 41);
+        btn_recuperar.setBounds(180, 120, 119, 41);
 
         btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
@@ -93,7 +94,7 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
             }
         });
         panel_login.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(290, 120, 150, 40);
+        btn_RegresarAlMenuPrincipal.setBounds(320, 120, 120, 40);
 
         txt_contrasena.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -121,7 +122,7 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
-          frmMenuPrincipal ver=new frmMenuPrincipal();
+          frmSubMenuPuntos ver=new frmSubMenuPuntos();
             ver.setVisible(true); // visible ventana del objeto
             this.setVisible(false); // ocultar
        

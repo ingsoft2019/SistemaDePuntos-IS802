@@ -22,6 +22,7 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
     public frmAsignacionPuntos() {
          initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
+        this.setResizable(false); //Desactivar botón maximizar de una ventana
     }
 
     /**
@@ -33,66 +34,99 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         lblAsignacionPuntos = new javax.swing.JLabel();
         lblIdFactura = new javax.swing.JLabel();
-        lblNombreCliente = new javax.swing.JLabel();
         txtIdFactura = new javax.swing.JTextField();
         txtNombreCliente = new javax.swing.JTextField();
-        btn_asignar = new javax.swing.JButton();
+        lblNombreCliente = new javax.swing.JLabel();
         btn_limpiar = new javax.swing.JButton();
+        btn_asignar = new javax.swing.JButton();
         btn_VolverMenu = new javax.swing.JButton();
+        barraMenu = new javax.swing.JMenuBar();
+        menu_InicioSistema = new javax.swing.JMenu();
+        menu_Cliente = new javax.swing.JMenu();
+        menu_Puntos = new javax.swing.JMenu();
+        menu_Reportes = new javax.swing.JMenu();
+        menu_ayuda = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Asignación de Puntos");
-        setMaximumSize(new java.awt.Dimension(445, 291));
-        setMinimumSize(new java.awt.Dimension(445, 291));
-        setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(445, 291));
+        setMaximumSize(new java.awt.Dimension(491, 306));
+        setMinimumSize(new java.awt.Dimension(491, 306));
+        setPreferredSize(new java.awt.Dimension(491, 306));
         getContentPane().setLayout(null);
+
+        jPanel2.setLayout(null);
 
         lblAsignacionPuntos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblAsignacionPuntos.setText("Asignación de Puntos");
-        getContentPane().add(lblAsignacionPuntos);
-        lblAsignacionPuntos.setBounds(110, 20, 194, 38);
+        jPanel2.add(lblAsignacionPuntos);
+        lblAsignacionPuntos.setBounds(150, 10, 194, 38);
 
         lblIdFactura.setText("Id Facura:");
-        getContentPane().add(lblIdFactura);
-        lblIdFactura.setBounds(60, 100, 50, 14);
-
-        lblNombreCliente.setText("ID del Cliente:");
-        getContentPane().add(lblNombreCliente);
-        lblNombreCliente.setBounds(40, 150, 68, 14);
+        jPanel2.add(lblIdFactura);
+        lblIdFactura.setBounds(10, 70, 100, 14);
 
         txtIdFactura.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtIdFacturaKeyTyped(evt);
             }
         });
-        getContentPane().add(txtIdFactura);
-        txtIdFactura.setBounds(110, 100, 240, 20);
+        jPanel2.add(txtIdFactura);
+        txtIdFactura.setBounds(110, 60, 320, 30);
 
         txtNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreClienteKeyTyped(evt);
             }
         });
-        getContentPane().add(txtNombreCliente);
-        txtNombreCliente.setBounds(110, 150, 240, 20);
+        jPanel2.add(txtNombreCliente);
+        txtNombreCliente.setBounds(110, 110, 320, 40);
 
-        btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
-        btn_asignar.setText("Asignar");
-        getContentPane().add(btn_asignar);
-        btn_asignar.setBounds(30, 220, 105, 41);
+        lblNombreCliente.setText("ID del Cliente:");
+        jPanel2.add(lblNombreCliente);
+        lblNombreCliente.setBounds(10, 130, 100, 14);
 
         btn_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
         btn_limpiar.setText("Limpiar");
-        getContentPane().add(btn_limpiar);
-        btn_limpiar.setBounds(150, 220, 101, 41);
+        jPanel2.add(btn_limpiar);
+        btn_limpiar.setBounds(20, 180, 120, 41);
+
+        btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
+        btn_asignar.setText("Asignar");
+        jPanel2.add(btn_asignar);
+        btn_asignar.setBounds(160, 180, 130, 41);
 
         btn_VolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_VolverMenu.setText("Volver");
-        getContentPane().add(btn_VolverMenu);
-        btn_VolverMenu.setBounds(270, 220, 110, 40);
+        btn_VolverMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_VolverMenuActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_VolverMenu);
+        btn_VolverMenu.setBounds(310, 180, 120, 41);
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(20, 10, 450, 240);
+
+        menu_InicioSistema.setText("Inicio del Sistema ");
+        barraMenu.add(menu_InicioSistema);
+
+        menu_Cliente.setText("Clientes");
+        barraMenu.add(menu_Cliente);
+
+        menu_Puntos.setText("Puntos");
+        barraMenu.add(menu_Puntos);
+
+        menu_Reportes.setText("Reportes");
+        barraMenu.add(menu_Reportes);
+
+        menu_ayuda.setText("Ayuda");
+        barraMenu.add(menu_ayuda);
+
+        setJMenuBar(barraMenu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -133,6 +167,14 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         if (c< '0'|| c>'9') evt.consume();
     }//GEN-LAST:event_txtNombreClienteKeyTyped
 
+    private void btn_VolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverMenuActionPerformed
+        frmMenuPrincipal ver4=new frmMenuPrincipal();
+        ver4.setVisible(true); // visible ventana del objeto
+        this.setVisible(false); // ocultar
+            
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_VolverMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -169,12 +211,19 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_VolverMenu;
     private javax.swing.JButton btn_asignar;
     private javax.swing.JButton btn_limpiar;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAsignacionPuntos;
     private javax.swing.JLabel lblIdFactura;
     private javax.swing.JLabel lblNombreCliente;
+    private javax.swing.JMenu menu_Cliente;
+    private javax.swing.JMenu menu_InicioSistema;
+    private javax.swing.JMenu menu_Puntos;
+    private javax.swing.JMenu menu_Reportes;
+    private javax.swing.JMenu menu_ayuda;
     private javax.swing.JTextField txtIdFactura;
     private javax.swing.JTextField txtNombreCliente;
     // End of variables declaration//GEN-END:variables

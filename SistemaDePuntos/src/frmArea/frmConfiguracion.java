@@ -17,6 +17,7 @@ public class frmConfiguracion extends javax.swing.JFrame {
     public frmConfiguracion() {
          initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
+        this.setResizable(false); //Desactivar botón maximizar de una ventana
     }
 
     /**
@@ -36,60 +37,54 @@ public class frmConfiguracion extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        barraMenu = new javax.swing.JMenuBar();
+        menu_InicioSistema = new javax.swing.JMenu();
+        menu_Cliente = new javax.swing.JMenu();
+        menu_Puntos = new javax.swing.JMenu();
+        menu_Reportes = new javax.swing.JMenu();
+        menu_ayuda = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Configuración");
+        setTitle("Configuración del Sistema de Puntos");
         setMaximumSize(new java.awt.Dimension(680, 528));
         setMinimumSize(new java.awt.Dimension(680, 528));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(680, 528));
         getContentPane().setLayout(null);
 
-        jLabel1.setText("Busqueda");
+        jPanel1.setLayout(null);
 
+        jLabel1.setText("Busqueda");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(20, 30, 47, 14);
+        jPanel1.add(txt_busqueda);
+        txt_busqueda.setBounds(80, 30, 267, 20);
+
+        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/buscar.png"))); // NOI18N
         btn_buscar.setText("Buscar");
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_buscarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addGap(85, 85, 85)
-                .addComponent(txt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(btn_buscar)
-                .addGap(26, 26, 26))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txt_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_buscar))
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
+        jPanel1.add(btn_buscar);
+        btn_buscar.setBounds(370, 20, 100, 41);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(60, 60, 590, 80);
+        jPanel1.setBounds(100, 80, 490, 80);
 
         jPanel2.setLayout(null);
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/rifa.png"))); // NOI18N
         jButton2.setText("Realizar Rifa");
         jPanel2.add(jButton2);
         jButton2.setBounds(80, 60, 140, 50);
 
-        jButton5.setText("Recetear puntos");
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
+        jButton5.setText("Reinicio de Puntos");
         jPanel2.add(jButton5);
-        jButton5.setBounds(370, 60, 140, 50);
+        jButton5.setBounds(370, 60, 160, 50);
 
         btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
@@ -103,6 +98,28 @@ public class frmConfiguracion extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(40, 160, 600, 280);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("Conguración del Sistema");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(170, 30, 310, 40);
+
+        menu_InicioSistema.setText("Inicio del Sistema ");
+        barraMenu.add(menu_InicioSistema);
+
+        menu_Cliente.setText("Clientes");
+        barraMenu.add(menu_Cliente);
+
+        menu_Puntos.setText("Puntos");
+        barraMenu.add(menu_Puntos);
+
+        menu_Reportes.setText("Reportes");
+        barraMenu.add(menu_Reportes);
+
+        menu_ayuda.setText("Ayuda");
+        barraMenu.add(menu_ayuda);
+
+        setJMenuBar(barraMenu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -153,13 +170,20 @@ public class frmConfiguracion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JMenu menu_Cliente;
+    private javax.swing.JMenu menu_InicioSistema;
+    private javax.swing.JMenu menu_Puntos;
+    private javax.swing.JMenu menu_Reportes;
+    private javax.swing.JMenu menu_ayuda;
     private javax.swing.JTextField txt_busqueda;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,6 +17,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
     public frmConfiguracionPorcentajePuntos() {
          initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
+        this.setResizable(false); //Desactivar botón maximizar de una ventana
     }
 
     /**
@@ -28,20 +29,22 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jl_TituloPrincipal = new javax.swing.JLabel();
         jpanel_SubMenu = new javax.swing.JPanel();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
+        jl_TituloPrincipal = new javax.swing.JLabel();
+        barraMenu = new javax.swing.JMenuBar();
+        menu_InicioSistema = new javax.swing.JMenu();
+        menu_Cliente = new javax.swing.JMenu();
+        menu_Puntos = new javax.swing.JMenu();
+        menu_Reportes = new javax.swing.JMenu();
+        menu_ayuda = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Configuración porcentaje de puntos");
-        setMaximumSize(new java.awt.Dimension(680, 528));
-        setMinimumSize(new java.awt.Dimension(680, 528));
+        setMaximumSize(new java.awt.Dimension(695, 478));
+        setMinimumSize(new java.awt.Dimension(695, 478));
+        setPreferredSize(new java.awt.Dimension(695, 478));
         getContentPane().setLayout(null);
-
-        jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jl_TituloPrincipal.setText("Sub Menu ");
-        getContentPane().add(jl_TituloPrincipal);
-        jl_TituloPrincipal.setBounds(240, 30, 230, 30);
 
         jpanel_SubMenu.setMinimumSize(new java.awt.Dimension(680, 530));
         jpanel_SubMenu.setLayout(null);
@@ -54,15 +57,38 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
             }
         });
         jpanel_SubMenu.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(240, 340, 120, 50);
+        btn_RegresarAlMenuPrincipal.setBounds(240, 310, 120, 50);
+
+        jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jl_TituloPrincipal.setText("Configuracion de Puntos");
+        jpanel_SubMenu.add(jl_TituloPrincipal);
+        jl_TituloPrincipal.setBounds(140, 20, 320, 30);
 
         getContentPane().add(jpanel_SubMenu);
-        jpanel_SubMenu.setBounds(60, 90, 580, 410);
+        jpanel_SubMenu.setBounds(50, 20, 580, 410);
+
+        menu_InicioSistema.setText("Inicio del Sistema ");
+        barraMenu.add(menu_InicioSistema);
+
+        menu_Cliente.setText("Clientes");
+        barraMenu.add(menu_Cliente);
+
+        menu_Puntos.setText("Puntos");
+        barraMenu.add(menu_Puntos);
+
+        menu_Reportes.setText("Reportes");
+        barraMenu.add(menu_Reportes);
+
+        menu_ayuda.setText("Ayuda");
+        barraMenu.add(menu_ayuda);
+
+        setJMenuBar(barraMenu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
+
         frmMenuPrincipal ver=new frmMenuPrincipal();
         ver.setVisible(true); // visible ventana del objeto
         this.setVisible(false); // ocultar
@@ -104,8 +130,14 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JLabel jl_TituloPrincipal;
     private javax.swing.JPanel jpanel_SubMenu;
+    private javax.swing.JMenu menu_Cliente;
+    private javax.swing.JMenu menu_InicioSistema;
+    private javax.swing.JMenu menu_Puntos;
+    private javax.swing.JMenu menu_Reportes;
+    private javax.swing.JMenu menu_ayuda;
     // End of variables declaration//GEN-END:variables
 }

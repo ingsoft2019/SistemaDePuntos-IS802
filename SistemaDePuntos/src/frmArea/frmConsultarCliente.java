@@ -17,6 +17,8 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     public frmConsultarCliente() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false); //Desactivar botón maximizar de una ventana
+        
     }
 
     /**
@@ -33,19 +35,28 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btn_buscar = new javax.swing.JButton();
+        btn_agregarCliente = new javax.swing.JButton();
+        btn_clientes = new javax.swing.JButton();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
-        BuscarInactivos = new java.awt.Checkbox();
+        chbox_BuscarInactivos = new java.awt.Checkbox();
+        jl_Titulo = new javax.swing.JLabel();
+        barraMenu = new javax.swing.JMenuBar();
+        menu_InicioSistema = new javax.swing.JMenu();
+        menu_Cliente = new javax.swing.JMenu();
+        menu_Puntos = new javax.swing.JMenu();
+        menu_Reportes = new javax.swing.JMenu();
+        menu_ayuda = new javax.swing.JMenu();
 
         jToolBar1.setRollover(true);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consultar Cliente");
         setFocusable(false);
-        setMaximumSize(new java.awt.Dimension(680, 528));
-        setMinimumSize(new java.awt.Dimension(680, 528));
+        setMaximumSize(new java.awt.Dimension(517, 504));
+        setMinimumSize(new java.awt.Dimension(517, 504));
+        setName("ConsultaR Cliente"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(517, 504));
         getContentPane().setLayout(null);
 
         jPanel1.setFocusable(false);
@@ -74,35 +85,35 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         jPanel1.add(jTextField1);
         jTextField1.setBounds(10, 8, 350, 40);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/buscar.png"))); // NOI18N
-        jButton1.setText("Buscar");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton1.setPreferredSize(new java.awt.Dimension(35, 30));
-        jPanel1.add(jButton1);
-        jButton1.setBounds(380, 10, 100, 40);
+        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/buscar.png"))); // NOI18N
+        btn_buscar.setText("Buscar");
+        btn_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_buscar.setPreferredSize(new java.awt.Dimension(35, 30));
+        jPanel1.add(btn_buscar);
+        btn_buscar.setBounds(380, 10, 100, 40);
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/agregar.png"))); // NOI18N
-        jButton5.setText("Agregar");
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btn_agregarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/agregar.png"))); // NOI18N
+        btn_agregarCliente.setText("Agregar");
+        btn_agregarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_agregarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btn_agregarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5);
-        jButton5.setBounds(370, 310, 120, 40);
+        jPanel1.add(btn_agregarCliente);
+        btn_agregarCliente.setBounds(370, 270, 120, 40);
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/cliente.png"))); // NOI18N
-        jButton7.setText("Gestion Cliente");
-        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton7.setMultiClickThreshhold(30L);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btn_clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/cliente.png"))); // NOI18N
+        btn_clientes.setText("Cliente");
+        btn_clientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_clientes.setMultiClickThreshhold(30L);
+        btn_clientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btn_clientesActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7);
-        jButton7.setBounds(370, 250, 120, 40);
+        jPanel1.add(btn_clientes);
+        btn_clientes.setBounds(370, 200, 120, 40);
 
         btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
@@ -112,30 +123,53 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(370, 360, 120, 40);
+        btn_RegresarAlMenuPrincipal.setBounds(370, 340, 120, 40);
 
-        BuscarInactivos.setLabel("Buscar inactivos");
-        BuscarInactivos.setName("Buscar Inactivos"); // NOI18N
-        jPanel1.add(BuscarInactivos);
-        BuscarInactivos.setBounds(380, 60, 120, 30);
+        chbox_BuscarInactivos.setLabel("Buscar inactivos");
+        chbox_BuscarInactivos.setName("Buscar Inactivos"); // NOI18N
+        jPanel1.add(chbox_BuscarInactivos);
+        chbox_BuscarInactivos.setBounds(380, 60, 120, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(30, 10, 500, 430);
+        jPanel1.setBounds(10, 50, 500, 420);
+
+        jl_Titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jl_Titulo.setText("Consultar Cliente");
+        getContentPane().add(jl_Titulo);
+        jl_Titulo.setBounds(170, 10, 220, 30);
+
+        menu_InicioSistema.setText("Inicio del Sistema ");
+        barraMenu.add(menu_InicioSistema);
+
+        menu_Cliente.setText("Clientes");
+        barraMenu.add(menu_Cliente);
+
+        menu_Puntos.setText("Puntos");
+        barraMenu.add(menu_Puntos);
+
+        menu_Reportes.setText("Reportes");
+        barraMenu.add(menu_Reportes);
+
+        menu_ayuda.setText("Ayuda");
+        barraMenu.add(menu_ayuda);
+
+        setJMenuBar(barraMenu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btn_agregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarClienteActionPerformed
         frmRegistroClientes RC = new frmRegistroClientes();
         RC.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btn_agregarClienteActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
+
         frmSubMenuCliente SMC = new frmSubMenuCliente();
         SMC.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btn_clientesActionPerformed
 
     private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
         frmMenuPrincipal ver=new frmMenuPrincipal();
@@ -180,15 +214,22 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Checkbox BuscarInactivos;
+    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton btn_agregarCliente;
+    private javax.swing.JButton btn_buscar;
+    private javax.swing.JButton btn_clientes;
+    private java.awt.Checkbox chbox_BuscarInactivos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel jl_Titulo;
+    private javax.swing.JMenu menu_Cliente;
+    private javax.swing.JMenu menu_InicioSistema;
+    private javax.swing.JMenu menu_Puntos;
+    private javax.swing.JMenu menu_Reportes;
+    private javax.swing.JMenu menu_ayuda;
     // End of variables declaration//GEN-END:variables
 }

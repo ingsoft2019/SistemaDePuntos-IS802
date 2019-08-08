@@ -17,6 +17,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     public frmMenuPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
+        this.setResizable(false); //Desactivar botón maximizar de una ventana
     }
 
     /**
@@ -28,25 +29,27 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jl_tituloMenuPrincipal = new javax.swing.JLabel();
         panel_menuPrincipal = new java.awt.Panel();
         btn_ClienteMenu = new javax.swing.JButton();
         btn_PuntosMenu = new javax.swing.JButton();
         btn_ReportesMenu = new javax.swing.JButton();
         btn_configuracion = new javax.swing.JButton();
         btn_SalirMenuPrincipal = new javax.swing.JButton();
+        jl_tituloMenuPrincipal = new javax.swing.JLabel();
+        barraMenu = new javax.swing.JMenuBar();
+        menu_InicioSistema = new javax.swing.JMenu();
+        menu_Cliente = new javax.swing.JMenu();
+        menu_Puntos = new javax.swing.JMenu();
+        menu_Reportes = new javax.swing.JMenu();
+        menu_ayuda = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Munu Principal del Sistema de Puntos");
-        setMinimumSize(new java.awt.Dimension(680, 530));
+        setMaximumSize(new java.awt.Dimension(680, 528));
+        setMinimumSize(new java.awt.Dimension(680, 528));
         setName("Menu Princial Sistema de Puntos"); // NOI18N
-        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(680, 528));
         getContentPane().setLayout(null);
-
-        jl_tituloMenuPrincipal.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jl_tituloMenuPrincipal.setText("Sistema de Puntos Farmacia ");
-        getContentPane().add(jl_tituloMenuPrincipal);
-        jl_tituloMenuPrincipal.setBounds(70, 40, 570, 40);
 
         panel_menuPrincipal.setLayout(null);
 
@@ -58,7 +61,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_ClienteMenu);
-        btn_ClienteMenu.setBounds(40, 40, 180, 70);
+        btn_ClienteMenu.setBounds(40, 110, 220, 70);
 
         btn_PuntosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/gestion_de_puntos v2.png"))); // NOI18N
         btn_PuntosMenu.setText("Puntos");
@@ -68,7 +71,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_PuntosMenu);
-        btn_PuntosMenu.setBounds(270, 40, 180, 70);
+        btn_PuntosMenu.setBounds(350, 110, 200, 70);
 
         btn_ReportesMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/reportes v2.png"))); // NOI18N
         btn_ReportesMenu.setText("Reportes");
@@ -78,7 +81,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_ReportesMenu);
-        btn_ReportesMenu.setBounds(40, 160, 180, 70);
+        btn_ReportesMenu.setBounds(40, 230, 220, 70);
 
         btn_configuracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/administrador.png"))); // NOI18N
         btn_configuracion.setText("Configuración");
@@ -89,7 +92,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_configuracion);
-        btn_configuracion.setBounds(270, 160, 180, 69);
+        btn_configuracion.setBounds(360, 230, 190, 69);
 
         btn_SalirMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/salirSistema v2.png"))); // NOI18N
         btn_SalirMenuPrincipal.setText("Salir del sistema");
@@ -99,10 +102,32 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_SalirMenuPrincipal);
-        btn_SalirMenuPrincipal.setBounds(170, 260, 170, 70);
+        btn_SalirMenuPrincipal.setBounds(180, 340, 260, 70);
+
+        jl_tituloMenuPrincipal.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jl_tituloMenuPrincipal.setText("Sistema de Puntos Farmacia ");
+        panel_menuPrincipal.add(jl_tituloMenuPrincipal);
+        jl_tituloMenuPrincipal.setBounds(80, 20, 459, 40);
 
         getContentPane().add(panel_menuPrincipal);
-        panel_menuPrincipal.setBounds(90, 140, 500, 350);
+        panel_menuPrincipal.setBounds(40, 30, 600, 430);
+
+        menu_InicioSistema.setText("Inicio del Sistema ");
+        barraMenu.add(menu_InicioSistema);
+
+        menu_Cliente.setText("Clientes");
+        barraMenu.add(menu_Cliente);
+
+        menu_Puntos.setText("Puntos");
+        barraMenu.add(menu_Puntos);
+
+        menu_Reportes.setText("Reportes");
+        barraMenu.add(menu_Reportes);
+
+        menu_ayuda.setText("Ayuda");
+        barraMenu.add(menu_ayuda);
+
+        setJMenuBar(barraMenu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -175,12 +200,18 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_ClienteMenu;
     private javax.swing.JButton btn_PuntosMenu;
     private javax.swing.JButton btn_ReportesMenu;
     private javax.swing.JButton btn_SalirMenuPrincipal;
     private javax.swing.JButton btn_configuracion;
     private javax.swing.JLabel jl_tituloMenuPrincipal;
+    private javax.swing.JMenu menu_Cliente;
+    private javax.swing.JMenu menu_InicioSistema;
+    private javax.swing.JMenu menu_Puntos;
+    private javax.swing.JMenu menu_Reportes;
+    private javax.swing.JMenu menu_ayuda;
     private java.awt.Panel panel_menuPrincipal;
     // End of variables declaration//GEN-END:variables
 }

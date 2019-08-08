@@ -21,21 +21,22 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     
     public frmRegistroClientes() {
          initComponents();
-        this.setLocationRelativeTo(null); //para ponerse en el centro
+        this.setLocationRelativeTo(null); //para ponerse en el centro         
+        this.setResizable(false); //Desactivar botón maximizar de una ventana
         
           cargarZonas();//  Cargar las zonas en el combobox zonas
-          v.ValidarSoloLetras(jT_primerNombre);
-          v.ValidarSoloLetras(jT_segundoNombre);
-          v.ValidarSoloLetras(jT_primerApellido);
-          v.ValidarSoloLetras(jT_segundoApellido);
-          v.ValidarTelefono(Jt_telefono1);
-          v.ValidarTelefono(jt_telefono2);
-          v.ValidarTelefono(jt_telefono3);
-          v.ValidarIdentidad(jT_noIdentidad);
-          v.limitarCaracteres(Jt_telefono1, 13);
-          v.limitarCaracteres(jt_telefono2, 13);
-          v.limitarCaracteres(jt_telefono3, 13);
-          v.limitarCaracteres(jT_noIdentidad,15);
+          v.ValidarSoloLetras(txt_primerNombre);
+          v.ValidarSoloLetras(txt_segundoNombre);
+          v.ValidarSoloLetras(txt_primerApellido);
+          v.ValidarSoloLetras(txt_segundoApellido);
+          v.ValidarTelefono(txt_telefono1);
+          v.ValidarTelefono(txt_telefono2);
+          v.ValidarTelefono(txt_telefono3);
+          v.ValidarIdentidad(txt_noIdentidad);
+          v.limitarCaracteres(txt_telefono1, 13);
+          v.limitarCaracteres(txt_telefono2, 13);
+          v.limitarCaracteres(txt_telefono3, 13);
+          v.limitarCaracteres(txt_noIdentidad,15);
          
           
     }
@@ -54,21 +55,23 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         PrimerApellido = new javax.swing.JLabel();
         SegundoApelliido = new javax.swing.JLabel();
         NoIdentidad = new javax.swing.JLabel();
-        Telefono = new javax.swing.JLabel();
+        Telefono2 = new javax.swing.JLabel();
         CorreoElectronico = new javax.swing.JLabel();
-        jT_primerNombre = new javax.swing.JTextField();
-        jT_segundoNombre = new javax.swing.JTextField();
-        jT_primerApellido = new javax.swing.JTextField();
-        jT_segundoApellido = new javax.swing.JTextField();
-        jT_noIdentidad = new javax.swing.JTextField();
-        jt_telefono3 = new javax.swing.JTextField();
+        txt_primerNombre = new javax.swing.JTextField();
+        txt_segundoNombre = new javax.swing.JTextField();
+        txt_primerApellido = new javax.swing.JTextField();
+        txt_segundoApellido = new javax.swing.JTextField();
+        txt_noIdentidad = new javax.swing.JTextField();
+        txt_telefono3 = new javax.swing.JTextField();
         PrimerNombre = new javax.swing.JLabel();
-        jT_correoElectronico = new javax.swing.JTextField();
+        txt_correoElectronico = new javax.swing.JTextField();
         jP2_DatosCliente = new javax.swing.JPanel();
         jL_Sexo = new javax.swing.JLabel();
         jC_Sexo = new javax.swing.JComboBox<>();
         jL_fechaNacimiento = new javax.swing.JLabel();
         jDC_fechaNacimiento = new com.toedter.calendar.JDateChooser();
+        txt_telefono1 = new javax.swing.JTextField();
+        txt_telefono2 = new javax.swing.JTextField();
         jP_DatosDireccion = new javax.swing.JPanel();
         jL_TituloDireccion = new javax.swing.JLabel();
         jL_DetalleDirecion = new javax.swing.JLabel();
@@ -76,20 +79,26 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         descripcion = new javax.swing.JTextArea();
         jL_Zona = new javax.swing.JLabel();
         jC_zona = new javax.swing.JComboBox<>();
-        Jt_telefono1 = new javax.swing.JTextField();
-        jt_telefono2 = new javax.swing.JTextField();
-        j_Botones = new javax.swing.JPanel();
+        Telefono1 = new javax.swing.JLabel();
+        Telefono3 = new javax.swing.JLabel();
+        panel_botonesBasicos = new javax.swing.JPanel();
         btn_guardarCliente = new javax.swing.JButton();
         btn_menuInicio = new javax.swing.JButton();
         btn_limpiarCampos = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        barraMenu = new javax.swing.JMenuBar();
+        menu_InicioSistema = new javax.swing.JMenu();
+        menu_Cliente = new javax.swing.JMenu();
+        menu_Puntos = new javax.swing.JMenu();
+        menu_Reportes = new javax.swing.JMenu();
+        menu_ayuda = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Registro cliente");
-        setMaximumSize(new java.awt.Dimension(512, 539));
-        setMinimumSize(new java.awt.Dimension(512, 539));
+        setTitle("Registro Cliente");
+        setMaximumSize(new java.awt.Dimension(496, 645));
+        setMinimumSize(new java.awt.Dimension(496, 645));
         setName("Registro Cliente"); // NOI18N
-        setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(512, 539));
+        setPreferredSize(new java.awt.Dimension(496, 645));
         getContentPane().setLayout(null);
 
         jP1_DatosCliente.setLayout(null);
@@ -114,72 +123,72 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         jP1_DatosCliente.add(NoIdentidad);
         NoIdentidad.setBounds(10, 115, 110, 20);
 
-        Telefono.setText("Teléfono:");
-        Telefono.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP1_DatosCliente.add(Telefono);
-        Telefono.setBounds(10, 141, 110, 20);
+        Telefono2.setText("Teléfono 3:");
+        Telefono2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP1_DatosCliente.add(Telefono2);
+        Telefono2.setBounds(10, 200, 110, 20);
 
         CorreoElectronico.setText("Correo electrónico:");
         CorreoElectronico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(CorreoElectronico);
-        CorreoElectronico.setBounds(10, 167, 110, 20);
+        CorreoElectronico.setBounds(10, 230, 110, 20);
 
-        jT_primerNombre.setMinimumSize(new java.awt.Dimension(8, 22));
-        jT_primerNombre.setPreferredSize(new java.awt.Dimension(8, 24));
-        jT_primerNombre.addActionListener(new java.awt.event.ActionListener() {
+        txt_primerNombre.setMinimumSize(new java.awt.Dimension(8, 22));
+        txt_primerNombre.setPreferredSize(new java.awt.Dimension(8, 24));
+        txt_primerNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jT_primerNombreActionPerformed(evt);
+                txt_primerNombreActionPerformed(evt);
             }
         });
-        jP1_DatosCliente.add(jT_primerNombre);
-        jT_primerNombre.setBounds(120, 10, 301, 24);
+        jP1_DatosCliente.add(txt_primerNombre);
+        txt_primerNombre.setBounds(120, 10, 330, 24);
 
-        jT_segundoNombre.addActionListener(new java.awt.event.ActionListener() {
+        txt_segundoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jT_segundoNombreActionPerformed(evt);
+                txt_segundoNombreActionPerformed(evt);
             }
         });
-        jP1_DatosCliente.add(jT_segundoNombre);
-        jT_segundoNombre.setBounds(120, 37, 301, 24);
+        jP1_DatosCliente.add(txt_segundoNombre);
+        txt_segundoNombre.setBounds(120, 37, 330, 24);
 
-        jT_primerApellido.addActionListener(new java.awt.event.ActionListener() {
+        txt_primerApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jT_primerApellidoActionPerformed(evt);
+                txt_primerApellidoActionPerformed(evt);
             }
         });
-        jP1_DatosCliente.add(jT_primerApellido);
-        jT_primerApellido.setBounds(120, 63, 301, 24);
+        jP1_DatosCliente.add(txt_primerApellido);
+        txt_primerApellido.setBounds(120, 63, 330, 24);
 
-        jT_segundoApellido.addActionListener(new java.awt.event.ActionListener() {
+        txt_segundoApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jT_segundoApellidoActionPerformed(evt);
+                txt_segundoApellidoActionPerformed(evt);
             }
         });
-        jP1_DatosCliente.add(jT_segundoApellido);
-        jT_segundoApellido.setBounds(120, 89, 301, 24);
+        jP1_DatosCliente.add(txt_segundoApellido);
+        txt_segundoApellido.setBounds(120, 89, 330, 24);
 
-        jT_noIdentidad.addActionListener(new java.awt.event.ActionListener() {
+        txt_noIdentidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jT_noIdentidadActionPerformed(evt);
+                txt_noIdentidadActionPerformed(evt);
             }
         });
-        jP1_DatosCliente.add(jT_noIdentidad);
-        jT_noIdentidad.setBounds(120, 115, 301, 24);
+        jP1_DatosCliente.add(txt_noIdentidad);
+        txt_noIdentidad.setBounds(120, 115, 330, 24);
 
-        jt_telefono3.addActionListener(new java.awt.event.ActionListener() {
+        txt_telefono3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jt_telefono3ActionPerformed(evt);
+                txt_telefono3ActionPerformed(evt);
             }
         });
-        jP1_DatosCliente.add(jt_telefono3);
-        jt_telefono3.setBounds(321, 141, 100, 24);
+        jP1_DatosCliente.add(txt_telefono3);
+        txt_telefono3.setBounds(120, 200, 330, 24);
 
         PrimerNombre.setText("Primer nombre:");
         PrimerNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(PrimerNombre);
         PrimerNombre.setBounds(10, 11, 110, 20);
-        jP1_DatosCliente.add(jT_correoElectronico);
-        jT_correoElectronico.setBounds(120, 167, 301, 24);
+        jP1_DatosCliente.add(txt_correoElectronico);
+        txt_correoElectronico.setBounds(120, 230, 330, 20);
 
         jP2_DatosCliente.setLayout(null);
 
@@ -192,17 +201,33 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         jC_Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
         jC_Sexo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jP2_DatosCliente.add(jC_Sexo);
-        jC_Sexo.setBounds(110, 0, 130, 24);
+        jC_Sexo.setBounds(110, 0, 330, 24);
 
         jL_fechaNacimiento.setText("Fecha nacimiento dd-mm-yy :");
         jL_fechaNacimiento.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP2_DatosCliente.add(jL_fechaNacimiento);
         jL_fechaNacimiento.setBounds(0, 30, 200, 24);
         jP2_DatosCliente.add(jDC_fechaNacimiento);
-        jDC_fechaNacimiento.setBounds(200, 30, 210, 24);
+        jDC_fechaNacimiento.setBounds(200, 30, 240, 24);
 
         jP1_DatosCliente.add(jP2_DatosCliente);
-        jP2_DatosCliente.setBounds(10, 200, 413, 69);
+        jP2_DatosCliente.setBounds(10, 260, 450, 69);
+
+        txt_telefono1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_telefono1ActionPerformed(evt);
+            }
+        });
+        jP1_DatosCliente.add(txt_telefono1);
+        txt_telefono1.setBounds(120, 141, 330, 24);
+
+        txt_telefono2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_telefono2ActionPerformed(evt);
+            }
+        });
+        jP1_DatosCliente.add(txt_telefono2);
+        txt_telefono2.setBounds(120, 170, 330, 24);
 
         jP_DatosDireccion.setLayout(null);
 
@@ -234,28 +259,19 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         jC_zona.setBounds(90, 24, 180, 24);
 
         jP1_DatosCliente.add(jP_DatosDireccion);
-        jP_DatosDireccion.setBounds(0, 270, 460, 160);
+        jP_DatosDireccion.setBounds(0, 330, 460, 160);
 
-        Jt_telefono1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jt_telefono1ActionPerformed(evt);
-            }
-        });
-        jP1_DatosCliente.add(Jt_telefono1);
-        Jt_telefono1.setBounds(120, 141, 99, 24);
+        Telefono1.setText("Teléfono Principal:");
+        Telefono1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP1_DatosCliente.add(Telefono1);
+        Telefono1.setBounds(10, 141, 110, 20);
 
-        jt_telefono2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jt_telefono2ActionPerformed(evt);
-            }
-        });
-        jP1_DatosCliente.add(jt_telefono2);
-        jt_telefono2.setBounds(220, 141, 100, 24);
+        Telefono3.setText("Teléfono 2:");
+        Telefono3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP1_DatosCliente.add(Telefono3);
+        Telefono3.setBounds(10, 170, 110, 20);
 
-        getContentPane().add(jP1_DatosCliente);
-        jP1_DatosCliente.setBounds(30, 10, 470, 430);
-
-        j_Botones.setLayout(null);
+        panel_botonesBasicos.setLayout(null);
 
         btn_guardarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/guardar.png"))); // NOI18N
         btn_guardarCliente.setText("Guardar");
@@ -265,8 +281,8 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                 btn_guardarClienteActionPerformed(evt);
             }
         });
-        j_Botones.add(btn_guardarCliente);
-        btn_guardarCliente.setBounds(20, 20, 105, 49);
+        panel_botonesBasicos.add(btn_guardarCliente);
+        btn_guardarCliente.setBounds(20, 10, 105, 49);
 
         btn_menuInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_menuInicio.setText("Atrás");
@@ -276,52 +292,79 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                 btn_menuInicioActionPerformed(evt);
             }
         });
-        j_Botones.add(btn_menuInicio);
-        btn_menuInicio.setBounds(320, 20, 95, 49);
+        panel_botonesBasicos.add(btn_menuInicio);
+        btn_menuInicio.setBounds(300, 10, 95, 49);
 
         btn_limpiarCampos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
         btn_limpiarCampos.setText("Limpiar");
-        j_Botones.add(btn_limpiarCampos);
-        btn_limpiarCampos.setBounds(170, 20, 110, 50);
+        panel_botonesBasicos.add(btn_limpiarCampos);
+        btn_limpiarCampos.setBounds(160, 10, 110, 50);
 
-        getContentPane().add(j_Botones);
-        j_Botones.setBounds(30, 440, 450, 80);
+        jP1_DatosCliente.add(panel_botonesBasicos);
+        panel_botonesBasicos.setBounds(30, 480, 410, 70);
+
+        getContentPane().add(jP1_DatosCliente);
+        jP1_DatosCliente.setBounds(20, 40, 470, 570);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Registro de Cliente");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(160, 10, 180, 22);
+
+        menu_InicioSistema.setText("Inicio del Sistema ");
+        barraMenu.add(menu_InicioSistema);
+
+        menu_Cliente.setText("Clientes");
+        barraMenu.add(menu_Cliente);
+
+        menu_Puntos.setText("Puntos");
+        barraMenu.add(menu_Puntos);
+
+        menu_Reportes.setText("Reportes");
+        barraMenu.add(menu_Reportes);
+
+        menu_ayuda.setText("Ayuda");
+        barraMenu.add(menu_ayuda);
+
+        setJMenuBar(barraMenu);
+
+        getAccessibleContext().setAccessibleName("Registro Cliente");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jT_segundoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_segundoNombreActionPerformed
+    private void txt_segundoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_segundoNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_segundoNombreActionPerformed
+    }//GEN-LAST:event_txt_segundoNombreActionPerformed
 
-    private void jT_primerApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_primerApellidoActionPerformed
+    private void txt_primerApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_primerApellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_primerApellidoActionPerformed
+    }//GEN-LAST:event_txt_primerApellidoActionPerformed
 
-    private void jT_noIdentidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_noIdentidadActionPerformed
+    private void txt_noIdentidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_noIdentidadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_noIdentidadActionPerformed
+    }//GEN-LAST:event_txt_noIdentidadActionPerformed
 
-    private void jT_segundoApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_segundoApellidoActionPerformed
+    private void txt_segundoApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_segundoApellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_segundoApellidoActionPerformed
+    }//GEN-LAST:event_txt_segundoApellidoActionPerformed
 
-    private void jt_telefono3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jt_telefono3ActionPerformed
+    private void txt_telefono3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefono3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jt_telefono3ActionPerformed
+    }//GEN-LAST:event_txt_telefono3ActionPerformed
 
     //Guardar clientes
     private void btn_guardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarClienteActionPerformed
         
         String sexo = (String) jC_Sexo.getSelectedItem();
-        if (jT_primerNombre.getText().isEmpty() || jT_primerApellido.getText().isEmpty() || jT_noIdentidad.getText().isEmpty()
-                || Jt_telefono1.getText().isEmpty() || sexo.isEmpty() || jDC_fechaNacimiento.getDate() == null
+        if (txt_primerNombre.getText().isEmpty() || txt_primerApellido.getText().isEmpty() || txt_noIdentidad.getText().isEmpty()
+                || txt_telefono1.getText().isEmpty() || sexo.isEmpty() || jDC_fechaNacimiento.getDate() == null
                 || jC_zona.getSelectedItem()==null) {
 
             JOptionPane.showMessageDialog(this, "Se dejaron vacios campos que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
         } else {
             try {   //Esta consulta es para validar que no se inserte un registro duplicado
-                res = Conexion.Conexion.consulta("SELECT COUNT(identidad) from persona WHERE identidad='" + jT_noIdentidad.getText() + "'");
+                res = Conexion.Conexion.consulta("SELECT COUNT(identidad) from persona WHERE identidad='" + txt_noIdentidad.getText() + "'");
                 try {
                     while (res.next()) {
                         cont = res.getInt(1);
@@ -343,10 +386,10 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                         idZona = respuesta.getInt(1);
                     }
 
-                    Procedimientos.ProcedimientosCliente.guardarPersona(jT_primerNombre.getText(), jT_segundoNombre.getText(),
-                            jT_primerApellido.getText(), jT_segundoApellido.getText(), jT_noIdentidad.getText(), jT_correoElectronico.getText(),
-                            sexo, fechaNac, idZona, descripcion.getText(), Jt_telefono1.getText(), jt_telefono2.getText(),
-                            jt_telefono3.getText());
+                    Procedimientos.ProcedimientosCliente.guardarPersona(txt_primerNombre.getText(), txt_segundoNombre.getText(),
+                            txt_primerApellido.getText(), txt_segundoApellido.getText(), txt_noIdentidad.getText(), txt_correoElectronico.getText(),
+                            sexo, fechaNac, idZona, descripcion.getText(), txt_telefono1.getText(), txt_telefono2.getText(),
+                            txt_telefono3.getText());
 
                     //Obtener fecha del sistema para agregarla como fecha de registro del cliente
                     java.util.Date fechaActual = new java.util.Date();
@@ -358,15 +401,15 @@ public class frmRegistroClientes extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Registro guardado");
                     
                     //Limpiar los campos
-                    jT_primerNombre.setText("");
-                    jT_segundoNombre.setText("");
-                    jT_primerApellido.setText("");
-                    jT_segundoApellido.setText("");
-                    jT_noIdentidad.setText("");
-                    jT_correoElectronico.setText("");
-                    Jt_telefono1.setText("");
-                    jt_telefono2.setText("");
-                    jt_telefono3.setText("");
+                    txt_primerNombre.setText("");
+                    txt_segundoNombre.setText("");
+                    txt_primerApellido.setText("");
+                    txt_segundoApellido.setText("");
+                    txt_noIdentidad.setText("");
+                    txt_correoElectronico.setText("");
+                    txt_telefono1.setText("");
+                    txt_telefono2.setText("");
+                    txt_telefono3.setText("");
                     jC_Sexo.setSelectedIndex(0);
                     jC_zona.setSelectedIndex(0);
                     descripcion.setText("");
@@ -378,9 +421,9 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_guardarClienteActionPerformed
 
-    private void jT_primerNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_primerNombreActionPerformed
+    private void txt_primerNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_primerNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_primerNombreActionPerformed
+    }//GEN-LAST:event_txt_primerNombreActionPerformed
 
     private void btn_menuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuInicioActionPerformed
             frmMenuPrincipal ver=new frmMenuPrincipal();
@@ -389,13 +432,13 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_menuInicioActionPerformed
 
-    private void Jt_telefono1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jt_telefono1ActionPerformed
+    private void txt_telefono1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefono1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jt_telefono1ActionPerformed
+    }//GEN-LAST:event_txt_telefono1ActionPerformed
 
-    private void jt_telefono2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jt_telefono2ActionPerformed
+    private void txt_telefono2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefono2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jt_telefono2ActionPerformed
+    }//GEN-LAST:event_txt_telefono2ActionPerformed
     
     //Metodo para llenar el combobox zonas
     public void cargarZonas() {
@@ -453,13 +496,15 @@ public class frmRegistroClientes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CorreoElectronico;
-    private javax.swing.JTextField Jt_telefono1;
     private javax.swing.JLabel NoIdentidad;
     private javax.swing.JLabel PrimerApellido;
     private javax.swing.JLabel PrimerNombre;
     private javax.swing.JLabel SegundoApelliido;
     private javax.swing.JLabel SegundoNombre;
-    private javax.swing.JLabel Telefono;
+    private javax.swing.JLabel Telefono1;
+    private javax.swing.JLabel Telefono2;
+    private javax.swing.JLabel Telefono3;
+    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_guardarCliente;
     private javax.swing.JButton btn_limpiarCampos;
     private javax.swing.JButton btn_menuInicio;
@@ -472,18 +517,25 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     private javax.swing.JLabel jL_TituloDireccion;
     private javax.swing.JLabel jL_Zona;
     private javax.swing.JLabel jL_fechaNacimiento;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jP1_DatosCliente;
     private javax.swing.JPanel jP2_DatosCliente;
     private javax.swing.JPanel jP_DatosDireccion;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jT_correoElectronico;
-    private javax.swing.JTextField jT_noIdentidad;
-    private javax.swing.JTextField jT_primerApellido;
-    private javax.swing.JTextField jT_primerNombre;
-    private javax.swing.JTextField jT_segundoApellido;
-    private javax.swing.JTextField jT_segundoNombre;
-    private javax.swing.JPanel j_Botones;
-    private javax.swing.JTextField jt_telefono2;
-    private javax.swing.JTextField jt_telefono3;
+    private javax.swing.JMenu menu_Cliente;
+    private javax.swing.JMenu menu_InicioSistema;
+    private javax.swing.JMenu menu_Puntos;
+    private javax.swing.JMenu menu_Reportes;
+    private javax.swing.JMenu menu_ayuda;
+    private javax.swing.JPanel panel_botonesBasicos;
+    private javax.swing.JTextField txt_correoElectronico;
+    private javax.swing.JTextField txt_noIdentidad;
+    private javax.swing.JTextField txt_primerApellido;
+    private javax.swing.JTextField txt_primerNombre;
+    private javax.swing.JTextField txt_segundoApellido;
+    private javax.swing.JTextField txt_segundoNombre;
+    private javax.swing.JTextField txt_telefono1;
+    private javax.swing.JTextField txt_telefono2;
+    private javax.swing.JTextField txt_telefono3;
     // End of variables declaration//GEN-END:variables
 }
