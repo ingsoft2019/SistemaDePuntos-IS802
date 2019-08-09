@@ -30,8 +30,8 @@ public class Conexion {
     static String db = "PR";
  
 
-    public static Connection getConexion(){
-        String url = "jdbc:sqlserver://localhost:1433;databaseName="+db;
+    //public static Connection getConexion(){
+      //  String url = "jdbc:sqlserver://localhost:1433;databaseName="+db;
 
     //static String servidor = "DESKTOP-F99GN1I";
     //static String sentencia = "MSSQLSERVER12";
