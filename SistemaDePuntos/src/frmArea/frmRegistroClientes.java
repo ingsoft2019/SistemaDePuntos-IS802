@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -39,6 +41,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         v.limitarCaracteres(txt_telefono2, 13);
         v.limitarCaracteres(txt_telefono3, 13);
         v.limitarCaracteres(txt_noIdentidad, 15);
+        //v.validarCorreo(txt_correoElectronico.getText());
 
     }
 
@@ -592,23 +595,37 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_telefono3KeyPressed
 
     private void txt_correoElectronicoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_correoElectronicoKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
-            jC_Sexo.requestFocus();
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            Pattern pattern = Pattern
+                    .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+
+            Matcher mather = pattern.matcher((CharSequence) txt_correoElectronico.getText());
+            if (mather.find() == false) {
+                JOptionPane.showMessageDialog(null, "Correo invalido");
+            }else{
+                jC_Sexo.requestFocus();
+            }
+        }
+
     }//GEN-LAST:event_txt_correoElectronicoKeyPressed
 
     private void jC_SexoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jC_SexoKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             jDC_fechaNacimiento.requestFocus();
+        }
     }//GEN-LAST:event_jC_SexoKeyPressed
 
     private void jDC_fechaNacimientoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDC_fechaNacimientoKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             jC_zona.requestFocus();
+        }
     }//GEN-LAST:event_jDC_fechaNacimientoKeyPressed
 
     private void jC_zonaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jC_zonaKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             descripcion.requestFocus();
+        }
     }//GEN-LAST:event_jC_zonaKeyPressed
 
     //Metodo para llenar el combobox zonas

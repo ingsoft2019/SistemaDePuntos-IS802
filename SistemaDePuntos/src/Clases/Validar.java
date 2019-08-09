@@ -5,9 +5,12 @@
  */
 package Clases;
 
+import java.awt.TextField;
 import java.awt.event.KeyAdapter;
 import javax.swing.JTextField;
 import java.awt.event.KeyEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 /**
  *
@@ -83,6 +86,19 @@ public class Validar {
             }
 });
     }
+     
+     public boolean validarCorreo(String correo){
+         // Patrón para validar el email
+        Pattern pattern = Pattern
+                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+ 
+        Matcher mather = pattern.matcher((CharSequence) correo);
+        if (mather.find() == false) {
+            JOptionPane.showMessageDialog(null, "Correo invalido");
+        } 
+        return mather.find();
+     }
      
     /* public void validarDetalleDireccion(JTextField campo){
         campo.addKeyListener(new KeyAdapter() {

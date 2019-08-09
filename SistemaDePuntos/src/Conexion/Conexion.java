@@ -25,13 +25,13 @@ public class Conexion {
     //Datos para conexion de la BD de Luis Estrada  jdbc:sqlserver://DESKTOP-F99GN1I\MSSQLSERVER12:1433;databaseName=SP
     static String servidor = "DESKTOP-F99GN1I";
     static String sentencia = "MSSQLSERVER12";
-    static String user = "sa1";
+    static String user = "sa";
     static String pass = "123";
-    static String db = "SP";
+    static String db = "PR";
  
 
     public static Connection getConexion(){
-        String url = "jdbc:sqlserver://"+servidor+"\\"+sentencia+":1433;databaseName="+db;
+        String url = "jdbc:sqlserver://localhost:1433;databaseName="+db;
 
         
         try{
