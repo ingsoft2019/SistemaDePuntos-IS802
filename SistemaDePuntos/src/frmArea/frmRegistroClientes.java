@@ -42,6 +42,8 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         v.limitarCaracteres(txt_telefono3, 13);
         v.limitarCaracteres(txt_noIdentidad, 15);
         //v.validarCorreo(txt_correoElectronico.getText());
+       
+        
 
     }
 

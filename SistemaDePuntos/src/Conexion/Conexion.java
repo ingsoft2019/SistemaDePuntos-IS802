@@ -33,6 +33,17 @@ public class Conexion {
     public static Connection getConexion(){
         String url = "jdbc:sqlserver://localhost:1433;databaseName="+db;
 
+    //static String servidor = "DESKTOP-F99GN1I";
+    //static String sentencia = "MSSQLSERVER12";
+    //static String user = "sa1";
+    //static String pass = "123";
+    //static String db = "SP";
+ 
+
+    public static Connection getConexion(){
+        String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=RP";
+        String user = "sa";
+        String pass = "123";
         
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
