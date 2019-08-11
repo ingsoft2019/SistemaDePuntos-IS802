@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,6 +28,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro         
         this.setResizable(false); //Desactivar botón maximizar de una ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
 
         cargarZonas();//  Cargar las zonas en el combobox zonas
         v.ValidarSoloLetras(txt_primerNombre);

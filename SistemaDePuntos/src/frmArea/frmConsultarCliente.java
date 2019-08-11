@@ -5,6 +5,8 @@
  */
 package frmArea;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Luis Estrada
@@ -18,6 +20,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false); //Desactivar botón maximizar de una ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
         
     }
 
