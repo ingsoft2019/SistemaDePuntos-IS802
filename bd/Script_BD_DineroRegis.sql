@@ -79,3 +79,8 @@ CREATE TABLE Rifa (
   id_movimiento INT NULL,
   CONSTRAINT fk_Rifa_Movimiento FOREIGN KEY (id_movimiento) REFERENCES Movimiento (id_movimiento)
 );
+
+CREATE TABLE Configuracion (
+  porcentaje_puntos DECIMAL(5,4) NOT NULL,
+  duracion_puntos INT NOT NULL
+);

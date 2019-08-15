@@ -110,3 +110,6 @@ insert into Cliente (fecha_registro, id_persona, estado, puntos_actuales, puntos
 
 insert into Tipo_Movimiento (descripcion) values ('Asignacion');
 insert into Tipo_Movimiento (descripcion) values ('Canjeo');
+
+insert into Configuracion (porcentaje_puntos, duracion_puntos)
+values (0.02,6);
