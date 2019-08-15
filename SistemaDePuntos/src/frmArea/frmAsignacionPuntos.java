@@ -150,7 +150,7 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         else {try {
                 int codigo=JOptionPane.showConfirmDialog(null, "¿Estas seguro de asignar los puntos?", "Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
                 if (codigo==JOptionPane.YES_OPTION){
-                    Procedimientos.ProcedimientoAsignacionPuntos.guardarMovimiento(Integer.parseInt( txtNombreCliente.getText()), 0.02, 1, "JRODAS", Integer.parseInt(txtIdFactura.getText()) );
+                    Procedimientos.ProcedimientoAsignacionPuntos.guardarMovimiento(Integer.parseInt( txtNombreCliente.getText()), "ADMIN", Integer.parseInt(txtIdFactura.getText()) );
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(frmAsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
