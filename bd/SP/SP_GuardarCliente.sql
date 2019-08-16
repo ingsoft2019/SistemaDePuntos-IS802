@@ -2,7 +2,7 @@ GO
 CREATE PROCEDURE GuardarCliente(@fecha_registro DATE, @id_persona INT)  								
 AS 
 	DECLARE
-	@estado NVARCHAR = 1,
+	@estado NVARCHAR = 'A',
 	@puntos_actuales INT = 0,
 	@puntos_rifa_actuales INT = 0; 
 

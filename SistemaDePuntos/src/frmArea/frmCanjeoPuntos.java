@@ -5,7 +5,11 @@
  */
 package frmArea;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,12 +38,14 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
 
         lblCanjeoPuntos = new javax.swing.JLabel();
         lblCliente = new javax.swing.JLabel();
-        txtCliente = new javax.swing.JTextField();
+        txtNombreCliente = new javax.swing.JTextField();
         lblPuntosCanjear = new javax.swing.JLabel();
         txtPuntosCanjear = new javax.swing.JTextField();
         btn_asignar = new javax.swing.JButton();
         btn_limpiar = new javax.swing.JButton();
         btn_VolverMenu = new javax.swing.JButton();
+        lblFactura = new javax.swing.JLabel();
+        txtNumFac = new javax.swing.JTextField();
         barraMenu = new javax.swing.JMenuBar();
         menu_InicioSistema = new javax.swing.JMenu();
         menu_Cliente = new javax.swing.JMenu();
@@ -49,25 +55,29 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Canjeo de Puntos");
-        setMaximumSize(new java.awt.Dimension(446, 323));
         setMinimumSize(new java.awt.Dimension(446, 323));
-        setPreferredSize(new java.awt.Dimension(446, 323));
         getContentPane().setLayout(null);
 
         lblCanjeoPuntos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCanjeoPuntos.setText("Canjeo de Puntos");
         getContentPane().add(lblCanjeoPuntos);
-        lblCanjeoPuntos.setBounds(150, 10, 150, 38);
+        lblCanjeoPuntos.setBounds(140, 0, 150, 38);
 
         lblCliente.setText("Cliente:");
         getContentPane().add(lblCliente);
-        lblCliente.setBounds(30, 80, 110, 14);
-        getContentPane().add(txtCliente);
-        txtCliente.setBounds(142, 70, 230, 30);
+        lblCliente.setBounds(80, 60, 50, 16);
+
+        txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreClienteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNombreCliente);
+        txtNombreCliente.setBounds(140, 50, 230, 30);
 
         lblPuntosCanjear.setText("Puntos a canjear:");
         getContentPane().add(lblPuntosCanjear);
-        lblPuntosCanjear.setBounds(25, 150, 110, 14);
+        lblPuntosCanjear.setBounds(30, 110, 110, 16);
 
         txtPuntosCanjear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,7 +85,7 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtPuntosCanjear);
-        txtPuntosCanjear.setBounds(140, 140, 230, 30);
+        txtPuntosCanjear.setBounds(140, 100, 230, 30);
 
         btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
         btn_asignar.setText("Asignar");
@@ -85,12 +95,12 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_asignar);
-        btn_asignar.setBounds(30, 200, 105, 41);
+        btn_asignar.setBounds(20, 200, 110, 48);
 
         btn_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
         btn_limpiar.setText("Limpiar");
         getContentPane().add(btn_limpiar);
-        btn_limpiar.setBounds(170, 200, 101, 41);
+        btn_limpiar.setBounds(160, 200, 109, 48);
 
         btn_VolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_VolverMenu.setText("Volver");
@@ -100,7 +110,19 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_VolverMenu);
-        btn_VolverMenu.setBounds(310, 200, 110, 40);
+        btn_VolverMenu.setBounds(300, 200, 110, 50);
+
+        lblFactura.setText("Factura:");
+        getContentPane().add(lblFactura);
+        lblFactura.setBounds(80, 160, 60, 16);
+
+        txtNumFac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumFacActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNumFac);
+        txtNumFac.setBounds(140, 150, 230, 30);
 
         menu_InicioSistema.setText("Inicio del Sistema ");
         barraMenu.add(menu_InicioSistema);
@@ -127,7 +149,20 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPuntosCanjearActionPerformed
 
     private void btn_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarActionPerformed
-        // TODO add your handling code here:
+        if (txtNumFac.getText().isEmpty()|| txtNombreCliente.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Hay campos vacios que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+        } 
+        else {try {
+                int codigo=JOptionPane.showConfirmDialog(null, "¿Estas seguro de asignar los puntos?", "Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
+                if (codigo==JOptionPane.YES_OPTION){
+                    Procedimientos.ProcedimientoCanjeoPuntos.guardarMovimiento(Integer.parseInt( txtNombreCliente.getText()), "ADMIN", Integer.parseInt(txtNumFac.getText()), Integer.parseInt(txtPuntosCanjear.getText()) );
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(frmAsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+         //
+   
+        }
     }//GEN-LAST:event_btn_asignarActionPerformed
 
     private void btn_VolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverMenuActionPerformed
@@ -136,6 +171,14 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
         this.setVisible(false); // ocultar
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_VolverMenuActionPerformed
+
+    private void txtNumFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumFacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumFacActionPerformed
+
+    private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,13 +222,15 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
     private javax.swing.JButton btn_limpiar;
     private javax.swing.JLabel lblCanjeoPuntos;
     private javax.swing.JLabel lblCliente;
+    private javax.swing.JLabel lblFactura;
     private javax.swing.JLabel lblPuntosCanjear;
     private javax.swing.JMenu menu_Cliente;
     private javax.swing.JMenu menu_InicioSistema;
     private javax.swing.JMenu menu_Puntos;
     private javax.swing.JMenu menu_Reportes;
     private javax.swing.JMenu menu_ayuda;
-    private javax.swing.JTextField txtCliente;
+    private javax.swing.JTextField txtNombreCliente;
+    private javax.swing.JTextField txtNumFac;
     private javax.swing.JTextField txtPuntosCanjear;
     // End of variables declaration//GEN-END:variables
 }

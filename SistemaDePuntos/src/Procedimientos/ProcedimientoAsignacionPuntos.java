@@ -8,10 +8,7 @@ package Procedimientos;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
 import java.sql.CallableStatement;
-import java.sql.Types;
-import java.util.HashMap;
-import java.util.Map;
-import java.sql.ResultSet;
+
 
 /**
  *
