@@ -68,14 +68,8 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txt_puntoRifa = new javax.swing.JTextField();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
-        barraMenu = new javax.swing.JMenuBar();
-        menu_InicioSistema = new javax.swing.JMenu();
-        menu_Cliente = new javax.swing.JMenu();
-        menu_Puntos = new javax.swing.JMenu();
-        menu_Reportes = new javax.swing.JMenu();
-        menu_ayuda = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestion Cliente");
         setMaximumSize(new java.awt.Dimension(833, 509));
         setMinimumSize(new java.awt.Dimension(833, 509));
@@ -344,23 +338,6 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         jpanel_AreaSubMenu.add(jpanel_datos2);
         jpanel_datos2.setBounds(420, 104, 380, 340);
 
-        menu_InicioSistema.setText("Inicio del Sistema ");
-        barraMenu.add(menu_InicioSistema);
-
-        menu_Cliente.setText("Clientes");
-        barraMenu.add(menu_Cliente);
-
-        menu_Puntos.setText("Puntos");
-        barraMenu.add(menu_Puntos);
-
-        menu_Reportes.setText("Reportes");
-        barraMenu.add(menu_Reportes);
-
-        menu_ayuda.setText("Ayuda");
-        barraMenu.add(menu_ayuda);
-
-        setJMenuBar(barraMenu);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -465,7 +442,6 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JButton btn_asignarFactura;
     private javax.swing.JButton btn_canjearPuntos;
@@ -489,11 +465,6 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jpanel_AreaSubMenu;
     private javax.swing.JPanel jpanel_datos1;
     private javax.swing.JPanel jpanel_datos2;
-    private javax.swing.JMenu menu_Cliente;
-    private javax.swing.JMenu menu_InicioSistema;
-    private javax.swing.JMenu menu_Puntos;
-    private javax.swing.JMenu menu_Reportes;
-    private javax.swing.JMenu menu_ayuda;
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_identidad;
     private javax.swing.JTextField txt_primerApellido;

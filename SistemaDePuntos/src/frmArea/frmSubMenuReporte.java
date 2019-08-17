@@ -40,16 +40,10 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
         brn_puntos = new javax.swing.JButton();
         btn_graficas = new javax.swing.JButton();
         jl_TituloPrincipal = new javax.swing.JLabel();
-        barraMenu = new javax.swing.JMenuBar();
-        menu_InicioSistema = new javax.swing.JMenu();
-        menu_Cliente = new javax.swing.JMenu();
-        menu_Puntos = new javax.swing.JMenu();
-        menu_Reportes = new javax.swing.JMenu();
-        menu_ayuda = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Menu Reportes");
         setMaximumSize(new java.awt.Dimension(680, 461));
         setMinimumSize(new java.awt.Dimension(680, 461));
@@ -93,23 +87,6 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
 
         getContentPane().add(jpanel_reporte);
         jpanel_reporte.setBounds(40, 40, 580, 360);
-
-        menu_InicioSistema.setText("Inicio del Sistema ");
-        barraMenu.add(menu_InicioSistema);
-
-        menu_Cliente.setText("Clientes");
-        barraMenu.add(menu_Cliente);
-
-        menu_Puntos.setText("Puntos");
-        barraMenu.add(menu_Puntos);
-
-        menu_Reportes.setText("Reportes");
-        barraMenu.add(menu_Reportes);
-
-        menu_ayuda.setText("Ayuda");
-        barraMenu.add(menu_ayuda);
-
-        setJMenuBar(barraMenu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -157,7 +134,6 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton brn_puntos;
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JButton btn_cliente;
@@ -165,10 +141,5 @@ public class frmSubMenuReporte extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel jl_TituloPrincipal;
     private javax.swing.JPanel jpanel_reporte;
-    private javax.swing.JMenu menu_Cliente;
-    private javax.swing.JMenu menu_InicioSistema;
-    private javax.swing.JMenu menu_Puntos;
-    private javax.swing.JMenu menu_Reportes;
-    private javax.swing.JMenu menu_ayuda;
     // End of variables declaration//GEN-END:variables
 }

@@ -44,16 +44,10 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jl_Titulo = new javax.swing.JLabel();
-        barraMenu = new javax.swing.JMenuBar();
-        menu_InicioSistema = new javax.swing.JMenu();
-        menu_Cliente = new javax.swing.JMenu();
-        menu_Puntos = new javax.swing.JMenu();
-        menu_Reportes = new javax.swing.JMenu();
-        menu_ayuda = new javax.swing.JMenu();
 
         jToolBar1.setRollover(true);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consultar Cliente");
         setFocusable(false);
         setMaximumSize(new java.awt.Dimension(600, 530));
@@ -150,29 +144,12 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                         .addComponent(btn_agregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_RegresarAlMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jl_Titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jl_Titulo.setText("Consultar Cliente");
-
-        menu_InicioSistema.setText("Inicio del Sistema ");
-        barraMenu.add(menu_InicioSistema);
-
-        menu_Cliente.setText("Clientes");
-        barraMenu.add(menu_Cliente);
-
-        menu_Puntos.setText("Puntos");
-        barraMenu.add(menu_Puntos);
-
-        menu_Reportes.setText("Reportes");
-        barraMenu.add(menu_Reportes);
-
-        menu_ayuda.setText("Ayuda");
-        barraMenu.add(menu_ayuda);
-
-        setJMenuBar(barraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -251,7 +228,6 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Checkbox BuscarInactivos;
-    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JButton btn_agregarCliente;
     private javax.swing.JButton btn_buscar;
@@ -262,10 +238,5 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel jl_Titulo;
-    private javax.swing.JMenu menu_Cliente;
-    private javax.swing.JMenu menu_InicioSistema;
-    private javax.swing.JMenu menu_Puntos;
-    private javax.swing.JMenu menu_Reportes;
-    private javax.swing.JMenu menu_ayuda;
     // End of variables declaration//GEN-END:variables
 }

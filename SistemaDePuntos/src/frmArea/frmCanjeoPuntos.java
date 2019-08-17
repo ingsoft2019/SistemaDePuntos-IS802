@@ -46,14 +46,8 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
         btn_VolverMenu = new javax.swing.JButton();
         lblFactura = new javax.swing.JLabel();
         txtNumFac = new javax.swing.JTextField();
-        barraMenu = new javax.swing.JMenuBar();
-        menu_InicioSistema = new javax.swing.JMenu();
-        menu_Cliente = new javax.swing.JMenu();
-        menu_Puntos = new javax.swing.JMenu();
-        menu_Reportes = new javax.swing.JMenu();
-        menu_ayuda = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Canjeo de Puntos");
         setMinimumSize(new java.awt.Dimension(446, 323));
         getContentPane().setLayout(null);
@@ -65,7 +59,7 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
 
         lblCliente.setText("Cliente:");
         getContentPane().add(lblCliente);
-        lblCliente.setBounds(80, 60, 50, 16);
+        lblCliente.setBounds(80, 60, 50, 14);
 
         txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +71,7 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
 
         lblPuntosCanjear.setText("Puntos a canjear:");
         getContentPane().add(lblPuntosCanjear);
-        lblPuntosCanjear.setBounds(30, 110, 110, 16);
+        lblPuntosCanjear.setBounds(30, 110, 110, 14);
 
         txtPuntosCanjear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,12 +89,12 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_asignar);
-        btn_asignar.setBounds(20, 200, 110, 48);
+        btn_asignar.setBounds(20, 200, 105, 41);
 
         btn_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
         btn_limpiar.setText("Limpiar");
         getContentPane().add(btn_limpiar);
-        btn_limpiar.setBounds(160, 200, 109, 48);
+        btn_limpiar.setBounds(160, 200, 101, 41);
 
         btn_VolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_VolverMenu.setText("Volver");
@@ -114,7 +108,7 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
 
         lblFactura.setText("Factura:");
         getContentPane().add(lblFactura);
-        lblFactura.setBounds(80, 160, 60, 16);
+        lblFactura.setBounds(80, 160, 60, 14);
 
         txtNumFac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,23 +117,6 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
         });
         getContentPane().add(txtNumFac);
         txtNumFac.setBounds(140, 150, 230, 30);
-
-        menu_InicioSistema.setText("Inicio del Sistema ");
-        barraMenu.add(menu_InicioSistema);
-
-        menu_Cliente.setText("Clientes");
-        barraMenu.add(menu_Cliente);
-
-        menu_Puntos.setText("Puntos");
-        barraMenu.add(menu_Puntos);
-
-        menu_Reportes.setText("Reportes");
-        barraMenu.add(menu_Reportes);
-
-        menu_ayuda.setText("Ayuda");
-        barraMenu.add(menu_ayuda);
-
-        setJMenuBar(barraMenu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -216,7 +193,6 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_VolverMenu;
     private javax.swing.JButton btn_asignar;
     private javax.swing.JButton btn_limpiar;
@@ -224,11 +200,6 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
     private javax.swing.JLabel lblCliente;
     private javax.swing.JLabel lblFactura;
     private javax.swing.JLabel lblPuntosCanjear;
-    private javax.swing.JMenu menu_Cliente;
-    private javax.swing.JMenu menu_InicioSistema;
-    private javax.swing.JMenu menu_Puntos;
-    private javax.swing.JMenu menu_Reportes;
-    private javax.swing.JMenu menu_ayuda;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtNumFac;
     private javax.swing.JTextField txtPuntosCanjear;
