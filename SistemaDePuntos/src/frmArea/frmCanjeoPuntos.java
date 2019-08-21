@@ -153,7 +153,7 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Hay campos vacios que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
         } 
         else {try {
-                int codigo=JOptionPane.showConfirmDialog(null, "¿Estas seguro de asignar los puntos?", "Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
+                int codigo=JOptionPane.showConfirmDialog(null, "¿Estas seguro de canjear los puntos?", "Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
                 if (codigo==JOptionPane.YES_OPTION){
                     Procedimientos.ProcedimientoCanjeoPuntos.guardarMovimiento(Integer.parseInt( txtNombreCliente.getText()), "ADMIN", Integer.parseInt(txtNumFac.getText()), Integer.parseInt(txtPuntosCanjear.getText()) );
                 }
