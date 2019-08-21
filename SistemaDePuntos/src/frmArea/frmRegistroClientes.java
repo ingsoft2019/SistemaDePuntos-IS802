@@ -94,14 +94,8 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         btn_menuInicio = new javax.swing.JButton();
         btn_limpiarCampos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        barraMenu = new javax.swing.JMenuBar();
-        menu_InicioSistema = new javax.swing.JMenu();
-        menu_Cliente = new javax.swing.JMenu();
-        menu_Puntos = new javax.swing.JMenu();
-        menu_Reportes = new javax.swing.JMenu();
-        menu_ayuda = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro Cliente");
         setMaximumSize(new java.awt.Dimension(496, 645));
         setMinimumSize(new java.awt.Dimension(496, 645));
@@ -392,23 +386,6 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(160, 10, 180, 22);
 
-        menu_InicioSistema.setText("Inicio del Sistema ");
-        barraMenu.add(menu_InicioSistema);
-
-        menu_Cliente.setText("Clientes");
-        barraMenu.add(menu_Cliente);
-
-        menu_Puntos.setText("Puntos");
-        barraMenu.add(menu_Puntos);
-
-        menu_Reportes.setText("Reportes");
-        barraMenu.add(menu_Reportes);
-
-        menu_ayuda.setText("Ayuda");
-        barraMenu.add(menu_ayuda);
-
-        setJMenuBar(barraMenu);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -694,7 +671,6 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     private javax.swing.JLabel Telefono1;
     private javax.swing.JLabel Telefono2;
     private javax.swing.JLabel Telefono3;
-    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_guardarCliente;
     private javax.swing.JButton btn_limpiarCampos;
     private javax.swing.JButton btn_menuInicio;
@@ -712,11 +688,6 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     private javax.swing.JPanel jP2_DatosCliente;
     private javax.swing.JPanel jP_DatosDireccion;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JMenu menu_Cliente;
-    private javax.swing.JMenu menu_InicioSistema;
-    private javax.swing.JMenu menu_Puntos;
-    private javax.swing.JMenu menu_Reportes;
-    private javax.swing.JMenu menu_ayuda;
     private javax.swing.JPanel panel_botonesBasicos;
     private javax.swing.JTextField txt_correoElectronico;
     private javax.swing.JTextField txt_noIdentidad;

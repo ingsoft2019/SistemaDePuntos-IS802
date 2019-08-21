@@ -41,12 +41,11 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
         jl_contrasena = new javax.swing.JLabel();
         btn_ingresarLogin = new javax.swing.JButton();
         btn_recuperar = new javax.swing.JButton();
-        btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
         txt_contrasena = new javax.swing.JPasswordField();
         jl_iconoPersonas = new javax.swing.JLabel();
         jl_fondoLogin = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login Configuracion de Sistema De Puntos");
         setMinimumSize(new java.awt.Dimension(488, 541));
         setName("Loguin del Sistema de Puntos"); // NOI18N
@@ -81,22 +80,12 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
             }
         });
         panel_login.add(btn_ingresarLogin);
-        btn_ingresarLogin.setBounds(30, 120, 130, 40);
+        btn_ingresarLogin.setBounds(30, 120, 190, 40);
 
         btn_recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/pass-contrasena.png"))); // NOI18N
         btn_recuperar.setText("Recuperar");
         panel_login.add(btn_recuperar);
-        btn_recuperar.setBounds(180, 120, 119, 41);
-
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
-        btn_RegresarAlMenuPrincipal.setText("Regresar");
-        btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RegresarAlMenuPrincipalActionPerformed(evt);
-            }
-        });
-        panel_login.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(320, 120, 120, 40);
+        btn_recuperar.setBounds(240, 120, 190, 40);
 
         txt_contrasena.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -123,23 +112,16 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
-          frmSubMenuPuntos ver=new frmSubMenuPuntos();
-            ver.setVisible(true); // visible ventana del objeto
-            this.setVisible(false); // ocultar
-       
-    }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
-
     private void btn_ingresarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarLoginActionPerformed
         // TODO add your handling code here:
-         String usuario= "is802";
+         String usuario= "root";
         String contrasena= "asd.456";
         
         String pass= new String(getTxt_contrasena().getPassword());
         String user= new String(getTxt_usuario().getText());
         
         if (user.equals(usuario) && pass.equals(contrasena)){
-            frmMenuPrincipal ver=new frmMenuPrincipal();
+            frmMenuConfiguracion ver=new frmMenuConfiguracion();
             ver.setVisible(true); // visible ventana del objeto
             this.setVisible(false); // ocultar
         } else {
@@ -206,7 +188,6 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JButton btn_ingresarLogin;
     private javax.swing.JButton btn_recuperar;
     private javax.swing.JLabel jl_Usuario;

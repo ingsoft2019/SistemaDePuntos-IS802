@@ -45,18 +45,10 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         btn_limpiar = new javax.swing.JButton();
         btn_asignar = new javax.swing.JButton();
         btn_VolverMenu = new javax.swing.JButton();
-        barraMenu = new javax.swing.JMenuBar();
-        menu_InicioSistema = new javax.swing.JMenu();
-        menu_Cliente = new javax.swing.JMenu();
-        menu_Puntos = new javax.swing.JMenu();
-        menu_Reportes = new javax.swing.JMenu();
-        menu_ayuda = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Asignación de Puntos");
-        setMaximumSize(new java.awt.Dimension(491, 306));
         setMinimumSize(new java.awt.Dimension(491, 306));
-        setPreferredSize(new java.awt.Dimension(491, 306));
         getContentPane().setLayout(null);
 
         jPanel2.setLayout(null);
@@ -122,23 +114,6 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(20, 10, 450, 240);
-
-        menu_InicioSistema.setText("Inicio del Sistema ");
-        barraMenu.add(menu_InicioSistema);
-
-        menu_Cliente.setText("Clientes");
-        barraMenu.add(menu_Cliente);
-
-        menu_Puntos.setText("Puntos");
-        barraMenu.add(menu_Puntos);
-
-        menu_Reportes.setText("Reportes");
-        barraMenu.add(menu_Reportes);
-
-        menu_ayuda.setText("Ayuda");
-        barraMenu.add(menu_ayuda);
-
-        setJMenuBar(barraMenu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -224,7 +199,6 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_VolverMenu;
     private javax.swing.JButton btn_asignar;
     private javax.swing.JButton btn_limpiar;
@@ -232,11 +206,6 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
     private javax.swing.JLabel lblAsignacionPuntos;
     private javax.swing.JLabel lblIdFactura;
     private javax.swing.JLabel lblNombreCliente;
-    private javax.swing.JMenu menu_Cliente;
-    private javax.swing.JMenu menu_InicioSistema;
-    private javax.swing.JMenu menu_Puntos;
-    private javax.swing.JMenu menu_Reportes;
-    private javax.swing.JMenu menu_ayuda;
     private javax.swing.JTextField txtIdFactura;
     private javax.swing.JTextField txtNombreCliente;
     // End of variables declaration//GEN-END:variables

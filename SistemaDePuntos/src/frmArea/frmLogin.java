@@ -83,12 +83,12 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         panel_login_Principal.add(btn_ingresarLogin);
-        btn_ingresarLogin.setBounds(20, 130, 120, 41);
+        btn_ingresarLogin.setBounds(20, 130, 120, 40);
 
         btn_recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/pass-contrasena.png"))); // NOI18N
         btn_recuperar.setText("Recuperar");
         panel_login_Principal.add(btn_recuperar);
-        btn_recuperar.setBounds(160, 130, 130, 41);
+        btn_recuperar.setBounds(170, 130, 120, 40);
 
         btn_SalirLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/salir sistema.png"))); // NOI18N
         btn_SalirLogin.setText("Salir");
@@ -98,7 +98,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         panel_login_Principal.add(btn_SalirLogin);
-        btn_SalirLogin.setBounds(310, 130, 120, 41);
+        btn_SalirLogin.setBounds(310, 130, 120, 40);
 
         txt_contrasena.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {

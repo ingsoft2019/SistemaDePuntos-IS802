@@ -11,12 +11,12 @@ import javax.swing.ImageIcon;
  *
  * @author Luis Estrada
  */
-public class frmConfiguracion extends javax.swing.JFrame {
+public class frmMenuConfiguracion extends javax.swing.JFrame {
 
     /**
      * Creates new form frmConfiguracion
      */
-    public frmConfiguracion() {
+    public frmMenuConfiguracion() {
          initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
@@ -41,18 +41,11 @@ public class frmConfiguracion extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        barraMenu = new javax.swing.JMenuBar();
-        menu_InicioSistema = new javax.swing.JMenu();
-        menu_Cliente = new javax.swing.JMenu();
-        menu_Puntos = new javax.swing.JMenu();
-        menu_Reportes = new javax.swing.JMenu();
-        menu_ayuda = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Configuración del Sistema de Puntos");
         setMaximumSize(new java.awt.Dimension(680, 528));
         setMinimumSize(new java.awt.Dimension(680, 528));
-        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(680, 528));
         getContentPane().setLayout(null);
 
@@ -72,22 +65,22 @@ public class frmConfiguracion extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_buscar);
-        btn_buscar.setBounds(370, 20, 100, 41);
+        btn_buscar.setBounds(420, 20, 140, 40);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(100, 80, 490, 80);
+        jPanel1.setBounds(40, 80, 600, 80);
 
         jPanel2.setLayout(null);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/rifa.png"))); // NOI18N
         jButton2.setText("Realizar Rifa");
         jPanel2.add(jButton2);
-        jButton2.setBounds(80, 60, 140, 50);
+        jButton2.setBounds(80, 60, 160, 40);
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
         jButton5.setText("Reinicio de Puntos");
         jPanel2.add(jButton5);
-        jButton5.setBounds(370, 60, 160, 50);
+        jButton5.setBounds(370, 60, 160, 40);
 
         btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_RegresarAlMenuPrincipal.setText("Regresar");
@@ -97,7 +90,7 @@ public class frmConfiguracion extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(230, 210, 170, 50);
+        btn_RegresarAlMenuPrincipal.setBounds(230, 210, 140, 40);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(40, 160, 600, 280);
@@ -106,23 +99,6 @@ public class frmConfiguracion extends javax.swing.JFrame {
         jLabel2.setText("Conguración del Sistema");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(170, 30, 310, 40);
-
-        menu_InicioSistema.setText("Inicio del Sistema ");
-        barraMenu.add(menu_InicioSistema);
-
-        menu_Cliente.setText("Clientes");
-        barraMenu.add(menu_Cliente);
-
-        menu_Puntos.setText("Puntos");
-        barraMenu.add(menu_Puntos);
-
-        menu_Reportes.setText("Reportes");
-        barraMenu.add(menu_Reportes);
-
-        menu_ayuda.setText("Ayuda");
-        barraMenu.add(menu_ayuda);
-
-        setJMenuBar(barraMenu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -154,26 +130,26 @@ public class frmConfiguracion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmConfiguracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMenuConfiguracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmConfiguracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMenuConfiguracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmConfiguracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMenuConfiguracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmConfiguracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMenuConfiguracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmConfiguracion().setVisible(true);
+                new frmMenuConfiguracion().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton jButton2;
@@ -182,11 +158,6 @@ public class frmConfiguracion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JMenu menu_Cliente;
-    private javax.swing.JMenu menu_InicioSistema;
-    private javax.swing.JMenu menu_Puntos;
-    private javax.swing.JMenu menu_Reportes;
-    private javax.swing.JMenu menu_ayuda;
     private javax.swing.JTextField txt_busqueda;
     // End of variables declaration//GEN-END:variables
 }
