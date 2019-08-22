@@ -96,12 +96,20 @@ BEGIN
 		SET @vc_temp_mensaje = CONCAT (@vc_temp_mensaje, 'La factura no tiene un status C. ');
 	END;
 
-	--Asignar puntos solo a facturas del dia y no NULL.
+	--Asignar puntos solo a facturas del dia.
 	SELECT @diferencia_dias = DATEDIFF(DAY, fec_act, GETDATE()) FROM FA.dbo.VEN_FAC
-	WHERE @pi_VEN_FAC_id = FA.dbo.VEN_FAC.id OR fec_act IS NULL; 
+	WHERE @pi_VEN_FAC_id = FA.dbo.VEN_FAC.id; 
 
 	IF @diferencia_dias <> 0 BEGIN
 		SET @vc_temp_mensaje = CONCAT (@vc_temp_mensaje, 'La factura tiene que ser de la fecha de hoy. ');
+	END;
+
+	--Verificar que la fecha fec_act no sea null
+	SELECT @vn_conteo = COUNT(*) FROM FA.dbo.VEN_FAC
+	WHERE @pi_VEN_FAC_id = FA.dbo.VEN_FAC.id AND fec_act IS NULL; 
+
+	IF @vn_conteo <> 0 BEGIN
+		SET @vc_temp_mensaje = CONCAT (@vc_temp_mensaje, 'La factura tiene fecha null. ');
 	END;
 
 	--Asignar puntos solo una vez por factura
@@ -134,52 +142,56 @@ BEGIN
 		RETURN;
 	END;
 
-	--Encontrar porcentaje de puntos y duracion de puntos
-	SELECT @vd_porcentaje_puntos = porcentaje_puntos, @vi_duracion_puntos = duracion_puntos FROM Configuracion;
+	BEGIN TRANSACTION
 
-	--Calculo de ganancia
-	SET @vd_ganancia = @vd_paga_total - @vd_costo_total;
+		--Encontrar porcentaje de puntos y duracion de puntos
+		SELECT @vd_porcentaje_puntos = porcentaje_puntos, @vi_duracion_puntos = duracion_puntos FROM Configuracion;
 
-	--Calculo de puntos
-	SET @vn_puntos_asignados = @vd_ganancia * @vd_porcentaje_puntos;
+		--Calculo de ganancia
+		SET @vd_ganancia = @vd_paga_total - @vd_costo_total;
 
-	INSERT INTO [dbo].[Movimiento]
-           ([id_cliente]
-           ,[fecha_movimiento]
-           ,[hora_movimiento]
-           ,[porcentaje_puntos]
-           ,[costo_total]
-           ,[paga_total]
-           ,[ganancia]
-           ,[puntos_asignados]
-           ,[id_tipo_movimiento]
-           ,[GEN_USR_id]
-           ,[VEN_FAC_id])
-	VALUES
-           (@pi_id_cliente
-           ,GETDATE()
-           ,SYSDATETIME()
-           ,@vd_porcentaje_puntos
-           ,@vd_costo_total
-           ,@vd_paga_total
-           ,@vd_ganancia
-           ,FLOOR(@vn_puntos_asignados)
-           ,@vi_id_tipo_movimiento
-           ,@pi_GEN_USR_id
-           ,@pi_VEN_FAC_id);
+		--Calculo de puntos
+		SET @vn_puntos_asignados = @vd_ganancia * @vd_porcentaje_puntos;
 
-	--obtener los puntos que tiene, antes de asignara los nuevos puntos
-	SELECT @vi_puntos_actuales = puntos_actuales FROM Cliente
-	WHERE id_cliente = @pi_id_cliente;
+		INSERT INTO [dbo].[Movimiento]
+			([id_cliente]
+			,[fecha_movimiento]
+			,[hora_movimiento]
+			,[porcentaje_puntos]
+			,[costo_total]
+			,[paga_total]
+			,[ganancia]
+			,[puntos_asignados]
+			,[id_tipo_movimiento]
+			,[GEN_USR_id]
+			,[VEN_FAC_id])
+		VALUES
+			(@pi_id_cliente
+			,GETDATE()
+			,SYSDATETIME()
+			,@vd_porcentaje_puntos
+			,@vd_costo_total
+			,@vd_paga_total
+			,@vd_ganancia
+			,FLOOR(@vn_puntos_asignados)
+			,@vi_id_tipo_movimiento
+			,@pi_GEN_USR_id
+			,@pi_VEN_FAC_id);
 
-	--actualizacion de los puntos actuales y la fecha de vencimiento de puntos.
-	UPDATE [dbo].[Cliente]
-	SET [puntos_actuales] = FLOOR(@vn_puntos_asignados)+ @vi_puntos_actuales,
-		[fecha_vencimiento_puntos] = DATEADD(month, @vi_duracion_puntos, GETDATE())
-	WHERE id_cliente = @pi_id_cliente;
+		--obtener los puntos que tiene, antes de asignara los nuevos puntos
+		SELECT @vi_puntos_actuales = puntos_actuales FROM Cliente
+		WHERE id_cliente = @pi_id_cliente;
+
+		--actualizacion de los puntos actuales y la fecha de vencimiento de puntos.
+		UPDATE [dbo].[Cliente]
+		SET [puntos_actuales] = FLOOR(@vn_puntos_asignados)+ @vi_puntos_actuales,
+			[fecha_vencimiento_puntos] = DATEADD(month, @vi_duracion_puntos, GETDATE())
+		WHERE id_cliente = @pi_id_cliente;
+		
+		SET @pv_mensaje = CONCAT('Los puntos fueron asignados correctamente. Los puntos asignados fueron: ',FLOOR(@vn_puntos_asignados) ,'. Puntos actuales: ', FLOOR(@vn_puntos_asignados)+ @vi_puntos_actuales);
+		SET @pi_codigo = 0;
 	
-	SET @pv_mensaje = CONCAT('Los puntos fueron asignados correctamente. Los puntos asignados fueron: ', FLOOR(@vn_puntos_asignados)+ @vi_puntos_actuales);
-	SET @pi_codigo = 0;
+	COMMIT TRANSACTION
 
 
 END;

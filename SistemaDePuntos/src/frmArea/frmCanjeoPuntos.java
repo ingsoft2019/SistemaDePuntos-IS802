@@ -44,8 +44,6 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
         btn_asignar = new javax.swing.JButton();
         btn_limpiar = new javax.swing.JButton();
         btn_VolverMenu = new javax.swing.JButton();
-        lblFactura = new javax.swing.JLabel();
-        txtNumFac = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Canjeo de Puntos");
@@ -59,7 +57,7 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
 
         lblCliente.setText("Cliente:");
         getContentPane().add(lblCliente);
-        lblCliente.setBounds(80, 60, 50, 14);
+        lblCliente.setBounds(80, 60, 50, 16);
 
         txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,7 +69,7 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
 
         lblPuntosCanjear.setText("Puntos a canjear:");
         getContentPane().add(lblPuntosCanjear);
-        lblPuntosCanjear.setBounds(30, 110, 110, 14);
+        lblPuntosCanjear.setBounds(30, 110, 110, 16);
 
         txtPuntosCanjear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,19 +80,19 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
         txtPuntosCanjear.setBounds(140, 100, 230, 30);
 
         btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
-        btn_asignar.setText("Asignar");
+        btn_asignar.setText("Canjear");
         btn_asignar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_asignarActionPerformed(evt);
             }
         });
         getContentPane().add(btn_asignar);
-        btn_asignar.setBounds(20, 200, 105, 41);
+        btn_asignar.setBounds(20, 160, 110, 48);
 
         btn_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
         btn_limpiar.setText("Limpiar");
         getContentPane().add(btn_limpiar);
-        btn_limpiar.setBounds(160, 200, 101, 41);
+        btn_limpiar.setBounds(160, 160, 109, 48);
 
         btn_VolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
         btn_VolverMenu.setText("Volver");
@@ -104,19 +102,7 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_VolverMenu);
-        btn_VolverMenu.setBounds(300, 200, 110, 50);
-
-        lblFactura.setText("Factura:");
-        getContentPane().add(lblFactura);
-        lblFactura.setBounds(80, 160, 60, 14);
-
-        txtNumFac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumFacActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtNumFac);
-        txtNumFac.setBounds(140, 150, 230, 30);
+        btn_VolverMenu.setBounds(300, 160, 110, 50);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -126,13 +112,13 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPuntosCanjearActionPerformed
 
     private void btn_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarActionPerformed
-        if (txtNumFac.getText().isEmpty()|| txtNombreCliente.getText().isEmpty()){
+        if (txtPuntosCanjear.getText().isEmpty()|| txtNombreCliente.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Hay campos vacios que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
         } 
         else {try {
                 int codigo=JOptionPane.showConfirmDialog(null, "¿Estas seguro de canjear los puntos?", "Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
                 if (codigo==JOptionPane.YES_OPTION){
-                    Procedimientos.ProcedimientoCanjeoPuntos.guardarMovimiento(Integer.parseInt( txtNombreCliente.getText()), "ADMIN", Integer.parseInt(txtNumFac.getText()), Integer.parseInt(txtPuntosCanjear.getText()) );
+                    Procedimientos.ProcedimientoCanjeoPuntos.guardarMovimiento(Integer.parseInt( txtNombreCliente.getText()), "ADMIN", Integer.parseInt(txtPuntosCanjear.getText()) );
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(frmAsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
@@ -148,10 +134,6 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
         this.setVisible(false); // ocultar
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_VolverMenuActionPerformed
-
-    private void txtNumFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumFacActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumFacActionPerformed
 
     private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreClienteActionPerformed
         // TODO add your handling code here:
@@ -198,10 +180,8 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
     private javax.swing.JButton btn_limpiar;
     private javax.swing.JLabel lblCanjeoPuntos;
     private javax.swing.JLabel lblCliente;
-    private javax.swing.JLabel lblFactura;
     private javax.swing.JLabel lblPuntosCanjear;
     private javax.swing.JTextField txtNombreCliente;
-    private javax.swing.JTextField txtNumFac;
     private javax.swing.JTextField txtPuntosCanjear;
     // End of variables declaration//GEN-END:variables
 }
