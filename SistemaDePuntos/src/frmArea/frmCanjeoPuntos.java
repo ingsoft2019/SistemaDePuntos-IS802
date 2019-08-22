@@ -121,7 +121,7 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
                     Procedimientos.ProcedimientoCanjeoPuntos.guardarMovimiento(Integer.parseInt( txtNombreCliente.getText()), "ADMIN", Integer.parseInt(txtPuntosCanjear.getText()) );
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(frmAsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(frmCanjeoPuntos.class.getName()).log(Level.SEVERE, null, ex);
             }
          //
    

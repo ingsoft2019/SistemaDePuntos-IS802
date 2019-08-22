@@ -81,6 +81,7 @@ CREATE TABLE Rifa (
 );
 
 CREATE TABLE Configuracion (
-  porcentaje_puntos DECIMAL(5,4) NOT NULL,
-  duracion_puntos INT NOT NULL
+  porcentaje_puntos DECIMAL(5,2) NOT NULL,
+  duracion_puntos INT NOT NULL,
+  fecha_configuracion DATE NOT NULL
 );
