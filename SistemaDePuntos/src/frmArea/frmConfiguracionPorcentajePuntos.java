@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.util.regex.*;
 import javax.swing.JTextField;
 
 public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
@@ -26,10 +25,15 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
     }
     
     public void mostrarPorcentaje(){
+        double conversion;
         ResultSet porcentaje = PorcentajePuntos.mostrarPorcentaje();
+        
+        
         try {
             while (porcentaje.next()){
-                txtPorcentajeActual.setText(porcentaje.getString("porcentaje_puntos"));
+                conversion = Double.parseDouble(porcentaje.getString("porcentaje_puntos"))*100;
+                int x = (int) conversion;
+                txtPorcentajeActual.setText(String.valueOf(x));
                 txtDuracionPuntos.setText(porcentaje.getString("duracion_puntos"));
                 txtFechaConfiguracion.setText(porcentaje.getString("fecha_configuracion"));
             }
@@ -53,6 +57,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
         lblPorcentajeActual1 = new javax.swing.JLabel();
         txtPorcentajeActual = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Configuración porcentaje de puntos");
@@ -99,7 +104,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
             }
         });
         jpanel_SubMenu.add(txtDuracionPuntos);
-        txtDuracionPuntos.setBounds(410, 100, 130, 40);
+        txtDuracionPuntos.setBounds(410, 100, 70, 40);
 
         jLabel1.setText("<html><center>Duracion de Puntos (Meses):");
         jpanel_SubMenu.add(jLabel1);
@@ -113,7 +118,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
             }
         });
         jpanel_SubMenu.add(txtFechaConfiguracion);
-        txtFechaConfiguracion.setBounds(220, 190, 200, 40);
+        txtFechaConfiguracion.setBounds(220, 190, 170, 40);
 
         lblPorcentajeActual1.setText("Porcentaje Actual:");
         jpanel_SubMenu.add(lblPorcentajeActual1);
@@ -138,7 +143,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
             }
         });
         jpanel_SubMenu.add(txtPorcentajeActual);
-        txtPorcentajeActual.setBounds(150, 100, 130, 40);
+        txtPorcentajeActual.setBounds(150, 100, 50, 40);
 
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/guardar.png"))); // NOI18N
         btnGuardar.setText("Guardar");
@@ -149,6 +154,11 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
         });
         jpanel_SubMenu.add(btnGuardar);
         btnGuardar.setBounds(240, 310, 120, 50);
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        jLabel2.setText("%");
+        jpanel_SubMenu.add(jLabel2);
+        jLabel2.setBounds(210, 100, 30, 40);
 
         getContentPane().add(jpanel_SubMenu);
         jpanel_SubMenu.setBounds(50, 20, 580, 410);
@@ -193,7 +203,8 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
         else {try {
                 int codigo=JOptionPane.showConfirmDialog(null, "¿Estas seguro de realizar la configuracion?", "Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
                 if (codigo==JOptionPane.YES_OPTION){
-                    Procedimientos.ProcedimientoEditarConfiguracion.editarConfiguracion(Double.parseDouble(txtPorcentajeActual.getText()), Integer.parseInt(txtDuracionPuntos.getText()));
+                    double porcentaje=Double.parseDouble(txtPorcentajeActual.getText()) ;
+                    Procedimientos.ProcedimientoEditarConfiguracion.editarConfiguracion(porcentaje/100, Integer.parseInt(txtDuracionPuntos.getText()));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(frmConfiguracionPorcentajePuntos.class.getName()).log(Level.SEVERE, null, ex);
@@ -214,7 +225,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDuracionPuntosKeyPressed
 
     private void txtPorcentajeActualKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPorcentajeActualKeyTyped
-        if (txtPorcentajeActual.getText().length()== 4){
+        if (txtPorcentajeActual.getText().length()== 2){
             evt.consume(); 
         }
     }//GEN-LAST:event_txtPorcentajeActualKeyTyped
@@ -222,6 +233,10 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
     private void txtDuracionPuntosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuracionPuntosKeyTyped
         char c = evt.getKeyChar();        
         if (c< '0'|| c>'9') evt.consume();
+        
+         if (txtDuracionPuntos.getText().length()== 2){
+            evt.consume(); 
+        }
     }//GEN-LAST:event_txtDuracionPuntosKeyTyped
 
     public void ValidarIdentidad(JTextField campo){
@@ -229,12 +244,11 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
             public void keyTyped(KeyEvent e){
                 char c = e.getKeyChar();
                 
-               if((int)e.getKeyChar()>=32 && (int)e.getKeyChar()<=44
-                       || (int)e.getKeyChar()>=46 && (int)e.getKeyChar()<=47
-                       || (int)e.getKeyChar()>=58 && (int)e.getKeyChar()<=126){
+               if((int)e.getKeyChar()>=32 && (int)e.getKeyChar()<=47
+                       || (int)e.getKeyChar()>=58 && (int)e.getKeyChar()<=255){
                    e.consume();
                    JOptionPane.showMessageDialog(null, "No puedes agregar letras o caracteres");
-                   campo.setText(null);
+                   //campo.setText(null);
                }
             }
 });
@@ -283,6 +297,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jl_TituloPrincipal;
     private javax.swing.JPanel jpanel_SubMenu;
     private javax.swing.JLabel lblFechaConfiguracion;

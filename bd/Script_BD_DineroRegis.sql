@@ -60,7 +60,7 @@ CREATE TABLE Movimiento (
   id_cliente INT NOT NULL,
   fecha_movimiento DATE NOT NULL,
   hora_movimiento TIME NOT NULL,
-  porcentaje_puntos DECIMAL(18,4) NULL,
+  porcentaje_puntos DECIMAL(18,2) NULL,
   costo_total DECIMAL(18,4) NULL,
   paga_total DECIMAL(18,4) NULL,
   ganancia DECIMAL(18,4) NULL,

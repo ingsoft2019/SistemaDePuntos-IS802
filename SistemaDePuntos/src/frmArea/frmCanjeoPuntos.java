@@ -64,6 +64,11 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
                 txtNombreClienteActionPerformed(evt);
             }
         });
+        txtNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreClienteKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtNombreCliente);
         txtNombreCliente.setBounds(140, 50, 230, 30);
 
@@ -74,6 +79,11 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
         txtPuntosCanjear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPuntosCanjearActionPerformed(evt);
+            }
+        });
+        txtPuntosCanjear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPuntosCanjearKeyTyped(evt);
             }
         });
         getContentPane().add(txtPuntosCanjear);
@@ -138,6 +148,16 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
     private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreClienteActionPerformed
+
+    private void txtNombreClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreClienteKeyTyped
+        char c = evt.getKeyChar();        
+        if (c< '0'|| c>'9') evt.consume();
+    }//GEN-LAST:event_txtNombreClienteKeyTyped
+
+    private void txtPuntosCanjearKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPuntosCanjearKeyTyped
+        char c = evt.getKeyChar();        
+        if (c< '0'|| c>'9') evt.consume();
+    }//GEN-LAST:event_txtPuntosCanjearKeyTyped
 
     /**
      * @param args the command line arguments
