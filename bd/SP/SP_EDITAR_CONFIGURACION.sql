@@ -26,6 +26,11 @@ BEGIN
 		RETURN;
 	END;
 
+    IF @pi_duracion < 1 BEGIN
+		SET @pi_mensaje = 'La duracion en meses no debe ser un valor negativo y no debe ser 0';
+		RETURN;
+	END;
+
 	BEGIN TRANSACTION
 		UPDATE Configuracion
 		SET porcentaje_puntos = @pi_porcentaje,
