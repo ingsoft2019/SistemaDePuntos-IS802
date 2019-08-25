@@ -39,5 +39,10 @@ public class ProcedimientosCliente {
         entrada.execute();
     }
 
- 
+    //Agregar una nueva Zona si no existe
+     public static void guardarZona(String zona)throws SQLException{
+        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{call SP_REGISTRAR_ZONA (?)}");
+        entrada.setString(1, zona);
+        entrada.execute();
+    }
 }
