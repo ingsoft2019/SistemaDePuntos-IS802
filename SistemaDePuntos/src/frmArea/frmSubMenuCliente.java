@@ -399,7 +399,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_puntoRifaActionPerformed
 
     private void btn_asignarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarFacturaActionPerformed
-            frmAsignacionPuntos ver=new frmAsignacionPuntos();
+        frmAsignacionPuntos ver=new frmAsignacionPuntos();
         ver.setVisible(true); // visible ventana del objeto
         this.setVisible(false); // ocultar
 
