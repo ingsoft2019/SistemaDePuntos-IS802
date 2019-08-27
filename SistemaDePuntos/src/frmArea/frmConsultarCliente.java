@@ -11,6 +11,7 @@ import Conexion.Conexion.*;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,8 +24,12 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     static ResultSet resultado1;
     static ResultSet resultado2;
     static ResultSet resultado3;
+    static ResultSet resultado4;
+    static ResultSet resultado5;
     int contador1;
-    int contador2; 
+    int contador2;
+    int contador3;
+
     /**
      * Creates new form frmConsultarCliente
      */
@@ -33,83 +38,83 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
-        
+
     }
-    
-    public void buscarInactivos(){
+
+    public void buscarInactivos() {
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
-        resultado = Conexion.Conexion.consulta("select (Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n" +
-        "+' '+Persona.sapellido) NombreCliente, Persona.identidad, \n" +
-        "Persona.telefono1, Cliente.puntos_actuales from Persona inner join Cliente on \n" +
-        "Cliente.id_persona = Persona.id_persona  \n" +
-        "where Cliente.estado = 'a';");
-        try{
-            while(resultado.next()){
+        resultado = Conexion.Conexion.consulta("select (Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n"
+                + "+' '+Persona.sapellido) NombreCliente, Persona.identidad, \n"
+                + "Persona.telefono1, Cliente.puntos_actuales from Persona inner join Cliente on \n"
+                + "Cliente.id_persona = Persona.id_persona  \n"
+                + "where Cliente.estado = 'a';");
+        try {
+            while (resultado.next()) {
                 Vector v = new Vector();
                 v.add(resultado.getString(1));
                 v.add(resultado.getString(2));
                 v.add(resultado.getString(3));
                 v.add(resultado.getInt(4));
                 modelo.addRow(v);
-                jTable1.setModel(modelo);   
+                jTable1.setModel(modelo);
             }
-        }catch(SQLException e){
-            
+        } catch (SQLException e) {
+
         }
     }
-    
-    public void buscarPorNombre(){
+
+    public void buscarPorNombre() {
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
-        resultado1 = Conexion.Conexion.consulta("select (Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n" +
-        "+' '+Persona.sapellido) NombreCliente, Persona.identidad, \n" +
-        "Persona.telefono1, Cliente.puntos_actuales from persona inner join cliente on\n" +
-        "Cliente.id_persona = Persona.id_persona\n" +
-        "group by (Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n" +
-        "+' '+Persona.sapellido), Persona.identidad, \n" +
-        "Persona.telefono1, Cliente.puntos_actuales having ((Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n" +
-        "+' '+Persona.sapellido)\n" + "LIKE '%"+jTextField1.getText()+"%')");
-        try{
-            while(resultado1.next()){
+        resultado1 = Conexion.Conexion.consulta("select (Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n"
+                + "+' '+Persona.sapellido) NombreCliente, Persona.identidad, \n"
+                + "Persona.telefono1, Cliente.puntos_actuales from persona inner join cliente on\n"
+                + "Cliente.id_persona = Persona.id_persona\n"
+                + "group by (Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n"
+                + "+' '+Persona.sapellido), Persona.identidad, \n"
+                + "Persona.telefono1, Cliente.puntos_actuales having ((Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n"
+                + "+' '+Persona.sapellido)\n" + "LIKE '%" + jTextField1.getText() + "%')");
+        try {
+            while (resultado1.next()) {
                 Vector v = new Vector();
                 v.add(resultado1.getString(1));
                 v.add(resultado1.getString(2));
                 v.add(resultado1.getString(3));
                 v.add(resultado1.getInt(4));
                 modelo.addRow(v);
-                jTable1.setModel(modelo);   
+                jTable1.setModel(modelo);
             }
-        }catch(SQLException e){
-            
-        }        
+        } catch (SQLException e) {
+
+        }
     }
-    
-    public void buscarPorIdTelefono(){
+
+    public void buscarPorIdTelefono() {
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
-        resultado3 = Conexion.Conexion.consulta("select (Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n" +
-        "+' '+Persona.sapellido) NombreCliente, Persona.identidad, \n" +
-        "Persona.telefono1, Cliente.puntos_actuales from persona inner join cliente on\n" +
-        "Cliente.id_persona = Persona.id_persona\n" +
-        "group by (Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n" +
-        "+' '+Persona.sapellido), Persona.identidad, \n" +
-        "Persona.telefono1, Cliente.puntos_actuales having (Persona.identidad = '"+jTextField1.getText()+"')or \n" +
-        "(Persona.telefono1 = '"+jTextField1.getText()+"');");
-        try{
-            while(resultado3.next()){
+        resultado3 = Conexion.Conexion.consulta("select (Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n"
+                + "+' '+Persona.sapellido) NombreCliente, Persona.identidad, \n"
+                + "Persona.telefono1, Cliente.puntos_actuales from persona inner join cliente on\n"
+                + "Cliente.id_persona = Persona.id_persona\n"
+                + "group by (Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n"
+                + "+' '+Persona.sapellido), Persona.identidad, \n"
+                + "Persona.telefono1, Cliente.puntos_actuales having (Persona.identidad = '" + jTextField1.getText() + "')or \n"
+                + "(Persona.telefono1 = '" + jTextField1.getText() + "');");
+        try {
+            while (resultado3.next()) {
                 Vector v = new Vector();
                 v.add(resultado3.getString(1));
                 v.add(resultado3.getString(2));
                 v.add(resultado3.getString(3));
                 v.add(resultado3.getInt(4));
                 modelo.addRow(v);
-                jTable1.setModel(modelo);   
+                jTable1.setModel(modelo);
             }
-        }catch(SQLException e){
-            
+        } catch (SQLException e) {
+
         }
-        
+
     }
 
     /**
@@ -307,36 +312,62 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_clientesActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-        if(jCheckBoxBuscarInactivos.isSelected()){
+        if (jCheckBoxBuscarInactivos.isSelected()) {
             buscarInactivos();
-            jCheckBoxBuscarInactivos.isValid();
-        }else{
-            try{
-                resultado2 = Conexion.Conexion.consulta("select count(Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n" +
-                "+' '+Persona.sapellido) from persona inner join cliente on\n" +
-                "Cliente.id_persona = Persona.id_persona\n" +
-                "group by (Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n" +
-                "+' '+Persona.sapellido) having (Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n" +
-                "+' '+Persona.sapellido)\n" +
-                "LIKE '%"+jTextField1.getText()+"%'");
-                try{
-                    while(resultado2.next()){
-                        contador1 = resultado2.getInt(1);
-                    }if(contador1==1){
-                        buscarPorNombre();
+
+        } else {
+            try {
+                if (jTextField1.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Campo de busqueda vacio");
+                } else {
+                    resultado2 = Conexion.Conexion.consulta("select count(Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n"
+                            + "+' '+Persona.sapellido) from persona inner join cliente on\n"
+                            + "Cliente.id_persona = Persona.id_persona\n"
+                            + "group by (Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n"
+                            + "+' '+Persona.sapellido) having (Persona.pnombre+' '+Persona.snombre+' '+Persona.papellido\n"
+                            + "+' '+Persona.sapellido)\n"
+                            + "LIKE '%" + jTextField1.getText() + "%'");
+                    /**/
+                    resultado4 = Conexion.Conexion.consulta("select COUNT(Persona.identidad) from Persona inner join Cliente\n"
+                            + "on Cliente.id_persona = Persona.id_persona\n"
+                            + "where Persona.identidad = '" + jTextField1.getText() + "';");
+
+                    resultado5 = Conexion.Conexion.consulta("select COUNT(Persona.telefono1) from Persona inner join Cliente\n"
+                            + "on Cliente.id_persona = Persona.id_persona\n"
+                            + "where Persona.telefono1 = '"+jTextField1.getText()+"';");
+
+                    /**/
+                    try {
+                        while (resultado2.next()) {
+                            contador1 = resultado2.getInt(1);
+                        }
                         
-                    }else{
-                 
+                        while (resultado4.next()){
+                            contador2 = resultado4.getInt(1);
+                        }
+                        
+                        while (resultado5.next()){
+                            contador3 = resultado5.getInt(1);
+                        }
+                            
+                        if (contador1 >= 1) {
+                            buscarPorNombre();
+                        }else if (contador2>=1 || contador3>=1){
+                            buscarPorIdTelefono();
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Datos no encotrados");
+                        }
+                    } catch (SQLException e) {
+
                     }
-                }catch(SQLException e){
-                    
                 }
-            }catch(Exception e){
-                
+            } catch (Exception e) {
+
             }
+
         }
-        
-          
+
+
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void jCheckBoxBuscarInactivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxBuscarInactivosActionPerformed
