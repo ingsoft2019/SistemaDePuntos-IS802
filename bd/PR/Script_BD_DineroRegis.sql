@@ -4,10 +4,10 @@ SQL_Latin1_General_CP1_CI_AS ---->  Es el cotejamiento que tiene la base de  dat
 
     Nombres de las BD estar configuradas con Intercalacion SQL_Latin1_General_CP1_CI_AS
     FA 
-    SP
+    PR
 */
 
-USE SP; 
+USE PR; 
 
 CREATE TABLE Zona (
   id_zona INT NOT NULL IDENTITY(1,1),
