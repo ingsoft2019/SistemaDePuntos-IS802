@@ -73,19 +73,19 @@
                           <Component id="jTextField1" min="-2" pref="446" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btn_buscar" min="-2" pref="130" max="-2" attributes="0"/>
-                          <EmptySpace pref="23" max="32767" attributes="0"/>
-                          <Component id="BuscarInactivos" min="-2" pref="120" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxBuscarInactivos" pref="137" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="btn_clientes" min="-2" pref="120" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btn_agregarCliente" min="-2" pref="120" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="CanjearPuntos" min="-2" pref="125" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="AsignarPuntos" min="-2" pref="111" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="CanjearPuntos" min="-2" pref="120" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="AsignarPuntos" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -96,23 +96,25 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btn_buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextField1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="BuscarInactivos" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxBuscarInactivos" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="357" max="32767" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btn_clientes" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="btn_agregarCliente" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="AsignarPuntos" alignment="3" max="32767" attributes="0"/>
-                      <Component id="CanjearPuntos" alignment="3" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="368" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="btn_agregarCliente" alignment="3" pref="40" max="32767" attributes="0"/>
+                          <Component id="btn_clientes" alignment="3" pref="40" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="CanjearPuntos" alignment="1" max="32767" attributes="0"/>
+                      <Component id="AsignarPuntos" alignment="1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -133,6 +135,9 @@
               <Dimension value="[35, 30]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_buscarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_agregarCliente">
           <Properties>
@@ -166,12 +171,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_clientesActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="java.awt.Checkbox" name="BuscarInactivos">
-          <Properties>
-            <Property name="label" type="java.lang.String" value="Buscar inactivos"/>
-            <Property name="name" type="java.lang.String" value="Buscar Inactivos" noResource="true"/>
-          </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
@@ -259,6 +258,9 @@
               <Dimension value="[77, 35]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AsignarPuntosActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="CanjearPuntos">
           <Properties>
@@ -272,6 +274,17 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CanjearPuntosActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxBuscarInactivos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Buscar Inactivos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxBuscarInactivosActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
