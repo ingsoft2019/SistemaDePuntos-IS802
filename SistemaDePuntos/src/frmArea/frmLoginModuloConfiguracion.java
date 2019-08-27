@@ -54,10 +54,10 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
 
         panel_login.setLayout(null);
 
-        jl_Usuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jl_Usuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jl_Usuario.setText("Usuario");
         panel_login.add(jl_Usuario);
-        jl_Usuario.setBounds(17, 17, 45, 17);
+        jl_Usuario.setBounds(17, 17, 100, 30);
 
         txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -65,12 +65,12 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
             }
         });
         panel_login.add(txt_usuario);
-        txt_usuario.setBounds(115, 17, 312, 20);
+        txt_usuario.setBounds(115, 17, 312, 30);
 
-        jl_contrasena.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jl_contrasena.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jl_contrasena.setText("Contraseña");
         panel_login.add(jl_contrasena);
-        jl_contrasena.setBounds(17, 69, 70, 17);
+        jl_contrasena.setBounds(17, 69, 100, 30);
 
         btn_ingresarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/ingresar.png"))); // NOI18N
         btn_ingresarLogin.setText("Ingresar");
@@ -93,7 +93,7 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
             }
         });
         panel_login.add(txt_contrasena);
-        txt_contrasena.setBounds(115, 66, 312, 20);
+        txt_contrasena.setBounds(115, 66, 312, 30);
 
         getContentPane().add(panel_login);
         panel_login.setBounds(20, 330, 450, 180);

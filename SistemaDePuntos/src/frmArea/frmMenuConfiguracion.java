@@ -39,7 +39,6 @@ public class frmMenuConfiguracion extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -51,11 +50,12 @@ public class frmMenuConfiguracion extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Busqueda");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(20, 30, 47, 14);
+        jLabel1.setBounds(20, 30, 100, 30);
         jPanel1.add(txt_busqueda);
-        txt_busqueda.setBounds(80, 30, 267, 20);
+        txt_busqueda.setBounds(120, 30, 267, 30);
 
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/buscar.png"))); // NOI18N
         btn_buscar.setText("Buscar");
@@ -75,22 +75,12 @@ public class frmMenuConfiguracion extends javax.swing.JFrame {
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/rifa.png"))); // NOI18N
         jButton2.setText("Realizar Rifa");
         jPanel2.add(jButton2);
-        jButton2.setBounds(80, 60, 160, 40);
+        jButton2.setBounds(190, 40, 190, 60);
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
         jButton5.setText("Reinicio de Puntos");
         jPanel2.add(jButton5);
-        jButton5.setBounds(370, 60, 160, 40);
-
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
-        btn_RegresarAlMenuPrincipal.setText("Regresar");
-        btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RegresarAlMenuPrincipalActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(230, 210, 140, 40);
+        jButton5.setBounds(190, 120, 190, 60);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(40, 160, 600, 280);
@@ -98,7 +88,7 @@ public class frmMenuConfiguracion extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Conguración del Sistema");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(170, 30, 310, 40);
+        jLabel2.setBounds(210, 20, 310, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,12 +96,6 @@ public class frmMenuConfiguracion extends javax.swing.JFrame {
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_buscarActionPerformed
-
-    private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
-        frmMenuPrincipal ver=new frmMenuPrincipal();
-        ver.setVisible(true); // visible ventana del objeto
-        this.setVisible(false); // ocultar
-    }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,7 +134,6 @@ public class frmMenuConfiguracion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;

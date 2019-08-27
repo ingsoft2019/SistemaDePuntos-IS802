@@ -33,7 +33,6 @@ public class frmDeshabilitarCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jpanel_SubMenu = new javax.swing.JPanel();
-        btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
         jl_TituloPrincipal = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -51,16 +50,6 @@ public class frmDeshabilitarCliente extends javax.swing.JFrame {
         jpanel_SubMenu.setMinimumSize(new java.awt.Dimension(680, 530));
         jpanel_SubMenu.setLayout(null);
 
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
-        btn_RegresarAlMenuPrincipal.setText("Regresar");
-        btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RegresarAlMenuPrincipalActionPerformed(evt);
-            }
-        });
-        jpanel_SubMenu.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(240, 340, 120, 50);
-
         jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jl_TituloPrincipal.setText("Deshabilitar Cliente");
         jpanel_SubMenu.add(jl_TituloPrincipal);
@@ -68,11 +57,12 @@ public class frmDeshabilitarCliente extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Busqueda");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(20, 30, 47, 14);
+        jLabel1.setBounds(20, 30, 71, 19);
         jPanel1.add(txt_busqueda);
-        txt_busqueda.setBounds(80, 30, 267, 20);
+        txt_busqueda.setBounds(110, 30, 250, 24);
 
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/buscar.png"))); // NOI18N
         btn_buscar.setText("Buscar");
@@ -82,7 +72,7 @@ public class frmDeshabilitarCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_buscar);
-        btn_buscar.setBounds(370, 20, 100, 41);
+        btn_buscar.setBounds(370, 20, 107, 40);
 
         jpanel_SubMenu.add(jPanel1);
         jPanel1.setBounds(50, 70, 490, 80);
@@ -93,12 +83,6 @@ public class frmDeshabilitarCliente extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
-        frmMenuPrincipal ver=new frmMenuPrincipal();
-        ver.setVisible(true); // visible ventana del objeto
-        this.setVisible(false); // ocultar
-    }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
         // TODO add your handling code here:
@@ -141,7 +125,6 @@ public class frmDeshabilitarCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

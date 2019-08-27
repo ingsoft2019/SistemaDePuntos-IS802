@@ -33,7 +33,6 @@ public class frmReinicioPuntos extends javax.swing.JFrame {
     private void initComponents() {
 
         jpanel_SubMenu = new javax.swing.JPanel();
-        btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
         jl_TituloPrincipal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -47,32 +46,16 @@ public class frmReinicioPuntos extends javax.swing.JFrame {
         jpanel_SubMenu.setMinimumSize(new java.awt.Dimension(680, 530));
         jpanel_SubMenu.setLayout(null);
 
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
-        btn_RegresarAlMenuPrincipal.setText("Regresar");
-        btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RegresarAlMenuPrincipalActionPerformed(evt);
-            }
-        });
-        jpanel_SubMenu.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(240, 340, 120, 50);
-
         jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jl_TituloPrincipal.setText("Reinicio de Puntos");
         jpanel_SubMenu.add(jl_TituloPrincipal);
         jl_TituloPrincipal.setBounds(180, 20, 230, 30);
 
         getContentPane().add(jpanel_SubMenu);
-        jpanel_SubMenu.setBounds(60, 40, 580, 410);
+        jpanel_SubMenu.setBounds(50, 20, 580, 410);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
-        frmMenuPrincipal ver=new frmMenuPrincipal();
-        ver.setVisible(true); // visible ventana del objeto
-        this.setVisible(false); // ocultar
-    }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,7 +93,6 @@ public class frmReinicioPuntos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JLabel jl_TituloPrincipal;
     private javax.swing.JPanel jpanel_SubMenu;
     // End of variables declaration//GEN-END:variables

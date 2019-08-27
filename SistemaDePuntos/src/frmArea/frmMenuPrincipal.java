@@ -57,7 +57,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_ClienteMenu);
-        btn_ClienteMenu.setBounds(40, 110, 220, 70);
+        btn_ClienteMenu.setBounds(40, 110, 220, 60);
 
         btn_PuntosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/gestion_de_puntos v2.png"))); // NOI18N
         btn_PuntosMenu.setText("Puntos");
@@ -67,7 +67,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_PuntosMenu);
-        btn_PuntosMenu.setBounds(350, 110, 220, 70);
+        btn_PuntosMenu.setBounds(350, 110, 220, 60);
 
         btn_ReportesMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/reportes v2.png"))); // NOI18N
         btn_ReportesMenu.setText("Reportes");
@@ -77,7 +77,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_ReportesMenu);
-        btn_ReportesMenu.setBounds(40, 230, 220, 70);
+        btn_ReportesMenu.setBounds(40, 210, 220, 60);
 
         btn_configuracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/administrador.png"))); // NOI18N
         btn_configuracion.setText("Configuración");
@@ -88,7 +88,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_configuracion);
-        btn_configuracion.setBounds(360, 230, 220, 70);
+        btn_configuracion.setBounds(350, 210, 220, 60);
 
         jl_tituloMenuPrincipal.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jl_tituloMenuPrincipal.setText("Sistema de Puntos Farmacia ");
