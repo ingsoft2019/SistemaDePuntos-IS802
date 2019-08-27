@@ -336,6 +336,8 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         jC_zona.setBounds(90, 24, 180, 24);
 
         jButton1.setText("Nueva Zona");
+        jButton1.setMaximumSize(new java.awt.Dimension(100, 23));
+        jButton1.setMinimumSize(new java.awt.Dimension(100, 23));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -658,7 +660,28 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         }
 
     }
+    
+    public void actulizarZonas(){
+        ResultSet zonas = Zona.mostrarZonas();
+        System.out.println();
+        
+        //LLenamos nuestro ComboBox
+        jC_zona.removeAllItems();
+        jC_zona.addItem("--OAPCO--");
 
+        try {
+            while (zonas.next()) {
+                jC_zona.addItem(zonas.getString("zona"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(frmRegistroClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void setZona(String zona){
+        this.jC_zona.addItem(zona);
+    }
+    
     /**
      * @param args the command line arguments
      */

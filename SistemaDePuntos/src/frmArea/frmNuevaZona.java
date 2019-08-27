@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author bayro
+ * @author bayron
  */
 public class frmNuevaZona extends javax.swing.JFrame {
 
@@ -28,6 +28,7 @@ public class frmNuevaZona extends javax.swing.JFrame {
     public frmNuevaZona() {
         initComponents();
         setLocationRelativeTo(null);// Para que el formulario aparezca en el centro de la pantala
+        
     }
 
     /**
@@ -64,7 +65,11 @@ public class frmNuevaZona extends javax.swing.JFrame {
         getContentPane().add(txt_nuevaZona);
         txt_nuevaZona.setBounds(60, 30, 330, 24);
 
+        btn_guardarZona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/guardar.png"))); // NOI18N
         btn_guardarZona.setText("Guardar");
+        btn_guardarZona.setMaximumSize(new java.awt.Dimension(160, 40));
+        btn_guardarZona.setMinimumSize(new java.awt.Dimension(160, 40));
+        btn_guardarZona.setPreferredSize(new java.awt.Dimension(160, 40));
         btn_guardarZona.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_guardarZonaMouseClicked(evt);
@@ -76,7 +81,7 @@ public class frmNuevaZona extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_guardarZona);
-        btn_guardarZona.setBounds(317, 60, 73, 23);
+        btn_guardarZona.setBounds(230, 60, 160, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -95,13 +100,13 @@ public class frmNuevaZona extends javax.swing.JFrame {
                 }
                 if (cont > 0) {
                     JOptionPane.showMessageDialog(this, "Esta zona ya existe", "Informacion", JOptionPane.INFORMATION_MESSAGE);
-
+                     
                 } else {
                     Procedimientos.ProcedimientosCliente.guardarZona(txt_nuevaZona.getText());
-                    //Limpiar los campos
-                    txt_nuevaZona.setText("");
-         
-                    JOptionPane.showMessageDialog(this, "Zona agregada");                
+                        new frmRegistroClientes().actulizarZonas();
+//                    JOptionPane.showMessageDialog(this, "Zona agregada");
+                    
+                    dispose();//Para cerrar el formulario al agregar la zona
                 }
             } catch (SQLException e) {
             }
@@ -109,7 +114,7 @@ public class frmNuevaZona extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_guardarZonaActionPerformed
 
     private void btn_guardarZonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_guardarZonaMouseClicked
-          new frmRegistroClientes().cargarZonas();
+          
     }//GEN-LAST:event_btn_guardarZonaMouseClicked
 
     /**
