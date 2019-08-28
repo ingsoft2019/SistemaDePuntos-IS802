@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Clases.Validar;
+import static Conexion.Conexion.consulta;
 
 /**
  *
@@ -38,7 +39,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
-        
+
     }
 
     public void buscarCliente() {
@@ -276,14 +277,40 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         RC.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_agregarClienteActionPerformed
-
+    
+    //AL PRESONAR EL BOTON DE GESTIO DE CLIENTE
     private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
-        int fila = jTable1.getSelectedRow();
+        /*int fila = jTable1.getSelectedRow();
         frmSubMenuCliente SMC = new frmSubMenuCliente();
         SMC.setVisible(true);
         this.dispose();
         texto = jTable1.getValueAt(fila,1).toString();
-        System.out.println(texto);
+        System.out.println(texto);*/
+        
+        int row = jTable1.getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
+        String identidad = (String) jTable1.getValueAt(row, 1); //OBTENGO EL VALOR DEL NUMERO DE IDENTIDAD
+        
+        //Consulto todos los datos relacioados con el ID
+        ResultSet res = consulta("Select * from Persona inner join Cliente on Persona.id_persona = Cliente.id_persona\n"
+                               + "inner join zona on Persona.id_zona = Zona.id_zona where Persona.identidad = '" + identidad + "';");
+        //Hago visible el formulario
+        frmSubMenuCliente subMenuCli = new frmSubMenuCliente();
+        subMenuCli.setVisible(true);
+        
+        try {
+            while (res.next()) {
+                //Llamo al metodo para llenar los campos con los datos a editar
+                subMenuCli.llenarCampos(res.getString("pnombre"),res.getString("snombre"),res.getString("papellido"),
+                               res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"),res.getString("telefono1"),
+                               res.getString("telefono2"),res.getString("telefono3"), res.getString("correo"),
+                               res.getDate("fecha_nacimiento").toString(), res.getString("zona"),res.getString("detalle_direccion"));
+               
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(frmConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_btn_clientesActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
@@ -305,16 +332,16 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                     while (resultado1.next()) {
                         contador1 = resultado1.getInt(1);
                     }
-                    while (resultado2.next()){
+                    while (resultado2.next()) {
                         contador2 = resultado2.getInt(1);
                     }
                     if (jCheckBoxBuscarInactivos.isSelected()) {
                         buscarClienteInactivo();
                         jTextField1.setText("");
                         jCheckBoxBuscarInactivos.setSelected(false);
-                    } else if(contador1>=1){
+                    } else if (contador1 >= 1) {
                         buscarCliente();
-                    }else{
+                    } else {
                         JOptionPane.showMessageDialog(null, "El registro que busca no existe");
                     }
                 } catch (SQLException e) {

@@ -67,12 +67,12 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txt_puntoRifa = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jD_fechaNac = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt_zona = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txt_datalleDireccion = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestion Cliente");
@@ -291,9 +291,9 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
 
         jLabel5.setText("Dirección");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txt_datalleDireccion.setColumns(20);
+        txt_datalleDireccion.setRows(5);
+        jScrollPane1.setViewportView(txt_datalleDireccion);
 
         javax.swing.GroupLayout jpanel_datos2Layout = new javax.swing.GroupLayout(jpanel_datos2);
         jpanel_datos2.setLayout(jpanel_datos2Layout);
@@ -316,19 +316,19 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGroup(jpanel_datos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpanel_datos2Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jpanel_datos2Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(txt_puntosRegis, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txt_puntosRegis, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_datos2Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jpanel_datos2Layout.createSequentialGroup()
                         .addGroup(jpanel_datos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
                         .addGap(32, 32, 32)
                         .addGroup(jpanel_datos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jD_fechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_zona, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(10, 50, Short.MAX_VALUE))
         );
         jpanel_datos2Layout.setVerticalGroup(
@@ -337,16 +337,16 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jpanel_datos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jD_fechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jpanel_datos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_zona, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(jpanel_datos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel5)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addGroup(jpanel_datos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(txt_puntosRegis, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -392,7 +392,34 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     private void btn_imprimirPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirPuntosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_imprimirPuntosActionPerformed
-
+    
+    //Metodo para llenar los campos     
+    public void llenarCampos(String pnombre, String snombre,String papellido, String sapellido, String identidad,
+                             String sexo, String telefono1, String telefono2, String telefono3, String correo,
+                             String fechaNac, String zona, String detalleDireccion){
+        this.txt_primerNombre.setText(pnombre);
+        this.txt_segundoNombre.setText(snombre);
+        this.txt_primerApellido.setText(papellido);
+        this.txt_segundoApellido.setText(sapellido);
+        this.txt_identidad.setText(identidad);
+        System.out.println(sexo);
+        if(sexo=="M"){
+            jRadioButtonMasculino.setSelected(true);}
+        else if(sexo =="F"){
+            jRadioButtonFemenino.setSelected(true);}
+        this.txt_telefono1.setText(telefono1);
+        this.txt_telefono2.setText(telefono2);
+        this.txt_telefono3.setText(telefono3);
+        this.txt_email.setText(correo);
+        this.jD_fechaNac.setDateFormatString(fechaNac);
+        this.txt_zona.setText(zona);
+        this.txt_datalleDireccion.setText(detalleDireccion);
+    }
+    
+    public void setPsombre(String pnombre){
+        this.txt_primerNombre.setText(pnombre);
+    }
+    
     private void txt_puntosRegisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_puntosRegisActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_puntosRegisActionPerformed
@@ -461,7 +488,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     private javax.swing.JButton btn_editarCliente;
     private javax.swing.JButton btn_imprimirDireccion;
     private javax.swing.JButton btn_imprimirPuntos;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jD_fechaNac;
     private javax.swing.JLabel jL_email;
     private javax.swing.JLabel jL_identidad;
     private javax.swing.JLabel jL_primerApellido;
@@ -481,11 +508,10 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonFemenino;
     private javax.swing.JRadioButton jRadioButtonMasculino;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel jpanel_AreaSubMenu;
     private javax.swing.JPanel jpanel_datos1;
     private javax.swing.JPanel jpanel_datos2;
+    private javax.swing.JTextArea txt_datalleDireccion;
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_identidad;
     private javax.swing.JTextField txt_primerApellido;
@@ -498,5 +524,6 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txt_telefono2;
     private javax.swing.JTextField txt_telefono3;
     private javax.swing.JTextField txt_vencimiento;
+    private javax.swing.JTextField txt_zona;
     // End of variables declaration//GEN-END:variables
 }
