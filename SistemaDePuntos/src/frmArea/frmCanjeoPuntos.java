@@ -46,9 +46,8 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Canjeo de Puntos");
-        setMaximumSize(new java.awt.Dimension(436, 232));
-        setMinimumSize(new java.awt.Dimension(436, 232));
-        setPreferredSize(new java.awt.Dimension(436, 232));
+        setMaximumSize(new java.awt.Dimension(450, 260));
+        setMinimumSize(new java.awt.Dimension(436, 244));
         getContentPane().setLayout(null);
 
         lblCanjeoPuntos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
