@@ -43,15 +43,14 @@ public class frmLogin extends javax.swing.JFrame {
         btn_recuperar = new javax.swing.JButton();
         btn_SalirLogin = new javax.swing.JButton();
         txt_contrasena = new javax.swing.JPasswordField();
-        jl_iconoPersonas = new javax.swing.JLabel();
         jl_fondoLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Sistema De Puntos");
-        setMaximumSize(new java.awt.Dimension(490, 541));
-        setMinimumSize(new java.awt.Dimension(490, 541));
+        setMaximumSize(new java.awt.Dimension(490, 233));
+        setMinimumSize(new java.awt.Dimension(490, 233));
         setName("Loguin del Sistema de Puntos"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(490, 541));
+        setPreferredSize(new java.awt.Dimension(490, 233));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -109,11 +108,7 @@ public class frmLogin extends javax.swing.JFrame {
         txt_contrasena.setBounds(120, 70, 312, 30);
 
         getContentPane().add(panel_login_Principal);
-        panel_login_Principal.setBounds(20, 310, 460, 190);
-
-        jl_iconoPersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/login-Usuario.png"))); // NOI18N
-        getContentPane().add(jl_iconoPersonas);
-        jl_iconoPersonas.setBounds(120, 40, 260, 240);
+        panel_login_Principal.setBounds(10, 10, 460, 190);
 
         jl_fondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/fondo_login.jpg"))); // NOI18N
         jl_fondoLogin.setMaximumSize(new java.awt.Dimension(488, 541));
@@ -211,7 +206,6 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jl_Usuario;
     private javax.swing.JLabel jl_contrasena;
     private javax.swing.JLabel jl_fondoLogin;
-    private javax.swing.JLabel jl_iconoPersonas;
     private java.awt.Panel panel_login_Principal;
     private javax.swing.JPasswordField txt_contrasena;
     private javax.swing.JTextField txt_usuario;
