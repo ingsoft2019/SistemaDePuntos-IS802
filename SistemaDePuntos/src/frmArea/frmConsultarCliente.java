@@ -304,7 +304,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                                res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"),res.getString("telefono1"),
                                res.getString("telefono2"),res.getString("telefono3"), res.getString("correo"),
                                res.getDate("fecha_nacimiento").toString(), res.getString("zona"),res.getString("detalle_direccion"));
-               
+                               
             }
         } catch (SQLException ex) {
             Logger.getLogger(frmConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);

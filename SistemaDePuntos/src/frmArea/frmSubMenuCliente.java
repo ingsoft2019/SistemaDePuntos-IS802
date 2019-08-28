@@ -402,11 +402,11 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         this.txt_primerApellido.setText(papellido);
         this.txt_segundoApellido.setText(sapellido);
         this.txt_identidad.setText(identidad);
-        System.out.println(sexo);
-        if(sexo=="M"){
-            jRadioButtonMasculino.setSelected(true);}
-        else if(sexo =="F"){
-            jRadioButtonFemenino.setSelected(true);}
+        System.out.println(sexo.getClass());
+        //if(sexo=="M"){
+            this.jRadioButtonMasculino.setSelected(true);
+        //else{ 
+           // this.jRadioButtonFemenino.setSelected(true);}
         this.txt_telefono1.setText(telefono1);
         this.txt_telefono2.setText(telefono2);
         this.txt_telefono3.setText(telefono3);
