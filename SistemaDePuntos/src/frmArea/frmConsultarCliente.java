@@ -26,14 +26,14 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     static ResultSet resultado2;
     int contador1;
     int contador2;
-    Validar v = new Validar();
+    Validar valido = new Validar();
 
     /**
      * Creates new form frmConsultarCliente
      */
     public frmConsultarCliente() {
         initComponents();
-        v.validarCampoBusqueda(jTextField1);
+        valido.ValidarBusqueda(jTextField1);
         this.setLocationRelativeTo(null);
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario

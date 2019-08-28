@@ -76,27 +76,6 @@ public class Validar {
             }
         });
     }
-    public void validarCampoBusqueda(JTextField campo){
-        campo.addKeyListener(new KeyAdapter() {
-            public void KeyTyped(KeyEvent e){
-                char c = e.getKeyChar();
-                
-                if((int)e.getKeyChar()>=33 && (int)e.getKeyChar()<=39
-                        || (int)e.getKeyChar()>=42 && (int)e.getKeyChar()<=44
-                        || (int)e.getKeyChar()>=46 && (int)e.getKeyChar()<=47
-                        || (int)e.getKeyChar()>=58 && (int)e.getKeyChar()<=64
-                        || (int)e.getKeyChar()>=91 && (int)e.getKeyChar()<=96
-                        || (int)e.getKeyChar()>=123 && (int)e.getKeyChar()<=126){
-                    e.consume();
-                    JOptionPane.showMessageDialog(null, "Solo puedes usar caracteres alfanumericos,-,()");
-                    campo.setText(null);
-                }
-                
-            }
-        
-        });
-        
-    }
 
     public void limitarCaracteres(JTextField campo, int cantidad) {
         campo.addKeyListener(new KeyAdapter() {
@@ -126,7 +105,23 @@ public class Validar {
         }
     }
 
-    
-    
+    public void ValidarBusqueda(JTextField campo) {
+        campo.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+
+                if ((int) e.getKeyChar() >= 33 && (int) e.getKeyChar() <= 39
+                        || (int) e.getKeyChar() >= 42 && (int) e.getKeyChar() <= 44
+                        || (int) e.getKeyChar() >= 46 && (int) e.getKeyChar() <= 47
+                        || (int) e.getKeyChar() >= 58 && (int) e.getKeyChar() <= 64
+                        || (int) e.getKeyChar() >= 91 && (int) e.getKeyChar() <= 96
+                        || (int) e.getKeyChar() >= 123 && (int) e.getKeyChar() <= 126) {
+                    e.consume();
+                    JOptionPane.showMessageDialog(null, "Solo puedes usar caracteres alfanumericos,-,()");
+                    campo.setText(null);
+                }
+            }
+        });
+    }
 
 }
