@@ -5,7 +5,15 @@
  */
 package frmArea;
 
+import Clases.Persona;
+import Clases.Zona;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,10 +25,11 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
      * Creates new form frmSubMenuCliente
      */
     public frmSubMenuCliente() {
-         initComponents();
+        initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
+        cargarZonas();
     }
 
     /**
@@ -69,10 +78,10 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jD_fechaNac = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
-        txt_zona = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_datalleDireccion = new javax.swing.JTextArea();
+        jC_zona = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestion Cliente");
@@ -295,6 +304,8 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         txt_datalleDireccion.setRows(5);
         jScrollPane1.setViewportView(txt_datalleDireccion);
 
+        jC_zona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jpanel_datos2Layout = new javax.swing.GroupLayout(jpanel_datos2);
         jpanel_datos2.setLayout(jpanel_datos2Layout);
         jpanel_datos2Layout.setHorizontalGroup(
@@ -326,9 +337,9 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
                         .addGap(32, 32, 32)
-                        .addGroup(jpanel_datos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jD_fechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_zona, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jpanel_datos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jD_fechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                            .addComponent(jC_zona, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(10, 50, Short.MAX_VALUE))
         );
         jpanel_datos2Layout.setVerticalGroup(
@@ -341,8 +352,8 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jpanel_datos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(txt_zona, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                    .addComponent(jC_zona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jpanel_datos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -383,20 +394,101 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_editarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarClienteActionPerformed
-        // TODO add your handling code here:
-        frmModificarCliente ver=new frmModificarCliente();
-        ver.setVisible(true); // visible ventana del objeto
-        this.setVisible(false); 
+
+        //Validar que no esten vacios los campos requeridos
+        if (txt_primerNombre.getText().isEmpty() || txt_primerApellido.getText().isEmpty() || txt_identidad.getText().isEmpty()
+                || txt_telefono1.getText().isEmpty() || jD_fechaNac.getCalendar() == null
+                || jC_zona.getSelectedItem() == null || (jRadioButtonMasculino.isSelected() == false && jRadioButtonFemenino.isSelected() == false)) {
+
+            JOptionPane.showMessageDialog(this, "Se dejaron vacios campos que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            try {
+                //PREPARO LA FECHA PARA ENVIARLA    
+                java.sql.Date fechaNac = new java.sql.Date(jD_fechaNac.getDate().getTime());
+
+                //Consulto el id de la zona que eligio el usuario para registrarla en la tabla clientes
+                ResultSet respuesta = Zona.consultarIdZona((String) jC_zona.getSelectedItem());
+                int idZona = 0;
+
+                while (respuesta.next()) {
+                    idZona = respuesta.getInt(1);
+                }
+
+                //Verificar el sexo seleccionado
+                String sexo = "";
+                if (jRadioButtonMasculino.isSelected() == true) {
+                    sexo = "M";
+                } else if (jRadioButtonFemenino.isSelected() == true) {
+                    sexo = "F";
+                }
+
+                Procedimientos.ProcedimientosCliente.actualizarCliente(txt_primerNombre.getText(), txt_segundoNombre.getText(),
+                        txt_primerApellido.getText(), txt_segundoApellido.getText(), txt_identidad.getText(), txt_email.getText(),
+                        sexo, fechaNac, txt_telefono1.getText(), txt_telefono2.getText(), txt_telefono3.getText(),
+                        idZona, txt_datalleDireccion.getText(), Integer.parseInt(txt_puntosRegis.getText()),
+                        txt_vencimiento.getText(), Integer.parseInt(txt_puntoRifa.getText())
+                );
+
+                //Limpiar los campos
+                txt_primerNombre.setText("");
+                txt_segundoNombre.setText("");
+                txt_primerApellido.setText("");
+                txt_segundoApellido.setText("");
+                txt_identidad.setText("");
+                txt_email.setText("");
+                txt_telefono1.setText("");
+                txt_telefono2.setText("");
+                txt_telefono3.setText("");
+                jRadioButtonMasculino.setSelected(false);
+                jRadioButtonFemenino.setSelected(false);
+                jD_fechaNac.setCalendar(null);
+                jC_zona.setSelectedIndex(0);
+                txt_datalleDireccion.setText("");
+                txt_primerNombre.requestFocus();
+                txt_segundoNombre.requestFocus();
+                txt_primerApellido.requestFocus();
+                txt_segundoApellido.requestFocus();
+                txt_identidad.requestFocus();
+                txt_email.requestFocus();
+                txt_telefono1.requestFocus();
+                txt_telefono2.requestFocus();
+                txt_telefono3.requestFocus();
+                jD_fechaNac.requestFocus();
+                jC_zona.requestFocus();
+                txt_primerNombre.requestFocus();
+
+                JOptionPane.showMessageDialog(this, "Registro actualizado");
+
+            } catch (SQLException e) {
+            }
+        }
     }//GEN-LAST:event_btn_editarClienteActionPerformed
+
+    public void cargarZonas() {
+        ResultSet zonas = Zona.mostrarZonas();
+        //LLenamos nuestro ComboBox
+        jC_zona.addItem("--Seleccione una zona--");
+
+        try {
+            while (zonas.next()) {
+                jC_zona.addItem(zonas.getString("zona"));
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(frmRegistroClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     private void btn_imprimirPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirPuntosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_imprimirPuntosActionPerformed
-    
+
     //Metodo para llenar los campos     
-    public void llenarCampos(String pnombre, String snombre,String papellido, String sapellido, String identidad,
-                             String sexo, String telefono1, String telefono2, String telefono3, String correo,
-                             String fechaNac, String zona, String detalleDireccion){
+    public void llenarCampos(String pnombre, String snombre, String papellido, String sapellido, String identidad,
+            String sexo, String telefono1, String telefono2, String telefono3, String correo,
+            String fechaNac, String zona, String detalleDireccion, String puntos_actuales, String puntos_rifa,
+            String fechaVencimiento) {
         this.txt_primerNombre.setText(pnombre);
         this.txt_segundoNombre.setText(snombre);
         this.txt_primerApellido.setText(papellido);
@@ -404,28 +496,32 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         this.txt_identidad.setText(identidad);
         System.out.println(sexo.getClass());
         //if(sexo=="M"){
-            this.jRadioButtonMasculino.setSelected(true);
+        this.jRadioButtonMasculino.setSelected(true);
         //else{ 
-           // this.jRadioButtonFemenino.setSelected(true);}
+        // this.jRadioButtonFemenino.setSelected(true);}
         this.txt_telefono1.setText(telefono1);
         this.txt_telefono2.setText(telefono2);
         this.txt_telefono3.setText(telefono3);
         this.txt_email.setText(correo);
         this.jD_fechaNac.setDateFormatString(fechaNac);
-        this.txt_zona.setText(zona);
+        this.jC_zona.addItem(zona);
         this.txt_datalleDireccion.setText(detalleDireccion);
+        this.txt_puntosRegis.setText(puntos_actuales);
+        this.txt_puntoRifa.setText(puntos_rifa);
+        this.txt_vencimiento.setText(fechaVencimiento);
+
     }
-    
-    public void setPsombre(String pnombre){
+
+    public void setPsombre(String pnombre) {
         this.txt_primerNombre.setText(pnombre);
     }
-    
+
     private void txt_puntosRegisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_puntosRegisActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_puntosRegisActionPerformed
 
     private void btn_desactivarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_desactivarClienteActionPerformed
-            frmDeshabilitarCliente ver2 = new frmDeshabilitarCliente();
+        frmDeshabilitarCliente ver2 = new frmDeshabilitarCliente();
         ver2.setVisible(true);
         this.dispose();
 
@@ -488,6 +584,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     private javax.swing.JButton btn_editarCliente;
     private javax.swing.JButton btn_imprimirDireccion;
     private javax.swing.JButton btn_imprimirPuntos;
+    private javax.swing.JComboBox<String> jC_zona;
     private com.toedter.calendar.JDateChooser jD_fechaNac;
     private javax.swing.JLabel jL_email;
     private javax.swing.JLabel jL_identidad;
@@ -524,6 +621,5 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txt_telefono2;
     private javax.swing.JTextField txt_telefono3;
     private javax.swing.JTextField txt_vencimiento;
-    private javax.swing.JTextField txt_zona;
     // End of variables declaration//GEN-END:variables
 }

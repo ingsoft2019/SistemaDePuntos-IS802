@@ -280,13 +280,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     
     //AL PRESONAR EL BOTON DE GESTIO DE CLIENTE
     private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
-        /*int fila = jTable1.getSelectedRow();
-        frmSubMenuCliente SMC = new frmSubMenuCliente();
-        SMC.setVisible(true);
-        this.dispose();
-        texto = jTable1.getValueAt(fila,1).toString();
-        System.out.println(texto);*/
-        
+
         int row = jTable1.getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
         String identidad = (String) jTable1.getValueAt(row, 1); //OBTENGO EL VALOR DEL NUMERO DE IDENTIDAD
         
@@ -303,7 +297,8 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 subMenuCli.llenarCampos(res.getString("pnombre"),res.getString("snombre"),res.getString("papellido"),
                                res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"),res.getString("telefono1"),
                                res.getString("telefono2"),res.getString("telefono3"), res.getString("correo"),
-                               res.getDate("fecha_nacimiento").toString(), res.getString("zona"),res.getString("detalle_direccion"));
+                               res.getDate("fecha_nacimiento").toString(), res.getString("zona"),res.getString("detalle_direccion"),
+                               res.getString("puntos_actuales") ,res.getString("puntos_rifa_actuales"),res.getString("fecha_vencimiento_puntos"));
                                
             }
         } catch (SQLException ex) {
