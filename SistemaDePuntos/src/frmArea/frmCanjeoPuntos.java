@@ -43,7 +43,6 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
         txtPuntosCanjear = new javax.swing.JTextField();
         btn_asignar = new javax.swing.JButton();
         btn_limpiar = new javax.swing.JButton();
-        btn_VolverMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Canjeo de Puntos");
@@ -51,14 +50,15 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(436, 244));
         getContentPane().setLayout(null);
 
-        lblCanjeoPuntos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblCanjeoPuntos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblCanjeoPuntos.setText("Canjeo de Puntos");
         getContentPane().add(lblCanjeoPuntos);
-        lblCanjeoPuntos.setBounds(140, 0, 150, 38);
+        lblCanjeoPuntos.setBounds(110, 0, 220, 38);
 
+        lblCliente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblCliente.setText("Cliente:");
         getContentPane().add(lblCliente);
-        lblCliente.setBounds(80, 60, 50, 16);
+        lblCliente.setBounds(30, 50, 100, 30);
 
         txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,11 +71,12 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtNombreCliente);
-        txtNombreCliente.setBounds(140, 50, 230, 30);
+        txtNombreCliente.setBounds(170, 50, 230, 30);
 
+        lblPuntosCanjear.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblPuntosCanjear.setText("Puntos a canjear:");
         getContentPane().add(lblPuntosCanjear);
-        lblPuntosCanjear.setBounds(30, 110, 110, 16);
+        lblPuntosCanjear.setBounds(30, 99, 140, 30);
 
         txtPuntosCanjear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +89,7 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtPuntosCanjear);
-        txtPuntosCanjear.setBounds(140, 100, 230, 30);
+        txtPuntosCanjear.setBounds(170, 100, 230, 30);
 
         btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
         btn_asignar.setText("Canjear");
@@ -98,22 +99,12 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_asignar);
-        btn_asignar.setBounds(20, 160, 110, 48);
+        btn_asignar.setBounds(50, 150, 140, 40);
 
         btn_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
         btn_limpiar.setText("Limpiar");
         getContentPane().add(btn_limpiar);
-        btn_limpiar.setBounds(160, 160, 109, 48);
-
-        btn_VolverMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
-        btn_VolverMenu.setText("Volver");
-        btn_VolverMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_VolverMenuActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_VolverMenu);
-        btn_VolverMenu.setBounds(300, 160, 110, 50);
+        btn_limpiar.setBounds(240, 150, 140, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -138,13 +129,6 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
    
         }
     }//GEN-LAST:event_btn_asignarActionPerformed
-
-    private void btn_VolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverMenuActionPerformed
-       frmMenuPrincipal ver=new frmMenuPrincipal();
-        ver.setVisible(true); // visible ventana del objeto
-        this.setVisible(false); // ocultar
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_VolverMenuActionPerformed
 
     private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreClienteActionPerformed
         // TODO add your handling code here:
@@ -196,7 +180,6 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_VolverMenu;
     private javax.swing.JButton btn_asignar;
     private javax.swing.JButton btn_limpiar;
     private javax.swing.JLabel lblCanjeoPuntos;

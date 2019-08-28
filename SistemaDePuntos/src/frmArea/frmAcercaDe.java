@@ -45,10 +45,10 @@ public class frmAcercaDe extends javax.swing.JFrame {
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Sistema de Puntos ");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(180, 20, 132, 17);
+        jLabel1.setBounds(100, 20, 330, 29);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/logoCarreraIS.png"))); // NOI18N
         jPanel1.add(jLabel3);

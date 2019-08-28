@@ -33,7 +33,6 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_gestionPuntos = new javax.swing.JPanel();
-        btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
         btn_asignarPuntos = new javax.swing.JButton();
         btn_canjearPuntos = new javax.swing.JButton();
         jl_TituloPrincipal = new javax.swing.JLabel();
@@ -48,16 +47,6 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
 
         panel_gestionPuntos.setLayout(null);
 
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
-        btn_RegresarAlMenuPrincipal.setText("Regresar");
-        btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RegresarAlMenuPrincipalActionPerformed(evt);
-            }
-        });
-        panel_gestionPuntos.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(220, 250, 170, 50);
-
         btn_asignarPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
         btn_asignarPuntos.setText("Asignar Puntos");
         btn_asignarPuntos.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +55,7 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
             }
         });
         panel_gestionPuntos.add(btn_asignarPuntos);
-        btn_asignarPuntos.setBounds(60, 120, 170, 50);
+        btn_asignarPuntos.setBounds(220, 100, 160, 60);
 
         btn_canjearPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/gestion_de_puntos.png"))); // NOI18N
         btn_canjearPuntos.setText("Canjear Puntos");
@@ -76,7 +65,7 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
             }
         });
         panel_gestionPuntos.add(btn_canjearPuntos);
-        btn_canjearPuntos.setBounds(390, 120, 160, 50);
+        btn_canjearPuntos.setBounds(220, 210, 160, 60);
 
         jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jl_TituloPrincipal.setText("Menú Puntos");
@@ -88,12 +77,6 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
-        frmMenuPrincipal ver=new frmMenuPrincipal();
-        ver.setVisible(true); // visible ventana del objeto
-        this.setVisible(false); // ocultar
-    }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
 
     private void btn_asignarPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarPuntosActionPerformed
         frmAsignacionPuntos ver1=new frmAsignacionPuntos();
@@ -146,7 +129,6 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JButton btn_asignarPuntos;
     private javax.swing.JButton btn_canjearPuntos;
     private javax.swing.JLabel jl_TituloPrincipal;

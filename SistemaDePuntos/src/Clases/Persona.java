@@ -2,6 +2,7 @@ package Clases;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 
 /**
  * @author bayron
@@ -19,5 +20,6 @@ public class Persona {
         }
         return ultimoRegistro;
     }
+    
 }
 

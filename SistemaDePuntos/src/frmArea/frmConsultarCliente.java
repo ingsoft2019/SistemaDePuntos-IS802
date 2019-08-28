@@ -6,6 +6,14 @@
 package frmArea;
 
 import javax.swing.ImageIcon;
+import java.sql.*;
+import Conexion.Conexion.*;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import Clases.Validar;
 
 /**
  *
@@ -13,15 +21,73 @@ import javax.swing.ImageIcon;
  */
 public class frmConsultarCliente extends javax.swing.JFrame {
 
+    static ResultSet resultado;
+    static ResultSet resultado1;
+    static ResultSet resultado2;
+    int contador1;
+    int contador2;
+    Validar valido = new Validar();
+
     /**
      * Creates new form frmConsultarCliente
      */
     public frmConsultarCliente() {
         initComponents();
+        valido.ValidarBusqueda(jTextField1);
         this.setLocationRelativeTo(null);
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
         
+    }
+
+    public void buscarCliente() {
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+        resultado = Conexion.Conexion.consulta("select concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
+                + "Persona.sapellido) NombreCLiente, Persona.identidad, Persona.telefono1, \n"
+                + "Cliente.puntos_actuales from Persona inner join cliente on \n"
+                + "Cliente.id_persona = Persona.id_persona\n"
+                + "where concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
+                + "Persona.sapellido) like '%" + jTextField1.getText() + "%' or Persona.identidad like '%" + jTextField1.getText() + "%' \n"
+                + "or Persona.telefono1 like '%" + jTextField1.getText() + "%';");
+        try {
+            while (resultado.next()) {
+                Vector v = new Vector();
+                v.add(resultado.getString(1));
+                v.add(resultado.getString(2));
+                v.add(resultado.getString(3));
+                v.add(resultado.getInt(4));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);
+            }
+        } catch (SQLException e) {
+
+        }
+    }
+
+    public void buscarClienteInactivo() {
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+        resultado = Conexion.Conexion.consulta("select concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
+                + "Persona.sapellido) NombreCLiente, Persona.identidad, Persona.telefono1, \n"
+                + "Cliente.puntos_actuales from Persona inner join cliente on \n"
+                + "Cliente.id_persona = Persona.id_persona\n"
+                + "where (concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
+                + "Persona.sapellido) like '%" + jTextField1.getText() + "%' or Persona.identidad like '%" + jTextField1.getText() + "%' \n"
+                + "or Persona.telefono1 like '%" + jTextField1.getText() + "%') and Cliente.estado = 'i';");
+        try {
+            while (resultado.next()) {
+                Vector v = new Vector();
+                v.add(resultado.getString(1));
+                v.add(resultado.getString(2));
+                v.add(resultado.getString(3));
+                v.add(resultado.getInt(4));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);
+            }
+        } catch (SQLException e) {
+
+        }
     }
 
     /**
@@ -38,12 +104,12 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         btn_buscar = new javax.swing.JButton();
         btn_agregarCliente = new javax.swing.JButton();
         btn_clientes = new javax.swing.JButton();
-        BuscarInactivos = new java.awt.Checkbox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         AsignarPuntos = new javax.swing.JButton();
         CanjearPuntos = new javax.swing.JButton();
+        jCheckBoxBuscarInactivos = new javax.swing.JCheckBox();
         jl_Titulo = new javax.swing.JLabel();
 
         jToolBar1.setRollover(true);
@@ -60,6 +126,11 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         btn_buscar.setText("Buscar");
         btn_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_buscar.setPreferredSize(new java.awt.Dimension(35, 30));
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarActionPerformed(evt);
+            }
+        });
 
         btn_agregarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/agregar.png"))); // NOI18N
         btn_agregarCliente.setText("Agregar");
@@ -79,9 +150,6 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 btn_clientesActionPerformed(evt);
             }
         });
-
-        BuscarInactivos.setLabel("Buscar inactivos");
-        BuscarInactivos.setName("Buscar Inactivos"); // NOI18N
 
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -112,10 +180,27 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         AsignarPuntos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         AsignarPuntos.setMaximumSize(new java.awt.Dimension(77, 35));
         AsignarPuntos.setMinimumSize(new java.awt.Dimension(77, 35));
+        AsignarPuntos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AsignarPuntosActionPerformed(evt);
+            }
+        });
 
         CanjearPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/gestion_de_puntos.png"))); // NOI18N
         CanjearPuntos.setText("Canjear Puntos");
         CanjearPuntos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        CanjearPuntos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CanjearPuntosActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxBuscarInactivos.setText("Buscar Inactivos");
+        jCheckBoxBuscarInactivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxBuscarInactivosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,38 +213,39 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                        .addComponent(BuscarInactivos, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCheckBoxBuscarInactivos, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(btn_agregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CanjearPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(AsignarPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(CanjearPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(AsignarPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(BuscarInactivos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCheckBoxBuscarInactivos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_agregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AsignarPuntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CanjearPuntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_agregarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                        .addComponent(btn_clientes, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                    .addComponent(CanjearPuntos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AsignarPuntos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jl_Titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -198,6 +284,61 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_clientesActionPerformed
 
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        if (jTextField1.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo de busqueda vacio");
+        } else {
+            try {
+                resultado1 = Conexion.Conexion.consulta("select count(Persona.identidad) from Persona inner join cliente on \n"
+                        + "Cliente.id_persona = Persona.id_persona\n"
+                        + "where concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
+                        + "Persona.sapellido) like '%" + jTextField1.getText() + "%' or Persona.identidad like '%" + jTextField1.getText() + "%' \n"
+                        + "or Persona.telefono1 like '%" + jTextField1.getText() + "%' ");
+                resultado2 = Conexion.Conexion.consulta("select count(Persona.identidad) from Persona inner join cliente on \n"
+                        + "Cliente.id_persona = Persona.id_persona\n"
+                        + "where (concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
+                        + "Persona.sapellido) like '%" + jTextField1.getText() + "%' or Persona.identidad like '%" + jTextField1.getText() + "%' \n"
+                        + "or Persona.telefono1 like '%" + jTextField1.getText() + "%') and Cliente.estado = 'i';");
+                try {
+                    while (resultado1.next()) {
+                        contador1 = resultado1.getInt(1);
+                    }
+                    while (resultado2.next()){
+                        contador2 = resultado2.getInt(1);
+                    }
+                    if (jCheckBoxBuscarInactivos.isSelected()) {
+                        buscarClienteInactivo();
+                        jTextField1.setText("");
+                        jCheckBoxBuscarInactivos.setSelected(false);
+                    } else if(contador1>=1){
+                        buscarCliente();
+                    }else{
+                        JOptionPane.showMessageDialog(null, "El registro que busca no existe");
+                    }
+                } catch (SQLException e) {
+
+                }
+
+            } catch (Exception e) {
+
+            }
+        }
+    }//GEN-LAST:event_btn_buscarActionPerformed
+
+    private void jCheckBoxBuscarInactivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxBuscarInactivosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxBuscarInactivosActionPerformed
+
+    private void CanjearPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CanjearPuntosActionPerformed
+        frmCanjeoPuntos canjear = new frmCanjeoPuntos();
+        canjear.setVisible(true);
+    }//GEN-LAST:event_CanjearPuntosActionPerformed
+
+    private void AsignarPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsignarPuntosActionPerformed
+        frmAsignacionPuntos asiganr = new frmAsignacionPuntos();
+        asiganr.setVisible(true);
+    }//GEN-LAST:event_AsignarPuntosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -235,11 +376,11 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AsignarPuntos;
-    private java.awt.Checkbox BuscarInactivos;
     private javax.swing.JButton CanjearPuntos;
     private javax.swing.JButton btn_agregarCliente;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_clientes;
+    private javax.swing.JCheckBox jCheckBoxBuscarInactivos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

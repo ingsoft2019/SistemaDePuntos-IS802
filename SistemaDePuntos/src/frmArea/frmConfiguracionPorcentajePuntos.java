@@ -77,7 +77,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
             }
         });
         jpanel_SubMenu.add(btnEditar);
-        btnEditar.setBounds(240, 310, 120, 50);
+        btnEditar.setBounds(70, 250, 160, 60);
 
         jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jl_TituloPrincipal.setText("Configuracion de Puntos");
@@ -104,7 +104,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
             }
         });
         jpanel_SubMenu.add(txtDuracionPuntos);
-        txtDuracionPuntos.setBounds(410, 100, 70, 40);
+        txtDuracionPuntos.setBounds(410, 100, 90, 30);
 
         jLabel1.setText("<html><center>Duracion de Puntos (Meses):");
         jpanel_SubMenu.add(jLabel1);
@@ -118,7 +118,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
             }
         });
         jpanel_SubMenu.add(txtFechaConfiguracion);
-        txtFechaConfiguracion.setBounds(220, 190, 170, 40);
+        txtFechaConfiguracion.setBounds(220, 190, 280, 30);
 
         lblPorcentajeActual1.setText("Porcentaje Actual:");
         jpanel_SubMenu.add(lblPorcentajeActual1);
@@ -143,7 +143,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
             }
         });
         jpanel_SubMenu.add(txtPorcentajeActual);
-        txtPorcentajeActual.setBounds(150, 100, 50, 40);
+        txtPorcentajeActual.setBounds(150, 100, 60, 30);
 
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/guardar.png"))); // NOI18N
         btnGuardar.setText("Guardar");
@@ -153,15 +153,15 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
             }
         });
         jpanel_SubMenu.add(btnGuardar);
-        btnGuardar.setBounds(240, 310, 120, 50);
+        btnGuardar.setBounds(340, 250, 160, 60);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         jLabel2.setText("%");
         jpanel_SubMenu.add(jLabel2);
-        jLabel2.setBounds(210, 100, 30, 40);
+        jLabel2.setBounds(220, 90, 30, 40);
 
         getContentPane().add(jpanel_SubMenu);
-        jpanel_SubMenu.setBounds(50, 20, 580, 410);
+        jpanel_SubMenu.setBounds(20, 20, 580, 350);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
