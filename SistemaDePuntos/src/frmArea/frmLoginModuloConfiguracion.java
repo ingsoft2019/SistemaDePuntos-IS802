@@ -7,6 +7,7 @@ package frmArea;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +23,7 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
     }
 
     /**
@@ -39,12 +41,11 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
         jl_contrasena = new javax.swing.JLabel();
         btn_ingresarLogin = new javax.swing.JButton();
         btn_recuperar = new javax.swing.JButton();
-        btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
         txt_contrasena = new javax.swing.JPasswordField();
         jl_iconoPersonas = new javax.swing.JLabel();
         jl_fondoLogin = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login Configuracion de Sistema De Puntos");
         setMinimumSize(new java.awt.Dimension(488, 541));
         setName("Loguin del Sistema de Puntos"); // NOI18N
@@ -53,10 +54,10 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
 
         panel_login.setLayout(null);
 
-        jl_Usuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jl_Usuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jl_Usuario.setText("Usuario");
         panel_login.add(jl_Usuario);
-        jl_Usuario.setBounds(17, 17, 45, 17);
+        jl_Usuario.setBounds(17, 17, 100, 30);
 
         txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -64,12 +65,12 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
             }
         });
         panel_login.add(txt_usuario);
-        txt_usuario.setBounds(115, 17, 312, 20);
+        txt_usuario.setBounds(115, 17, 312, 30);
 
-        jl_contrasena.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jl_contrasena.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jl_contrasena.setText("Contraseña");
         panel_login.add(jl_contrasena);
-        jl_contrasena.setBounds(17, 69, 70, 17);
+        jl_contrasena.setBounds(17, 69, 100, 30);
 
         btn_ingresarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/ingresar.png"))); // NOI18N
         btn_ingresarLogin.setText("Ingresar");
@@ -79,22 +80,12 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
             }
         });
         panel_login.add(btn_ingresarLogin);
-        btn_ingresarLogin.setBounds(30, 120, 130, 40);
+        btn_ingresarLogin.setBounds(30, 120, 190, 40);
 
         btn_recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/pass-contrasena.png"))); // NOI18N
         btn_recuperar.setText("Recuperar");
         panel_login.add(btn_recuperar);
-        btn_recuperar.setBounds(180, 120, 119, 41);
-
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
-        btn_RegresarAlMenuPrincipal.setText("Regresar");
-        btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RegresarAlMenuPrincipalActionPerformed(evt);
-            }
-        });
-        panel_login.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(320, 120, 120, 40);
+        btn_recuperar.setBounds(240, 120, 190, 40);
 
         txt_contrasena.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -102,7 +93,7 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
             }
         });
         panel_login.add(txt_contrasena);
-        txt_contrasena.setBounds(115, 66, 312, 20);
+        txt_contrasena.setBounds(115, 66, 312, 30);
 
         getContentPane().add(panel_login);
         panel_login.setBounds(20, 330, 450, 180);
@@ -121,23 +112,16 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
-          frmSubMenuPuntos ver=new frmSubMenuPuntos();
-            ver.setVisible(true); // visible ventana del objeto
-            this.setVisible(false); // ocultar
-       
-    }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
-
     private void btn_ingresarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarLoginActionPerformed
         // TODO add your handling code here:
-         String usuario= "is802";
+         String usuario= "root";
         String contrasena= "asd.456";
         
         String pass= new String(getTxt_contrasena().getPassword());
         String user= new String(getTxt_usuario().getText());
         
         if (user.equals(usuario) && pass.equals(contrasena)){
-            frmMenuPrincipal ver=new frmMenuPrincipal();
+            frmMenuConfiguracion ver=new frmMenuConfiguracion();
             ver.setVisible(true); // visible ventana del objeto
             this.setVisible(false); // ocultar
         } else {
@@ -204,7 +188,6 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JButton btn_ingresarLogin;
     private javax.swing.JButton btn_recuperar;
     private javax.swing.JLabel jl_Usuario;

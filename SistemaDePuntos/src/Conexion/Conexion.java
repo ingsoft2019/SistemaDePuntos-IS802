@@ -7,43 +7,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.Statement;
- /*
- * @author bayron
- */
+
 public class Conexion {
-     static Connection contacto = null;
-     
-     /*
-    //Datos para conecion de la BD de Bayron 
-    static String servidor = "DESKTOP-I8BIDCB"; //Nombre del servidor
-    static String sentencia = "MSSQLSERVER12";
-    static String user = "sa";// nombre de usuario
-    static String pass = "123"; // contrasena 
-    static String db = "PR"; //nombre de la BD 
-    */
-    
-    //Datos para conexion de la BD de Luis Estrada  jdbc:sqlserver://DESKTOP-F99GN1I\MSSQLSERVER12:1433;databaseName=SP
-    static String servidor = "DESKTOP-F99GN1I";
-    static String sentencia = "MSSQLSERVER12";
+    static Connection contacto = null;
     static String user = "sa";
     static String pass = "123";
     static String db = "PR";
- 
-
-    //public static Connection getConexion(){
-      //  String url = "jdbc:sqlserver://localhost:1433;databaseName="+db;
-
-    //static String servidor = "DESKTOP-F99GN1I";
-    //static String sentencia = "MSSQLSERVER12";
-    //static String user = "sa1";
-    //static String pass = "123";
-    //static String db = "SP";
- 
-
+    
     public static Connection getConexion(){
-        String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=RP";
-        String user = "sa";
-        String pass = "123";
+       //String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=PR";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName="+db;
         
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

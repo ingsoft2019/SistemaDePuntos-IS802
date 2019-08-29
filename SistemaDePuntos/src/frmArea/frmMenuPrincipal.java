@@ -5,6 +5,8 @@
  */
 package frmArea;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Luis Estrada
@@ -18,6 +20,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
     }
 
     /**
@@ -34,21 +37,14 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         btn_PuntosMenu = new javax.swing.JButton();
         btn_ReportesMenu = new javax.swing.JButton();
         btn_configuracion = new javax.swing.JButton();
-        btn_SalirMenuPrincipal = new javax.swing.JButton();
         jl_tituloMenuPrincipal = new javax.swing.JLabel();
-        barraMenu = new javax.swing.JMenuBar();
-        menu_InicioSistema = new javax.swing.JMenu();
-        menu_Cliente = new javax.swing.JMenu();
-        menu_Puntos = new javax.swing.JMenu();
-        menu_Reportes = new javax.swing.JMenu();
-        menu_ayuda = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Munu Principal del Sistema de Puntos");
-        setMaximumSize(new java.awt.Dimension(680, 528));
-        setMinimumSize(new java.awt.Dimension(680, 528));
+        setTitle("Menu Principal del Sistema de Puntos");
+        setMaximumSize(new java.awt.Dimension(679, 433));
+        setMinimumSize(new java.awt.Dimension(679, 433));
         setName("Menu Princial Sistema de Puntos"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(680, 528));
+        setPreferredSize(new java.awt.Dimension(679, 433));
         getContentPane().setLayout(null);
 
         panel_menuPrincipal.setLayout(null);
@@ -61,7 +57,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_ClienteMenu);
-        btn_ClienteMenu.setBounds(40, 110, 220, 70);
+        btn_ClienteMenu.setBounds(40, 110, 220, 60);
 
         btn_PuntosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/gestion_de_puntos v2.png"))); // NOI18N
         btn_PuntosMenu.setText("Puntos");
@@ -71,7 +67,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_PuntosMenu);
-        btn_PuntosMenu.setBounds(350, 110, 200, 70);
+        btn_PuntosMenu.setBounds(350, 110, 220, 60);
 
         btn_ReportesMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/reportes v2.png"))); // NOI18N
         btn_ReportesMenu.setText("Reportes");
@@ -81,7 +77,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_ReportesMenu);
-        btn_ReportesMenu.setBounds(40, 230, 220, 70);
+        btn_ReportesMenu.setBounds(40, 210, 220, 60);
 
         btn_configuracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/administrador.png"))); // NOI18N
         btn_configuracion.setText("Configuración");
@@ -92,75 +88,45 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_configuracion);
-        btn_configuracion.setBounds(360, 230, 190, 69);
+        btn_configuracion.setBounds(350, 210, 220, 60);
 
-        btn_SalirMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/salirSistema v2.png"))); // NOI18N
-        btn_SalirMenuPrincipal.setText("Salir del sistema");
-        btn_SalirMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_SalirMenuPrincipalActionPerformed(evt);
-            }
-        });
-        panel_menuPrincipal.add(btn_SalirMenuPrincipal);
-        btn_SalirMenuPrincipal.setBounds(180, 340, 260, 70);
-
-        jl_tituloMenuPrincipal.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jl_tituloMenuPrincipal.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jl_tituloMenuPrincipal.setText("Sistema de Puntos Farmacia ");
         panel_menuPrincipal.add(jl_tituloMenuPrincipal);
-        jl_tituloMenuPrincipal.setBounds(80, 20, 459, 40);
+        jl_tituloMenuPrincipal.setBounds(50, 20, 526, 40);
 
         getContentPane().add(panel_menuPrincipal);
-        panel_menuPrincipal.setBounds(40, 30, 600, 430);
-
-        menu_InicioSistema.setText("Inicio del Sistema ");
-        barraMenu.add(menu_InicioSistema);
-
-        menu_Cliente.setText("Clientes");
-        barraMenu.add(menu_Cliente);
-
-        menu_Puntos.setText("Puntos");
-        barraMenu.add(menu_Puntos);
-
-        menu_Reportes.setText("Reportes");
-        barraMenu.add(menu_Reportes);
-
-        menu_ayuda.setText("Ayuda");
-        barraMenu.add(menu_ayuda);
-
-        setJMenuBar(barraMenu);
+        panel_menuPrincipal.setBounds(40, 50, 600, 340);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_SalirMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirMenuPrincipalActionPerformed
-        // TODO add your handling code here:
-          System.exit(0); // salir del sistema 
-    }//GEN-LAST:event_btn_SalirMenuPrincipalActionPerformed
-
     private void btn_configuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_configuracionActionPerformed
-         frmLoginModuloConfiguracion ver=new frmLoginModuloConfiguracion();
+
+        frmLoginModuloConfiguracion ver=new frmLoginModuloConfiguracion();
             ver.setVisible(true); // visible ventana del objeto
-            this.setVisible(false); // ocultar
+         //   this.setVisible(false); // ocultar
     }//GEN-LAST:event_btn_configuracionActionPerformed
 
     private void btn_ReportesMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ReportesMenuActionPerformed
          frmSubMenuReporte ver=new frmSubMenuReporte();
             ver.setVisible(true); // visible ventana del objeto
-            this.setVisible(false); // ocultar
+           // this.setVisible(false); // ocultar
 
     }//GEN-LAST:event_btn_ReportesMenuActionPerformed
 
     private void btn_ClienteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClienteMenuActionPerformed
         frmConsultarCliente ver=new frmConsultarCliente();
             ver.setVisible(true); // visible ventana del objeto
-            this.setVisible(false); // ocultar
+       //     this.setVisible(false); // ocultar
         
     }//GEN-LAST:event_btn_ClienteMenuActionPerformed
 
     private void btn_PuntosMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PuntosMenuActionPerformed
         frmSubMenuPuntos ver=new frmSubMenuPuntos();
             ver.setVisible(true); // visible ventana del objeto
-            this.setVisible(false); // ocultar
+         //   this.setVisible(false); // ocultar
         
     }//GEN-LAST:event_btn_PuntosMenuActionPerformed
 
@@ -200,18 +166,11 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btn_ClienteMenu;
     private javax.swing.JButton btn_PuntosMenu;
     private javax.swing.JButton btn_ReportesMenu;
-    private javax.swing.JButton btn_SalirMenuPrincipal;
     private javax.swing.JButton btn_configuracion;
     private javax.swing.JLabel jl_tituloMenuPrincipal;
-    private javax.swing.JMenu menu_Cliente;
-    private javax.swing.JMenu menu_InicioSistema;
-    private javax.swing.JMenu menu_Puntos;
-    private javax.swing.JMenu menu_Reportes;
-    private javax.swing.JMenu menu_ayuda;
     private java.awt.Panel panel_menuPrincipal;
     // End of variables declaration//GEN-END:variables
 }

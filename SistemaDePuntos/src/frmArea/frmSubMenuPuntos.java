@@ -5,6 +5,8 @@
  */
 package frmArea;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Luis Estrada
@@ -18,6 +20,7 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
          initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
     }
 
     /**
@@ -30,18 +33,11 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_gestionPuntos = new javax.swing.JPanel();
-        btn_RegresarAlMenuPrincipal = new javax.swing.JButton();
         btn_asignarPuntos = new javax.swing.JButton();
         btn_canjearPuntos = new javax.swing.JButton();
         jl_TituloPrincipal = new javax.swing.JLabel();
-        barraMenu = new javax.swing.JMenuBar();
-        menu_InicioSistema = new javax.swing.JMenu();
-        menu_Cliente = new javax.swing.JMenu();
-        menu_Puntos = new javax.swing.JMenu();
-        menu_Reportes = new javax.swing.JMenu();
-        menu_ayuda = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Menú Puntos");
         setMaximumSize(new java.awt.Dimension(680, 419));
         setMinimumSize(new java.awt.Dimension(680, 419));
@@ -51,16 +47,6 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
 
         panel_gestionPuntos.setLayout(null);
 
-        btn_RegresarAlMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
-        btn_RegresarAlMenuPrincipal.setText("Regresar");
-        btn_RegresarAlMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RegresarAlMenuPrincipalActionPerformed(evt);
-            }
-        });
-        panel_gestionPuntos.add(btn_RegresarAlMenuPrincipal);
-        btn_RegresarAlMenuPrincipal.setBounds(220, 250, 170, 50);
-
         btn_asignarPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
         btn_asignarPuntos.setText("Asignar Puntos");
         btn_asignarPuntos.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +55,7 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
             }
         });
         panel_gestionPuntos.add(btn_asignarPuntos);
-        btn_asignarPuntos.setBounds(60, 120, 170, 50);
+        btn_asignarPuntos.setBounds(220, 100, 160, 60);
 
         btn_canjearPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/gestion_de_puntos.png"))); // NOI18N
         btn_canjearPuntos.setText("Canjear Puntos");
@@ -79,7 +65,7 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
             }
         });
         panel_gestionPuntos.add(btn_canjearPuntos);
-        btn_canjearPuntos.setBounds(390, 120, 160, 50);
+        btn_canjearPuntos.setBounds(220, 210, 160, 60);
 
         jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jl_TituloPrincipal.setText("Menú Puntos");
@@ -89,31 +75,8 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
         getContentPane().add(panel_gestionPuntos);
         panel_gestionPuntos.setBounds(30, 30, 630, 330);
 
-        menu_InicioSistema.setText("Inicio del Sistema ");
-        barraMenu.add(menu_InicioSistema);
-
-        menu_Cliente.setText("Clientes");
-        barraMenu.add(menu_Cliente);
-
-        menu_Puntos.setText("Puntos");
-        barraMenu.add(menu_Puntos);
-
-        menu_Reportes.setText("Reportes");
-        barraMenu.add(menu_Reportes);
-
-        menu_ayuda.setText("Ayuda");
-        barraMenu.add(menu_ayuda);
-
-        setJMenuBar(barraMenu);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_RegresarAlMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarAlMenuPrincipalActionPerformed
-        frmMenuPrincipal ver=new frmMenuPrincipal();
-        ver.setVisible(true); // visible ventana del objeto
-        this.setVisible(false); // ocultar
-    }//GEN-LAST:event_btn_RegresarAlMenuPrincipalActionPerformed
 
     private void btn_asignarPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarPuntosActionPerformed
         frmAsignacionPuntos ver1=new frmAsignacionPuntos();
@@ -166,16 +129,9 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar barraMenu;
-    private javax.swing.JButton btn_RegresarAlMenuPrincipal;
     private javax.swing.JButton btn_asignarPuntos;
     private javax.swing.JButton btn_canjearPuntos;
     private javax.swing.JLabel jl_TituloPrincipal;
-    private javax.swing.JMenu menu_Cliente;
-    private javax.swing.JMenu menu_InicioSistema;
-    private javax.swing.JMenu menu_Puntos;
-    private javax.swing.JMenu menu_Reportes;
-    private javax.swing.JMenu menu_ayuda;
     private javax.swing.JPanel panel_gestionPuntos;
     // End of variables declaration//GEN-END:variables
 }

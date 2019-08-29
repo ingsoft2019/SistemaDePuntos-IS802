@@ -4,10 +4,10 @@ SQL_Latin1_General_CP1_CI_AS ---->  Es el cotejamiento que tiene la base de  dat
 
     Nombres de las BD estar configuradas con Intercalacion SQL_Latin1_General_CP1_CI_AS
     FA 
-    SP
+    PR
 */
 
-USE SP; 
+USE PR; 
 
 CREATE TABLE Zona (
   id_zona INT NOT NULL IDENTITY(1,1),
@@ -60,14 +60,14 @@ CREATE TABLE Movimiento (
   id_cliente INT NOT NULL,
   fecha_movimiento DATE NOT NULL,
   hora_movimiento TIME NOT NULL,
-  porcentaje_puntos DECIMAL(18,4) NULL,
-  costo_total DECIMAL(18,4) NOT NULL,
-  paga_total DECIMAL(18,4) NOT NULL,
-  ganancia DECIMAL(18,4) NOT NULL,
+  porcentaje_puntos DECIMAL(18,2) NULL,
+  costo_total DECIMAL(18,4) NULL,
+  paga_total DECIMAL(18,4) NULL,
+  ganancia DECIMAL(18,4) NULL,
   puntos_asignados INT NOT NULL,
   id_tipo_movimiento INT NOT NULL,
   GEN_USR_id NVARCHAR(45) NOT NULL,
-  VEN_FAC_id INT NOT NULL,
+  VEN_FAC_id INT NULL,
   CONSTRAINT fk_Puntos_x_Factura_Cliente FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente),
   CONSTRAINT fk_Movimiento_Tipo_Movimiento FOREIGN KEY (id_tipo_movimiento) REFERENCES Tipo_Movimiento(id_tipo_movimiento)
  );
@@ -78,4 +78,10 @@ CREATE TABLE Rifa (
   estado NVARCHAR(1) NOT NULL,
   id_movimiento INT NULL,
   CONSTRAINT fk_Rifa_Movimiento FOREIGN KEY (id_movimiento) REFERENCES Movimiento (id_movimiento)
+);
+
+CREATE TABLE Configuracion (
+  porcentaje_puntos DECIMAL(5,2) NOT NULL,
+  duracion_puntos INT NOT NULL,
+  fecha_configuracion DATE NOT NULL
 );

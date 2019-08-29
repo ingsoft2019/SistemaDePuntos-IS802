@@ -7,6 +7,7 @@ package frmArea;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +23,7 @@ public class frmLogin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
     }
 
     /**
@@ -41,24 +43,23 @@ public class frmLogin extends javax.swing.JFrame {
         btn_recuperar = new javax.swing.JButton();
         btn_SalirLogin = new javax.swing.JButton();
         txt_contrasena = new javax.swing.JPasswordField();
-        jl_iconoPersonas = new javax.swing.JLabel();
         jl_fondoLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Sistema De Puntos");
-        setMaximumSize(new java.awt.Dimension(490, 541));
-        setMinimumSize(new java.awt.Dimension(490, 541));
+        setMaximumSize(new java.awt.Dimension(490, 233));
+        setMinimumSize(new java.awt.Dimension(490, 233));
         setName("Loguin del Sistema de Puntos"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(490, 541));
+        setPreferredSize(new java.awt.Dimension(490, 233));
         setResizable(false);
         getContentPane().setLayout(null);
 
         panel_login_Principal.setLayout(null);
 
-        jl_Usuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jl_Usuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jl_Usuario.setText("Usuario");
         panel_login_Principal.add(jl_Usuario);
-        jl_Usuario.setBounds(20, 30, 45, 17);
+        jl_Usuario.setBounds(20, 27, 100, 20);
 
         txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -66,12 +67,12 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         panel_login_Principal.add(txt_usuario);
-        txt_usuario.setBounds(120, 30, 312, 20);
+        txt_usuario.setBounds(120, 20, 312, 30);
 
-        jl_contrasena.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jl_contrasena.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jl_contrasena.setText("Contraseña");
         panel_login_Principal.add(jl_contrasena);
-        jl_contrasena.setBounds(20, 80, 70, 17);
+        jl_contrasena.setBounds(20, 77, 100, 20);
 
         btn_ingresarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/ingresar.png"))); // NOI18N
         btn_ingresarLogin.setText("Ingresar");
@@ -81,12 +82,12 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         panel_login_Principal.add(btn_ingresarLogin);
-        btn_ingresarLogin.setBounds(20, 130, 120, 41);
+        btn_ingresarLogin.setBounds(10, 130, 140, 40);
 
         btn_recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/pass-contrasena.png"))); // NOI18N
         btn_recuperar.setText("Recuperar");
         panel_login_Principal.add(btn_recuperar);
-        btn_recuperar.setBounds(160, 130, 130, 41);
+        btn_recuperar.setBounds(160, 130, 140, 40);
 
         btn_SalirLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/salir sistema.png"))); // NOI18N
         btn_SalirLogin.setText("Salir");
@@ -96,7 +97,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         panel_login_Principal.add(btn_SalirLogin);
-        btn_SalirLogin.setBounds(310, 130, 120, 41);
+        btn_SalirLogin.setBounds(310, 130, 140, 40);
 
         txt_contrasena.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -104,14 +105,10 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         panel_login_Principal.add(txt_contrasena);
-        txt_contrasena.setBounds(120, 80, 312, 20);
+        txt_contrasena.setBounds(120, 70, 312, 30);
 
         getContentPane().add(panel_login_Principal);
-        panel_login_Principal.setBounds(20, 310, 450, 190);
-
-        jl_iconoPersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/login-Usuario.png"))); // NOI18N
-        getContentPane().add(jl_iconoPersonas);
-        jl_iconoPersonas.setBounds(120, 40, 260, 240);
+        panel_login_Principal.setBounds(10, 10, 460, 190);
 
         jl_fondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/fondo_login.jpg"))); // NOI18N
         jl_fondoLogin.setMaximumSize(new java.awt.Dimension(488, 541));
@@ -209,7 +206,6 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jl_Usuario;
     private javax.swing.JLabel jl_contrasena;
     private javax.swing.JLabel jl_fondoLogin;
-    private javax.swing.JLabel jl_iconoPersonas;
     private java.awt.Panel panel_login_Principal;
     private javax.swing.JPasswordField txt_contrasena;
     private javax.swing.JTextField txt_usuario;

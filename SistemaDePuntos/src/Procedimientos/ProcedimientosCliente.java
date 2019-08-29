@@ -39,5 +39,38 @@ public class ProcedimientosCliente {
         entrada.execute();
     }
 
- 
+    //Agregar una nueva Zona si no existe
+     public static void guardarZona(String zona)throws SQLException{
+        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{call SP_REGISTRAR_ZONA (?)}");
+        entrada.setString(1, zona);
+        entrada.execute();
+    }
+     
+     public static void actualizarCliente(String pnombre, String snombre,String papellido, String sapellido, 
+                                      String identidad, String correo, String sexo, Date fecha_nacimiento, 
+                                      String telefono1,String telefono2,String telefono3, int zona, 
+                                      String detalle_direccion, int puntos_actuales, String fechavencimiento,
+                                      int puntos_rifa)throws SQLException{
+        
+        //Llamamos al procedimiento almacenado GuardarPersonas
+        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{call SP_actualizarCliente (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+        entrada.setString(1,pnombre);
+        entrada.setString(2,snombre);
+        entrada.setString(3,papellido);
+        entrada.setString(4,sapellido);
+        entrada.setString(5,identidad);
+        entrada.setString(6,correo);
+        entrada.setString(7,sexo);
+        entrada.setDate(8,fecha_nacimiento);
+        entrada.setString(9,telefono1);
+        entrada.setString(10,telefono2);
+        entrada.setString(11,telefono3);
+        entrada.setInt(12,zona);
+        entrada.setString(13,detalle_direccion);
+        entrada.setInt(14,puntos_actuales);
+        entrada.setString(15,fechavencimiento);
+        entrada.setInt(16,puntos_rifa);
+        entrada.execute();
+        
+    }
 }
