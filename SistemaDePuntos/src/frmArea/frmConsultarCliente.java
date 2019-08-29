@@ -277,34 +277,37 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         RC.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_agregarClienteActionPerformed
-    
+
     //AL PRESONAR EL BOTON DE GESTION DE CLIENTE
     private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
-
-        int row = jTable1.getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
-        String identidad = (String) jTable1.getValueAt(row, 1); //OBTENGO EL VALOR DEL NUMERO DE IDENTIDAD
-        
-        //Consulto todos los datos relacioados con el ID
-        ResultSet res = consulta("Select * from Persona inner join Cliente on Persona.id_persona = Cliente.id_persona\n"
-                               + "inner join zona on Persona.id_zona = Zona.id_zona where Persona.identidad = '" + identidad + "';");
-        //Hago visible el formulario
-        frmSubMenuCliente subMenuCli = new frmSubMenuCliente();
-        subMenuCli.setVisible(true);
-        
         try {
-            while (res.next()) {
-                //Llamo al metodo para llenar los campos con los datos a editar
-                subMenuCli.llenarCampos(res.getString("pnombre"),res.getString("snombre"),res.getString("papellido"),
-                               res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"),res.getString("telefono1"),
-                               res.getString("telefono2"),res.getString("telefono3"), res.getString("correo"),
-                               res.getDate("fecha_nacimiento"),res.getString("zona"),res.getString("detalle_direccion"),
-                               res.getString("puntos_actuales") ,res.getString("puntos_rifa_actuales"),res.getString("fecha_vencimiento_puntos"));
-                               
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(frmConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            int row = jTable1.getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
+            String identidad = (String) jTable1.getValueAt(row, 1); //OBTENGO EL VALOR DEL NUMERO DE IDENTIDAD
 
+            //Consulto todos los datos relacioados con el ID
+            ResultSet res = consulta("Select * from Persona inner join Cliente on Persona.id_persona = Cliente.id_persona\n"
+                    + "inner join zona on Persona.id_zona = Zona.id_zona where Persona.identidad = '" + identidad + "';");
+            //Hago visible el formulario
+            frmSubMenuCliente subMenuCli = new frmSubMenuCliente();
+            subMenuCli.setVisible(true);
+
+            try {
+                while (res.next()) {
+                    //Llamo al metodo para llenar los campos con los datos a editar
+                    subMenuCli.llenarCampos(res.getString("pnombre"), res.getString("snombre"), res.getString("papellido"),
+                            res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"), res.getString("telefono1"),
+                            res.getString("telefono2"), res.getString("telefono3"), res.getString("correo"),
+                            res.getDate("fecha_nacimiento"), res.getString("detalle_direccion"),
+                            res.getString("puntos_actuales"), res.getString("puntos_rifa_actuales"), res.getString("fecha_vencimiento_puntos"));
+                            
+                    subMenuCli.cargarZonas(res.getString("zona"));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(frmConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Busque y seleccione un registro");
+        }
 
     }//GEN-LAST:event_btn_clientesActionPerformed
 

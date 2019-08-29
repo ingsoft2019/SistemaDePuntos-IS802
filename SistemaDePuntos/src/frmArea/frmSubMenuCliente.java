@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Luis Estrada
+ * @author Bayron Ayala y Roger Colindres
  */
 public class frmSubMenuCliente extends javax.swing.JFrame {
 
@@ -29,7 +29,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
-        cargarZonas();
+        //cargarZonas();
     }
 
     /**
@@ -122,6 +122,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
 
         RG_genero.add(jRadioButtonFemenino);
         jRadioButtonFemenino.setText("F");
+        jRadioButtonFemenino.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         RG_genero.add(jRadioButtonMasculino);
         jRadioButtonMasculino.setText("M");
@@ -465,12 +466,14 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_editarClienteActionPerformed
 
-    public void cargarZonas() {
+    public void cargarZonas(String zona) {
         ResultSet zonas = Zona.mostrarZonas();
         //LLenamos nuestro ComboBox
+        jC_zona.addItem(zona);
         try {
             while (zonas.next()) {
-                jC_zona.addItem(zonas.getString("zona"));
+                if(!zonas.getString("zona").equals(zona))
+                    jC_zona.addItem(zonas.getString("zona"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(frmRegistroClientes.class.getName()).log(Level.SEVERE, null, ex);
@@ -485,7 +488,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     //Metodo para llenar los campos     
     public void llenarCampos(String pnombre, String snombre, String papellido, String sapellido, String identidad,
             String sexo, String telefono1, String telefono2, String telefono3, String correo,
-            Date fechaNac,String zona ,String detalleDireccion, String puntos_actuales, String puntos_rifa,
+            Date fechaNac,String detalleDireccion, String puntos_actuales, String puntos_rifa,
             String fechaVencimiento) {
         this.txt_primerNombre.setText(pnombre);
         this.txt_segundoNombre.setText(snombre);
@@ -501,7 +504,6 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         this.txt_telefono3.setText(telefono3);
         this.txt_email.setText(correo);
         this.jD_fechaNac.setDate(fechaNac);
-       // this.jC_zona.addItem();
         this.txt_datalleDireccion.setText(detalleDireccion);
         this.txt_puntosRegis.setText(puntos_actuales);
         this.txt_puntoRifa.setText(puntos_rifa);
