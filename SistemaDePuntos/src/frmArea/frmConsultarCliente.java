@@ -297,7 +297,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 subMenuCli.llenarCampos(res.getString("pnombre"),res.getString("snombre"),res.getString("papellido"),
                                res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"),res.getString("telefono1"),
                                res.getString("telefono2"),res.getString("telefono3"), res.getString("correo"),
-                               res.getDate("fecha_nacimiento"),res.getString("detalle_direccion"),
+                               res.getDate("fecha_nacimiento"),res.getString("zona"),res.getString("detalle_direccion"),
                                res.getString("puntos_actuales") ,res.getString("puntos_rifa_actuales"),res.getString("fecha_vencimiento_puntos"));
                                
             }

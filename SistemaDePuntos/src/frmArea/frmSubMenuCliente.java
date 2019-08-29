@@ -468,12 +468,9 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     public void cargarZonas() {
         ResultSet zonas = Zona.mostrarZonas();
         //LLenamos nuestro ComboBox
-        jC_zona.addItem("--Seleccione una zona--");
-
         try {
             while (zonas.next()) {
                 jC_zona.addItem(zonas.getString("zona"));
-
             }
         } catch (SQLException ex) {
             Logger.getLogger(frmRegistroClientes.class.getName()).log(Level.SEVERE, null, ex);
@@ -488,7 +485,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     //Metodo para llenar los campos     
     public void llenarCampos(String pnombre, String snombre, String papellido, String sapellido, String identidad,
             String sexo, String telefono1, String telefono2, String telefono3, String correo,
-            Date fechaNac, String detalleDireccion, String puntos_actuales, String puntos_rifa,
+            Date fechaNac,String zona ,String detalleDireccion, String puntos_actuales, String puntos_rifa,
             String fechaVencimiento) {
         this.txt_primerNombre.setText(pnombre);
         this.txt_segundoNombre.setText(snombre);
@@ -504,16 +501,12 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         this.txt_telefono3.setText(telefono3);
         this.txt_email.setText(correo);
         this.jD_fechaNac.setDate(fechaNac);
-        //this.jC_zona.addItem(zona);
+       // this.jC_zona.addItem();
         this.txt_datalleDireccion.setText(detalleDireccion);
         this.txt_puntosRegis.setText(puntos_actuales);
         this.txt_puntoRifa.setText(puntos_rifa);
         this.txt_vencimiento.setText(fechaVencimiento);
 
-    }
-
-    public void setPsombre(String pnombre) {
-        this.txt_primerNombre.setText(pnombre);
     }
 
     private void txt_puntosRegisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_puntosRegisActionPerformed
