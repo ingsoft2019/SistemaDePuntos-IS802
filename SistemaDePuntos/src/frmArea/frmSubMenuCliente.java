@@ -304,8 +304,6 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         txt_datalleDireccion.setRows(5);
         jScrollPane1.setViewportView(txt_datalleDireccion);
 
-        jC_zona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout jpanel_datos2Layout = new javax.swing.GroupLayout(jpanel_datos2);
         jpanel_datos2.setLayout(jpanel_datos2Layout);
         jpanel_datos2Layout.setHorizontalGroup(
@@ -405,7 +403,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
             try {
                 //PREPARO LA FECHA PARA ENVIARLA    
                 java.sql.Date fechaNac = new java.sql.Date(jD_fechaNac.getDate().getTime());
-
+              
                 //Consulto el id de la zona que eligio el usuario para registrarla en la tabla clientes
                 ResultSet respuesta = Zona.consultarIdZona((String) jC_zona.getSelectedItem());
                 int idZona = 0;
@@ -487,7 +485,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     //Metodo para llenar los campos     
     public void llenarCampos(String pnombre, String snombre, String papellido, String sapellido, String identidad,
             String sexo, String telefono1, String telefono2, String telefono3, String correo,
-            String fechaNac, String zona, String detalleDireccion, String puntos_actuales, String puntos_rifa,
+            Date fechaNac, String detalleDireccion, String puntos_actuales, String puntos_rifa,
             String fechaVencimiento) {
         this.txt_primerNombre.setText(pnombre);
         this.txt_segundoNombre.setText(snombre);
@@ -503,8 +501,8 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         this.txt_telefono2.setText(telefono2);
         this.txt_telefono3.setText(telefono3);
         this.txt_email.setText(correo);
-        this.jD_fechaNac.setDateFormatString(fechaNac);
-        this.jC_zona.addItem(zona);
+        this.jD_fechaNac.setDate(fechaNac);
+        //this.jC_zona.addItem(zona);
         this.txt_datalleDireccion.setText(detalleDireccion);
         this.txt_puntosRegis.setText(puntos_actuales);
         this.txt_puntoRifa.setText(puntos_rifa);
