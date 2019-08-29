@@ -278,7 +278,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_agregarClienteActionPerformed
     
-    //AL PRESONAR EL BOTON DE GESTIO DE CLIENTE
+    //AL PRESONAR EL BOTON DE GESTION DE CLIENTE
     private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
 
         int row = jTable1.getSelectedRow(); //OBTENGO LA FILA SELECCIONADA

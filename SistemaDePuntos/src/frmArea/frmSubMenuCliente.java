@@ -41,6 +41,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        RG_genero = new javax.swing.ButtonGroup();
         jpanel_AreaSubMenu = new javax.swing.JPanel();
         jpanel_datos1 = new javax.swing.JPanel();
         jL_primerNombre = new javax.swing.JLabel();
@@ -119,8 +120,10 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
 
         jL_email.setText("Correo Electronico");
 
+        RG_genero.add(jRadioButtonFemenino);
         jRadioButtonFemenino.setText("F");
 
+        RG_genero.add(jRadioButtonMasculino);
         jRadioButtonMasculino.setText("M");
         jRadioButtonMasculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -491,12 +494,11 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         this.txt_segundoNombre.setText(snombre);
         this.txt_primerApellido.setText(papellido);
         this.txt_segundoApellido.setText(sapellido);
-        this.txt_identidad.setText(identidad);
-        System.out.println(sexo.getClass());
-        //if(sexo=="M"){
-        this.jRadioButtonMasculino.setSelected(true);
-        //else{ 
-        // this.jRadioButtonFemenino.setSelected(true);}
+        this.txt_identidad.setText(identidad);   
+        if("M".equals(sexo))
+            this.jRadioButtonMasculino.setSelected(true);
+        else
+            this.jRadioButtonFemenino.setSelected(true);
         this.txt_telefono1.setText(telefono1);
         this.txt_telefono2.setText(telefono2);
         this.txt_telefono3.setText(telefono3);
@@ -578,6 +580,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup RG_genero;
     private javax.swing.JButton btn_desactivarCliente;
     private javax.swing.JButton btn_editarCliente;
     private javax.swing.JButton btn_imprimirDireccion;
