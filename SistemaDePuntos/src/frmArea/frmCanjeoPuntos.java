@@ -42,7 +42,6 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
         lblPuntosCanjear = new javax.swing.JLabel();
         txtPuntosCanjear = new javax.swing.JTextField();
         btn_asignar = new javax.swing.JButton();
-        btn_limpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Canjeo de Puntos");
@@ -99,12 +98,7 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_asignar);
-        btn_asignar.setBounds(50, 150, 140, 40);
-
-        btn_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
-        btn_limpiar.setText("Limpiar");
-        getContentPane().add(btn_limpiar);
-        btn_limpiar.setBounds(240, 150, 140, 40);
+        btn_asignar.setBounds(130, 160, 200, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -181,7 +175,6 @@ public class frmCanjeoPuntos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_asignar;
-    private javax.swing.JButton btn_limpiar;
     private javax.swing.JLabel lblCanjeoPuntos;
     private javax.swing.JLabel lblCliente;
     private javax.swing.JLabel lblPuntosCanjear;

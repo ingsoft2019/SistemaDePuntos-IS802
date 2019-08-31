@@ -47,9 +47,10 @@ public class frmNuevaZona extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nueva zona");
         setLocation(new java.awt.Point(0, 0));
-        setMaximumSize(new java.awt.Dimension(430, 150));
-        setMinimumSize(new java.awt.Dimension(430, 150));
+        setMaximumSize(new java.awt.Dimension(591, 96));
+        setMinimumSize(new java.awt.Dimension(591, 96));
         setName("Jpanel_NuevaZona"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(591, 96));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -81,7 +82,7 @@ public class frmNuevaZona extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_guardarZona);
-        btn_guardarZona.setBounds(230, 60, 160, 40);
+        btn_guardarZona.setBounds(400, 20, 160, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

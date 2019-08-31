@@ -42,13 +42,14 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
         btn_ingresarLogin = new javax.swing.JButton();
         btn_recuperar = new javax.swing.JButton();
         txt_contrasena = new javax.swing.JPasswordField();
-        jl_iconoPersonas = new javax.swing.JLabel();
         jl_fondoLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login Configuracion de Sistema De Puntos");
-        setMinimumSize(new java.awt.Dimension(488, 541));
+        setMaximumSize(new java.awt.Dimension(490, 203));
+        setMinimumSize(new java.awt.Dimension(490, 203));
         setName("Loguin del Sistema de Puntos"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(490, 203));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -96,11 +97,7 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
         txt_contrasena.setBounds(115, 66, 312, 30);
 
         getContentPane().add(panel_login);
-        panel_login.setBounds(20, 330, 450, 180);
-
-        jl_iconoPersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/login-Usuario.png"))); // NOI18N
-        getContentPane().add(jl_iconoPersonas);
-        jl_iconoPersonas.setBounds(120, 40, 260, 240);
+        panel_login.setBounds(20, 10, 450, 180);
 
         jl_fondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/fondo_login.jpg"))); // NOI18N
         jl_fondoLogin.setMaximumSize(new java.awt.Dimension(488, 541));
@@ -193,7 +190,6 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
     private javax.swing.JLabel jl_Usuario;
     private javax.swing.JLabel jl_contrasena;
     private javax.swing.JLabel jl_fondoLogin;
-    private javax.swing.JLabel jl_iconoPersonas;
     private java.awt.Panel panel_login;
     private javax.swing.JPasswordField txt_contrasena;
     private javax.swing.JTextField txt_usuario;

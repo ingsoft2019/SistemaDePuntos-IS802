@@ -83,19 +83,9 @@
                               <Component id="txt_primerNombre" min="-2" pref="180" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jL_segundoNombre" min="-2" pref="100" max="-2" attributes="0"/>
-                              <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                              <Component id="txt_segundoNombre" min="-2" pref="180" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
                               <Component id="jL_primerApellido" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
                               <Component id="txt_primerApellido" min="-2" pref="180" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jL_segundoApellido" min="-2" pref="100" max="-2" attributes="0"/>
-                              <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                              <Component id="txt_segundoApellido" min="-2" pref="180" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jL_identidad" min="-2" pref="100" max="-2" attributes="0"/>
@@ -130,6 +120,17 @@
                                       <Component id="jRadioButtonMasculino" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="txt_telefono1" min="-2" pref="180" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jL_segundoNombre" pref="109" max="32767" attributes="0"/>
+                                  <Component id="jL_segundoApellido" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txt_segundoApellido" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                  <Component id="txt_segundoNombre" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -200,12 +201,12 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jL_primerNombre">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Primer nombre:"/>
+                <Property name="text" type="java.lang.String" value="Primer Nombre:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jL_segundoNombre">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Segundo nombre:"/>
+                <Property name="text" type="java.lang.String" value="Segundo Nombre:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jL_primerApellido">
@@ -266,7 +267,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jL_email">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Correo Electronico"/>
+                <Property name="text" type="java.lang.String" value="Email:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButtonFemenino">
@@ -355,7 +356,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="240" y="10" width="140" height="50"/>
+              <AbsoluteConstraints x="260" y="10" width="160" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -376,7 +377,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="390" y="10" width="130" height="50"/>
+              <AbsoluteConstraints x="440" y="10" width="130" height="50"/>
             </Constraint>
           </Constraints>
         </Component>

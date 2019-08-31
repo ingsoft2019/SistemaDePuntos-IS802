@@ -77,7 +77,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
             }
         });
         jpanel_SubMenu.add(btnEditar);
-        btnEditar.setBounds(70, 250, 160, 60);
+        btnEditar.setBounds(230, 250, 160, 60);
 
         jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jl_TituloPrincipal.setText("Configuracion de Puntos");
@@ -88,7 +88,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
         jpanel_SubMenu.add(lblFechaConfiguracion);
         lblFechaConfiguracion.setBounds(80, 200, 130, 16);
 
-        txtDuracionPuntos.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        txtDuracionPuntos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtDuracionPuntos.setEnabled(false);
         txtDuracionPuntos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +110,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
         jpanel_SubMenu.add(jLabel1);
         jLabel1.setBounds(310, 100, 100, 40);
 
-        txtFechaConfiguracion.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        txtFechaConfiguracion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtFechaConfiguracion.setEnabled(false);
         txtFechaConfiguracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +124,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
         jpanel_SubMenu.add(lblPorcentajeActual1);
         lblPorcentajeActual1.setBounds(40, 110, 110, 16);
 
-        txtPorcentajeActual.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        txtPorcentajeActual.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtPorcentajeActual.setEnabled(false);
         txtPorcentajeActual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +153,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
             }
         });
         jpanel_SubMenu.add(btnGuardar);
-        btnGuardar.setBounds(340, 250, 160, 60);
+        btnGuardar.setBounds(230, 250, 160, 60);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         jLabel2.setText("%");

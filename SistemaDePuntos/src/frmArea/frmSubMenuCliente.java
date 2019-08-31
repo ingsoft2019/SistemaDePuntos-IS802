@@ -94,9 +94,9 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         jpanel_AreaSubMenu.setPreferredSize(new java.awt.Dimension(100, 500));
         jpanel_AreaSubMenu.setLayout(null);
 
-        jL_primerNombre.setText("Primer nombre:");
+        jL_primerNombre.setText("Primer Nombre:");
 
-        jL_segundoNombre.setText("Segundo nombre:");
+        jL_segundoNombre.setText("Segundo Nombre:");
 
         jL_primerApellido.setText("Primer Apellido:");
 
@@ -118,7 +118,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
 
         jLabel2.setText("Telefono 3:");
 
-        jL_email.setText("Correo Electronico");
+        jL_email.setText("Email:");
 
         RG_genero.add(jRadioButtonFemenino);
         jRadioButtonFemenino.setText("F");
@@ -143,17 +143,9 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addComponent(txt_primerNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpanel_datos1Layout.createSequentialGroup()
-                        .addComponent(jL_segundoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(txt_segundoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpanel_datos1Layout.createSequentialGroup()
                         .addComponent(jL_primerApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
                         .addComponent(txt_primerApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpanel_datos1Layout.createSequentialGroup()
-                        .addComponent(jL_segundoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(txt_segundoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpanel_datos1Layout.createSequentialGroup()
                         .addComponent(jL_identidad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
@@ -180,7 +172,15 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
                                 .addComponent(jRadioButtonFemenino)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jRadioButtonMasculino))
-                            .addComponent(txt_telefono1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txt_telefono1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jpanel_datos1Layout.createSequentialGroup()
+                        .addGroup(jpanel_datos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jL_segundoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                            .addComponent(jL_segundoApellido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(41, 41, 41)
+                        .addGroup(jpanel_datos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_segundoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_segundoNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(40, 40, 40))
         );
         jpanel_datos1Layout.setVerticalGroup(
@@ -261,7 +261,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         btn_imprimirDireccion.setText("Imprimir dirección");
         btn_imprimirDireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpanel_AreaSubMenu.add(btn_imprimirDireccion);
-        btn_imprimirDireccion.setBounds(240, 10, 140, 50);
+        btn_imprimirDireccion.setBounds(260, 10, 160, 50);
 
         btn_imprimirPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato puntos.png"))); // NOI18N
         btn_imprimirPuntos.setText("Imprimir puntos");
@@ -272,7 +272,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
             }
         });
         jpanel_AreaSubMenu.add(btn_imprimirPuntos);
-        btn_imprimirPuntos.setBounds(390, 10, 130, 50);
+        btn_imprimirPuntos.setBounds(440, 10, 130, 50);
 
         jLabel9.setText("Puntos Regis:");
 

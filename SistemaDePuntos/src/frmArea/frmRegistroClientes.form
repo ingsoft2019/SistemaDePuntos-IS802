@@ -53,7 +53,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="SegundoNombre">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Segundo nombre:"/>
+            <Property name="text" type="java.lang.String" value="Segundo Nombre:"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
                 <BevelBorder/>
@@ -68,7 +68,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="PrimerApellido">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Primer apellido:"/>
+            <Property name="text" type="java.lang.String" value="Primer Apellido:"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
                 <BevelBorder/>
@@ -83,7 +83,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="SegundoApelliido">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Segundo apellido:"/>
+            <Property name="text" type="java.lang.String" value="Segundo Apellido:"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
                 <BevelBorder/>
@@ -128,7 +128,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="CorreoElectronico">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Correo electr&#xf3;nico:"/>
+            <Property name="text" type="java.lang.String" value="Email:"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
                 <BevelBorder/>
@@ -217,7 +217,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="PrimerNombre">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Primer nombre:"/>
+            <Property name="text" type="java.lang.String" value="Primer Nombre:"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
                 <BevelBorder/>

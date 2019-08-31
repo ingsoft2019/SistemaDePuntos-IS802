@@ -42,7 +42,6 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         txtIdFactura = new javax.swing.JTextField();
         txtNombreCliente = new javax.swing.JTextField();
         lblNombreCliente = new javax.swing.JLabel();
-        btn_limpiar = new javax.swing.JButton();
         btn_asignar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -85,16 +84,6 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         jPanel2.add(lblNombreCliente);
         lblNombreCliente.setBounds(10, 109, 100, 30);
 
-        btn_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
-        btn_limpiar.setText("Limpiar");
-        btn_limpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_limpiarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btn_limpiar);
-        btn_limpiar.setBounds(40, 160, 140, 40);
-
         btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
         btn_asignar.setText("Asignar");
         btn_asignar.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +92,7 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn_asignar);
-        btn_asignar.setBounds(270, 160, 140, 40);
+        btn_asignar.setBounds(160, 170, 140, 40);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(20, 10, 450, 230);
@@ -126,6 +115,10 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
          //
    
         }
+        
+        //limpiar los campos 
+        txtIdFactura.setText("");
+        txtNombreCliente.setText("");
     
     }//GEN-LAST:event_btn_asignarActionPerformed
 
@@ -142,11 +135,6 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         
         if (c< '0'|| c>'9') evt.consume();
     }//GEN-LAST:event_txtNombreClienteKeyTyped
-
-    private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
-        txtIdFactura.setText("");
-        txtNombreCliente.setText("");
-    }//GEN-LAST:event_btn_limpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,7 +173,6 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_asignar;
-    private javax.swing.JButton btn_limpiar;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAsignacionPuntos;
     private javax.swing.JLabel lblIdFactura;
