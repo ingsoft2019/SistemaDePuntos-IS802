@@ -81,7 +81,7 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
     private void btn_asignarPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarPuntosActionPerformed
         frmAsignacionPuntos ver1=new frmAsignacionPuntos();
         ver1.setVisible(true); // visible ventana del objeto
-        this.setVisible(false); // ocultar
+      //  this.setVisible(false); // ocultar
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_asignarPuntosActionPerformed
@@ -89,7 +89,7 @@ public class frmSubMenuPuntos extends javax.swing.JFrame {
     private void btn_canjearPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_canjearPuntosActionPerformed
         frmCanjeoPuntos ver2=new frmCanjeoPuntos();
         ver2.setVisible(true); // visible ventana del objeto
-        this.setVisible(false); // ocultar
+      //  this.setVisible(false); // ocultar
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_canjearPuntosActionPerformed
 

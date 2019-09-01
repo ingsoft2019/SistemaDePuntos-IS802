@@ -280,6 +280,8 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
     //AL PRESONAR EL BOTON DE GESTION DE CLIENTE
     private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
+
+        
         try {
             int row = jTable1.getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
             String identidad = (String) jTable1.getValueAt(row, 1); //OBTENGO EL VALOR DEL NUMERO DE IDENTIDAD

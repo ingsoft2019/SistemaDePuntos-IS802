@@ -516,9 +516,10 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_puntosRegisActionPerformed
 
     private void btn_desactivarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_desactivarClienteActionPerformed
-        frmDeshabilitarCliente ver2 = new frmDeshabilitarCliente();
-        ver2.setVisible(true);
-        this.dispose();
+
+           frmDeshabilitarCliente ver=new frmDeshabilitarCliente();
+            ver.setVisible(true); 
+            this.dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_desactivarClienteActionPerformed

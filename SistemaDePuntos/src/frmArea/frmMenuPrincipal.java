@@ -117,7 +117,8 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ReportesMenuActionPerformed
 
     private void btn_ClienteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClienteMenuActionPerformed
-        frmConsultarCliente ver=new frmConsultarCliente();
+
+           frmConsultarCliente ver=new frmConsultarCliente();
             ver.setVisible(true); // visible ventana del objeto
        //     this.setVisible(false); // ocultar
         

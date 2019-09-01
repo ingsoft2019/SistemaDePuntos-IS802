@@ -90,7 +90,6 @@ public class frmRegistroClientes extends javax.swing.JFrame {
         Telefono3 = new javax.swing.JLabel();
         panel_botonesBasicos = new javax.swing.JPanel();
         btn_guardarCliente = new javax.swing.JButton();
-        btn_menuInicio = new javax.swing.JButton();
         btn_limpiarCampos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -370,18 +369,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         panel_botonesBasicos.add(btn_guardarCliente);
-        btn_guardarCliente.setBounds(20, 10, 105, 49);
-
-        btn_menuInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/volverMenu.png"))); // NOI18N
-        btn_menuInicio.setText("Atrás");
-        btn_menuInicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btn_menuInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_menuInicioActionPerformed(evt);
-            }
-        });
-        panel_botonesBasicos.add(btn_menuInicio);
-        btn_menuInicio.setBounds(300, 10, 95, 49);
+        btn_guardarCliente.setBounds(20, 10, 140, 40);
 
         btn_limpiarCampos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
         btn_limpiarCampos.setText("Limpiar");
@@ -391,7 +379,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
             }
         });
         panel_botonesBasicos.add(btn_limpiarCampos);
-        btn_limpiarCampos.setBounds(160, 10, 110, 50);
+        btn_limpiarCampos.setBounds(220, 10, 140, 40);
 
         jP1_DatosCliente.add(panel_botonesBasicos);
         panel_botonesBasicos.setBounds(30, 480, 410, 70);
@@ -520,13 +508,6 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     private void txt_primerNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_primerNombreActionPerformed
 
     }//GEN-LAST:event_txt_primerNombreActionPerformed
-
-    private void btn_menuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuInicioActionPerformed
-        frmMenuPrincipal ver = new frmMenuPrincipal();
-        ver.setVisible(true); // visible ventana del objeto
-        this.setVisible(false); // ocultar
-
-    }//GEN-LAST:event_btn_menuInicioActionPerformed
 
     private void txt_telefono1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefono1ActionPerformed
         // TODO add your handling code here:
@@ -732,7 +713,6 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     private javax.swing.JLabel Telefono3;
     private javax.swing.JButton btn_guardarCliente;
     private javax.swing.JButton btn_limpiarCampos;
-    private javax.swing.JButton btn_menuInicio;
     private javax.swing.JTextArea descripcion;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jC_zona;

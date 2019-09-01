@@ -42,7 +42,6 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
         btn_ingresarLogin = new javax.swing.JButton();
         btn_recuperar = new javax.swing.JButton();
         txt_contrasena = new javax.swing.JPasswordField();
-        jl_fondoLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login Configuracion de Sistema De Puntos");
@@ -98,13 +97,6 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
 
         getContentPane().add(panel_login);
         panel_login.setBounds(20, 10, 450, 180);
-
-        jl_fondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/fondo_login.jpg"))); // NOI18N
-        jl_fondoLogin.setMaximumSize(new java.awt.Dimension(488, 541));
-        jl_fondoLogin.setMinimumSize(new java.awt.Dimension(488, 541));
-        jl_fondoLogin.setPreferredSize(new java.awt.Dimension(488, 541));
-        getContentPane().add(jl_fondoLogin);
-        jl_fondoLogin.setBounds(0, -30, 490, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -189,7 +181,6 @@ public class frmLoginModuloConfiguracion extends javax.swing.JFrame {
     private javax.swing.JButton btn_recuperar;
     private javax.swing.JLabel jl_Usuario;
     private javax.swing.JLabel jl_contrasena;
-    private javax.swing.JLabel jl_fondoLogin;
     private java.awt.Panel panel_login;
     private javax.swing.JPasswordField txt_contrasena;
     private javax.swing.JTextField txt_usuario;

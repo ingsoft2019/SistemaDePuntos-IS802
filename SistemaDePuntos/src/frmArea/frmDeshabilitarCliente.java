@@ -34,10 +34,6 @@ public class frmDeshabilitarCliente extends javax.swing.JFrame {
 
         jpanel_SubMenu = new javax.swing.JPanel();
         jl_TituloPrincipal = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txt_busqueda = new javax.swing.JTextField();
-        btn_buscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Deshabilitar Cliente");
@@ -55,38 +51,12 @@ public class frmDeshabilitarCliente extends javax.swing.JFrame {
         jpanel_SubMenu.add(jl_TituloPrincipal);
         jl_TituloPrincipal.setBounds(170, 10, 280, 30);
 
-        jPanel1.setLayout(null);
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setText("Busqueda");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(20, 30, 71, 19);
-        jPanel1.add(txt_busqueda);
-        txt_busqueda.setBounds(110, 30, 250, 24);
-
-        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/buscar.png"))); // NOI18N
-        btn_buscar.setText("Buscar");
-        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_buscarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_buscar);
-        btn_buscar.setBounds(370, 20, 107, 40);
-
-        jpanel_SubMenu.add(jPanel1);
-        jPanel1.setBounds(50, 70, 490, 80);
-
         getContentPane().add(jpanel_SubMenu);
         jpanel_SubMenu.setBounds(60, 30, 580, 410);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_buscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,11 +95,7 @@ public class frmDeshabilitarCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_buscar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jl_TituloPrincipal;
     private javax.swing.JPanel jpanel_SubMenu;
-    private javax.swing.JTextField txt_busqueda;
     // End of variables declaration//GEN-END:variables
 }

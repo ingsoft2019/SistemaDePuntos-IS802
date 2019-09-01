@@ -54,6 +54,7 @@ public class frmNuevaZona extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
+        JL_zona.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         JL_zona.setText("Zona:");
         JL_zona.setMaximumSize(new java.awt.Dimension(40, 240));
         JL_zona.setMinimumSize(new java.awt.Dimension(40, 240));
@@ -82,7 +83,7 @@ public class frmNuevaZona extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_guardarZona);
-        btn_guardarZona.setBounds(400, 20, 160, 40);
+        btn_guardarZona.setBounds(410, 10, 160, 60);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

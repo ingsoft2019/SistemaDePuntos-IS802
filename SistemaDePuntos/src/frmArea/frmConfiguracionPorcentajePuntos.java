@@ -77,7 +77,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
             }
         });
         jpanel_SubMenu.add(btnEditar);
-        btnEditar.setBounds(230, 250, 160, 60);
+        btnEditar.setBounds(230, 250, 140, 40);
 
         jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jl_TituloPrincipal.setText("Configuracion de Puntos");
@@ -153,7 +153,7 @@ public class frmConfiguracionPorcentajePuntos extends javax.swing.JFrame {
             }
         });
         jpanel_SubMenu.add(btnGuardar);
-        btnGuardar.setBounds(230, 250, 160, 60);
+        btnGuardar.setBounds(230, 250, 140, 40);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         jLabel2.setText("%");

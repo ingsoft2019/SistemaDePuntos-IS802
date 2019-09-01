@@ -40,10 +40,8 @@ public class frmLogin extends javax.swing.JFrame {
         txt_usuario = new javax.swing.JTextField();
         jl_contrasena = new javax.swing.JLabel();
         btn_ingresarLogin = new javax.swing.JButton();
-        btn_recuperar = new javax.swing.JButton();
         btn_SalirLogin = new javax.swing.JButton();
         txt_contrasena = new javax.swing.JPasswordField();
-        jl_fondoLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Sistema De Puntos");
@@ -82,12 +80,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         panel_login_Principal.add(btn_ingresarLogin);
-        btn_ingresarLogin.setBounds(10, 130, 140, 40);
-
-        btn_recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/pass-contrasena.png"))); // NOI18N
-        btn_recuperar.setText("Recuperar");
-        panel_login_Principal.add(btn_recuperar);
-        btn_recuperar.setBounds(160, 130, 140, 40);
+        btn_ingresarLogin.setBounds(40, 130, 160, 40);
 
         btn_SalirLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/salir sistema.png"))); // NOI18N
         btn_SalirLogin.setText("Salir");
@@ -97,7 +90,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         panel_login_Principal.add(btn_SalirLogin);
-        btn_SalirLogin.setBounds(310, 130, 140, 40);
+        btn_SalirLogin.setBounds(260, 130, 160, 40);
 
         txt_contrasena.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -108,14 +101,7 @@ public class frmLogin extends javax.swing.JFrame {
         txt_contrasena.setBounds(120, 70, 312, 30);
 
         getContentPane().add(panel_login_Principal);
-        panel_login_Principal.setBounds(10, 10, 460, 190);
-
-        jl_fondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/fondo_login.jpg"))); // NOI18N
-        jl_fondoLogin.setMaximumSize(new java.awt.Dimension(488, 541));
-        jl_fondoLogin.setMinimumSize(new java.awt.Dimension(488, 541));
-        jl_fondoLogin.setPreferredSize(new java.awt.Dimension(488, 541));
-        getContentPane().add(jl_fondoLogin);
-        jl_fondoLogin.setBounds(0, -30, 490, 570);
+        panel_login_Principal.setBounds(10, 20, 460, 190);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -202,10 +188,8 @@ public class frmLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_SalirLogin;
     private javax.swing.JButton btn_ingresarLogin;
-    private javax.swing.JButton btn_recuperar;
     private javax.swing.JLabel jl_Usuario;
     private javax.swing.JLabel jl_contrasena;
-    private javax.swing.JLabel jl_fondoLogin;
     private java.awt.Panel panel_login_Principal;
     private javax.swing.JPasswordField txt_contrasena;
     private javax.swing.JTextField txt_usuario;

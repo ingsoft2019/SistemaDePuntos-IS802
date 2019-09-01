@@ -49,8 +49,13 @@ public class frmMenuConfiguracion extends javax.swing.JFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/rifa.png"))); // NOI18N
         jButton2.setText("Realizar Rifa");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton2);
-        jButton2.setBounds(190, 40, 190, 60);
+        jButton2.setBounds(190, 30, 190, 60);
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
         jButton5.setText("Reinicio de Puntos");
@@ -62,14 +67,15 @@ public class frmMenuConfiguracion extends javax.swing.JFrame {
         jPanel2.add(jButton5);
         jButton5.setBounds(190, 120, 190, 60);
 
-        jButton1.setText("Configuracion Porcentaje de Puntos");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato puntos.png"))); // NOI18N
+        jButton1.setText("Porcentaje de Puntos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(200, 210, 190, 32);
+        jButton1.setBounds(190, 200, 190, 60);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(40, 160, 600, 280);
@@ -77,20 +83,33 @@ public class frmMenuConfiguracion extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Conguración del Sistema");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(210, 20, 310, 40);
+        jLabel2.setBounds(200, 40, 310, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+        frmConfiguracionPorcentajePuntos  ver=new frmConfiguracionPorcentajePuntos();
+            ver.setVisible(true); // visible ventana del objeto
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
+        frmReinicioPuntos  ver=new frmReinicioPuntos();
+            ver.setVisible(true); // visible ventana del objeto
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        frmRifa ver=new frmRifa();
+            ver.setVisible(true); // visible ventana del objeto
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
