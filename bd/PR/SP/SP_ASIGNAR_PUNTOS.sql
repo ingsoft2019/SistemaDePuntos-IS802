@@ -13,8 +13,9 @@ UPDATE FA.dbo.VEN_FAC
 SET fec_act= GETDATE()
 WHERE id IN (477, 478, 512, 513, 514, 515);
 
+
 -- Inicio de Procedimiento
-CREATE PROCEDURE SP_ASIGNAR_PUNTOS (
+ALTER PROCEDURE [dbo].[SP_ASIGNAR_PUNTOS] (
 	@pi_id_cliente INT,
 	@pi_GEN_USR_id NVARCHAR(50),
 	@pi_VEN_FAC_id INT,
@@ -30,6 +31,7 @@ BEGIN
 	DECLARE @vi_id_tipo_movimiento INT;
 	DECLARE @vi_duracion_puntos INT;
 	DECLARE @vd_porcentaje_puntos DECIMAL(5,4);
+	DECLARE @vn_id_movimiento INT, @vi_puntos_actuales_rifa INT;
 	
 	SET @vc_temp_mensaje = '';
 
@@ -178,16 +180,27 @@ BEGIN
 			,@pi_GEN_USR_id
 			,@pi_VEN_FAC_id);
 
-		--obtener los puntos que tiene, antes de asignara los nuevos puntos
-		SELECT @vi_puntos_actuales = puntos_actuales FROM Cliente
+		--obtener los puntos que tiene y los puntos actuales de rifa, antes de asignara los nuevos puntos
+		SELECT @vi_puntos_actuales = puntos_actuales, @vi_puntos_actuales_rifa = puntos_rifa_actuales FROM Cliente
 		WHERE id_cliente = @pi_id_cliente;
+
+		--Obtener el ultimo id de movimiento
+		SELECT @vn_id_movimiento = MAX(id_movimiento) FROM Movimiento
+		IF @vn_id_movimiento IS NULL BEGIN
+			SET @vn_id_movimiento = 1;
+		END;
+
+		--Insertar puntos en la tabla rifa
+		INSERT INTO Rifa (cantidad_puntos, estado, id_movimiento)
+		VALUES (FLOOR(@vn_puntos_asignados), 'A', @vn_id_movimiento);
 
 		--actualizacion de los puntos actuales y la fecha de vencimiento de puntos.
 		UPDATE [dbo].[Cliente]
 		SET [puntos_actuales] = FLOOR(@vn_puntos_asignados)+ @vi_puntos_actuales,
+			[puntos_rifa_actuales] = FLOOR(@vn_puntos_asignados) + @vi_puntos_actuales_rifa,
 			[fecha_vencimiento_puntos] = DATEADD(month, @vi_duracion_puntos, GETDATE())
 		WHERE id_cliente = @pi_id_cliente;
-		
+
 		SET @pv_mensaje = CONCAT('Los puntos fueron asignados correctamente. Los puntos asignados fueron: ',FLOOR(@vn_puntos_asignados) ,'. Puntos actuales: ', FLOOR(@vn_puntos_asignados)+ @vi_puntos_actuales);
 		SET @pi_codigo = 0;
 	
