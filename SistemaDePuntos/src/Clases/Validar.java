@@ -29,7 +29,7 @@ public class Validar {
                 if (Character.isDigit(c)) {
                     e.consume();
                     JOptionPane.showMessageDialog(null, "No puedes agregar numeros");
-                    campo.setText(null);
+                    //campo.setText(null);
                     campo.setCursor(null);
 
                 } else if ((int) e.getKeyChar() > 32 && (int) e.getKeyChar() <= 47
@@ -55,7 +55,7 @@ public class Validar {
                         || (int) e.getKeyChar() >= 58 && (int) e.getKeyChar() <= 126) {
                     e.consume();
                     JOptionPane.showMessageDialog(null, "No puedes agregar letras o caracteres");
-                    campo.setText(null);
+                    //campo.setText(null);
                 }
             }
         });
@@ -71,7 +71,7 @@ public class Validar {
                         || (int) e.getKeyChar() >= 58 && (int) e.getKeyChar() <= 126) {
                     e.consume();
                     JOptionPane.showMessageDialog(null, "No puedes agregar letras o caracteres");
-                    campo.setText(null);
+                    //campo.setText(null);
                 }
             }
         });
@@ -91,19 +91,21 @@ public class Validar {
         });
     }
 
-    public int validarCorreo(JTextField correo) {
+    public boolean validarCorreo(JTextField correo) {
         Pattern pattern = Pattern
                 .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                         + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
         Matcher mather = pattern.matcher((CharSequence) correo.getText());
-        if (mather.find() == false) {
-            JOptionPane.showMessageDialog(null, "Correo invalido");
-            return 1;
-        } else {
-            return 2;
-        }
+        return mather.find();
+        
     }
+    
+    public void validarEspacios(JTextField campo){
+       JOptionPane.showMessageDialog(null, "No se permite espacios en blanco", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+        campo.setText(campo.getText().trim());
+    }
+    
 
     public void ValidarBusqueda(JTextField campo) {
         campo.addKeyListener(new KeyAdapter() {

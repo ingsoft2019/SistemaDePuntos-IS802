@@ -537,24 +537,32 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     private void txt_primerNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_primerNombreKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             txt_segundoNombre.requestFocus();
+        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
+            v.validarEspacios(txt_primerNombre);
         }
     }//GEN-LAST:event_txt_primerNombreKeyPressed
 
     private void txt_segundoNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_segundoNombreKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             txt_primerApellido.requestFocus();
+        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
+            v.validarEspacios(txt_segundoNombre);
         }
     }//GEN-LAST:event_txt_segundoNombreKeyPressed
 
     private void txt_primerApellidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_primerApellidoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             txt_segundoApellido.requestFocus();
+        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
+            v.validarEspacios(txt_primerApellido);
         }
     }//GEN-LAST:event_txt_primerApellidoKeyPressed
 
     private void txt_segundoApellidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_segundoApellidoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             txt_noIdentidad.requestFocus();
+        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
+            v.validarEspacios(txt_segundoApellido);
         }
     }//GEN-LAST:event_txt_segundoApellidoKeyPressed
 

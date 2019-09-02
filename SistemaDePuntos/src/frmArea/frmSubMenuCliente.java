@@ -6,7 +6,9 @@
 package frmArea;
 
 import Clases.Persona;
+import Clases.Validar;
 import Clases.Zona;
+import java.awt.event.KeyEvent;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -30,8 +33,22 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
         //cargarZonas();
+        v.ValidarSoloLetras(txt_primerNombre);
+        v.ValidarSoloLetras(txt_segundoNombre);
+        v.ValidarSoloLetras(txt_primerApellido);
+        v.ValidarSoloLetras(txt_segundoApellido);
+        v.ValidarTelefono(txt_telefono1);
+        v.ValidarTelefono(txt_telefono2);
+        v.ValidarTelefono(txt_telefono3);
+        v.ValidarIdentidad(txt_identidad);
+        v.limitarCaracteres(txt_telefono1, 13);
+        v.limitarCaracteres(txt_telefono2, 13);
+        v.limitarCaracteres(txt_telefono3, 13);
+        v.limitarCaracteres(txt_identidad, 15);
     }
-
+    
+    Validar v = new Validar();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -108,9 +125,44 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
 
         jL_telefono.setText("Telefono 1:");
 
+        txt_primerNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_primerNombreKeyPressed(evt);
+            }
+        });
+
         txt_segundoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_segundoNombreActionPerformed(evt);
+            }
+        });
+        txt_segundoNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_segundoNombreKeyPressed(evt);
+            }
+        });
+
+        txt_primerApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_primerApellidoKeyPressed(evt);
+            }
+        });
+
+        txt_segundoApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_segundoApellidoKeyPressed(evt);
+            }
+        });
+
+        txt_identidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_identidadKeyPressed(evt);
+            }
+        });
+
+        txt_telefono1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_telefono1KeyPressed(evt);
             }
         });
 
@@ -118,11 +170,39 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
 
         jLabel2.setText("Telefono 3:");
 
+        txt_telefono2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_telefono2KeyPressed(evt);
+            }
+        });
+
+        txt_telefono3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_telefono3KeyPressed(evt);
+            }
+        });
+
+        txt_email.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_emailFocusLost(evt);
+            }
+        });
+        txt_email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_emailKeyPressed(evt);
+            }
+        });
+
         jL_email.setText("Email:");
 
         RG_genero.add(jRadioButtonFemenino);
         jRadioButtonFemenino.setText("F");
         jRadioButtonFemenino.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButtonFemenino.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jRadioButtonFemeninoKeyPressed(evt);
+            }
+        });
 
         RG_genero.add(jRadioButtonMasculino);
         jRadioButtonMasculino.setText("M");
@@ -300,13 +380,30 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
 
         jLabel3.setText("Fecha Nacimiento");
 
+        jD_fechaNac.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jD_fechaNacKeyPressed(evt);
+            }
+        });
+
         jLabel4.setText("Zona");
 
         jLabel5.setText("Dirección");
 
         txt_datalleDireccion.setColumns(20);
         txt_datalleDireccion.setRows(5);
+        txt_datalleDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_datalleDireccionKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(txt_datalleDireccion);
+
+        jC_zona.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jC_zonaKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpanel_datos2Layout = new javax.swing.GroupLayout(jpanel_datos2);
         jpanel_datos2.setLayout(jpanel_datos2Layout);
@@ -428,7 +525,8 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
                         txt_primerApellido.getText(), txt_segundoApellido.getText(), txt_identidad.getText(), txt_email.getText(),
                         sexo, fechaNac, txt_telefono1.getText(), txt_telefono2.getText(), txt_telefono3.getText(),
                         idZona, txt_datalleDireccion.getText(), Integer.parseInt(txt_puntosRegis.getText()),
-                        txt_vencimiento.getText(), Integer.parseInt(txt_puntoRifa.getText())
+                        txt_vencimiento.getText(), Integer.parseInt(txt_puntoRifa.getText()),
+                        Integer.parseInt(id.getText())
                 );
 
                 //Limpiar los campos
@@ -484,12 +582,14 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     private void btn_imprimirPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirPuntosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_imprimirPuntosActionPerformed
-
+    
+    private JTextField id = new JTextField();       
+    
     //Metodo para llenar los campos     
     public void llenarCampos(String pnombre, String snombre, String papellido, String sapellido, String identidad,
             String sexo, String telefono1, String telefono2, String telefono3, String correo,
             Date fechaNac,String detalleDireccion, String puntos_actuales, String puntos_rifa,
-            String fechaVencimiento) {
+            String fechaVencimiento, String id) {
         this.txt_primerNombre.setText(pnombre);
         this.txt_segundoNombre.setText(snombre);
         this.txt_primerApellido.setText(papellido);
@@ -508,7 +608,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         this.txt_puntosRegis.setText(puntos_actuales);
         this.txt_puntoRifa.setText(puntos_rifa);
         this.txt_vencimiento.setText(fechaVencimiento);
-
+        this.id.setText(id);
     }
 
     private void txt_puntosRegisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_puntosRegisActionPerformed
@@ -539,6 +639,107 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     private void jRadioButtonMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMasculinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonMasculinoActionPerformed
+
+    private void txt_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_emailFocusLost
+        if(!"".equals(txt_email.getText())){
+            if(v.validarCorreo(txt_email)){
+                jD_fechaNac.requestFocus();
+            }else{
+                JOptionPane.showMessageDialog(null, "Correo inválido", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+                txt_email.requestFocus();
+            }
+        }else{
+            jD_fechaNac.requestFocus();
+        }
+    }//GEN-LAST:event_txt_emailFocusLost
+
+    private void txt_emailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_emailKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            jD_fechaNac.requestFocus();
+        }
+    }//GEN-LAST:event_txt_emailKeyPressed
+
+    private void txt_primerNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_primerNombreKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            txt_segundoNombre.requestFocus();
+        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
+            v.validarEspacios(txt_primerNombre);
+        }
+    }//GEN-LAST:event_txt_primerNombreKeyPressed
+
+    private void txt_segundoNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_segundoNombreKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            txt_primerApellido.requestFocus();
+        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
+            v.validarEspacios(txt_segundoNombre);
+        }
+    }//GEN-LAST:event_txt_segundoNombreKeyPressed
+
+    private void txt_primerApellidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_primerApellidoKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            txt_segundoApellido.requestFocus();
+        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
+            v.validarEspacios(txt_primerApellido);
+        }
+    }//GEN-LAST:event_txt_primerApellidoKeyPressed
+
+    private void txt_segundoApellidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_segundoApellidoKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            txt_identidad.requestFocus();
+        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
+            v.validarEspacios(txt_segundoApellido);
+        }
+    }//GEN-LAST:event_txt_segundoApellidoKeyPressed
+
+    private void txt_identidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_identidadKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            jRadioButtonFemenino.requestFocus();
+        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
+            v.validarEspacios(txt_identidad);
+        }
+    }//GEN-LAST:event_txt_identidadKeyPressed
+
+    private void jRadioButtonFemeninoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jRadioButtonFemeninoKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            txt_telefono1.requestFocus();
+        }
+    }//GEN-LAST:event_jRadioButtonFemeninoKeyPressed
+
+    private void txt_telefono1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefono1KeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            txt_telefono2.requestFocus();
+        }
+    }//GEN-LAST:event_txt_telefono1KeyPressed
+
+    private void txt_telefono2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefono2KeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            txt_telefono3.requestFocus();
+        }
+    }//GEN-LAST:event_txt_telefono2KeyPressed
+
+    private void txt_telefono3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefono3KeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            txt_email.requestFocus();
+        }
+    }//GEN-LAST:event_txt_telefono3KeyPressed
+
+    private void jD_fechaNacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jD_fechaNacKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            jC_zona.requestFocus();
+        }
+    }//GEN-LAST:event_jD_fechaNacKeyPressed
+
+    private void jC_zonaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jC_zonaKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            txt_datalleDireccion.requestFocus();
+        }
+    }//GEN-LAST:event_jC_zonaKeyPressed
+
+    private void txt_datalleDireccionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_datalleDireccionKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            txt_primerNombre.requestFocus();
+        }
+    }//GEN-LAST:event_txt_datalleDireccionKeyPressed
 
     /**
      * @param args the command line arguments
