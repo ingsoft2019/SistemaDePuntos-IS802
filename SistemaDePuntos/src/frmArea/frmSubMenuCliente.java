@@ -100,6 +100,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_datalleDireccion = new javax.swing.JTextArea();
         jC_zona = new javax.swing.JComboBox<>();
+        btn_habilitarcliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestion Cliente");
@@ -326,8 +327,8 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         jpanel_AreaSubMenu.add(btn_editarCliente);
         btn_editarCliente.setBounds(10, 10, 100, 50);
 
-        btn_desactivarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/deshabilitar.png"))); // NOI18N
-        btn_desactivarCliente.setText("Desactivar");
+        btn_desactivarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/inhabilitar.png"))); // NOI18N
+        btn_desactivarCliente.setText("Deshabilitar");
         btn_desactivarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_desactivarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -335,13 +336,13 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
             }
         });
         jpanel_AreaSubMenu.add(btn_desactivarCliente);
-        btn_desactivarCliente.setBounds(120, 10, 110, 50);
+        btn_desactivarCliente.setBounds(240, 10, 110, 50);
 
         btn_imprimirDireccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato entrega.png"))); // NOI18N
         btn_imprimirDireccion.setText("Imprimir dirección");
         btn_imprimirDireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpanel_AreaSubMenu.add(btn_imprimirDireccion);
-        btn_imprimirDireccion.setBounds(260, 10, 160, 50);
+        btn_imprimirDireccion.setBounds(360, 10, 160, 50);
 
         btn_imprimirPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato puntos.png"))); // NOI18N
         btn_imprimirPuntos.setText("Imprimir puntos");
@@ -352,7 +353,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
             }
         });
         jpanel_AreaSubMenu.add(btn_imprimirPuntos);
-        btn_imprimirPuntos.setBounds(440, 10, 130, 50);
+        btn_imprimirPuntos.setBounds(530, 10, 130, 50);
 
         jLabel9.setText("Puntos Regis:");
 
@@ -473,6 +474,17 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
 
         jpanel_AreaSubMenu.add(jpanel_datos2);
         jpanel_datos2.setBounds(420, 104, 370, 340);
+
+        btn_habilitarcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/habilitar.png"))); // NOI18N
+        btn_habilitarcliente.setText("Habilitar");
+        btn_habilitarcliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_habilitarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_habilitarclienteActionPerformed(evt);
+            }
+        });
+        jpanel_AreaSubMenu.add(btn_habilitarcliente);
+        btn_habilitarcliente.setBounds(120, 10, 110, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -616,12 +628,20 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_puntosRegisActionPerformed
 
     private void btn_desactivarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_desactivarClienteActionPerformed
-
-           frmDeshabilitarCliente ver=new frmDeshabilitarCliente();
-            ver.setVisible(true); 
-            this.dispose();
-
-        // TODO add your handling code here:
+        int pregunta = JOptionPane.showConfirmDialog(null, "¿Deseas deshabilitar a este cliente?");
+        if(pregunta == 0){
+            try{
+            Procedimientos.ProcedimientosCliente.deshabilitarCliente(txt_identidad.getText());
+            JOptionPane.showMessageDialog(null, "El cliente ha sido deshabilitado");
+            }catch(SQLException e){
+                
+            }
+        }else if (pregunta == 1){
+            JOptionPane.showMessageDialog(null, "El cliente no se ha deshabilitado");
+        }else{
+            JOptionPane.showMessageDialog(null, "Operacion cancelada");
+        }
+        
     }//GEN-LAST:event_btn_desactivarClienteActionPerformed
 
     private void txt_segundoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_segundoNombreActionPerformed
@@ -741,6 +761,22 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txt_datalleDireccionKeyPressed
 
+    private void btn_habilitarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_habilitarclienteActionPerformed
+        int pregunta = JOptionPane.showConfirmDialog(null, "¿Realmente desea habilitar este cliente?");
+        if(pregunta == 0){
+            try{
+            Procedimientos.ProcedimientosCliente.habilitarCliente(txt_identidad.getText());
+            JOptionPane.showMessageDialog(null, "El cliente ha sido habilitado");
+            }catch(SQLException e){
+                
+            }
+        }else if (pregunta == 1){
+            JOptionPane.showMessageDialog(null, "El cliente no ha sido habilitado");
+        }else{
+            JOptionPane.showMessageDialog(null, "Operacion cancelada");
+        }
+    }//GEN-LAST:event_btn_habilitarclienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -780,6 +816,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     private javax.swing.ButtonGroup RG_genero;
     private javax.swing.JButton btn_desactivarCliente;
     private javax.swing.JButton btn_editarCliente;
+    private javax.swing.JButton btn_habilitarcliente;
     private javax.swing.JButton btn_imprimirDireccion;
     private javax.swing.JButton btn_imprimirPuntos;
     private javax.swing.JComboBox<String> jC_zona;
