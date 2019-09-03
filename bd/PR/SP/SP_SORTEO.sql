@@ -20,7 +20,7 @@ BEGIN
 	WHERE puntos_rifa_actuales <> 0
 
 	IF @vn_conteo = 0 BEGIN
-		SET @pc_ganador = 'No hay participantes para realizar el sorteo'
+		SET @pc_ganador = 'No hay participantes'
 		RETURN
 	END;
 

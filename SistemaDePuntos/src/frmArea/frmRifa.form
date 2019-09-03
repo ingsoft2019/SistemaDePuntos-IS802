@@ -27,7 +27,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
-                      <Component id="txtRealizarSorteo" min="-2" pref="178" max="-2" attributes="0"/>
+                      <Component id="btnRealizarSorteo" min="-2" pref="178" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
@@ -47,7 +47,7 @@
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="txtRealizarSorteo" min="-2" pref="80" max="-2" attributes="0"/>
+              <Component id="btnRealizarSorteo" min="-2" pref="80" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Component id="lblGanador" min="-2" pref="139" max="-2" attributes="0"/>
               <EmptySpace pref="103" max="32767" attributes="0"/>
@@ -64,22 +64,29 @@
         <Property name="text" type="java.lang.String" value="Sorteo de rifa por puntos"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="txtRealizarSorteo">
+    <Component class="javax.swing.JToggleButton" name="btnRealizarSorteo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Realizar Sorteo"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRealizarSorteoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRealizarSorteoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblGanador">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="24" style="1"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
             <EtchetBorder/>
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="lblGanadorPropertyChange"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

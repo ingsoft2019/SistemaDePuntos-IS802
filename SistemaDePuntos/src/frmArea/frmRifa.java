@@ -5,13 +5,19 @@
  */
 package frmArea;
 
+import Procedimientos.ProcedimientoSorteo;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Luis Estrada
  */
 public class frmRifa extends javax.swing.JFrame {
+    String mensaje = "";
 
     /**
      * Creates new form frmRifa
@@ -34,7 +40,7 @@ public class frmRifa extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        txtRealizarSorteo = new javax.swing.JToggleButton();
+        btnRealizarSorteo = new javax.swing.JToggleButton();
         lblGanador = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,14 +48,21 @@ public class frmRifa extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Sorteo de rifa por puntos");
 
-        txtRealizarSorteo.setText("Realizar Sorteo");
-        txtRealizarSorteo.addActionListener(new java.awt.event.ActionListener() {
+        btnRealizarSorteo.setText("Realizar Sorteo");
+        btnRealizarSorteo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRealizarSorteoActionPerformed(evt);
+                btnRealizarSorteoActionPerformed(evt);
             }
         });
 
+        lblGanador.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblGanador.setToolTipText("");
         lblGanador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblGanador.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                lblGanadorPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,7 +72,7 @@ public class frmRifa extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
-                        .addComponent(txtRealizarSorteo, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnRealizarSorteo, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -73,7 +86,7 @@ public class frmRifa extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtRealizarSorteo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRealizarSorteo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(lblGanador, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(103, Short.MAX_VALUE))
@@ -82,9 +95,24 @@ public class frmRifa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtRealizarSorteoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRealizarSorteoActionPerformed
-        
-    }//GEN-LAST:event_txtRealizarSorteoActionPerformed
+    private void btnRealizarSorteoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarSorteoActionPerformed
+        try {
+            int codigo=JOptionPane.showConfirmDialog(null, "¿Estas seguro de realizar el sorteo?", "Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
+            if (codigo==JOptionPane.YES_OPTION){
+                ProcedimientoSorteo sorteo = new ProcedimientoSorteo();
+                sorteo.realizarsorteo();
+                mensaje = sorteo.getMensaje();
+                String cadena="<html>" + mensaje;
+                lblGanador.setText(cadena);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(frmRifa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnRealizarSorteoActionPerformed
+
+    private void lblGanadorPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_lblGanadorPropertyChange
+        lblGanador.setHorizontalAlignment(lblGanador.CENTER);
+    }//GEN-LAST:event_lblGanadorPropertyChange
 
     /**
      * @param args the command line arguments
@@ -122,8 +150,8 @@ public class frmRifa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnRealizarSorteo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblGanador;
-    private javax.swing.JToggleButton txtRealizarSorteo;
     // End of variables declaration//GEN-END:variables
 }
