@@ -55,7 +55,7 @@ public class frmMenuConfiguracion extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton2);
-        jButton2.setBounds(190, 30, 190, 60);
+        jButton2.setBounds(190, 80, 190, 60);
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
         jButton5.setText("Reinicio de Puntos");
@@ -65,7 +65,7 @@ public class frmMenuConfiguracion extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton5);
-        jButton5.setBounds(190, 120, 190, 60);
+        jButton5.setBounds(190, 160, 190, 60);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato puntos.png"))); // NOI18N
         jButton1.setText("Porcentaje de Puntos");
@@ -75,15 +75,15 @@ public class frmMenuConfiguracion extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(190, 200, 190, 60);
-
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(40, 160, 600, 280);
+        jButton1.setBounds(190, 250, 190, 60);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Conguración del Sistema");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(200, 40, 310, 40);
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(160, 20, 310, 40);
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(40, 50, 600, 390);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
