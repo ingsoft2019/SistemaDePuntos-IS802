@@ -74,4 +74,17 @@ public class ProcedimientosCliente {
         entrada.execute();
         
     }
+    
+    public static void deshabilitarCliente(String identidadcliente) throws SQLException{
+        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{Call SP_deshabilitarCliente(?)}");
+        entrada.setString(1, identidadcliente);
+        entrada.execute();
+    }
+    
+    public static void habilitarCliente(String identidadcliente)throws SQLException{
+        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{Call SP_habilitarCliente(?)}");
+        entrada.setString(1, identidadcliente);
+        entrada.execute();
+    }
+    
 }

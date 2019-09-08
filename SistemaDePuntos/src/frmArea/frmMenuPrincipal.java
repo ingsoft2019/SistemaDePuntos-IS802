@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
  *
  * @author Luis Estrada
  */
+
 public class frmMenuPrincipal extends javax.swing.JFrame {
 
     /**
@@ -103,17 +104,15 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_configuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_configuracionActionPerformed
-
-        frmLoginModuloConfiguracion ver=new frmLoginModuloConfiguracion();
+        frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
+        mdl_LoginModuloConfiguracion ver=new mdl_LoginModuloConfiguracion(frmMenuPrincipal,true);
             ver.setVisible(true); // visible ventana del objeto
-         //   this.setVisible(false); // ocultar
     }//GEN-LAST:event_btn_configuracionActionPerformed
 
     private void btn_ReportesMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ReportesMenuActionPerformed
-         frmSubMenuReporte ver=new frmSubMenuReporte();
+        frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
+        mdl_SubMenuReporte ver=new mdl_SubMenuReporte(frmMenuPrincipal,true);
             ver.setVisible(true); // visible ventana del objeto
-           // this.setVisible(false); // ocultar
-
     }//GEN-LAST:event_btn_ReportesMenuActionPerformed
 
     private void btn_ClienteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClienteMenuActionPerformed
@@ -125,10 +124,9 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ClienteMenuActionPerformed
 
     private void btn_PuntosMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PuntosMenuActionPerformed
-        frmSubMenuPuntos ver=new frmSubMenuPuntos();
-            ver.setVisible(true); // visible ventana del objeto
-         //   this.setVisible(false); // ocultar
-        
+        frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
+        mdl_SubMenuPuntos ver=new mdl_SubMenuPuntos(frmMenuPrincipal,true);
+        ver.setVisible(true); // visible ventana del objeto
     }//GEN-LAST:event_btn_PuntosMenuActionPerformed
 
     /**

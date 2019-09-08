@@ -49,9 +49,9 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 + "Persona.sapellido) NombreCLiente, Persona.identidad, Persona.telefono1, \n"
                 + "Cliente.puntos_actuales from Persona inner join cliente on \n"
                 + "Cliente.id_persona = Persona.id_persona\n"
-                + "where concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
+                + "where (concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
                 + "Persona.sapellido) like '%" + jTextField1.getText() + "%' or Persona.identidad like '%" + jTextField1.getText() + "%' \n"
-                + "or Persona.telefono1 like '%" + jTextField1.getText() + "%';");
+                + "or Persona.telefono1 like '%" + jTextField1.getText() + "%') and Cliente.estado = 'a';");
         try {
             while (resultado.next()) {
                 Vector v = new Vector();
@@ -299,9 +299,9 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                             res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"), res.getString("telefono1"),
                             res.getString("telefono2"), res.getString("telefono3"), res.getString("correo"),
                             res.getDate("fecha_nacimiento"), res.getString("detalle_direccion"),
-                            res.getString("puntos_actuales"), res.getString("puntos_rifa_actuales"), 
-                            res.getString("fecha_vencimiento_puntos"),res.getString("id_persona"));
-                            
+                            res.getString("puntos_actuales"), res.getString("puntos_rifa_actuales"),
+                            res.getString("fecha_vencimiento_puntos"), res.getString("id_persona"));
+
                     subMenuCli.cargarZonas(res.getString("zona"));
                 }
             } catch (SQLException ex) {
@@ -337,7 +337,6 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                     }
                     if (jCheckBoxBuscarInactivos.isSelected()) {
                         buscarClienteInactivo();
-                        jTextField1.setText("");
                         jCheckBoxBuscarInactivos.setSelected(false);
                     } else if (contador1 >= 1) {
                         buscarCliente();
