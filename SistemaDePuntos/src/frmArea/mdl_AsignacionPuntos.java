@@ -9,6 +9,8 @@ package frmArea;
  *
  * @author Luis Estrada
  */
+import com.itextpdf.text.DocumentException;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -135,7 +137,11 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
             }
         } catch (SQLException ex) {
             Logger.getLogger(frmAsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }   catch (FileNotFoundException ex) {
+                Logger.getLogger(mdl_AsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (DocumentException ex) {
+                Logger.getLogger(mdl_AsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
     }
         //limpiar los campos

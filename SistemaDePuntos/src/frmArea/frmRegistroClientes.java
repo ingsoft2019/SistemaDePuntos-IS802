@@ -421,7 +421,7 @@ public class frmRegistroClientes extends javax.swing.JFrame {
      
         //Validar que no esten vacios los campos requeridos
         if (txt_primerNombre.getText().isEmpty() || txt_primerApellido.getText().isEmpty() || txt_noIdentidad.getText().isEmpty()
-                || txt_telefono1.getText().isEmpty() || jDC_fechaNacimiento.getCalendar() == null
+                || txt_telefono1.getText().isEmpty() || jDC_fechaNacimiento.getCalendar() == null || descripcion.getText().isEmpty()
                 || jC_zona.getSelectedItem() == null || (RB_masculino.isSelected() == false && RB_femenino.isSelected() == false)) {
 
             JOptionPane.showMessageDialog(this, "Se dejaron vacios campos que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
