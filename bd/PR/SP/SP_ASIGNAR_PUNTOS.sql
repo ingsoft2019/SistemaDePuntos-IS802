@@ -15,12 +15,15 @@ WHERE id IN (477, 478, 512, 513, 514, 515);
 
 
 -- Inicio de Procedimiento
-ALTER PROCEDURE [dbo].[SP_ASIGNAR_PUNTOS] (
+CREATE PROCEDURE SP_ASIGNAR_PUNTOS (
 	@pi_id_cliente INT,
 	@pi_GEN_USR_id NVARCHAR(50),
 	@pi_VEN_FAC_id INT,
 	@pv_mensaje VARCHAR(5000) OUT,
-	@pi_codigo INT OUT
+	@pi_codigo INT OUT,
+	@pi_puntos_actuales INT OUT,
+	@pi_puntos_anteriores INT OUT,
+	@pi_puntos_asignados INT OUT
 ) AS
 
 BEGIN
@@ -50,6 +53,9 @@ BEGIN
 	IF @vc_temp_mensaje <> '' BEGIN
 		SET @pv_mensaje = CONCAT('Faltan campos pendientes: ', @vc_temp_mensaje);
 		SET @pi_codigo = 1;
+		SET @pi_puntos_actuales= 0;
+		SET @pi_puntos_anteriores= 0;
+		SET @pi_puntos_asignados= 0;
 	END;
 
 	--verificacion de datos
@@ -141,6 +147,9 @@ BEGIN
 	IF @vc_temp_mensaje <> '' BEGIN
 		SET @pv_mensaje = CONCAT('No se puede agregar puntos: ', @vc_temp_mensaje);
 		SET @pi_codigo = 1;
+		SET @pi_puntos_actuales= 0;
+		SET @pi_puntos_anteriores= 0;
+		SET @pi_puntos_asignados= 0;
 		RETURN;
 	END;
 
@@ -203,7 +212,14 @@ BEGIN
 
 		SET @pv_mensaje = CONCAT('Los puntos fueron asignados correctamente. Los puntos asignados fueron: ',FLOOR(@vn_puntos_asignados) ,'. Puntos actuales: ', FLOOR(@vn_puntos_asignados)+ @vi_puntos_actuales);
 		SET @pi_codigo = 0;
-	
+		SET @pi_puntos_actuales= FLOOR(@vn_puntos_asignados)+ @vi_puntos_actuales;
+		SET @pi_puntos_anteriores= @vi_puntos_actuales - FLOOR(@vn_puntos_asignados);
+		SET @pi_puntos_asignados= FLOOR(@vn_puntos_asignados);
+
+		IF @pi_puntos_anteriores<0 begin
+		  SET @pi_puntos_anteriores = 0;
+		end;
+
 	COMMIT TRANSACTION
 
 
