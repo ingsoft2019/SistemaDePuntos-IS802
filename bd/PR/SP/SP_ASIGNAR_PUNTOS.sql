@@ -23,7 +23,8 @@ CREATE PROCEDURE SP_ASIGNAR_PUNTOS (
 	@pi_codigo INT OUT,
 	@pi_puntos_actuales INT OUT,
 	@pi_puntos_anteriores INT OUT,
-	@pi_puntos_asignados INT OUT
+	@pi_puntos_asignados INT OUT,
+	@pi_cliente VARCHAR(1000) OUT
 ) AS
 
 BEGIN
@@ -34,7 +35,7 @@ BEGIN
 	DECLARE @vi_id_tipo_movimiento INT;
 	DECLARE @vi_duracion_puntos INT;
 	DECLARE @vd_porcentaje_puntos DECIMAL(5,4);
-	DECLARE @vn_id_movimiento INT, @vi_puntos_actuales_rifa INT;
+	DECLARE @vn_id_movimiento INT, @vi_puntos_actuales_rifa INT, @vn_cliente VARCHAR;
 	
 	SET @vc_temp_mensaje = '';
 
@@ -56,6 +57,7 @@ BEGIN
 		SET @pi_puntos_actuales= 0;
 		SET @pi_puntos_anteriores= 0;
 		SET @pi_puntos_asignados= 0;
+		SET @pi_cliente = '';
 	END;
 
 	--verificacion de datos
@@ -150,6 +152,7 @@ BEGIN
 		SET @pi_puntos_actuales= 0;
 		SET @pi_puntos_anteriores= 0;
 		SET @pi_puntos_asignados= 0;
+		SET @pi_cliente = '';
 		RETURN;
 	END;
 
@@ -189,6 +192,11 @@ BEGIN
 			,@pi_GEN_USR_id
 			,@pi_VEN_FAC_id);
 
+		--Obtener el nombre del cliente
+		SELECT @vn_cliente = CONCAT(p.pnombre,' ', p.snombre, ' ', p.papellido, ' ',p.sapellido)  FROM Cliente c 
+		INNER JOIN Persona p  ON p.id_persona = c.id_persona
+		WHERE c.id_cliente = @pi_id_cliente
+
 		--obtener los puntos que tiene y los puntos actuales de rifa, antes de asignara los nuevos puntos
 		SELECT @vi_puntos_actuales = puntos_actuales, @vi_puntos_actuales_rifa = puntos_rifa_actuales FROM Cliente
 		WHERE id_cliente = @pi_id_cliente;
@@ -215,6 +223,7 @@ BEGIN
 		SET @pi_puntos_actuales= FLOOR(@vn_puntos_asignados)+ @vi_puntos_actuales;
 		SET @pi_puntos_anteriores= @vi_puntos_actuales - FLOOR(@vn_puntos_asignados);
 		SET @pi_puntos_asignados= FLOOR(@vn_puntos_asignados);
+		SET @pi_cliente = @vn_cliente;
 
 		IF @pi_puntos_anteriores<0 begin
 		  SET @pi_puntos_anteriores = 0;

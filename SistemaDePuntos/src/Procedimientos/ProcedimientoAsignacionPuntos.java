@@ -5,13 +5,17 @@
  */
 package Procedimientos;
 
-import Clases.GenerarPdf;
+
 import com.itextpdf.text.DocumentException;
+import java.awt.print.PrinterException;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
 import java.sql.CallableStatement;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -20,16 +24,17 @@ import java.util.Date;
  */
 public class ProcedimientoAsignacionPuntos {
     public static void guardarMovimiento(int idCliente, String usuario, int idFactura)throws SQLException, FileNotFoundException, DocumentException{
-        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{call SP_ASIGNAR_PUNTOS (?,?,?,?,?,?,?,?)}");
+        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{call SP_ASIGNAR_PUNTOS (?,?,?,?,?,?,?,?,?)}");
         entrada.setInt(1,idCliente);
-        entrada.setString(2,usuario);
-        
+        entrada.setString(2,usuario);        
         entrada.setInt(3,idFactura);
+        
         entrada.registerOutParameter(4, java.sql.Types.VARCHAR);
         entrada.registerOutParameter(5, java.sql.Types.INTEGER);
         entrada.registerOutParameter(6, java.sql.Types.INTEGER);
         entrada.registerOutParameter(7, java.sql.Types.INTEGER);
         entrada.registerOutParameter(8, java.sql.Types.INTEGER);
+        entrada.registerOutParameter(9, java.sql.Types.VARCHAR);
         entrada.execute();
         
         String mensaje = entrada.getString(4);
@@ -37,6 +42,7 @@ public class ProcedimientoAsignacionPuntos {
         Integer puntosActuales = entrada.getInt(6);
         Integer puntosAnteriores = entrada.getInt(7);
         Integer puntosAsignados = entrada.getInt(8);
+        String cliente = entrada.getString(9);
         
         String[] options = {"Imprimir", "No Imprimir"};
         
@@ -46,17 +52,14 @@ public class ProcedimientoAsignacionPuntos {
         if (codigo== 0){
             int respuesta = JOptionPane.showOptionDialog(null, mensaje, "Imprimir Factura", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             if (respuesta == 0){
-                //Imprimir
-                /*GenerarPdf pdf = new GenerarPdf();
-                String titulo = "Factura de Puntos REGIS";
-                String info1 = "Puntos Anteriores: "+ String.valueOf(puntosAnteriores);
-                String info2 = "Puntos Asignados: "+ String.valueOf(puntosAsignados);
-                String info3 = "Puntos Actuales: "+ String.valueOf(puntosActuales);
-                String img = "c:/Users/pc/Documents/GitHub/SistemaDePuntos-IS802/SistemaDePuntos/src/imgSP/logoCarreraIS.png";
-                String salida = "c:/Users/pc/Documents/GitHub/SistemaDePuntos-IS802/SistemaDePuntos/src/prueba.pdf";
-                pdf.generarPdf(titulo , info1, info2, info3, fechaActualCon, img, salida);*/
-                
-                Clases.GeneraraPDF2.generarPdf(String.valueOf(puntosActuales), String.valueOf(puntosAnteriores), String.valueOf(puntosAsignados));
+                try {
+                    //Imprimir
+                    Clases.GeneraraPDF2.generarPdf(String.valueOf(puntosActuales), String.valueOf(puntosAnteriores), String.valueOf(puntosAsignados), cliente);
+                } catch (PrinterException ex) {
+                    Logger.getLogger(ProcedimientoAsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(ProcedimientoAsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             else{
                 //No imprimir
