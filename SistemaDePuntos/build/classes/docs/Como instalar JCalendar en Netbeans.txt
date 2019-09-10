@@ -1,4 +1,0 @@
-Tutorial - Como instalar JCalendar en Netbeans
-
-
-https://www.youtube.com/watch?v=7_2bQq38PYU
