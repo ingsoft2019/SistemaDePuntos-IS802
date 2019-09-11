@@ -363,7 +363,14 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
     }//GEN-LAST:event_CanjearPuntosActionPerformed
 
     private void jCheckBoxBuscarInactivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxBuscarInactivosActionPerformed
-        // TODO add your handling code here:
+        if(jCheckBoxBuscarInactivos.isSelected()){
+            CanjearPuntos.setEnabled(false);
+            AsignarPuntos.setEnabled(false);
+        }else{
+            CanjearPuntos.setEnabled(true);
+            AsignarPuntos.setEnabled(true);
+            
+        }
     }//GEN-LAST:event_jCheckBoxBuscarInactivosActionPerformed
 
     /**
