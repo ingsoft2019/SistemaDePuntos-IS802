@@ -638,7 +638,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         int pregunta = JOptionPane.showConfirmDialog(null, "¿Deseas deshabilitar a este cliente?");
         if (pregunta == 0) {
             try {
-                Procedimientos.ProcedimientosCliente.deshabilitarCliente(txt_identidad.getText());
+                Procedimientos.ProcedimientosCliente.deshabilitarCliente(Integer.parseInt(txt_identidad.getText()));
                 JOptionPane.showMessageDialog(null, "El cliente ha sido deshabilitado");
             } catch (SQLException e) {
 
@@ -772,7 +772,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
         int pregunta = JOptionPane.showConfirmDialog(null, "¿Realmente desea habilitar este cliente?");
         if (pregunta == 0) {
             try {
-                Procedimientos.ProcedimientosCliente.habilitarCliente(txt_identidad.getText());
+                Procedimientos.ProcedimientosCliente.habilitarCliente(Integer.parseInt(txt_identidad.getText()));
                 JOptionPane.showMessageDialog(null, "El cliente ha sido habilitado");
             } catch (SQLException e) {
 

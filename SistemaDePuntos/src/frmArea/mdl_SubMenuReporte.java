@@ -103,23 +103,23 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
     }//GEN-LAST:event_closeDialog
 
     private void btn_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clienteActionPerformed
-        // TODO add your handling code here:
         Conexion con= new Conexion();
         
         try{
-            con.conn();           
+            con.getConexion();
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error" + e.getMessage(),
                     "Error de conexion", JOptionPane.ERROR_MESSAGE);
         }
         
-        URL archivo = this.getClass().getResource("/reportes/report_cliente.jasper");
-        JasperReport jr = null;
+        URL archivo = this.getClass().getResource("/reportes/report_cliente_x_zona.jasper");
         
         try {
-            jr = (JasperReport) JRLoader.loadObject(archivo);
-            JasperPrint jp = JasperFillManager.fillReport(jr,null, Conexion.getContacto());
-            JasperViewer jv = new JasperViewer(jp);
+             frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
+       
+            JasperReport jr = (JasperReport) JRLoader.loadObject(archivo);
+            JasperPrint jp = JasperFillManager.fillReport(jr,null, Conexion.getConexion());
+            JasperViewer jv = new JasperViewer(jp,false);
             jv.setVisible(true); //mostrar el repote
             jv.setTitle("Visor de Reporte");
         } catch (JRException ex) {
