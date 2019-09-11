@@ -288,7 +288,6 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             //Consulto todos los datos relacioados con el ID
             ResultSet res = consulta("Select * from Persona inner join Cliente on Persona.id_persona = Cliente.id_persona\n"
                     + "inner join zona on Persona.id_zona = Zona.id_zona where Persona.identidad = '" + identidad + "';");
-            //Hago visible el formulario
             frmSubMenuCliente subMenuCli = new frmSubMenuCliente();
             subMenuCli.setVisible(true);
 

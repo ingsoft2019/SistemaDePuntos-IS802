@@ -23,16 +23,13 @@ import javax.swing.JTextField;
 
 public class mdl_SubMenuCliente extends java.awt.Dialog {
 
-    /**
-     * Creates new form mdl_SubMenuCliente
-     */
-        Validar v = new Validar();
-        private JTextField id = new JTextField();
-        
+    Validar v = new Validar();
+    private JTextField id = new JTextField();
+
     public mdl_SubMenuCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-                this.setLocationRelativeTo(null); //para ponerse en el centro
+        this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
         //cargarZonas();
@@ -128,6 +125,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jL_telefono.setText("Telefono 1:");
 
+        txt_primerNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_primerNombreMouseClicked(evt);
+            }
+        });
         txt_primerNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_primerNombreKeyPressed(evt);
@@ -142,6 +144,9 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         txt_segundoNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_segundoNombreKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_segundoNombreKeyTyped(evt);
             }
         });
 
@@ -200,6 +205,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jRadioButtonFemenino.setText("F");
         jRadioButtonFemenino.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jRadioButtonFemenino.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonFemeninoMouseClicked(evt);
+            }
+        });
         jRadioButtonFemenino.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jRadioButtonFemeninoKeyPressed(evt);
@@ -207,6 +217,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         });
 
         jRadioButtonMasculino.setText("M");
+        jRadioButtonMasculino.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonMasculinoMouseClicked(evt);
+            }
+        });
         jRadioButtonMasculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonMasculinoActionPerformed(evt);
@@ -262,7 +277,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
                         .addGroup(jpanel_datos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_segundoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_segundoNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(40, 40, 40))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpanel_datos1Layout.setVerticalGroup(
             jpanel_datos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,15 +323,17 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
                 .addGap(6, 6, 6)
                 .addGroup(jpanel_datos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jL_email)
-                    .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         jpanel_AreaSubMenu.add(jpanel_datos1);
         jpanel_datos1.setBounds(50, 100, 370, 350);
 
-        btn_editarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/modificar.png"))); // NOI18N
-        btn_editarCliente.setText("Editar");
+        btn_editarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/guardar.png"))); // NOI18N
+        btn_editarCliente.setText("Guardar");
         btn_editarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_editarCliente.setEnabled(false);
         btn_editarCliente.setMaximumSize(new java.awt.Dimension(90, 55));
         btn_editarCliente.setMinimumSize(new java.awt.Dimension(90, 55));
         btn_editarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -336,7 +353,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_desactivarCliente);
-        btn_desactivarCliente.setBounds(310, 10, 110, 50);
+        btn_desactivarCliente.setBounds(340, 10, 110, 50);
 
         btn_imprimirDireccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato entrega.png"))); // NOI18N
         btn_imprimirDireccion.setText("Imprimir dirección");
@@ -362,6 +379,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jLabel9.setText("Puntos Regis:");
 
+        txt_puntosRegis.setEditable(false);
         txt_puntosRegis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_puntosRegisActionPerformed(evt);
@@ -370,6 +388,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jL_vencimiento.setText("Vencimiento:");
 
+        txt_vencimiento.setEditable(false);
         txt_vencimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_vencimientoActionPerformed(evt);
@@ -378,6 +397,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jLabel11.setText("Puntos rifa:");
 
+        txt_puntoRifa.setEditable(false);
         txt_puntoRifa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_puntoRifaActionPerformed(evt);
@@ -386,6 +406,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jLabel3.setText("Fecha Nacimiento");
 
+        jD_fechaNac.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jD_fechaNacMouseClicked(evt);
+            }
+        });
         jD_fechaNac.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jD_fechaNacKeyPressed(evt);
@@ -405,6 +430,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         });
         jScrollPane1.setViewportView(txt_datalleDireccion);
 
+        jC_zona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jC_zonaMouseClicked(evt);
+            }
+        });
         jC_zona.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jC_zonaKeyPressed(evt);
@@ -489,7 +519,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_habilitarcliente);
-        btn_habilitarcliente.setBounds(160, 10, 110, 50);
+        btn_habilitarcliente.setBounds(190, 10, 110, 50);
 
         add(jpanel_AreaSubMenu);
         jpanel_AreaSubMenu.setBounds(0, 30, 830, 500);
@@ -510,6 +540,8 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             getTxt_segundoNombre().requestFocus();
         } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
             v.validarEspacios(getTxt_primerNombre());
+        } else if (evt.getKeyCode() != 0) {
+            btn_editarCliente.setEnabled(true);
         }
     }//GEN-LAST:event_txt_primerNombreKeyPressed
 
@@ -519,9 +551,12 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
     private void txt_segundoNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_segundoNombreKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            System.out.println(evt.getKeyCode());
             getTxt_primerApellido().requestFocus();
         } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
             v.validarEspacios(getTxt_segundoNombre());
+        } else if (evt.getKeyCode() != 0) {
+            btn_editarCliente.setEnabled(true);
         }
     }//GEN-LAST:event_txt_segundoNombreKeyPressed
 
@@ -530,6 +565,8 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             getTxt_segundoApellido().requestFocus();
         } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
             v.validarEspacios(getTxt_primerApellido());
+        } else if (evt.getKeyCode() != 0) {
+            btn_editarCliente.setEnabled(true);
         }
     }//GEN-LAST:event_txt_primerApellidoKeyPressed
 
@@ -538,6 +575,8 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             getTxt_identidad().requestFocus();
         } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
             v.validarEspacios(getTxt_segundoApellido());
+        } else if (evt.getKeyCode() != 0) {
+            btn_editarCliente.setEnabled(true);
         }
     }//GEN-LAST:event_txt_segundoApellidoKeyPressed
 
@@ -546,24 +585,32 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             jRadioButtonFemenino.requestFocus();
         } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
             v.validarEspacios(getTxt_identidad());
+        } else if (evt.getKeyCode() != 0) {
+            btn_editarCliente.setEnabled(true);
         }
     }//GEN-LAST:event_txt_identidadKeyPressed
 
     private void txt_telefono1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefono1KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             getTxt_telefono2().requestFocus();
+        } else if (evt.getKeyCode() != 0) {
+            btn_editarCliente.setEnabled(true);
         }
     }//GEN-LAST:event_txt_telefono1KeyPressed
 
     private void txt_telefono2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefono2KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             getTxt_telefono3().requestFocus();
+        } else if (evt.getKeyCode() != 0) {
+            btn_editarCliente.setEnabled(true);
         }
     }//GEN-LAST:event_txt_telefono2KeyPressed
 
     private void txt_telefono3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefono3KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             getTxt_email().requestFocus();
+        } else if (evt.getKeyCode() != 0) {
+            btn_editarCliente.setEnabled(true);
         }
     }//GEN-LAST:event_txt_telefono3KeyPressed
 
@@ -583,12 +630,16 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
     private void txt_emailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_emailKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             jD_fechaNac.requestFocus();
+        } else if (evt.getKeyCode() != 0) {
+            btn_editarCliente.setEnabled(true);
         }
     }//GEN-LAST:event_txt_emailKeyPressed
 
     private void jRadioButtonFemeninoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jRadioButtonFemeninoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             getTxt_telefono1().requestFocus();
+        } else if (evt.getKeyCode() != 0) {
+            btn_editarCliente.setEnabled(true);
         }
     }//GEN-LAST:event_jRadioButtonFemeninoKeyPressed
 
@@ -600,8 +651,8 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         //Validar que no esten vacios los campos requeridos
         if (getTxt_primerNombre().getText().isEmpty() || getTxt_primerApellido().getText().isEmpty() || getTxt_identidad().getText().isEmpty()
-            || getTxt_telefono1().getText().isEmpty() || jD_fechaNac.getCalendar() == null
-            || jC_zona.getSelectedItem() == null || (jRadioButtonMasculino.isSelected() == false && jRadioButtonFemenino.isSelected() == false)) {
+                || getTxt_telefono1().getText().isEmpty() || jD_fechaNac.getCalendar() == null
+                || jC_zona.getSelectedItem() == null || (jRadioButtonMasculino.isSelected() == false && jRadioButtonFemenino.isSelected() == false)) {
 
             JOptionPane.showMessageDialog(this, "Se dejaron vacios campos que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -626,11 +677,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
                 }
 
                 Procedimientos.ProcedimientosCliente.actualizarCliente(getTxt_primerNombre().getText(), getTxt_segundoNombre().getText(),
-                    getTxt_primerApellido().getText(), getTxt_segundoApellido().getText(), getTxt_identidad().getText(), getTxt_email().getText(),
-                    sexo, fechaNac, getTxt_telefono1().getText(), getTxt_telefono2().getText(), getTxt_telefono3().getText(),
-                    idZona, getTxt_datalleDireccion().getText(), Integer.parseInt(getTxt_puntosRegis().getText()),
-                    getTxt_vencimiento().getText(), Integer.parseInt(getTxt_puntoRifa().getText()),
-                    Integer.parseInt(getId().getText())
+                        getTxt_primerApellido().getText(), getTxt_segundoApellido().getText(), getTxt_identidad().getText(), getTxt_email().getText(),
+                        sexo, fechaNac, getTxt_telefono1().getText(), getTxt_telefono2().getText(), getTxt_telefono3().getText(),
+                        idZona, getTxt_datalleDireccion().getText(), Integer.parseInt(getTxt_puntosRegis().getText()),
+                        getTxt_vencimiento().getText(), Integer.parseInt(getTxt_puntoRifa().getText()),
+                        Integer.parseInt(getId().getText())
                 );
 
                 //Limpiar los campos
@@ -685,31 +736,33 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
     }//GEN-LAST:event_btn_desactivarClienteActionPerformed
 
     private void btn_imprimirDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirDireccionActionPerformed
-        int eleccion = JOptionPane.showConfirmDialog(null, "¿Desea imprimir direccion?", "Confirmar impresión",
-            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-
-        if (eleccion == JOptionPane.NO_OPTION) {
-
+        if ((txt_primerNombre.getText() + txt_segundoNombre.getText() + txt_primerApellido.getText()
+                + txt_segundoApellido.getText()).isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Datos vacios");
         } else {
-            
-            frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
-            mdl_ImprimirDireccion dir=new mdl_ImprimirDireccion(frmMenuPrincipal,true);
-            dir.setVisible(true); // visible ventana del objeto
+            int eleccion = JOptionPane.showConfirmDialog(null, "¿Desea imprimir direccion?", "Confirmar impresión",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
-
-            String nombre = this.getTxt_primerNombre().getText() + " " + this.getTxt_segundoNombre().getText()
-            + " " + this.getTxt_primerApellido().getText() + " " + this.getTxt_segundoApellido().getText(),
-            telefono = this.getTxt_telefono1().getText(),
-            sexo = null,
-            direccion = this.getTxt_datalleDireccion().getText();
-
-            if (this.jRadioButtonMasculino.isSelected() == true) {
-                sexo = "Masculino";
+            if (eleccion == JOptionPane.NO_OPTION) {
             } else {
-                sexo = "Femenino";
-            }
+                frmMenuPrincipal mp = new frmMenuPrincipal();
+                mdl_ImprimirDireccion dir = new mdl_ImprimirDireccion(mp, true);
 
-            dir.cargarDatos(nombre, telefono, sexo, direccion);
+                String nombre = this.txt_primerNombre.getText() + " " + this.txt_segundoNombre.getText()
+                        + " " + this.txt_primerApellido.getText() + " " + this.txt_segundoApellido.getText(),
+                        telefono = this.txt_telefono1.getText(),
+                        sexo = null,
+                        direccion = this.txt_datalleDireccion.getText();
+
+                if (this.jRadioButtonMasculino.isSelected() == true) {
+                    sexo = "Masculino";
+                } else {
+                    sexo = "Femenino";
+                }
+
+                dir.cargarDatos(nombre, telefono, sexo, direccion);
+                dir.setVisible(true);
+            }
         }
     }//GEN-LAST:event_btn_imprimirDireccionActionPerformed
 
@@ -728,8 +781,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         }
 
     }
-    
-   
+
     //Metodo para llenar los campos     
     public void llenarCampos(String pnombre, String snombre, String papellido, String sapellido, String identidad,
             String sexo, String telefono1, String telefono2, String telefono3, String correo,
@@ -756,7 +808,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         this.getTxt_vencimiento().setText(fechaVencimiento);
         this.getId().setText(id);
     }
-    
+
     private void btn_imprimirPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirPuntosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_imprimirPuntosActionPerformed
@@ -776,12 +828,16 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
     private void jD_fechaNacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jD_fechaNacKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             jC_zona.requestFocus();
+        } else if (evt.getKeyCode() != 0) {
+            btn_editarCliente.setEnabled(true);
         }
     }//GEN-LAST:event_jD_fechaNacKeyPressed
 
     private void txt_datalleDireccionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_datalleDireccionKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             getTxt_primerNombre().requestFocus();
+        } else if (evt.getKeyCode() != 0) {
+            btn_editarCliente.setEnabled(true);
         }
     }//GEN-LAST:event_txt_datalleDireccionKeyPressed
 
@@ -806,6 +862,32 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             JOptionPane.showMessageDialog(null, "Operacion cancelada");
         }
     }//GEN-LAST:event_btn_habilitarclienteActionPerformed
+
+    private void txt_primerNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_primerNombreMouseClicked
+
+    }//GEN-LAST:event_txt_primerNombreMouseClicked
+
+    private void txt_segundoNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_segundoNombreKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_segundoNombreKeyTyped
+
+    private void jD_fechaNacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jD_fechaNacMouseClicked
+
+        btn_editarCliente.setEnabled(true);
+    }//GEN-LAST:event_jD_fechaNacMouseClicked
+
+    private void jRadioButtonMasculinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonMasculinoMouseClicked
+        btn_editarCliente.setEnabled(true);
+    }//GEN-LAST:event_jRadioButtonMasculinoMouseClicked
+
+    private void jC_zonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jC_zonaMouseClicked
+        btn_editarCliente.setEnabled(true);
+    }//GEN-LAST:event_jC_zonaMouseClicked
+
+    private void jRadioButtonFemeninoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonFemeninoMouseClicked
+        // TODO add your handling code here:
+        btn_editarCliente.setEnabled(true);
+    }//GEN-LAST:event_jRadioButtonFemeninoMouseClicked
 
     /**
      * @param args the command line arguments

@@ -1,5 +1,5 @@
 package Chats.SistemasVentasPuntos;
-
+/*
 import java.awt.Font;
 
 import javax.swing.JPanel;
@@ -16,12 +16,13 @@ import org.jfree.ui.RefineryUtilities;
 
 public class GraficoCircularMayorPuntosClientes extends ApplicationFrame {
 
-  
+    
     public GraficoCircularMayorPuntosClientes(String title) {
         super(title);
         setContentPane(createDemoPanel());
     }
 
+    
     private static PieDataset createDataset() {
         DefaultPieDataset dataset = new DefaultPieDataset();
         dataset.setValue("Juan", new Double(43));
@@ -33,7 +34,7 @@ public class GraficoCircularMayorPuntosClientes extends ApplicationFrame {
         return dataset;        
     }
     
- 
+   
     private static JFreeChart createChart(PieDataset dataset) {
         
         JFreeChart chart = ChartFactory.createPieChart(
