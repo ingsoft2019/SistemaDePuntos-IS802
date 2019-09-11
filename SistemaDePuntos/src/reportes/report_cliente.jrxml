@@ -23,8 +23,8 @@
 	<title>
 		<band height="70" splitType="Stretch">
 			<image>
-				<reportElement uuid="06a97367-de35-4e06-b58f-f7e93d45387b" x="275" y="0" width="300" height="64"/>
-				<imageExpression><![CDATA["leaf_banner_green.png"]]></imageExpression>
+				<reportElement uuid="06a97367-de35-4e06-b58f-f7e93d45387b" x="266" y="0" width="300" height="64"/>
+				<imageExpression><![CDATA[this.getClass().getResource("/reportes/logo.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement uuid="fac30c04-2df0-4e4f-b1a5-c038884f101b" style="Title" x="0" y="13" width="263" height="33"/>
