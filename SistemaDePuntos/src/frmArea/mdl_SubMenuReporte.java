@@ -6,11 +6,13 @@
 package frmArea;
 
 import Conexion.Conexion;
+import java.awt.Toolkit;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -115,19 +117,20 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         URL archivo = this.getClass().getResource("/reportes/report_cliente_x_zona.jasper");
         
         try {
-             frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
-       
             JasperReport jr = (JasperReport) JRLoader.loadObject(archivo);
             JasperPrint jp = JasperFillManager.fillReport(jr,null, Conexion.getConexion());
             JasperViewer jv = new JasperViewer(jp,false);
-            jv.setVisible(true); //mostrar el repote
-            jv.setTitle("Visor de Reporte");
+            JDialog dialog = new JDialog(this);
+            dialog.setContentPane(jv.getContentPane());
+            dialog.setSize(jv.getSize());
+            dialog.setTitle("Visor de Reporte Farmacia Regis - Las Casitas");
+            dialog.setIconImage(Toolkit.getDefaultToolkit().getImage(
+            getClass().getResource("../imgSP/icono.png")));
+            dialog.setVisible(true);
         } catch (JRException ex) {
             Logger.getLogger(mdl_SubMenuReporte.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex);
         }
-        
-        
     }//GEN-LAST:event_btn_clienteActionPerformed
 
     /**
