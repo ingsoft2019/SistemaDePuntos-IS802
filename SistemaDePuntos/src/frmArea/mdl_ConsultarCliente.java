@@ -279,6 +279,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
 
     private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
 
+        
         try {
             int row = getjTable1().getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
             String identidad = (String) getjTable1().getValueAt(row, 1); //OBTENGO EL VALOR DEL NUMERO DE IDENTIDAD
@@ -289,7 +290,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             //Hago visible el formulario
             frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
             mdl_SubMenuCliente subMenuCli=new mdl_SubMenuCliente(frmMenuPrincipal,true);
-            subMenuCli.setVisible(true); // visible ventana del objeto       
+       
 
             try {
                 while (res.next()) {
@@ -301,7 +302,8 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
                         res.getString("puntos_actuales"), res.getString("puntos_rifa_actuales"),
                         res.getString("fecha_vencimiento_puntos"), res.getString("id_persona"));
 
-                    subMenuCli.cargarZonas(res.getString("zona"));
+                        subMenuCli.cargarZonas(res.getString("zona"));
+                        subMenuCli.setVisible(true); // visible ventana del objeto
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(frmConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);

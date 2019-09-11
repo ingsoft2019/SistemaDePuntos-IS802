@@ -694,7 +694,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             
             frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
             mdl_ImprimirDireccion dir=new mdl_ImprimirDireccion(frmMenuPrincipal,true);
-            dir.setVisible(true); // visible ventana del objeto
+            
 
 
             String nombre = this.getTxt_primerNombre().getText() + " " + this.getTxt_segundoNombre().getText()
@@ -710,6 +710,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
 
             dir.cargarDatos(nombre, telefono, sexo, direccion);
+            dir.setVisible(true); // visible ventana del objeto
         }
     }//GEN-LAST:event_btn_imprimirDireccionActionPerformed
 
