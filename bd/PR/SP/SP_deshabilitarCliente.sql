@@ -1,7 +1,7 @@
 create procedure SP_deshabilitarCliente(
-@id_persona int)
+@identidad int)
 as
 begin
 	update Cliente set estado = 'I'
-	where Cliente.id_persona = @id_persona; 
+	where Cliente.id_persona = @identidad; 
 end 
