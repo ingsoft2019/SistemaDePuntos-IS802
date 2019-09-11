@@ -31,7 +31,7 @@ public class Conexion {
             JOptionPane.showMessageDialog(null, "Error" + e.getMessage(),
                     "Error de conexion", JOptionPane.ERROR_MESSAGE);
         }
-        return getContacto();
+        return contacto;
     }
     
     //metodo que recibe una consulta, la ejecuta y devuelve un Resultado

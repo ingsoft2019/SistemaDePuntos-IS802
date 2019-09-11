@@ -98,7 +98,6 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         jC_zona = new javax.swing.JComboBox<>();
         btn_habilitarcliente = new javax.swing.JButton();
 
-        setMaximumSize(new java.awt.Dimension(837, 541));
         setMinimumSize(new java.awt.Dimension(837, 541));
         setTitle("Gestion de Cliente");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -781,12 +780,14 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         }
 
     }
-
+    
+    //Variable para capturar el estado
+    String estado = "";
     //Metodo para llenar los campos     
     public void llenarCampos(String pnombre, String snombre, String papellido, String sapellido, String identidad,
             String sexo, String telefono1, String telefono2, String telefono3, String correo,
             Date fechaNac, String detalleDireccion, String puntos_actuales, String puntos_rifa,
-            String fechaVencimiento, String id) {
+            String fechaVencimiento, String id, String estado) {
         this.getTxt_primerNombre().setText(pnombre);
         this.getTxt_segundoNombre().setText(snombre);
         this.getTxt_primerApellido().setText(papellido);
@@ -807,6 +808,21 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         this.getTxt_puntoRifa().setText(puntos_rifa);
         this.getTxt_vencimiento().setText(fechaVencimiento);
         this.getId().setText(id);
+        this.estado = estado;
+        
+        if("A".equals(estado)){
+           btn_habilitarcliente.setVisible(false);
+           btn_desactivarCliente.setVisible(true);
+        }else{
+            btn_habilitarcliente.setVisible(true);
+            btn_desactivarCliente.setVisible(false);
+        }
+        System.out.println("A".equals(estado));
+    }
+    
+    //Metodo para mostrar y ocultar botones de habilitar y desabilitar
+    public void habilitarDeshabilitar(){
+        
     }
 
     private void btn_imprimirPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirPuntosActionPerformed
