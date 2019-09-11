@@ -29,6 +29,10 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
     }
+    
+    public void campoAsignarPuntos(String identidad){
+        this.getTxtNombreCliente().setText(identidad);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,6 +81,7 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
         jPanel2.add(txtIdFactura);
         txtIdFactura.setBounds(140, 100, 320, 30);
 
+        txtNombreCliente.setEnabled(false);
         txtNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreClienteKeyTyped(evt);
@@ -274,4 +279,5 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
     public void setLblNombreCliente(javax.swing.JLabel lblNombreCliente) {
         this.lblNombreCliente = lblNombreCliente;
     }
+    
 }

@@ -18,17 +18,17 @@ import static Conexion.Conexion.consulta;
 import static frmArea.frmConsultarCliente.resultado;
 import javax.swing.JTextField;
 
-
 public class mdl_ConsultarCliente extends java.awt.Dialog {
 
     private static ResultSet resultado;
     private static ResultSet resultado1;
     private static ResultSet resultado2;
+    private static ResultSet resultado4;
     private int contador1;
     private int contador2;
     private static String texto;
     private Validar valido = new Validar();
-    
+
     public mdl_ConsultarCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -53,7 +53,6 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
         CanjearPuntos = new javax.swing.JButton();
         jCheckBoxBuscarInactivos = new javax.swing.JCheckBox();
 
-        setMaximumSize(new java.awt.Dimension(750, 523));
         setMinimumSize(new java.awt.Dimension(750, 523));
         setTitle("Consultar Cliente");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -116,6 +115,10 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
         jTable1.setMaximumSize(new java.awt.Dimension(300, 64));
         jTable1.setMinimumSize(new java.awt.Dimension(300, 64));
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
+            jTable1.getColumnModel().getColumn(3).setPreferredWidth(50);
+        }
 
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(6, 54, 737, 368);
@@ -163,7 +166,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-      public void buscarCliente() {
+    public void buscarCliente() {
         DefaultTableModel modelo = (DefaultTableModel) getjTable1().getModel();
         modelo.setRowCount(0);
         setResultado(Conexion.Conexion.consulta("select concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
@@ -210,10 +213,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
 
         }
     }
-    
 
-
-    
     /**
      * Closes the dialog
      */
@@ -261,41 +261,39 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_agregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarClienteActionPerformed
-        frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
-        mdl_RegistroClientes  RC=new mdl_RegistroClientes(frmMenuPrincipal,true);
+        frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
+        mdl_RegistroClientes RC = new mdl_RegistroClientes(frmMenuPrincipal, true);
         RC.setVisible(true); // visible ventana del objeto
     }//GEN-LAST:event_btn_agregarClienteActionPerformed
 
     private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
 
-        
         try {
             int row = getjTable1().getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
             String identidad = (String) getjTable1().getValueAt(row, 1); //OBTENGO EL VALOR DEL NUMERO DE IDENTIDAD
-            
+
             //Consulto todos los datos relacioados con el ID
             ResultSet res = consulta("Select * from Persona inner join Cliente on Persona.id_persona = Cliente.id_persona\n"
-                + "inner join zona on Persona.id_zona = Zona.id_zona where Persona.identidad = '" + identidad + "';");
+                    + "inner join zona on Persona.id_zona = Zona.id_zona where Persona.identidad = '" + identidad + "';");
             //Hago visible el formulario
             frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
-            mdl_SubMenuCliente subMenuCli=new mdl_SubMenuCliente(frmMenuPrincipal,true);
-                   
+            mdl_SubMenuCliente subMenuCli = new mdl_SubMenuCliente(frmMenuPrincipal, true);
 
             try {
                 while (res.next()) {
                     //Llamo al metodo para llenar los campos con los datos a editar
                     subMenuCli.llenarCampos(res.getString("pnombre"), res.getString("snombre"), res.getString("papellido"),
-                        res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"), res.getString("telefono1"),
-                        res.getString("telefono2"), res.getString("telefono3"), res.getString("correo"),
-                        res.getDate("fecha_nacimiento"), res.getString("detalle_direccion"),
-                        res.getString("puntos_actuales"), res.getString("puntos_rifa_actuales"),
-                        res.getString("fecha_vencimiento_puntos"), res.getString("id_persona"),res.getString("estado"));
-                        
+                            res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"), res.getString("telefono1"),
+                            res.getString("telefono2"), res.getString("telefono3"), res.getString("correo"),
+                            res.getDate("fecha_nacimiento"), res.getString("detalle_direccion"),
+                            res.getString("puntos_actuales"), res.getString("puntos_rifa_actuales"),
+                            res.getString("fecha_vencimiento_puntos"), res.getString("id_persona"), res.getString("estado"));
+
                     subMenuCli.cargarZonas(res.getString("zona"));
                     subMenuCli.setVisible(true); // visible ventana del objeto
-                   
+
                 }
-                
+
             } catch (SQLException ex) {
                 Logger.getLogger(mdl_ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -305,19 +303,74 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
     }//GEN-LAST:event_btn_clientesActionPerformed
 
     private void AsignarPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsignarPuntosActionPerformed
-        frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
-        mdl_AsignacionPuntos asiganr=new mdl_AsignacionPuntos(frmMenuPrincipal,true);
-        asiganr.setVisible(true); // visible ventana del objeto  
+        try {
+            int row = getjTable1().getSelectedRow();
+            String identidad = (String) getjTable1().getValueAt(row, 1);
+
+            ResultSet res = consulta("select * from Persona\n"
+                    + "where Persona.identidad = '"+identidad+"';");
+            
+            frmMenuPrincipal menuprin = new frmMenuPrincipal();
+            mdl_AsignacionPuntos asigpuntos = new mdl_AsignacionPuntos(menuprin, true);
+            
+            try{
+                while(res.next()){
+                    asigpuntos.campoAsignarPuntos(res.getString("identidad"));
+                    asigpuntos.setVisible(true);
+                    
+                }
+                
+            }catch(SQLException e){
+                
+            }
+        }catch(Exception e){
+            
+        }
+        
+        
+        /*frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
+        mdl_AsignacionPuntos asiganr = new mdl_AsignacionPuntos(frmMenuPrincipal, true);
+        asiganr.setVisible(true); // visible ventana del objeto */ 
     }//GEN-LAST:event_AsignarPuntosActionPerformed
 
     private void CanjearPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CanjearPuntosActionPerformed
-        frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
-        mdl_CanjeoPuntos canjear=new mdl_CanjeoPuntos(frmMenuPrincipal,true);
-        canjear.setVisible(true); // visible ventana del objeto       
+        try {
+            int row = getjTable1().getSelectedRow();
+            String identidad = (String) getjTable1().getValueAt(row, 1);
+
+            ResultSet res = consulta("select * from Persona\n"
+                    + "where Persona.identidad = '"+identidad+"';");
+            
+            frmMenuPrincipal menuprin = new frmMenuPrincipal();
+            mdl_CanjeoPuntos canjeopuntos = new mdl_CanjeoPuntos(menuprin, true);
+            
+            try{
+                while(res.next()){
+                    canjeopuntos.campoCanjeoPuntos(res.getString("pnombre"),res.getString("snombre"),res.getString("papellido"),res.getString("sapellido"));
+                    canjeopuntos.setVisible(true);
+                }
+                
+            }catch(SQLException e){
+                
+            }
+        }catch(Exception e){
+            
+        }
+
+        /*frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
+        mdl_CanjeoPuntos canjear = new mdl_CanjeoPuntos(frmMenuPrincipal, true);
+        canjear.setVisible(true); // visible ventana del objeto*/       
     }//GEN-LAST:event_CanjearPuntosActionPerformed
 
     private void jCheckBoxBuscarInactivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxBuscarInactivosActionPerformed
-        // TODO add your handling code here:
+        if(jCheckBoxBuscarInactivos.isSelected()){
+            CanjearPuntos.setEnabled(false);
+            AsignarPuntos.setEnabled(false);
+        }else{
+            CanjearPuntos.setEnabled(true);
+            AsignarPuntos.setEnabled(true);
+            
+        }
     }//GEN-LAST:event_jCheckBoxBuscarInactivosActionPerformed
 
     /**
@@ -448,7 +501,6 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
     public void setValido(Validar valido) {
         this.valido = valido;
     }
-
 
     /**
      * @return the AsignarPuntos
