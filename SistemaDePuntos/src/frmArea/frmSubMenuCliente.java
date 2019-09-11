@@ -635,7 +635,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_puntosRegisActionPerformed
 
     private void btn_desactivarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_desactivarClienteActionPerformed
-        int pregunta = JOptionPane.showConfirmDialog(null, "¿Deseas deshabilitar a este cliente?");
+        /*int pregunta = JOptionPane.showConfirmDialog(null, "¿Deseas deshabilitar a este cliente?");
         if (pregunta == 0) {
             try {
                 Procedimientos.ProcedimientosCliente.deshabilitarCliente(txt_identidad.getText());
@@ -647,7 +647,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El cliente no se ha deshabilitado");
         } else {
             JOptionPane.showMessageDialog(null, "Operacion cancelada");
-        }
+        }*/
 
     }//GEN-LAST:event_btn_desactivarClienteActionPerformed
 
@@ -769,10 +769,10 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_datalleDireccionKeyPressed
 
     private void btn_habilitarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_habilitarclienteActionPerformed
-        int pregunta = JOptionPane.showConfirmDialog(null, "¿Realmente desea habilitar este cliente?");
+        /*int pregunta = JOptionPane.showConfirmDialog(null, "¿Realmente desea habilitar este cliente?");
         if (pregunta == 0) {
             try {
-                Procedimientos.ProcedimientosCliente.habilitarCliente(txt_identidad.getText());
+                Procedimientos.ProcedimientosCliente.habilitarCliente();
                 JOptionPane.showMessageDialog(null, "El cliente ha sido habilitado");
             } catch (SQLException e) {
 
@@ -781,7 +781,7 @@ public class frmSubMenuCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El cliente no ha sido habilitado");
         } else {
             JOptionPane.showMessageDialog(null, "Operacion cancelada");
-        }
+        }*/
     }//GEN-LAST:event_btn_habilitarclienteActionPerformed
 
     private void btn_imprimirDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirDireccionActionPerformed

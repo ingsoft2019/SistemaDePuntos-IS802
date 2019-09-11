@@ -352,7 +352,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_desactivarCliente);
-        btn_desactivarCliente.setBounds(240, 10, 110, 50);
+        btn_desactivarCliente.setBounds(160, 10, 120, 50);
 
         btn_imprimirDireccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato entrega.png"))); // NOI18N
         btn_imprimirDireccion.setText("Imprimir dirección");
@@ -363,7 +363,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_imprimirDireccion);
-        btn_imprimirDireccion.setBounds(480, 10, 160, 50);
+        btn_imprimirDireccion.setBounds(300, 10, 160, 50);
 
         btn_imprimirPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato puntos.png"))); // NOI18N
         btn_imprimirPuntos.setText("Imprimir puntos");
@@ -374,7 +374,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_imprimirPuntos);
-        btn_imprimirPuntos.setBounds(660, 10, 130, 50);
+        btn_imprimirPuntos.setBounds(480, 10, 130, 50);
 
         jLabel9.setText("Puntos Regis:");
 
@@ -518,7 +518,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_habilitarcliente);
-        btn_habilitarcliente.setBounds(240, 10, 110, 50);
+        btn_habilitarcliente.setBounds(160, 10, 120, 50);
 
         add(jpanel_AreaSubMenu);
         jpanel_AreaSubMenu.setBounds(0, 30, 830, 500);
