@@ -829,7 +829,28 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
     }
 
     private void btn_imprimirPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirPuntosActionPerformed
-        // TODO add your handling code here:
+                    if ((txt_primerNombre.getText() + txt_segundoNombre.getText() + txt_primerApellido.getText()
+                + txt_segundoApellido.getText()).isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Datos vacios");
+        } else {
+            int eleccion = JOptionPane.showConfirmDialog(null, "¿Desea imprimir puntos?", "Confirmar impresión",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+            if (eleccion == JOptionPane.NO_OPTION) {
+            } else {
+                frmMenuPrincipal mp = new frmMenuPrincipal();
+                mdl_ImprimirPuntos dir = new mdl_ImprimirPuntos(mp, true);
+
+                String nombre = this.txt_primerNombre.getText() + " " + this.txt_segundoNombre.getText()
+                        + " " + this.txt_primerApellido.getText() + " " + this.txt_segundoApellido.getText(),
+                        puntosRegis = this.txt_puntosRegis.getText(),
+                        puntosRifa =  this.txt_puntoRifa.getText(),
+                        vencimiento = this.txt_vencimiento.getText();
+
+                dir.cargarDatos(nombre, puntosRegis, puntosRifa, vencimiento);
+                dir.setVisible(true);
+            }
+        }
     }//GEN-LAST:event_btn_imprimirPuntosActionPerformed
 
     private void txt_puntosRegisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_puntosRegisActionPerformed
