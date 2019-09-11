@@ -60,15 +60,15 @@ public class frmImprimirDireccion extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 30, 60, 16);
+        jLabel1.setBounds(30, 30, 60, 14);
 
         jLabel2.setText("Telefono:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 60, 60, 16);
+        jLabel2.setBounds(30, 60, 60, 14);
 
         jLabel3.setText("Sexo:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(30, 90, 60, 16);
+        jLabel3.setBounds(30, 90, 60, 14);
 
         jLabel4.setText("Dirección:");
         getContentPane().add(jLabel4);
@@ -117,7 +117,7 @@ public class frmImprimirDireccion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(30, 230, 150, 48);
+        jButton1.setBounds(30, 230, 150, 41);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -152,7 +152,7 @@ public class frmImprimirDireccion extends javax.swing.JFrame {
     
     public void abrir(){
         try {
-            File path = new File(txt_nombre.getText()+".pdf");
+            File path = new File("cliente.pdf");
             Desktop.getDesktop().open(path);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex,"Atencion",2);

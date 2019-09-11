@@ -60,7 +60,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jL_primerNombre" min="-2" pref="100" max="-2" attributes="0"/>
@@ -119,7 +119,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace min="40" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -179,6 +179,7 @@
                           <Component id="jL_email" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="txt_email" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace pref="46" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -221,6 +222,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txt_primerNombre">
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_primerNombreMouseClicked"/>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_primerNombreKeyPressed"/>
               </Events>
             </Component>
@@ -228,6 +230,7 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_segundoNombreActionPerformed"/>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_segundoNombreKeyPressed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_segundoNombreKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_primerApellido">
@@ -289,6 +292,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonFemeninoMouseClicked"/>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jRadioButtonFemeninoKeyPressed"/>
               </Events>
             </Component>
@@ -297,6 +301,7 @@
                 <Property name="text" type="java.lang.String" value="M"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonMasculinoMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonMasculinoActionPerformed"/>
               </Events>
             </Component>
@@ -305,14 +310,15 @@
         <Component class="javax.swing.JButton" name="btn_editarCliente">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imgSP/modificar.png"/>
+              <Image iconType="3" name="/imgSP/guardar.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Editar"/>
+            <Property name="text" type="java.lang.String" value="Guardar"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder/>
               </Border>
             </Property>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[90, 55]"/>
             </Property>
@@ -346,7 +352,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="310" y="10" width="110" height="50"/>
+              <AbsoluteConstraints x="340" y="10" width="110" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -492,6 +498,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_puntosRegis">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_puntosRegisActionPerformed"/>
               </Events>
@@ -502,6 +511,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_vencimiento">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_vencimientoActionPerformed"/>
               </Events>
@@ -512,6 +524,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_puntoRifa">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_puntoRifaActionPerformed"/>
               </Events>
@@ -523,6 +538,7 @@
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="jD_fechaNac">
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jD_fechaNacMouseClicked"/>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jD_fechaNacKeyPressed"/>
               </Events>
             </Component>
@@ -561,6 +577,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jC_zonaMouseClicked"/>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jC_zonaKeyPressed"/>
               </Events>
               <AuxValues>
@@ -586,7 +603,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="160" y="10" width="110" height="50"/>
+              <AbsoluteConstraints x="190" y="10" width="110" height="50"/>
             </Constraint>
           </Constraints>
         </Component>

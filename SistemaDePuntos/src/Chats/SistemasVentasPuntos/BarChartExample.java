@@ -1,5 +1,5 @@
 package Chats.SistemasVentasPuntos;
-
+/*
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
@@ -65,4 +65,4 @@ public class BarChartExample extends JFrame {
       example.setVisible(true);
     });
   }
-}
+}*/
