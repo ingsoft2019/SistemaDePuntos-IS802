@@ -352,7 +352,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_desactivarCliente);
-        btn_desactivarCliente.setBounds(340, 10, 110, 50);
+        btn_desactivarCliente.setBounds(240, 10, 110, 50);
 
         btn_imprimirDireccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato entrega.png"))); // NOI18N
         btn_imprimirDireccion.setText("Imprimir dirección");
@@ -518,7 +518,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_habilitarcliente);
-        btn_habilitarcliente.setBounds(190, 10, 110, 50);
+        btn_habilitarcliente.setBounds(240, 10, 110, 50);
 
         add(jpanel_AreaSubMenu);
         jpanel_AreaSubMenu.setBounds(0, 30, 830, 500);
@@ -722,8 +722,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         int pregunta = JOptionPane.showConfirmDialog(null, "¿Deseas deshabilitar a este cliente?");
         if (pregunta == 0) {
             try {
-                Procedimientos.ProcedimientosCliente.deshabilitarCliente(getTxt_identidad().getText());
+                int idpersona = Integer.parseInt(getId().getText());//Convertir a entero para enviarlo
+                Procedimientos.ProcedimientosCliente.deshabilitarCliente(idpersona);
                 JOptionPane.showMessageDialog(null, "El cliente ha sido deshabilitado");
+                btn_habilitarcliente.setVisible(true);
+                btn_desactivarCliente.setVisible(false);
             } catch (SQLException e) {
 
             }
@@ -867,8 +870,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         int pregunta = JOptionPane.showConfirmDialog(null, "¿Realmente desea habilitar este cliente?");
         if (pregunta == 0) {
             try {
-                Procedimientos.ProcedimientosCliente.habilitarCliente(getTxt_identidad().getText());
+                int idpersona = Integer.parseInt(getId().getText());//Convertir a entero para enviarlo
+                Procedimientos.ProcedimientosCliente.habilitarCliente(idpersona);
                 JOptionPane.showMessageDialog(null, "El cliente ha sido habilitado");
+                btn_habilitarcliente.setVisible(false);
+                btn_desactivarCliente.setVisible(true);
             } catch (SQLException e) {
 
             }

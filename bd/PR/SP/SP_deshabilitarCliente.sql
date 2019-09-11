@@ -1,13 +1,7 @@
 create procedure SP_deshabilitarCliente(
-@identidad nvarchar(45))
+@id_persona int)
 as
 begin
-	declare @idcliente int = 0;
-
-	select @idcliente = Cliente.id_cliente from Persona inner join 
-	Cliente on Cliente.id_persona = Persona.id_persona
-	where Persona.identidad = @identidad;
-
 	update Cliente set estado = 'I'
-	where Cliente.id_cliente = @idcliente; 
+	where Cliente.id_persona = @id_persona; 
 end 

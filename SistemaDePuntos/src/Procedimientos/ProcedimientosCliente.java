@@ -75,15 +75,15 @@ public class ProcedimientosCliente {
         
     }
     
-    public static void deshabilitarCliente(String identidadcliente) throws SQLException{
+    public static void deshabilitarCliente(int idPersona) throws SQLException{
         CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{Call SP_deshabilitarCliente(?)}");
-        entrada.setString(1, identidadcliente);
+        entrada.setInt(1, idPersona);
         entrada.execute();
     }
     
-    public static void habilitarCliente(String identidadcliente)throws SQLException{
+    public static void habilitarCliente(int idPersona)throws SQLException{
         CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{Call SP_habilitarCliente(?)}");
-        entrada.setString(1, identidadcliente);
+        entrada.setInt(1, idPersona);
         entrada.execute();
     }
     
