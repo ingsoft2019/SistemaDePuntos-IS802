@@ -5,7 +5,19 @@
  */
 package frmArea;
 
+import Conexion.Conexion;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -53,6 +65,11 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
 
         btn_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/cliente.png"))); // NOI18N
         btn_cliente.setText("Clientes");
+        btn_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_clienteActionPerformed(evt);
+            }
+        });
         jpanel_reporte.add(btn_cliente);
         btn_cliente.setBounds(220, 120, 160, 60);
 
@@ -84,6 +101,34 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         setVisible(false);
         dispose();
     }//GEN-LAST:event_closeDialog
+
+    private void btn_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clienteActionPerformed
+
+        // TODO add your handling code here:
+        Conexion con= new Conexion();
+        
+        try{
+            con.getContacto();           
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.getMessage(),
+                    "Error de conexion", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        URL archivo = this.getClass().getResource("/reportes/report_cliente.jasper");
+        JasperReport jr = null;
+        
+        try {
+            jr = (JasperReport) JRLoader.loadObject(archivo);
+            JasperPrint jp = JasperFillManager.fillReport(jr,null, con.getContacto());
+            JasperViewer jv = new JasperViewer(jp);
+            jv.setVisible(true); //mostrar el repote
+            jv.setTitle("Visor de Reporte");
+        } catch (JRException ex) {
+            Logger.getLogger(mdl_SubMenuReporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_btn_clienteActionPerformed
 
     /**
      * @param args the command line arguments

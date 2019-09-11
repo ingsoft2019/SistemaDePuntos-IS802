@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 import java.sql.Statement;
 
 public class Conexion {
-    static Connection contacto = null;
-    static String user = "sa";
+    private static Connection contacto = null;
+    static String user = "sa1";
     static String pass = "123";
     static String db = "PR";
     
@@ -31,7 +31,7 @@ public class Conexion {
             JOptionPane.showMessageDialog(null, "Error" + e.getMessage(),
                     "Error de conexion", JOptionPane.ERROR_MESSAGE);
         }
-        return contacto;
+        return getContacto();
     }
     
     //metodo que recibe una consulta, la ejecuta y devuelve un Resultado
@@ -48,4 +48,33 @@ public class Conexion {
         }
         return null;
     }
+    
+    
+    public static void conn () throws Exception{
+        String url = "jdbc:sqlserver://localhost:1433;databaseName="+db;
+         try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            System.out.print("Conectado");
+        }catch(ClassNotFoundException e){
+            JOptionPane.showMessageDialog(null, "No se pudo establecer la conexion:" + e.getMessage(),
+                    "Error de conexion", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        try {
+            contacto = DriverManager.getConnection(url,user,pass);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.getMessage(),
+                    "Error de conexion", JOptionPane.ERROR_MESSAGE);
+        }
+         
+    }
+
+    /**
+     * @return the contacto
+     */
+    public static Connection getContacto() {
+        return contacto;
+    }
 }
+
+
