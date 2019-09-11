@@ -1,5 +1,5 @@
 package Chats.SistemasVentasPuntos;
-
+/*
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -103,4 +103,4 @@ public class LineChartEx extends JFrame {
             ex.setVisible(true);
         });
     }
-}
+}*/
