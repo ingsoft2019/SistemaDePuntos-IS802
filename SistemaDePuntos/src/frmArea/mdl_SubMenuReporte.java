@@ -121,16 +121,18 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
     }//GEN-LAST:event_closeDialog
 
     private void btn_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clienteActionPerformed
+       /* // TODO add your handling code here:
         Conexion con= new Conexion();
         
         try{
-            con.getConexion();
+            con.conn();           
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error" + e.getMessage(),
                     "Error de conexion", JOptionPane.ERROR_MESSAGE);
         }
         
-        URL archivo = this.getClass().getResource("/reportes/report_cliente_x_zona.jasper");
+        URL archivo = this.getClass().getResource("/reportes/report_cliente.jasper");
+        JasperReport jr = null;
         
         try {
              frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
@@ -150,7 +152,7 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
             System.out.println(ex);
         }
         
-        
+        */
     }//GEN-LAST:event_btn_clienteActionPerformed
 
     private void brn_puntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brn_puntosActionPerformed
