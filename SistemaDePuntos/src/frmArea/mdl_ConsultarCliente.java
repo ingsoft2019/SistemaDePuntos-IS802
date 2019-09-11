@@ -268,6 +268,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
 
     private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
 
+        
         try {
             int row = getjTable1().getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
             String identidad = (String) getjTable1().getValueAt(row, 1); //OBTENGO EL VALOR DEL NUMERO DE IDENTIDAD
