@@ -35,7 +35,6 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
 
         panel_menuPrincipal = new java.awt.Panel();
         btn_ClienteMenu = new javax.swing.JButton();
-        btn_PuntosMenu = new javax.swing.JButton();
         btn_ReportesMenu = new javax.swing.JButton();
         btn_configuracion = new javax.swing.JButton();
         jl_tituloMenuPrincipal = new javax.swing.JLabel();
@@ -60,16 +59,6 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         panel_menuPrincipal.add(btn_ClienteMenu);
         btn_ClienteMenu.setBounds(40, 110, 220, 60);
 
-        btn_PuntosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/gestion_de_puntos v2.png"))); // NOI18N
-        btn_PuntosMenu.setText("Puntos");
-        btn_PuntosMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_PuntosMenuActionPerformed(evt);
-            }
-        });
-        panel_menuPrincipal.add(btn_PuntosMenu);
-        btn_PuntosMenu.setBounds(350, 110, 220, 60);
-
         btn_ReportesMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/reportes v2.png"))); // NOI18N
         btn_ReportesMenu.setText("Reportes");
         btn_ReportesMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +67,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_ReportesMenu);
-        btn_ReportesMenu.setBounds(40, 210, 220, 60);
+        btn_ReportesMenu.setBounds(330, 110, 220, 60);
 
         btn_configuracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/administrador.png"))); // NOI18N
         btn_configuracion.setText("Configuración");
@@ -89,7 +78,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_configuracion);
-        btn_configuracion.setBounds(350, 210, 220, 60);
+        btn_configuracion.setBounds(190, 230, 220, 60);
 
         jl_tituloMenuPrincipal.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jl_tituloMenuPrincipal.setText("Sistema de Puntos Farmacia ");
@@ -116,18 +105,10 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ReportesMenuActionPerformed
 
     private void btn_ClienteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClienteMenuActionPerformed
-
-           frmConsultarCliente ver=new frmConsultarCliente();
-            ver.setVisible(true); // visible ventana del objeto
-       //     this.setVisible(false); // ocultar
-        
+      frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
+        mdl_ConsultarCliente ver=new mdl_ConsultarCliente(frmMenuPrincipal,true);
+        ver.setVisible(true); // visible ventana del objeto      
     }//GEN-LAST:event_btn_ClienteMenuActionPerformed
-
-    private void btn_PuntosMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PuntosMenuActionPerformed
-        frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
-        mdl_SubMenuPuntos ver=new mdl_SubMenuPuntos(frmMenuPrincipal,true);
-        ver.setVisible(true); // visible ventana del objeto
-    }//GEN-LAST:event_btn_PuntosMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,7 +147,6 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_ClienteMenu;
-    private javax.swing.JButton btn_PuntosMenu;
     private javax.swing.JButton btn_ReportesMenu;
     private javax.swing.JButton btn_configuracion;
     private javax.swing.JLabel jl_tituloMenuPrincipal;

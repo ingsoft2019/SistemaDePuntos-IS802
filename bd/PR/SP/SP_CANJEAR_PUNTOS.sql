@@ -6,7 +6,7 @@ PRINT(CONCAT('Mensaje: ',@pv_mensaje1));
 END;
 
 --Inicio del procedimiento
-ALTER PROCEDURE [dbo].[SP_CANJEAR_PUNTOS](
+CREATE PROCEDURE [dbo].[SP_CANJEAR_PUNTOS](
 	@pi_id_cliente INT,
 	@pi_puntos_canjear INT,
 	@pi_GEN_USR_id NVARCHAR(50),

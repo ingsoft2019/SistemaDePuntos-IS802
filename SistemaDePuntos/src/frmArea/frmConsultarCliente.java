@@ -7,7 +7,7 @@ package frmArea;
 
 import javax.swing.ImageIcon;
 import java.sql.*;
-import Conexion.Conexion.*;
+//import Conexion.Conexion.*;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
