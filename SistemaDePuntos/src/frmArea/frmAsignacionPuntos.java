@@ -65,6 +65,11 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         jPanel2.add(lblIdFactura);
         lblIdFactura.setBounds(10, 59, 100, 30);
 
+        txtIdFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdFacturaActionPerformed(evt);
+            }
+        });
         txtIdFactura.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtIdFacturaKeyTyped(evt);
@@ -143,6 +148,10 @@ public class frmAsignacionPuntos extends javax.swing.JFrame {
         
         if (c< '0'|| c>'9') evt.consume();
     }//GEN-LAST:event_txtNombreClienteKeyTyped
+
+    private void txtIdFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdFacturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdFacturaActionPerformed
 
     /**
      * @param args the command line arguments

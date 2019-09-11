@@ -6,11 +6,13 @@
 package frmArea;
 
 import Conexion.Conexion;
+import java.awt.Toolkit;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -49,6 +51,7 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         brn_puntos = new javax.swing.JButton();
         btn_graficas = new javax.swing.JButton();
         jl_TituloPrincipal = new javax.swing.JLabel();
+        brn_rangoDeEdad = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(577, 357));
         setMinimumSize(new java.awt.Dimension(577, 357));
@@ -75,8 +78,13 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
 
         brn_puntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/estadistica puntos.png"))); // NOI18N
         brn_puntos.setText("Puntos");
+        brn_puntos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brn_puntosActionPerformed(evt);
+            }
+        });
         jpanel_reporte.add(brn_puntos);
-        brn_puntos.setBounds(220, 200, 160, 60);
+        brn_puntos.setBounds(40, 120, 160, 60);
 
         btn_graficas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/grafica.png"))); // NOI18N
         btn_graficas.setText("Graficas");
@@ -87,6 +95,16 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         jl_TituloPrincipal.setText("Menú de Reportes");
         jpanel_reporte.add(jl_TituloPrincipal);
         jl_TituloPrincipal.setBounds(180, 50, 230, 30);
+
+        brn_rangoDeEdad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/estadistica puntos.png"))); // NOI18N
+        brn_rangoDeEdad.setText("Rango de Edad");
+        brn_rangoDeEdad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brn_rangoDeEdadActionPerformed(evt);
+            }
+        });
+        jpanel_reporte.add(brn_rangoDeEdad);
+        brn_rangoDeEdad.setBounds(220, 200, 160, 60);
 
         add(jpanel_reporte);
         jpanel_reporte.setBounds(0, 0, 580, 360);
@@ -120,8 +138,13 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
             JasperReport jr = (JasperReport) JRLoader.loadObject(archivo);
             JasperPrint jp = JasperFillManager.fillReport(jr,null, Conexion.getConexion());
             JasperViewer jv = new JasperViewer(jp,false);
-            jv.setVisible(true); //mostrar el repote
-            jv.setTitle("Visor de Reporte");
+            JDialog dialog = new JDialog(this);
+            dialog.setContentPane(jv.getContentPane());
+            dialog.setSize(jv.getSize());
+            dialog.setTitle("Visor de Reporte Farmacia Regis - Las Casitas");
+            dialog.setIconImage(Toolkit.getDefaultToolkit().getImage(
+            getClass().getResource("../imgSP/icono.png")));
+            dialog.setVisible(true);
         } catch (JRException ex) {
             Logger.getLogger(mdl_SubMenuReporte.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex);
@@ -129,6 +152,16 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         
         
     }//GEN-LAST:event_btn_clienteActionPerformed
+
+    private void brn_puntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brn_puntosActionPerformed
+        
+    }//GEN-LAST:event_brn_puntosActionPerformed
+
+    private void brn_rangoDeEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brn_rangoDeEdadActionPerformed
+        frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
+        mdl_rangoEdad ver=new mdl_rangoEdad(frmMenuPrincipal,true);
+        ver.setVisible(true); // visible ventana del objeto
+    }//GEN-LAST:event_brn_rangoDeEdadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,6 +183,7 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brn_puntos;
+    private javax.swing.JButton brn_rangoDeEdad;
     private javax.swing.JButton btn_cliente;
     private javax.swing.JButton btn_graficas;
     private javax.swing.JLabel jl_TituloPrincipal;
