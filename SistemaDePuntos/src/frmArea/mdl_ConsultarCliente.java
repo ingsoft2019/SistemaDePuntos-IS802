@@ -289,11 +289,13 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
                         res.getString("telefono2"), res.getString("telefono3"), res.getString("correo"),
                         res.getDate("fecha_nacimiento"), res.getString("detalle_direccion"),
                         res.getString("puntos_actuales"), res.getString("puntos_rifa_actuales"),
-                        res.getString("fecha_vencimiento_puntos"), res.getString("id_persona"));
-                       
+                        res.getString("fecha_vencimiento_puntos"), res.getString("id_persona"),res.getString("estado"));
+                        
                     subMenuCli.cargarZonas(res.getString("zona"));
                     subMenuCli.setVisible(true); // visible ventana del objeto
+                   
                 }
+                
             } catch (SQLException ex) {
                 Logger.getLogger(mdl_ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -98,7 +98,6 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         jC_zona = new javax.swing.JComboBox<>();
         btn_habilitarcliente = new javax.swing.JButton();
 
-        setMaximumSize(new java.awt.Dimension(837, 541));
         setMinimumSize(new java.awt.Dimension(837, 541));
         setTitle("Gestion de Cliente");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -353,7 +352,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_desactivarCliente);
-        btn_desactivarCliente.setBounds(340, 10, 110, 50);
+        btn_desactivarCliente.setBounds(240, 10, 110, 50);
 
         btn_imprimirDireccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato entrega.png"))); // NOI18N
         btn_imprimirDireccion.setText("Imprimir dirección");
@@ -519,7 +518,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_habilitarcliente);
-        btn_habilitarcliente.setBounds(190, 10, 110, 50);
+        btn_habilitarcliente.setBounds(240, 10, 110, 50);
 
         add(jpanel_AreaSubMenu);
         jpanel_AreaSubMenu.setBounds(0, 30, 830, 500);
@@ -723,8 +722,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         int pregunta = JOptionPane.showConfirmDialog(null, "¿Deseas deshabilitar a este cliente?");
         if (pregunta == 0) {
             try {
-                Procedimientos.ProcedimientosCliente.deshabilitarCliente(getTxt_identidad().getText());
+                int idpersona = Integer.parseInt(getId().getText());//Convertir a entero para enviarlo
+                Procedimientos.ProcedimientosCliente.deshabilitarCliente(idpersona);
                 JOptionPane.showMessageDialog(null, "El cliente ha sido deshabilitado");
+                btn_habilitarcliente.setVisible(true);
+                btn_desactivarCliente.setVisible(false);
             } catch (SQLException e) {
 
             }
@@ -781,12 +783,14 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         }
 
     }
-
+    
+    //Variable para capturar el estado
+    String estado = "";
     //Metodo para llenar los campos     
     public void llenarCampos(String pnombre, String snombre, String papellido, String sapellido, String identidad,
             String sexo, String telefono1, String telefono2, String telefono3, String correo,
             Date fechaNac, String detalleDireccion, String puntos_actuales, String puntos_rifa,
-            String fechaVencimiento, String id) {
+            String fechaVencimiento, String id, String estado) {
         this.getTxt_primerNombre().setText(pnombre);
         this.getTxt_segundoNombre().setText(snombre);
         this.getTxt_primerApellido().setText(papellido);
@@ -807,6 +811,21 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         this.getTxt_puntoRifa().setText(puntos_rifa);
         this.getTxt_vencimiento().setText(fechaVencimiento);
         this.getId().setText(id);
+        this.estado = estado;
+        
+        if("A".equals(estado)){
+           btn_habilitarcliente.setVisible(false);
+           btn_desactivarCliente.setVisible(true);
+        }else{
+            btn_habilitarcliente.setVisible(true);
+            btn_desactivarCliente.setVisible(false);
+        }
+        System.out.println("A".equals(estado));
+    }
+    
+    //Metodo para mostrar y ocultar botones de habilitar y desabilitar
+    public void habilitarDeshabilitar(){
+        
     }
 
     private void btn_imprimirPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirPuntosActionPerformed
@@ -851,8 +870,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         int pregunta = JOptionPane.showConfirmDialog(null, "¿Realmente desea habilitar este cliente?");
         if (pregunta == 0) {
             try {
-                Procedimientos.ProcedimientosCliente.habilitarCliente(getTxt_identidad().getText());
+                int idpersona = Integer.parseInt(getId().getText());//Convertir a entero para enviarlo
+                Procedimientos.ProcedimientosCliente.habilitarCliente(idpersona);
                 JOptionPane.showMessageDialog(null, "El cliente ha sido habilitado");
+                btn_habilitarcliente.setVisible(false);
+                btn_desactivarCliente.setVisible(true);
             } catch (SQLException e) {
 
             }
