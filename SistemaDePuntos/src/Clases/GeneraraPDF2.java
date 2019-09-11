@@ -9,6 +9,7 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfWriter;
+//import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 import java.awt.Desktop;
 import java.awt.print.PrinterException;
 import java.io.File;
@@ -18,6 +19,8 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -82,7 +85,7 @@ public class GeneraraPDF2 {
             
             //abrirArchivo("factura.pdf");
             
-            //Clases.ImprimirPDF.imprimir();
+            imprimir("factura.pdf");
         }catch (Exception e) {
             System.out.println("Error: "+ e);
         }  
@@ -94,6 +97,16 @@ public class GeneraraPDF2 {
             Desktop.getDesktop().open(objetofile);
         }catch (IOException ex) {
             System.out.println(ex);
+        }
+    }
+    
+    public static void imprimir(String archivo){
+        ImprimirPDF impresor = new ImprimirPDF();
+        try {
+            impresor.imprimir();
+        } catch (PrinterException | IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error de impresion", "Error", JOptionPane.ERROR_MESSAGE);
+            //LOGGER.log(Level.SEVERE, null, ex);
         }
     }
     
