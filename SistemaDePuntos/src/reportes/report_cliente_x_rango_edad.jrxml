@@ -41,7 +41,7 @@ WHERE $P{EdadIncial} <= DATEDIFF(YEAR,  p.fecha_nacimiento, GETDATE()) AND $P{Ed
 		<band height="70" splitType="Stretch">
 			<image>
 				<reportElement uuid="468ba1ce-e046-486c-a088-1afaca185aae" x="275" y="0" width="300" height="64"/>
-				<imageExpression><![CDATA[this.getClass().getResource("/reportes/report_cliente_x_rango_edad.jasper")]]></imageExpression>
+				<imageExpression><![CDATA[this.getClass().getResource("/reportes/logo.png")]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement uuid="0a2ea681-8dfb-4441-82fe-aba204097873" style="Title" x="0" y="13" width="263" height="33"/>
