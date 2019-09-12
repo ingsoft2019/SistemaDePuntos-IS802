@@ -644,7 +644,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
     }//GEN-LAST:event_btn_editarClienteActionPerformed
 
     private void btn_desactivarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_desactivarClienteActionPerformed
-        int pregunta = JOptionPane.showConfirmDialog(null, "¿Deseas deshabilitar a este cliente?");
+        int pregunta = JOptionPane.showConfirmDialog(null, "¿Realmente desea deshabilitar este cliente?");
         if (pregunta == 0) {
             try {
                 int idpersona = Integer.parseInt(getId().getText());//Convertir a entero para enviarlo
@@ -656,7 +656,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
             }
         } else if (pregunta == 1) {
-            JOptionPane.showMessageDialog(null, "El cliente no se ha deshabilitado");
+            JOptionPane.showMessageDialog(null, "El cliente no ha sido deshabilitado");
         } else {
             JOptionPane.showMessageDialog(null, "Operacion cancelada");
         }
