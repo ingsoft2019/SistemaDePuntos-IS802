@@ -53,6 +53,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
         CanjearPuntos = new javax.swing.JButton();
         jCheckBoxBuscarInactivos = new javax.swing.JCheckBox();
 
+        setMaximumSize(new java.awt.Dimension(750, 523));
         setMinimumSize(new java.awt.Dimension(750, 523));
         setTitle("Consultar Cliente");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -158,7 +159,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             }
         });
         jPanel1.add(jCheckBoxBuscarInactivos);
-        jCheckBoxBuscarInactivos.setBounds(620, 9, 105, 23);
+        jCheckBoxBuscarInactivos.setBounds(610, 9, 130, 23);
 
         add(jPanel1);
         jPanel1.setBounds(0, 30, 750, 490);
