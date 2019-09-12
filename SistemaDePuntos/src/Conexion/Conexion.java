@@ -15,8 +15,8 @@ public class Conexion {
     static String db = "PR";
     
     public static Connection getConexion(){
-        String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=PR";
-        //String url = "jdbc:sqlserver://localhost:1433;databaseName="+db;
+        //String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=PR";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName="+db;
         
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

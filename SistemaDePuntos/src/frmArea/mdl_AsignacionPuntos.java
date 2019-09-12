@@ -18,7 +18,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class mdl_AsignacionPuntos extends java.awt.Dialog {
-
+    private int id;
+    private String cliente;
     /**
      * Creates new form mdl_AsignacionPuntos
      */
@@ -28,10 +29,16 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
         this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
+        
     }
     
-    public void campoAsignarPuntos(String identidad){
-        this.getTxtNombreCliente().setText(identidad);
+    public void recibirIdCliente(int idCliente){
+        this.id = idCliente;
+        
+    }
+    public void recibirCliente(String nombreCliente){
+        this.cliente = nombreCliente;
+        this.getTxtNombreCliente().setText(nombreCliente);
     }
 
     /**
@@ -133,12 +140,12 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
     }//GEN-LAST:event_txtNombreClienteKeyTyped
 
     private void btn_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarActionPerformed
-        if (getTxtIdFactura().getText().isEmpty()|| getTxtNombreCliente().getText().isEmpty()){
+        if (getTxtIdFactura().getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Hay campos vacios que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
         } else {try {
             int codigo=JOptionPane.showConfirmDialog(null, "¿Estas seguro de asignar los puntos?", "Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
             if (codigo==JOptionPane.YES_OPTION){
-                Procedimientos.ProcedimientoAsignacionPuntos.guardarMovimiento(Integer.parseInt(getTxtNombreCliente().getText()), "ADMIN", Integer.parseInt(getTxtIdFactura().getText()) );
+                Procedimientos.ProcedimientoAsignacionPuntos.guardarMovimiento(this.id, "ADMIN", Integer.parseInt(getTxtIdFactura().getText()) );
             }
         } catch (SQLException ex) {
             Logger.getLogger(frmAsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
@@ -149,9 +156,7 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
             }
 
     }
-        //limpiar los campos
-        getTxtIdFactura().setText("");
-        getTxtNombreCliente().setText("");
+        
     }//GEN-LAST:event_btn_asignarActionPerformed
 
     /**
