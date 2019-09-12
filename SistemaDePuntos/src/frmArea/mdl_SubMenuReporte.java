@@ -74,7 +74,7 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
             }
         });
         jpanel_reporte.add(btn_cliente);
-        btn_cliente.setBounds(220, 120, 160, 60);
+        btn_cliente.setBounds(70, 130, 160, 60);
 
         brn_puntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/estadistica puntos.png"))); // NOI18N
         brn_puntos.setText("Puntos");
@@ -84,12 +84,12 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
             }
         });
         jpanel_reporte.add(brn_puntos);
-        brn_puntos.setBounds(40, 120, 160, 60);
+        brn_puntos.setBounds(70, 250, 160, 60);
 
         btn_graficas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/grafica.png"))); // NOI18N
         btn_graficas.setText("Graficas");
         jpanel_reporte.add(btn_graficas);
-        btn_graficas.setBounds(220, 270, 160, 60);
+        btn_graficas.setBounds(300, 250, 160, 60);
 
         jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jl_TituloPrincipal.setText("Menú de Reportes");
@@ -104,7 +104,7 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
             }
         });
         jpanel_reporte.add(brn_rangoDeEdad);
-        brn_rangoDeEdad.setBounds(220, 200, 160, 60);
+        brn_rangoDeEdad.setBounds(300, 130, 160, 60);
 
         add(jpanel_reporte);
         jpanel_reporte.setBounds(0, 0, 580, 360);
