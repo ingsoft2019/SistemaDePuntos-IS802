@@ -248,6 +248,8 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
                         getjCheckBoxBuscarInactivos().setSelected(false);
                     } else if (getContador1() >= 1) {
                         buscarCliente();
+                        CanjearPuntos.setEnabled(true);
+                        AsignarPuntos.setEnabled(true);
                     } else {
                         JOptionPane.showMessageDialog(null, "El registro que busca no existe");
                     }
