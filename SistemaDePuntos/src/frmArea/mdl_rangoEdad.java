@@ -182,11 +182,10 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
                     "Error de conexion", JOptionPane.ERROR_MESSAGE);
         }
         
-      //  URL archivo = this.getClass().getResource("/reportes/report_cliente_x_rango_edada.jasper");
+        URL archivo = this.getClass().getResource("/reportes/report_cliente_x_rango_edada.jasper");
         
         try {
-            URL archivo = this.getClass().getResource("/reportes/report_cliente_x_rango_edada.jasper");
-    
+  
             JasperReport jr = (JasperReport) JRLoader.loadObject(archivo);
             JasperPrint jp = JasperFillManager.fillReport(jr,null, Conexion.getConexion());
             JasperViewer jv = new JasperViewer(jp,false);

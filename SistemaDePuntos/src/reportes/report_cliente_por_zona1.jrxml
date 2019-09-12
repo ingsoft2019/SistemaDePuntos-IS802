@@ -20,7 +20,7 @@ WHERE p.id_zona = 1;]]>
 		<band height="70" splitType="Stretch">
 			<image>
 				<reportElement uuid="b4281ac8-6183-4bd1-ae0f-feaa13ebfb73" x="275" y="0" width="300" height="64"/>
-				<imageExpression><![CDATA["leaf_banner_gray.png"]]></imageExpression>
+				<imageExpression><![CDATA[this.getClass().getResource("/reportes/logo.png")]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement uuid="73d81027-bf32-4970-8bbe-443476687a85" style="Title" x="0" y="13" width="263" height="33"/>
