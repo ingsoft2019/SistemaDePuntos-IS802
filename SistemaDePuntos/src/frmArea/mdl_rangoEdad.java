@@ -164,28 +164,26 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
       
-        Conexion con= new Conexion();
+        Conexion conex= new Conexion();
         Map parametros = new HashMap();
-        
-        
         try{
-        con.getConexion();
-        int edadInicial = Integer.parseInt(getTxtEdadInicial().getText());
-        int edadFinal = Integer.parseInt(getTxtEdadFinal().getText());
-        
-        JOptionPane.showMessageDialog(null, edadInicial +" de " +edadFinal);
-        
-            parametros.put("EdadInicial", edadInicial);
-            parametros.put("EdadFinal", edadFinal);
+            conex.getConexion();
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error" + e.getMessage(),
                     "Error de conexion", JOptionPane.ERROR_MESSAGE);
         }
+        int edadInicial = Integer.parseInt(getTxtEdadInicial().getText());
+        int edadFinal = Integer.parseInt(getTxtEdadFinal().getText());
         
-        URL archivo = this.getClass().getResource("/reportes/report_cliente_x_rango_edada.jasper");
+        //JOptionPane.showMessageDialog(null, edadInicial +" de " +edadFinal);
+        
+        parametros.put("EdadInicial", edadInicial);
+        parametros.put("EdadFinal", edadFinal);
+        
+        
+        URL archivo = this.getClass().getResource("/reportes/report_cliente_x_rango_edad.jasper");
         
         try {
-  
             JasperReport jr = (JasperReport) JRLoader.loadObject(archivo);
             JasperPrint jp = JasperFillManager.fillReport(jr,null, Conexion.getConexion());
             JasperViewer jv = new JasperViewer(jp,false);
@@ -197,7 +195,7 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
             getClass().getResource("../imgSP/icono.png")));
             dialog.setVisible(true);
         } catch (JRException ex) {
-            Logger.getLogger(mdl_SubMenuReporte.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(mdl_rangoEdad.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex);
         }
         
