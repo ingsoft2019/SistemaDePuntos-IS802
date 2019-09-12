@@ -12,7 +12,7 @@
 	<queryString>
 		<![CDATA[SELECT * FROM Cliente c 
 INNER JOIN Persona p ON p.id_persona = c.id_persona
-WHERE 20 <= DATEDIFF(YEAR,  p.fecha_nacimiento, GETDATE()) AND 80 >= DATEDIFF(YEAR,  p.fecha_nacimiento, GETDATE())]]>
+WHERE $P{EdadIncial} <= DATEDIFF(YEAR,  p.fecha_nacimiento, GETDATE()) AND $P{EdadFinal} >= DATEDIFF(YEAR,  p.fecha_nacimiento, GETDATE())]]>
 	</queryString>
 	<field name="id_cliente" class="java.lang.Integer"/>
 	<field name="fecha_registro" class="java.sql.Date"/>

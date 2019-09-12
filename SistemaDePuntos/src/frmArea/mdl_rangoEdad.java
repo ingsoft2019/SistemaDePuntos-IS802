@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package frmArea;
 
 import Conexion.Conexion;
@@ -170,6 +165,11 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
     }//GEN-LAST:event_txtEdadFinalKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int edadInicial = Integer.parseInt(getTxtEdadInicial().getText());
+        int edadFinal = Integer.parseInt(getTxtEdadFinal().getText());
+        
+        JOptionPane.showMessageDialog(null, edadInicial +" " +edadFinal);
+        
         Conexion con= new Conexion();
         
         Map parametros = new HashMap();
@@ -177,9 +177,6 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
         
         
         try{
-             int edadInicial = Integer.parseInt(getTxtEdadInicial().getText());
-            int edadFinal = Integer.parseInt(getTxtEdadFinal().getText());
-
             parametros.put("EdadInicial", edadInicial);
             parametros.put("EdadFinal", edadFinal);
        
@@ -194,7 +191,7 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
         try {       
             JasperReport jr = (JasperReport) JRLoader.loadObject(archivo);
             JasperPrint jp = JasperFillManager.fillReport(jr,null, Conexion.getConexion());
-            JasperViewer jv = new JasperViewer(jp,false);
+            JasperViewer jv = new JasperViewer(jp, false);
             JDialog dialog = new JDialog(this);
             dialog.setContentPane(jv.getContentPane());
             dialog.setSize(jv.getSize());
