@@ -18,11 +18,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  * @author bayron
  */
-
 public class mdl_RegistroClientes extends java.awt.Dialog {
 
     /**
@@ -32,11 +32,11 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
     ResultSet res = null;
     int cont = 0;
     Validar v = new Validar();
-    
-    
+
     public mdl_RegistroClientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.txt_primerNombre.requestFocus();//Que el cursor aparezaca en el priimer input
         this.setLocationRelativeTo(null); //para ponerse en el centro         
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
@@ -64,6 +64,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupo_genero = new javax.swing.ButtonGroup();
         jP1_DatosCliente = new javax.swing.JPanel();
         SegundoNombre = new javax.swing.JLabel();
         PrimerApellido = new javax.swing.JLabel();
@@ -117,32 +118,32 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         SegundoNombre.setText("Segundo Nombre:");
         SegundoNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(SegundoNombre);
-        SegundoNombre.setBounds(10, 70, 110, 22);
+        SegundoNombre.setBounds(10, 60, 110, 20);
 
         PrimerApellido.setText("Primer Apellido:");
         PrimerApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(PrimerApellido);
-        PrimerApellido.setBounds(10, 100, 110, 22);
+        PrimerApellido.setBounds(10, 90, 110, 20);
 
         SegundoApelliido.setText("Segundo Apellido:");
         SegundoApelliido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(SegundoApelliido);
-        SegundoApelliido.setBounds(10, 120, 110, 22);
+        SegundoApelliido.setBounds(10, 120, 110, 20);
 
         NoIdentidad.setText("No. Identidad:");
         NoIdentidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(NoIdentidad);
-        NoIdentidad.setBounds(10, 150, 110, 22);
+        NoIdentidad.setBounds(10, 150, 110, 20);
 
         Telefono2.setText("Teléfono 3:");
         Telefono2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(Telefono2);
-        Telefono2.setBounds(10, 230, 110, 22);
+        Telefono2.setBounds(10, 240, 110, 20);
 
         CorreoElectronico.setText("Email:");
         CorreoElectronico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(CorreoElectronico);
-        CorreoElectronico.setBounds(10, 260, 110, 22);
+        CorreoElectronico.setBounds(10, 270, 110, 20);
 
         txt_primerNombre.setMinimumSize(new java.awt.Dimension(8, 22));
         txt_primerNombre.setPreferredSize(new java.awt.Dimension(8, 24));
@@ -157,7 +158,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_primerNombre);
-        txt_primerNombre.setBounds(120, 40, 330, 24);
+        txt_primerNombre.setBounds(120, 30, 330, 24);
 
         txt_segundoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,7 +171,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_segundoNombre);
-        txt_segundoNombre.setBounds(120, 70, 330, 24);
+        txt_segundoNombre.setBounds(120, 60, 330, 24);
 
         txt_primerApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +184,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_primerApellido);
-        txt_primerApellido.setBounds(120, 100, 330, 24);
+        txt_primerApellido.setBounds(120, 90, 330, 24);
 
         txt_segundoApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,12 +223,12 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_telefono3);
-        txt_telefono3.setBounds(120, 230, 330, 24);
+        txt_telefono3.setBounds(120, 240, 330, 24);
 
         PrimerNombre.setText("Primer Nombre:");
         PrimerNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(PrimerNombre);
-        PrimerNombre.setBounds(10, 40, 110, 22);
+        PrimerNombre.setBounds(10, 30, 110, 20);
 
         txt_correoElectronico.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -235,7 +236,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_correoElectronico);
-        txt_correoElectronico.setBounds(120, 260, 330, 24);
+        txt_correoElectronico.setBounds(120, 270, 330, 24);
 
         jP2_DatosCliente.setLayout(null);
 
@@ -260,18 +261,35 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         jP2_DatosCliente.add(jDC_fechaNacimiento);
         jDC_fechaNacimiento.setBounds(200, 30, 240, 24);
 
+        grupo_genero.add(RB_masculino);
         RB_masculino.setText("M");
         RB_masculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RB_masculinoActionPerformed(evt);
             }
         });
+        RB_masculino.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RB_masculinoKeyPressed(evt);
+            }
+        });
         jP2_DatosCliente.add(RB_masculino);
-        RB_masculino.setBounds(130, 0, 40, 28);
+        RB_masculino.setBounds(130, 0, 40, 23);
 
+        grupo_genero.add(RB_femenino);
         RB_femenino.setText("F");
+        RB_femenino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RB_femeninoActionPerformed(evt);
+            }
+        });
+        RB_femenino.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RB_femeninoKeyPressed(evt);
+            }
+        });
         jP2_DatosCliente.add(RB_femenino);
-        RB_femenino.setBounds(180, 0, 38, 28);
+        RB_femenino.setBounds(180, 0, 31, 23);
 
         jP1_DatosCliente.add(jP2_DatosCliente);
         jP2_DatosCliente.setBounds(10, 300, 450, 69);
@@ -287,7 +305,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_telefono1);
-        txt_telefono1.setBounds(120, 170, 330, 24);
+        txt_telefono1.setBounds(120, 180, 330, 24);
 
         txt_telefono2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,7 +318,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_telefono2);
-        txt_telefono2.setBounds(120, 200, 330, 24);
+        txt_telefono2.setBounds(120, 210, 330, 24);
 
         jP_DatosDireccion.setLayout(null);
 
@@ -309,24 +327,29 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         jL_TituloDireccion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jL_TituloDireccion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jP_DatosDireccion.add(jL_TituloDireccion);
-        jL_TituloDireccion.setBounds(10, 0, 413, 22);
+        jL_TituloDireccion.setBounds(10, 0, 413, 20);
 
         jL_DetalleDirecion.setText("Detalle:");
         jL_DetalleDirecion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP_DatosDireccion.add(jL_DetalleDirecion);
-        jL_DetalleDirecion.setBounds(10, 52, 76, 22);
+        jL_DetalleDirecion.setBounds(10, 52, 76, 20);
 
         descripcion.setColumns(20);
         descripcion.setRows(5);
+        descripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                descripcionKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(descripcion);
 
         jP_DatosDireccion.add(jScrollPane1);
-        jScrollPane1.setBounds(90, 52, 333, 83);
+        jScrollPane1.setBounds(90, 52, 333, 96);
 
         jL_Zona.setText("Zona:");
         jL_Zona.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP_DatosDireccion.add(jL_Zona);
-        jL_Zona.setBounds(10, 26, 76, 22);
+        jL_Zona.setBounds(10, 26, 76, 20);
 
         jC_zona.setMinimumSize(new java.awt.Dimension(28, 24));
         jC_zona.setPreferredSize(new java.awt.Dimension(28, 24));
@@ -349,12 +372,12 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         Telefono1.setText("Teléfono 1:");
         Telefono1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(Telefono1);
-        Telefono1.setBounds(10, 170, 110, 22);
+        Telefono1.setBounds(10, 180, 110, 20);
 
         Telefono3.setText("Teléfono 2:");
         Telefono3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(Telefono3);
-        Telefono3.setBounds(10, 200, 110, 22);
+        Telefono3.setBounds(10, 210, 110, 20);
 
         panel_botonesBasicos.setLayout(null);
 
@@ -397,7 +420,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Registro de Cliente");
         jP1_DatosCliente.add(jLabel1);
-        jLabel1.setBounds(150, 10, 180, 22);
+        jLabel1.setBounds(150, 0, 180, 22);
 
         add(jP1_DatosCliente);
         jP1_DatosCliente.setBounds(10, 30, 470, 610);
@@ -419,11 +442,20 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
 
     private void txt_primerNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_primerNombreKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            txt_segundoNombre.requestFocus();
-        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
+            if (txt_primerNombre.getText().equals("")) {
+                campoRequerido(txt_primerNombre);
+            } else {
+                txt_segundoNombre.requestFocus();
+            }
+        } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
             v.validarEspacios(txt_primerNombre);
         }
     }//GEN-LAST:event_txt_primerNombreKeyPressed
+
+    public void campoRequerido(JTextField campo) {
+        JOptionPane.showMessageDialog(null, "Campo requerido");
+        campo.requestFocus();
+    }
 
     private void txt_segundoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_segundoNombreActionPerformed
         // TODO add your handling code here:
@@ -432,7 +464,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
     private void txt_segundoNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_segundoNombreKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             txt_primerApellido.requestFocus();
-        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
+        } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
             v.validarEspacios(txt_segundoNombre);
         }
     }//GEN-LAST:event_txt_segundoNombreKeyPressed
@@ -443,8 +475,13 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
 
     private void txt_primerApellidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_primerApellidoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            txt_segundoApellido.requestFocus();
-        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
+            if (txt_primerApellido.getText().equals("")) {
+                campoRequerido(txt_primerApellido);
+            } else {
+                txt_segundoApellido.requestFocus();
+            }
+
+        } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
             v.validarEspacios(txt_primerApellido);
         }
     }//GEN-LAST:event_txt_primerApellidoKeyPressed
@@ -455,8 +492,15 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
 
     private void txt_segundoApellidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_segundoApellidoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (txt_primerApellido.getText().equals("")) {
+                campoRequerido(txt_primerApellido);
+            } else {
+                txt_segundoApellido.requestFocus();
+            }
+
             txt_noIdentidad.requestFocus();
-        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
+
+        } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
             v.validarEspacios(txt_segundoApellido);
         }
     }//GEN-LAST:event_txt_segundoApellidoKeyPressed
@@ -467,7 +511,11 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
 
     private void txt_noIdentidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_noIdentidadKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            txt_telefono1.requestFocus();
+            if (txt_noIdentidad.getText().equals("")) {
+                campoRequerido(txt_noIdentidad);
+            } else {
+                txt_telefono1.requestFocus();
+            }
         }
     }//GEN-LAST:event_txt_noIdentidadKeyPressed
 
@@ -483,16 +531,22 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
 
     private void txt_correoElectronicoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_correoElectronicoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Pattern pattern = Pattern
-            .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+            if (!txt_correoElectronico.getText().equals("")) {
+                Pattern pattern = Pattern
+                        .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
-            Matcher mather = pattern.matcher((CharSequence) txt_correoElectronico.getText());
-            if (mather.find() == false) {
-                JOptionPane.showMessageDialog(null, "Correo invalido");
+                Matcher mather = pattern.matcher((CharSequence) txt_correoElectronico.getText());
+                if (mather.find() == false) {
+                    JOptionPane.showMessageDialog(null, "Correo invalido");
+                } else {
+                    RB_masculino.requestFocus();
+                }
             } else {
                 RB_masculino.requestFocus();
             }
+        } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
+            v.validarEspacios(txt_correoElectronico);
         }
     }//GEN-LAST:event_txt_correoElectronicoKeyPressed
 
@@ -512,7 +566,11 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
 
     private void txt_telefono1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefono1KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            txt_telefono2.requestFocus();
+            if (txt_telefono1.getText().equals("")) {
+                campoRequerido(txt_telefono1);
+            } else {
+                txt_telefono2.requestFocus();
+            }
         }
     }//GEN-LAST:event_txt_telefono1KeyPressed
 
@@ -537,8 +595,8 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
     }//GEN-LAST:event_jC_zonaKeyPressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
-        mdl_NuevaZona NZ=new mdl_NuevaZona(frmMenuPrincipal,true);
+        frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
+        mdl_NuevaZona NZ = new mdl_NuevaZona(frmMenuPrincipal, true);
         NZ.setVisible(true); // visible ventana del objeto
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -546,8 +604,8 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
 
         //Validar que no esten vacios los campos requeridos
         if (txt_primerNombre.getText().isEmpty() || txt_primerApellido.getText().isEmpty() || txt_noIdentidad.getText().isEmpty()
-            || txt_telefono1.getText().isEmpty() || jDC_fechaNacimiento.getCalendar() == null || descripcion.getText().isEmpty()
-            || jC_zona.getSelectedItem() == null || (RB_masculino.isSelected() == false && RB_femenino.isSelected() == false)) {
+                || txt_telefono1.getText().isEmpty() || jDC_fechaNacimiento.getCalendar() == null || descripcion.getText().isEmpty()
+                || jC_zona.getSelectedItem() == null || (RB_masculino.isSelected() == false && RB_femenino.isSelected() == false)) {
 
             JOptionPane.showMessageDialog(this, "Se dejaron vacios campos que son obligatorios", "Informacion", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -583,9 +641,9 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
                     }
 
                     Procedimientos.ProcedimientosCliente.guardarPersona(txt_primerNombre.getText(), txt_segundoNombre.getText(),
-                        txt_primerApellido.getText(), txt_segundoApellido.getText(), txt_noIdentidad.getText(), txt_correoElectronico.getText(),
-                        sexo, fechaNac, idZona, descripcion.getText(), txt_telefono1.getText(), txt_telefono2.getText(),
-                        txt_telefono3.getText());
+                            txt_primerApellido.getText(), txt_segundoApellido.getText(), txt_noIdentidad.getText(), txt_correoElectronico.getText(),
+                            sexo, fechaNac, idZona, descripcion.getText(), txt_telefono1.getText(), txt_telefono2.getText(),
+                            txt_telefono3.getText());
 
                     //Limpiar los campos
                     txt_primerNombre.setText("");
@@ -646,7 +704,28 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         descripcion.setText("");
     }//GEN-LAST:event_btn_limpiarCamposActionPerformed
 
-    
+    private void RB_masculinoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RB_masculinoKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                jDC_fechaNacimiento.requestFocus();
+        }
+    }//GEN-LAST:event_RB_masculinoKeyPressed
+
+    private void RB_femeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB_femeninoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RB_femeninoActionPerformed
+
+    private void RB_femeninoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RB_femeninoKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                jDC_fechaNacimiento.requestFocus();
+        }
+    }//GEN-LAST:event_RB_femeninoKeyPressed
+
+    private void descripcionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_descripcionKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btn_guardarCliente.requestFocus();
+        }
+    }//GEN-LAST:event_descripcionKeyPressed
+
     //Metodo para llenar el combobox zonas
     public void cargarZonas() {
         ResultSet zonas = Zona.mostrarZonas();
@@ -663,11 +742,11 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         }
 
     }
-    
-    public void actulizarZonas(){
+
+    public void actulizarZonas() {
         ResultSet zonas = Zona.mostrarZonas();
         System.out.println();
-        
+
         //LLenamos nuestro ComboBox
         jC_zona.removeAllItems();
         jC_zona.addItem("--OAPCO--");
@@ -680,12 +759,11 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             Logger.getLogger(mdl_RegistroClientes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void setZona(String zona){
+
+    public void setZona(String zona) {
         this.jC_zona.addItem(zona);
     }
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -719,6 +797,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
     private javax.swing.JButton btn_guardarCliente;
     private javax.swing.JButton btn_limpiarCampos;
     private javax.swing.JTextArea descripcion;
+    private javax.swing.ButtonGroup grupo_genero;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jC_zona;
     private com.toedter.calendar.JDateChooser jDC_fechaNacimiento;

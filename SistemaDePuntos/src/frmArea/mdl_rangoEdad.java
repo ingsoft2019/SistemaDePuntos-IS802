@@ -27,6 +27,9 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
     private int edadInicio;
     private int edadFin;
     
+    public mdl_rangoEdad(){}
+    
+    
     
     public mdl_rangoEdad(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -193,7 +196,7 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(archivo);
             JasperPrint jp = JasperFillManager.fillReport(jr,null, Conexion.getConexion());
-            JasperViewer jv = new JasperViewer(jp,false);
+            JasperViewer jv = new JasperViewer(jp, false);
             JDialog dialog = new JDialog(this);
             dialog.setContentPane(jv.getContentPane());
             dialog.setSize(jv.getSize());
@@ -289,5 +292,31 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
         this.txtEdadInicial = txtEdadInicial;
     }
 
-    
+    /**
+     * @return the edadInicio
+     */
+    public int getEdadInicio() {
+        return edadInicio;
+    }
+
+    /**
+     * @param edadInicio the edadInicio to set
+     */
+    public void setEdadInicio(int edadInicio) {
+        this.edadInicio = edadInicio;
+    }
+
+    /**
+     * @return the edadFin
+     */
+    public int getEdadFin() {
+        return edadFin;
+    }
+
+    /**
+     * @param edadFin the edadFin to set
+     */
+    public void setEdadFin(int edadFin) {
+        this.edadFin = edadFin;
+    }
 }

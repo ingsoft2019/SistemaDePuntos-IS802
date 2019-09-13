@@ -85,7 +85,7 @@ public class Validar {
                 if (tamaño >= cantidad) {
                     e.consume();
                     JOptionPane.showMessageDialog(null, "Estas pasando el limite de caracteres");
-
+                    campo.requestFocus();
                 }
             }
         });
