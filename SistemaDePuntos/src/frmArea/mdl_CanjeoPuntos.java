@@ -25,7 +25,7 @@ public class mdl_CanjeoPuntos extends java.awt.Dialog {
         this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
-        
+        txtNombreCliente.setEditable(false);
     }
     
     public void recibirNombre(String pnombre, String snombre, String papellido, String sapellido){
@@ -98,7 +98,6 @@ public class mdl_CanjeoPuntos extends java.awt.Dialog {
         jPanel1.add(lblCliente);
         lblCliente.setBounds(30, 100, 130, 30);
 
-        txtNombreCliente.setEnabled(false);
         txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreClienteActionPerformed(evt);
