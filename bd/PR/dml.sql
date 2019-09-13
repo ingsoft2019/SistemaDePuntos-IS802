@@ -1,8 +1,8 @@
-insert into Zona (zona) values ('Zona 1', 'A');
-insert into Zona (zona) values ('Zona 2', 'A');
-insert into Zona (zona) values ('Zona 3', 'A');
-insert into Zona (zona) values ('Zona 4', 'A');
-insert into Zona (zona) values ('Zona 5', 'A');
+insert into Zona (zona, estado) values ('Zona 1', 'A');
+insert into Zona (zona, estado) values ('Zona 2', 'A');
+insert into Zona (zona, estado) values ('Zona 3', 'A');
+insert into Zona (zona, estado) values ('Zona 4', 'A');
+insert into Zona (zona, estado) values ('Zona 5', 'A');
 
 insert into Persona (pnombre, snombre, papellido, sapellido, identidad, correo, sexo, fecha_nacimiento, id_zona, detalle_direccion, telefono1) values ('Amelie', 'Ajay', 'Tween', 'Degan', '641-18-4065', 'adegan0@yellowbook.com', 'F',                    '1960-07-28', 2, '6393 Del Sol Avenue', '(267) 4187132');
 insert into Persona (pnombre, snombre, papellido, sapellido, identidad, correo, sexo, fecha_nacimiento, id_zona, detalle_direccion, telefono1) values ('Carlen', 'Alyse', 'Ogilby', 'Gavriel', '608-96-5992', 'agavriel1@istockphoto.com', 'F',             '1956-10-17', 5, '539 Roth Place', '(673) 7938134');
