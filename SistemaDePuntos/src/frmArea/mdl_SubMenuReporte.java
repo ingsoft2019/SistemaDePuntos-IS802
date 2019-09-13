@@ -48,9 +48,11 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         jpanel_reporte = new javax.swing.JPanel();
         btn_cliente = new javax.swing.JButton();
         brn_puntos = new javax.swing.JButton();
-        btn_graficas = new javax.swing.JButton();
         jl_TituloPrincipal = new javax.swing.JLabel();
         brn_rangoDeEdad = new javax.swing.JButton();
+        btn_graficas1 = new javax.swing.JButton();
+        btn_report2 = new javax.swing.JButton();
+        btn_report3 = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(577, 357));
         setMinimumSize(new java.awt.Dimension(577, 357));
@@ -85,30 +87,50 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         jpanel_reporte.add(brn_puntos);
         brn_puntos.setBounds(40, 120, 160, 60);
 
-        btn_graficas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/grafica.png"))); // NOI18N
-        btn_graficas.setText("Graficas");
-        btn_graficas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_graficasActionPerformed(evt);
-            }
-        });
-        jpanel_reporte.add(btn_graficas);
-        btn_graficas.setBounds(220, 270, 160, 60);
-
         jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jl_TituloPrincipal.setText("Menú de Reportes");
         jpanel_reporte.add(jl_TituloPrincipal);
         jl_TituloPrincipal.setBounds(180, 50, 230, 30);
 
-        brn_rangoDeEdad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/estadistica puntos.png"))); // NOI18N
-        brn_rangoDeEdad.setText("Rango de Edad");
+        brn_rangoDeEdad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/rango_Edad.png"))); // NOI18N
+        brn_rangoDeEdad.setText("Edad");
         brn_rangoDeEdad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 brn_rangoDeEdadActionPerformed(evt);
             }
         });
         jpanel_reporte.add(brn_rangoDeEdad);
-        brn_rangoDeEdad.setBounds(220, 200, 160, 60);
+        brn_rangoDeEdad.setBounds(400, 120, 160, 60);
+
+        btn_graficas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/grafica.png"))); // NOI18N
+        btn_graficas1.setText("Graficas");
+        btn_graficas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_graficas1ActionPerformed(evt);
+            }
+        });
+        jpanel_reporte.add(btn_graficas1);
+        btn_graficas1.setBounds(400, 200, 160, 60);
+
+        btn_report2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/zona.png"))); // NOI18N
+        btn_report2.setText("Zona");
+        btn_report2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_report2ActionPerformed(evt);
+            }
+        });
+        jpanel_reporte.add(btn_report2);
+        btn_report2.setBounds(220, 200, 160, 60);
+
+        btn_report3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/rango_tipo_Edad.png"))); // NOI18N
+        btn_report3.setText("Rango por Edad");
+        btn_report3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_report3ActionPerformed(evt);
+            }
+        });
+        jpanel_reporte.add(btn_report3);
+        btn_report3.setBounds(40, 200, 160, 60);
 
         add(jpanel_reporte);
         jpanel_reporte.setBounds(0, 0, 580, 360);
@@ -191,14 +213,27 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
     }//GEN-LAST:event_brn_puntosActionPerformed
 
     private void brn_rangoDeEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brn_rangoDeEdadActionPerformed
-        frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
-        mdl_rangoEdad ver=new mdl_rangoEdad(frmMenuPrincipal,true);
-        ver.setVisible(true); // visible ventana del objeto
+/*        frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
+        mdl_consultar_por_rango_de_edad ver=new mdl_consultar_por_rango_de_edad(frmMenuPrincipal,true);
+        ver.setVisible(true); // visible ventana del objeto*/
     }//GEN-LAST:event_brn_rangoDeEdadActionPerformed
 
-    private void btn_graficasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_graficasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_graficasActionPerformed
+    private void btn_graficas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_graficas1ActionPerformed
+         
+    }//GEN-LAST:event_btn_graficas1ActionPerformed
+
+    private void btn_report2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_report2ActionPerformed
+        frmMenuPrincipal frmMenuPrincipal=new frmMenuPrincipal();
+        mdl_reporte_zona_por_puntaje ver=new mdl_reporte_zona_por_puntaje(frmMenuPrincipal,true);
+        ver.setVisible(true); // visible ventana del objeto
+    }//GEN-LAST:event_btn_report2ActionPerformed
+
+    private void btn_report3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_report3ActionPerformed
+         frmMenuPrincipal frmMenuPrincipal=new frmMenuPrincipal();
+        mdl_consultar_por_rango_de_edad ver=new mdl_consultar_por_rango_de_edad(frmMenuPrincipal,true);
+            ver.setVisible(true); // visible ventana del objeto
+            
+    }//GEN-LAST:event_btn_report3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,7 +257,9 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
     private javax.swing.JButton brn_puntos;
     private javax.swing.JButton brn_rangoDeEdad;
     private javax.swing.JButton btn_cliente;
-    private javax.swing.JButton btn_graficas;
+    private javax.swing.JButton btn_graficas1;
+    private javax.swing.JButton btn_report2;
+    private javax.swing.JButton btn_report3;
     private javax.swing.JLabel jl_TituloPrincipal;
     private javax.swing.JPanel jpanel_reporte;
     // End of variables declaration//GEN-END:variables
