@@ -31,6 +31,11 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
     public mdl_ConsultarCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        /*Las siguientes tres lineas de codigo ocultan un campo de la tabla de busqueda de clientes*/
+        jTable1.getColumnModel().getColumn(4).setMaxWidth(0);
+        jTable1.getColumnModel().getColumn(4).setMinWidth(0);
+        jTable1.getColumnModel().getColumn(4).setPreferredWidth(0);
+
         jTextField1.requestFocus();
         valido.ValidarBusqueda(jTextField1);
         this.setLocationRelativeTo(null);
@@ -103,13 +108,13 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nombre Cliente", "ID", "Telefono", "Puntos"
+                "Nombre Cliente", "Identidad", "Telefono", "Puntos", "id_persona"
             }
         ));
         jTable1.setMaximumSize(new java.awt.Dimension(300, 64));
@@ -158,7 +163,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             }
         });
         jPanel1.add(jCheckBoxBuscarInactivos);
-        jCheckBoxBuscarInactivos.setBounds(610, 9, 130, 24);
+        jCheckBoxBuscarInactivos.setBounds(610, 9, 130, 23);
 
         add(jPanel1);
         jPanel1.setBounds(0, 30, 750, 490);
@@ -170,11 +175,12 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
         DefaultTableModel modelo = (DefaultTableModel) getjTable1().getModel();
         modelo.setRowCount(0);
         setResultado(Conexion.Conexion.consulta("select concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
-                + "Persona.sapellido) NombreCLiente, Persona.identidad, Persona.telefono1, \n"
-                + "Cliente.puntos_actuales from Persona inner join cliente on \n"
+                + "Persona.sapellido) NombreCLiente, Persona.identidad, Persona.telefono1,\n"
+                + "Cliente.puntos_actuales, Persona.id_persona from Persona inner join cliente on \n"
                 + "Cliente.id_persona = Persona.id_persona\n"
                 + "where (concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
-                + "Persona.sapellido) like '%" + getjTextField1().getText() + "%' or Persona.identidad like '%" + getjTextField1().getText() + "%' \n" + "or Persona.telefono1 like '%" + getjTextField1().getText() + "%') and Cliente.estado = 'a';"));
+                + "Persona.sapellido) like '%" + getjTextField1().getText() + "%' or Persona.identidad like '%" + getjTextField1().getText()
+                + "%' \n" + "or Persona.telefono1 like '%" + getjTextField1().getText() + "%') and Cliente.estado = 'a';"));
         try {
             while (getResultado().next()) {
                 Vector v = new Vector();
@@ -182,6 +188,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
                 v.add(getResultado().getString(2));
                 v.add(getResultado().getString(3));
                 v.add(getResultado().getInt(4));
+                v.add(getResultado().getInt(5));
                 modelo.addRow(v);
                 getjTable1().setModel(modelo);
             }
@@ -195,7 +202,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
         modelo.setRowCount(0);
         setResultado(Conexion.Conexion.consulta("select concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
                 + "Persona.sapellido) NombreCLiente, Persona.identidad, Persona.telefono1, \n"
-                + "Cliente.puntos_actuales from Persona inner join cliente on \n"
+                + "Cliente.puntos_actuales, Persona.id_persona from Persona inner join cliente on \n"
                 + "Cliente.id_persona = Persona.id_persona\n"
                 + "where (concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
                 + "Persona.sapellido) like '%" + getjTextField1().getText() + "%' or Persona.identidad like '%" + getjTextField1().getText() + "%' \n" + "or Persona.telefono1 like '%" + getjTextField1().getText() + "%') and Cliente.estado = 'i';"));
@@ -206,6 +213,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
                 v.add(getResultado().getString(2));
                 v.add(getResultado().getString(3));
                 v.add(getResultado().getInt(4));
+                v.add(getResultado().getInt(5));
                 modelo.addRow(v);
                 getjTable1().setModel(modelo);
             }
@@ -223,6 +231,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
     }//GEN-LAST:event_closeDialog
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+
         if (getjTextField1().getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Campo de busqueda vacio");
         } else {
@@ -269,38 +278,41 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
     }//GEN-LAST:event_btn_agregarClienteActionPerformed
 
     private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
-
-        try {
-            int row = getjTable1().getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
-            String identidad = (String) getjTable1().getValueAt(row, 1); //OBTENGO EL VALOR DEL NUMERO DE IDENTIDAD
-
-            //Consulto todos los datos relacioados con el ID
-            ResultSet res = consulta("Select * from Persona inner join Cliente on Persona.id_persona = Cliente.id_persona\n"
-                    + "inner join zona on Persona.id_zona = Zona.id_zona where Persona.identidad = '" + identidad + "';");
-            //Hago visible el formulario
-            frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
-            mdl_SubMenuCliente subMenuCli = new mdl_SubMenuCliente(frmMenuPrincipal, true);
-
+        if ("".equals(jTextField1.getText())) {
+            JOptionPane.showMessageDialog(null, "Debe buscar un registro");
+        } else {
             try {
-                while (res.next()) {
-                    //Llamo al metodo para llenar los campos con los datos a editar
-                    subMenuCli.llenarCampos(res.getString("pnombre"), res.getString("snombre"), res.getString("papellido"),
-                            res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"), res.getString("telefono1"),
-                            res.getString("telefono2"), res.getString("telefono3"), res.getString("correo"),
-                            res.getDate("fecha_nacimiento"), res.getString("detalle_direccion"),
-                            res.getString("puntos_actuales"), res.getString("puntos_rifa_actuales"),
-                            res.getString("fecha_vencimiento_puntos"), res.getString("id_persona"), res.getString("estado"));
+                int row = getjTable1().getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
+                int id_persona = (int) getjTable1().getValueAt(row, 4); //OBTENGO EL VALOR DEL ID PERSONA
+                System.out.println("ID PERSONA" + id_persona);
+                //Consulto todos los datos relacioados con el ID
+                ResultSet res = consulta("Select * from Persona inner join Cliente on Persona.id_persona = Cliente.id_persona\n"
+                        + "inner join zona on Persona.id_zona = Zona.id_zona where Persona.id_persona = '" + id_persona + "';");
+                //Hago visible el formulario
+                frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
+                mdl_SubMenuCliente subMenuCli = new mdl_SubMenuCliente(frmMenuPrincipal, true);
 
-                    subMenuCli.cargarZonas(res.getString("zona"));
-                    subMenuCli.setVisible(true); // visible ventana del objeto
+                try {
+                    while (res.next()) {
+                        //Llamo al metodo para llenar los campos con los datos a editar
+                        subMenuCli.llenarCampos(res.getString("pnombre"), res.getString("snombre"), res.getString("papellido"),
+                                res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"), res.getString("telefono1"),
+                                res.getString("telefono2"), res.getString("telefono3"), res.getString("correo"),
+                                res.getDate("fecha_nacimiento"), res.getString("detalle_direccion"),
+                                res.getString("puntos_actuales"), res.getString("puntos_rifa_actuales"),
+                                res.getString("fecha_vencimiento_puntos"), res.getString("id_persona"), res.getString("estado"));
 
+                        subMenuCli.cargarZonas(res.getString("zona"));
+                        subMenuCli.setVisible(true); // visible ventana del objeto
+
+                    }
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(mdl_ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
-            } catch (SQLException ex) {
-                Logger.getLogger(mdl_ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Busque y seleccione un registro");
             }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Busque y seleccione un registro");
         }
     }//GEN-LAST:event_btn_clientesActionPerformed
 
@@ -311,31 +323,30 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
 
             ResultSet res = consulta("select * from Persona p\n"
                     + "inner join Cliente c ON c.id_Persona = p.id_Persona "
-                    + "where p.identidad = '"+identidad+"';");
-            
+                    + "where p.identidad = '" + identidad + "';");
+
             frmMenuPrincipal menuprin = new frmMenuPrincipal();
             mdl_AsignacionPuntos asigpuntos = new mdl_AsignacionPuntos(menuprin, true);
-            
-            try{
-                while(res.next()){
-                    String nombre = res.getString("pnombre")+" " + res.getString("snombre")+" " + res.getString("papellido")+" " + res.getString("sapellido");
+
+            try {
+                while (res.next()) {
+                    String nombre = res.getString("pnombre") + " " + res.getString("snombre") + " " + res.getString("papellido") + " " + res.getString("sapellido");
                     asigpuntos.recibirIdCliente(res.getInt("id_Cliente"));
                     asigpuntos.recibirCliente(nombre);
                     asigpuntos.setVisible(true);
-                    
+
                 }
-                
-            }catch(SQLException e){
-                
+
+            } catch (SQLException e) {
+
             }
-        }catch(Exception e){
-            
+        } catch (Exception e) {
+
         }
-        
-        
+
         /*frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
         mdl_AsignacionPuntos asiganr = new mdl_AsignacionPuntos(frmMenuPrincipal, true);
-        asiganr.setVisible(true); // visible ventana del objeto */ 
+        asiganr.setVisible(true); // visible ventana del objeto */
     }//GEN-LAST:event_AsignarPuntosActionPerformed
 
     private void CanjearPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CanjearPuntosActionPerformed
@@ -345,38 +356,38 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
 
             ResultSet res = consulta("select * from Persona p\n"
                     + "inner join Cliente c ON c.id_Persona = p.id_Persona "
-                    + "where p.identidad = '"+identidad+"';");
-            
+                    + "where p.identidad = '" + identidad + "';");
+
             frmMenuPrincipal menuprin = new frmMenuPrincipal();
             mdl_CanjeoPuntos canjeopuntos = new mdl_CanjeoPuntos(menuprin, true);
-            
-            try{
-                while(res.next()){
-                    canjeopuntos.recibirNombre(res.getString("pnombre"),res.getString("snombre"),res.getString("papellido"),res.getString("sapellido"));
+
+            try {
+                while (res.next()) {
+                    canjeopuntos.recibirNombre(res.getString("pnombre"), res.getString("snombre"), res.getString("papellido"), res.getString("sapellido"));
                     canjeopuntos.recibirId(res.getInt("id_Cliente"));
                     canjeopuntos.setVisible(true);
                 }
-                
-            }catch(SQLException e){
-                
+
+            } catch (SQLException e) {
+
             }
-        }catch(Exception e){
-            
+        } catch (Exception e) {
+
         }
 
         /*frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
         mdl_CanjeoPuntos canjear = new mdl_CanjeoPuntos(frmMenuPrincipal, true);
-        canjear.setVisible(true); // visible ventana del objeto*/       
+        canjear.setVisible(true); // visible ventana del objeto*/
     }//GEN-LAST:event_CanjearPuntosActionPerformed
 
     private void jCheckBoxBuscarInactivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxBuscarInactivosActionPerformed
-        if(jCheckBoxBuscarInactivos.isSelected()){
+        if (jCheckBoxBuscarInactivos.isSelected()) {
             CanjearPuntos.setEnabled(false);
             AsignarPuntos.setEnabled(false);
-        }else{
+        } else {
             CanjearPuntos.setEnabled(true);
             AsignarPuntos.setEnabled(true);
-            
+
         }
     }//GEN-LAST:event_jCheckBoxBuscarInactivosActionPerformed
 
