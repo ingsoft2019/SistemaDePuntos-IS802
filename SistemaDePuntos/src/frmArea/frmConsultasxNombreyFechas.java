@@ -183,7 +183,7 @@ public class frmConsultasxNombreyFechas extends javax.swing.JFrame {
             try {
                 resultado1 = Conexion.Conexion.consulta("SELECT count( PRC.id_cliente)\n" +
 "FROM [PR].[dbo].[Cliente] PRC  inner join [FA].[dbo].[CLI_CLI] FAC on FAC.[id] = PRC.id_cliente \n" +
-"where FAC.nombre LIKE ('%"+txtnombreCliente.getText()+"%')  and PRC.estado ='A' and PRC.fecha_registro = '"+txtfecha.getText()+"'; ");
+"where FAC.nombre LIKE ('%"+txtnombreCliente.getText()+"%')  and PRC.estado ='A' or PRC.fecha_registro LIKE '%"+txtfecha.getText()+"%'; ");
                     try {
                     while (resultado1.next()) {
                         contador1 = resultado1.getInt(1);
@@ -248,11 +248,16 @@ public class frmConsultasxNombreyFechas extends javax.swing.JFrame {
         });
     }
     public void buscarCliente() throws SQLException {
+        String Nombre1;
+        String Nombre2;
+        String Apellido1;
+        String Apellido2;
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
-        resultado = Conexion.Conexion.consulta("SELECT  PRC.fecha_registro,PRC.puntos_actuales, FAC.nombre , FAC.sexo \n" +
-"FROM [PR].[dbo].[Cliente] PRC  inner join [FA].[dbo].[CLI_CLI] FAC on FAC.[id] = PRC.id_cliente \n" +
-"where FAC.nombre LIKE ('%"+txtnombreCliente.getText()+"%')  and PRC.estado ='A' and PRC.fecha_registro = '"+txtfecha.getText()+"'; ");
+        resultado = Conexion.Conexion.consulta("   SELECT PRC.id_cliente, PRC.fecha_registro,PRC.puntos_actuales, concat(FAC.pnombre,' ',FAC.snombre,' ',FAC.papellido,' ', FAC.sapellido ) as nombrecompleto , FAC.sexo \n" +
+"FROM [PR].[dbo].[Cliente] PRC  inner join [PR].[dbo].Persona FAC on FAC.id_persona = PRC.id_persona\n" +
+"where PRC.estado ='A'  \n" +
+" and (concat(FAC.pnombre,' ',FAC.snombre,' ',FAC.papellido,' ', FAC.sapellido )  LIKE '%"+txtnombreCliente.getText()+"%' ) or PRC.fecha_registro LIKE '%"+txtfecha.getText()+"%'; ");
         try {
             while (resultado.next()) {
                 Vector v = new Vector();

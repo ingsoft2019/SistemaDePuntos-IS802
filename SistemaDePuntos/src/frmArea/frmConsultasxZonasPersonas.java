@@ -89,7 +89,7 @@ public class frmConsultasxZonasPersonas extends javax.swing.JFrame {
 
         jLabel3.setText("Seleccione la Zona :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Zona1", "Zona 2", "Zona 3", "Zona 3" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Zona 1", "Zona 2", "Zona 3", "Zona 4", "Zona 5", "Zona 6" }));
 
         btnGenerarConsulta.setText("Generar Consulta");
         btnGenerarConsulta.addActionListener(new java.awt.event.ActionListener() {
