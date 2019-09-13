@@ -5,7 +5,11 @@
  */
 package frmArea;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -108,9 +112,19 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
     }//GEN-LAST:event_btn_realizarRifaActionPerformed
 
     private void btn_reinicioPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reinicioPuntosActionPerformed
-        frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
+        /*frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
         mdl_ReinicioPuntos  ver=new mdl_ReinicioPuntos(frmMenuPrincipal,true);
-        ver.setVisible(true); // visible ventana del objeto
+        ver.setVisible(true); // visible ventana del objeto*/
+        int codigo=JOptionPane.showConfirmDialog(null, "¿Estas seguro de reiniciar los puntos rifa?", "Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+        if (codigo==JOptionPane.YES_OPTION){
+            try {
+                Procedimientos.ProcedimientoReinicioPuntos.reinicioPuntos();
+            } catch (SQLException ex) {
+                Logger.getLogger(mdl_MenuConfiguracion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_btn_reinicioPuntosActionPerformed
 
     private void btn_PorcentajePuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PorcentajePuntosActionPerformed

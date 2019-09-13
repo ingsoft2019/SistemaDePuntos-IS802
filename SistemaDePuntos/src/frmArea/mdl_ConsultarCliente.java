@@ -284,7 +284,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             try {
                 int row = getjTable1().getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
                 int id_persona = (int) getjTable1().getValueAt(row, 4); //OBTENGO EL VALOR DEL ID PERSONA
-                System.out.println("ID PERSONA" + id_persona);
+                
                 //Consulto todos los datos relacioados con el ID
                 ResultSet res = consulta("Select * from Persona inner join Cliente on Persona.id_persona = Cliente.id_persona\n"
                         + "inner join zona on Persona.id_zona = Zona.id_zona where Persona.id_persona = '" + id_persona + "';");
@@ -319,11 +319,11 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
     private void AsignarPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsignarPuntosActionPerformed
         try {
             int row = getjTable1().getSelectedRow();
-            String identidad = (String) getjTable1().getValueAt(row, 1);
+            int id_persona = (int) getjTable1().getValueAt(row, 4);
 
             ResultSet res = consulta("select * from Persona p\n"
                     + "inner join Cliente c ON c.id_Persona = p.id_Persona "
-                    + "where p.identidad = '" + identidad + "';");
+                    + "where p.id_persona = '" + id_persona + "';");
 
             frmMenuPrincipal menuprin = new frmMenuPrincipal();
             mdl_AsignacionPuntos asigpuntos = new mdl_AsignacionPuntos(menuprin, true);
@@ -352,11 +352,11 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
     private void CanjearPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CanjearPuntosActionPerformed
         try {
             int row = getjTable1().getSelectedRow();
-            String identidad = (String) getjTable1().getValueAt(row, 1);
+            int id_persona = (int)getjTable1().getValueAt(row, 4);
 
             ResultSet res = consulta("select * from Persona p\n"
                     + "inner join Cliente c ON c.id_Persona = p.id_Persona "
-                    + "where p.identidad = '" + identidad + "';");
+                    + "where p.id_persona = '" + id_persona + "';");
 
             frmMenuPrincipal menuprin = new frmMenuPrincipal();
             mdl_CanjeoPuntos canjeopuntos = new mdl_CanjeoPuntos(menuprin, true);
