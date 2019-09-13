@@ -102,8 +102,9 @@ public class Validar {
     }
     
     public void validarEspacios(JTextField campo){
-       JOptionPane.showMessageDialog(null, "No se permite espacios en blanco", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+       //JOptionPane.showMessageDialog(null, "No se permite espacios en blanco", "Informacion", JOptionPane.INFORMATION_MESSAGE);
         campo.setText(campo.getText().trim());
+        campo.requestFocus();
     }
     
 

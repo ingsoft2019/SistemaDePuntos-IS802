@@ -230,6 +230,11 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         jP1_DatosCliente.add(PrimerNombre);
         PrimerNombre.setBounds(10, 30, 110, 20);
 
+        txt_correoElectronico.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_correoElectronicoFocusLost(evt);
+            }
+        });
         txt_correoElectronico.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_correoElectronicoKeyPressed(evt);
@@ -536,21 +541,8 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
 
     private void txt_correoElectronicoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_correoElectronicoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            if (!txt_correoElectronico.getText().equals("")) {
-                Pattern pattern = Pattern
-                        .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-
-                Matcher mather = pattern.matcher((CharSequence) txt_correoElectronico.getText());
-                if (mather.find() == false) {
-                    JOptionPane.showMessageDialog(null, "Correo invalido");
-                } else {
-                    RB_masculino.requestFocus();
-                }
-            } else {
-                RB_masculino.requestFocus();
-            }
-        } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
+            RB_masculino.requestFocus();
+        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
             v.validarEspacios(txt_correoElectronico);
         }
     }//GEN-LAST:event_txt_correoElectronicoKeyPressed
@@ -711,7 +703,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
 
     private void RB_masculinoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RB_masculinoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-                jDC_fechaNacimiento.requestFocus();
+            jDC_fechaNacimiento.requestFocus();
         }
     }//GEN-LAST:event_RB_masculinoKeyPressed
 
@@ -721,7 +713,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
 
     private void RB_femeninoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RB_femeninoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-                jDC_fechaNacimiento.requestFocus();
+            jDC_fechaNacimiento.requestFocus();
         }
     }//GEN-LAST:event_RB_femeninoKeyPressed
 
@@ -734,6 +726,20 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
     private void jC_zonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jC_zonaMouseClicked
         actualizarZonas();
     }//GEN-LAST:event_jC_zonaMouseClicked
+
+    private void txt_correoElectronicoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_correoElectronicoFocusLost
+        if (!txt_correoElectronico.getText().equals("")) {
+            boolean valido = v.validarCorreo(txt_correoElectronico);
+            if (!valido) {
+                JOptionPane.showMessageDialog(null, "Correo invalido");
+                txt_correoElectronico.requestFocus();
+            } else {
+                RB_masculino.requestFocus();
+            }
+        } else {
+            RB_masculino.requestFocus();
+        }
+    }//GEN-LAST:event_txt_correoElectronicoFocusLost
 
     //Metodo para llenar el combobox zonas
     public void cargarZonas() {
