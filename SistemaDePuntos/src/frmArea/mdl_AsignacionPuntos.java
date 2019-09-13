@@ -29,7 +29,7 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
         this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
-        
+        txtNombreCliente.setEditable(false);
     }
     
     public void recibirIdCliente(int idCliente){
@@ -78,7 +78,7 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
         lblIdFactura.setText("Id Facura:");
         lblIdFactura.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(lblIdFactura);
-        lblIdFactura.setBounds(20, 100, 120, 30);
+        lblIdFactura.setBounds(60, 140, 80, 30);
 
         txtIdFactura.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -86,22 +86,21 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
             }
         });
         jPanel2.add(txtIdFactura);
-        txtIdFactura.setBounds(140, 100, 320, 30);
+        txtIdFactura.setBounds(140, 140, 320, 30);
 
-        txtNombreCliente.setEnabled(false);
         txtNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreClienteKeyTyped(evt);
             }
         });
         jPanel2.add(txtNombreCliente);
-        txtNombreCliente.setBounds(140, 150, 320, 30);
+        txtNombreCliente.setBounds(140, 100, 320, 30);
 
         lblNombreCliente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblNombreCliente.setText("ID del Cliente:");
+        lblNombreCliente.setText("Cliente:");
         lblNombreCliente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(lblNombreCliente);
-        lblNombreCliente.setBounds(20, 150, 120, 30);
+        lblNombreCliente.setBounds(70, 100, 70, 30);
 
         btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
         btn_asignar.setText("Asignar");
