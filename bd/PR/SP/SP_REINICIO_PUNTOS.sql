@@ -1,5 +1,5 @@
 CREATE PROCEDURE SP_REINICIO_PUNTOS(
-    @pc_mensaje VARCHAR(2000)
+    @pc_mensaje VARCHAR(2000) OUTPUT
 )
 AS
 begin
