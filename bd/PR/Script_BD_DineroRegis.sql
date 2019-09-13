@@ -12,6 +12,7 @@ USE PR;
 CREATE TABLE Zona (
   id_zona INT NOT NULL IDENTITY(1,1),
   zona NVARCHAR(50) NOT NULL,
+  estado NOT NULL VARCHAR(1),
   PRIMARY KEY (id_zona)
   );
 
