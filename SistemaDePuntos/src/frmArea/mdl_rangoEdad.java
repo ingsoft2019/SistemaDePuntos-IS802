@@ -183,9 +183,16 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Error" + e.getMessage(),
                     "Error de conexion", JOptionPane.ERROR_MESSAGE);
         }
+        int edadInicial = Integer.parseInt(getTxtEdadInicial().getText());
+        int edadFinal = Integer.parseInt(getTxtEdadFinal().getText());
+        
+        //JOptionPane.showMessageDialog(null, edadInicial +" de " +edadFinal);
+        
+        parametros.put("EdadInicial", edadInicial);
+        parametros.put("EdadFinal", edadFinal);
+        
         
         URL archivo = this.getClass().getResource("/reportes/report_cliente_x_rango_edad.jasper");
-
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(archivo);
             JasperPrint jp = JasperFillManager.fillReport(jr,null, Conexion.getConexion());
@@ -198,7 +205,7 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
             getClass().getResource("../imgSP/icono.png")));
             dialog.setVisible(true);
         } catch (JRException ex) {
-            Logger.getLogger(mdl_SubMenuReporte.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(mdl_rangoEdad.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex);
         }
         

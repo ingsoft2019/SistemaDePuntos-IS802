@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 
 
 public class mdl_CanjeoPuntos extends java.awt.Dialog {
-    
+    private int id;
     
     /**
      * Creates new form mdl_CanjeoPuntos
@@ -32,8 +32,11 @@ public class mdl_CanjeoPuntos extends java.awt.Dialog {
         
     }
     
-    public void campoCanjeoPuntos(String pnombre, String snombre, String papellido, String sapellido){
+    public void recibirNombre(String pnombre, String snombre, String papellido, String sapellido){
         this.gettxtnombrecliente().setText(pnombre+' '+snombre+' '+papellido+' '+sapellido);
+    }
+    public void recibirId(int idCliente){
+        this.id= idCliente;
     }
 
     /**
@@ -139,7 +142,7 @@ public class mdl_CanjeoPuntos extends java.awt.Dialog {
         else {try {
             int codigo=JOptionPane.showConfirmDialog(null, "¿Estas seguro de canjear los puntos?", "Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
             if (codigo==JOptionPane.YES_OPTION){
-                Procedimientos.ProcedimientoCanjeoPuntos.guardarMovimiento(Integer.parseInt( txtNombreCliente.getText()), "ADMIN", Integer.parseInt(txtPuntosCanjear.getText()) );
+                Procedimientos.ProcedimientoCanjeoPuntos.guardarMovimiento(this.id, "ADMIN", Integer.parseInt(txtPuntosCanjear.getText()) );
             }
         } catch (SQLException ex) {
             Logger.getLogger(mdl_CanjeoPuntos.class.getName()).log(Level.SEVERE, null, ex);
@@ -196,6 +199,20 @@ public class mdl_CanjeoPuntos extends java.awt.Dialog {
     // End of variables declaration//GEN-END:variables
     public javax.swing.JTextField gettxtnombrecliente(){
         return txtNombreCliente;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
 }
