@@ -209,7 +209,7 @@ BEGIN
 
 		--Insertar puntos en la tabla rifa
 		INSERT INTO Rifa (cantidad_puntos, estado, id_movimiento)
-		VALUES (FLOOR(@vn_puntos_asignados), 'A', @vn_id_movimiento);
+		VALUES (FLOOR(@vn_puntos_asignados), 'S', @vn_id_movimiento);
 
 		--actualizacion de los puntos actuales y la fecha de vencimiento de puntos.
 		UPDATE [dbo].[Cliente]
