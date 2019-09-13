@@ -53,17 +53,5 @@ BEGIN
 	SELECT TOP 1 @vn_id_cliente = id_cliente, @vc_ganador = nombre FROM (SELECT * FROM @tbl_sorteo) t1
 	ORDER BY NEWID()
 
-	BEGIN TRANSACTION 
-		--Cambiar el estado de las rifas que se utilizaron para el sorteo
-		UPDATE Rifa 
-		SET estado = 'R'
-		WHERE estado <> 'R'
-
-		--Resetear puntos rifa a todos los clientes
-		UPDATE Cliente
-		SET puntos_rifa_actuales = 0
-		WHERE puntos_rifa_actuales <> 0
-	COMMIT TRANSACTION
-
 	SET @pc_ganador = ('El ganador es: ' + @vc_ganador)
 END;
