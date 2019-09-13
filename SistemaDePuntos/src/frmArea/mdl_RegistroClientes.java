@@ -353,6 +353,11 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
 
         jC_zona.setMinimumSize(new java.awt.Dimension(28, 24));
         jC_zona.setPreferredSize(new java.awt.Dimension(28, 24));
+        jC_zona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jC_zonaMouseClicked(evt);
+            }
+        });
         jC_zona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jC_zonaActionPerformed(evt);
@@ -726,6 +731,10 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         }
     }//GEN-LAST:event_descripcionKeyPressed
 
+    private void jC_zonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jC_zonaMouseClicked
+        actualizarZonas();
+    }//GEN-LAST:event_jC_zonaMouseClicked
+
     //Metodo para llenar el combobox zonas
     public void cargarZonas() {
         ResultSet zonas = Zona.mostrarZonas();
@@ -743,14 +752,13 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
 
     }
 
-    public void actulizarZonas() {
+    public void actualizarZonas() {
         ResultSet zonas = Zona.mostrarZonas();
         System.out.println();
 
         //LLenamos nuestro ComboBox
         jC_zona.removeAllItems();
-        jC_zona.addItem("--OAPCO--");
-
+        jC_zona.addItem("--Seleccione zona--");
         try {
             while (zonas.next()) {
                 jC_zona.addItem(zonas.getString("zona"));
