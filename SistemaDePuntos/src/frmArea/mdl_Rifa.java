@@ -106,7 +106,7 @@ String mensaje = "";
                 lblGanador.setText(cadena);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(frmRifa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(mdl_Rifa.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnRealizarSorteoActionPerformed
 

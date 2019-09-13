@@ -10,13 +10,13 @@ import java.sql.Statement;
 
 public class Conexion {
     static Connection contacto = null;
-    static String user = "sa"/*"sa1"*/;
+    static String user = "sa1"/*"sa1"*/;
     static String pass = "123";
     static String db = "PR";
     
     public static Connection getConexion(){
-        String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=PR";
-        //String url = "jdbc:sqlserver://localhost:1433;databaseName="+db;
+       // String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=PR";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName="+db;
         
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

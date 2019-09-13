@@ -103,11 +103,11 @@ public class mdl_NuevaZona extends java.awt.Dialog {
     }//GEN-LAST:event_btn_guardarZonaMouseClicked
 
     private void btn_guardarZonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarZonaActionPerformed
-        if (txt_nuevaZona.getText().isEmpty()) {
+        if (getTxt_nuevaZona().getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "El campo está vacio", "Informacion", JOptionPane.INFORMATION_MESSAGE);
         } else {
             try { //Esta consulta es para validar que no se inserte un registro duplicado
-                res = Conexion.Conexion.consulta("SELECT COUNT(zona) from Zona WHERE zona='" + txt_nuevaZona.getText() + "'");
+                res = Conexion.Conexion.consulta("SELECT COUNT(zona) from Zona WHERE zona='" + getTxt_nuevaZona().getText() + "'");
                 try {
                     while (res.next()) {
                         cont = res.getInt(1);
@@ -118,11 +118,12 @@ public class mdl_NuevaZona extends java.awt.Dialog {
                     JOptionPane.showMessageDialog(this, "Esta zona ya existe", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 
                 } else {
-                    Procedimientos.ProcedimientosCliente.guardarZona(txt_nuevaZona.getText());
-                    new frmRegistroClientes().actulizarZonas();
-                    //                    JOptionPane.showMessageDialog(this, "Zona agregada");
-
-                    dispose();//Para cerrar el formulario al agregar la zona
+                    Procedimientos.ProcedimientosCliente.guardarZona(getTxt_nuevaZona().getText());
+              /*     mdl_RegistroClientes mdl_RegistroCliente = null;
+                     mdl_RegistroCliente.actulizarZonas();*/
+                    JOptionPane.showMessageDialog(this, "Zona agregada");
+                    txt_nuevaZona.setText("");
+                  //  dispose();//Para cerrar el formulario al agregar la zona
                 }
             } catch (SQLException e) {
             }
@@ -153,4 +154,18 @@ public class mdl_NuevaZona extends java.awt.Dialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txt_nuevaZona;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the txt_nuevaZona
+     */
+    public javax.swing.JTextField getTxt_nuevaZona() {
+        return txt_nuevaZona;
+    }
+
+    /**
+     * @param txt_nuevaZona the txt_nuevaZona to set
+     */
+    public void setTxt_nuevaZona(javax.swing.JTextField txt_nuevaZona) {
+        this.txt_nuevaZona = txt_nuevaZona;
+    }
 }

@@ -142,7 +142,7 @@ public class mdl_CanjeoPuntos extends java.awt.Dialog {
                 Procedimientos.ProcedimientoCanjeoPuntos.guardarMovimiento(Integer.parseInt( txtNombreCliente.getText()), "ADMIN", Integer.parseInt(txtPuntosCanjear.getText()) );
             }
         } catch (SQLException ex) {
-            Logger.getLogger(frmCanjeoPuntos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(mdl_CanjeoPuntos.class.getName()).log(Level.SEVERE, null, ex);
         }
         //
 

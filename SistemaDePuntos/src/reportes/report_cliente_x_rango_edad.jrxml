@@ -40,7 +40,7 @@ WHERE $P{EdadIncial} <= DATEDIFF(YEAR,  p.fecha_nacimiento, GETDATE()) AND $P{Ed
 	<title>
 		<band height="70" splitType="Stretch">
 			<image>
-				<reportElement uuid="468ba1ce-e046-486c-a088-1afaca185aae" x="275" y="0" width="300" height="64"/>
+				<reportElement uuid="468ba1ce-e046-486c-a088-1afaca185aae" x="263" y="0" width="292" height="68"/>
 				<imageExpression><![CDATA[this.getClass().getResource("/reportes/logo.png")]]></imageExpression>
 			</image>
 			<staticText>

@@ -15,7 +15,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Clases.Validar;
 import static Conexion.Conexion.consulta;
-import static frmArea.frmConsultarCliente.resultado;
 import javax.swing.JTextField;
 
 public class mdl_ConsultarCliente extends java.awt.Dialog {
@@ -159,7 +158,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             }
         });
         jPanel1.add(jCheckBoxBuscarInactivos);
-        jCheckBoxBuscarInactivos.setBounds(610, 9, 130, 23);
+        jCheckBoxBuscarInactivos.setBounds(610, 9, 130, 24);
 
         add(jPanel1);
         jPanel1.setBounds(0, 30, 750, 490);

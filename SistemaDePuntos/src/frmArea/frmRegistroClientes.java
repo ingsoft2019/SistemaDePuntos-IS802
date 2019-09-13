@@ -621,9 +621,9 @@ public class frmRegistroClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_RB_masculinoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        frmNuevaZona NZ = new frmNuevaZona();
+/*        frmNuevaZona NZ = new frmNuevaZona();
         NZ.setVisible(true);
-
+*/
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

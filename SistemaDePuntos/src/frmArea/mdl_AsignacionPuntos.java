@@ -141,7 +141,7 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
                 Procedimientos.ProcedimientoAsignacionPuntos.guardarMovimiento(Integer.parseInt(getTxtNombreCliente().getText()), "ADMIN", Integer.parseInt(getTxtIdFactura().getText()) );
             }
         } catch (SQLException ex) {
-            Logger.getLogger(frmAsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(mdl_AsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
         }   catch (FileNotFoundException ex) {
                 Logger.getLogger(mdl_AsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);
             } catch (DocumentException ex) {
