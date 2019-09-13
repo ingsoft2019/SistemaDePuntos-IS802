@@ -179,7 +179,7 @@ public class mdl_ConfiguracionPorcentajePuntos extends java.awt.Dialog {
                 txtFechaConfiguracion.setText(porcentaje.getString("fecha_configuracion"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(frmConfiguracionPorcentajePuntos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(mdl_ConfiguracionPorcentajePuntos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -266,7 +266,7 @@ public class mdl_ConfiguracionPorcentajePuntos extends java.awt.Dialog {
                 Procedimientos.ProcedimientoEditarConfiguracion.editarConfiguracion(porcentaje/100, Integer.parseInt(getTxtDuracionPuntos().getText()));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(frmConfiguracionPorcentajePuntos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(mdl_ConfiguracionPorcentajePuntos.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
     }//GEN-LAST:event_btnGuardarActionPerformed

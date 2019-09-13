@@ -2,6 +2,7 @@ package frmArea;
 
 import Conexion.Conexion;
 import java.awt.Toolkit;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -165,30 +166,34 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
     }//GEN-LAST:event_txtEdadFinalKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     
+        Conexion con= new Conexion();
+
+        
         int edadInicial = Integer.parseInt(getTxtEdadInicial().getText());
         int edadFinal = Integer.parseInt(getTxtEdadFinal().getText());
         
-        JOptionPane.showMessageDialog(null, edadInicial +" " +edadFinal);
-        
-        Conexion con= new Conexion();
-        
-        Map parametros = new HashMap();
-        
-        
-        
-        try{
+        JOptionPane.showMessageDialog(null, edadInicial +" de " +edadFinal);
+            Map parametros = new HashMap();
+            parametros.clear();
             parametros.put("EdadInicial", edadInicial);
             parametros.put("EdadFinal", edadFinal);
-       
+  
+        try{
             con.getConexion();
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error" + e.getMessage(),
                     "Error de conexion", JOptionPane.ERROR_MESSAGE);
         }
+     
+        //JOptionPane.showMessageDialog(null, edadInicial +" de " +edadFinal);
+        
+        parametros.put("EdadInicial", edadInicial);
+        parametros.put("EdadFinal", edadFinal);
+        
         
         URL archivo = this.getClass().getResource("/reportes/report_cliente_x_rango_edad.jasper");
-        
-        try {       
+        try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(archivo);
             JasperPrint jp = JasperFillManager.fillReport(jr,null, Conexion.getConexion());
             JasperViewer jv = new JasperViewer(jp, false);

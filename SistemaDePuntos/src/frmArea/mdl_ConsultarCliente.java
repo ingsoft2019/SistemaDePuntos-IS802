@@ -15,7 +15,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Clases.Validar;
 import static Conexion.Conexion.consulta;
-import static frmArea.frmConsultarCliente.resultado;
 import javax.swing.JTextField;
 
 public class mdl_ConsultarCliente extends java.awt.Dialog {
@@ -159,7 +158,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             }
         });
         jPanel1.add(jCheckBoxBuscarInactivos);
-        jCheckBoxBuscarInactivos.setBounds(610, 9, 130, 23);
+        jCheckBoxBuscarInactivos.setBounds(610, 9, 130, 24);
 
         add(jPanel1);
         jPanel1.setBounds(0, 30, 750, 490);
@@ -248,6 +247,8 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
                         getjCheckBoxBuscarInactivos().setSelected(false);
                     } else if (getContador1() >= 1) {
                         buscarCliente();
+                        CanjearPuntos.setEnabled(true);
+                        AsignarPuntos.setEnabled(true);
                     } else {
                         JOptionPane.showMessageDialog(null, "El registro que busca no existe");
                     }
@@ -308,15 +309,18 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             int row = getjTable1().getSelectedRow();
             String identidad = (String) getjTable1().getValueAt(row, 1);
 
-            ResultSet res = consulta("select * from Persona\n"
-                    + "where Persona.identidad = '"+identidad+"';");
+            ResultSet res = consulta("select * from Persona p\n"
+                    + "inner join Cliente c ON c.id_Persona = p.id_Persona "
+                    + "where p.identidad = '"+identidad+"';");
             
             frmMenuPrincipal menuprin = new frmMenuPrincipal();
             mdl_AsignacionPuntos asigpuntos = new mdl_AsignacionPuntos(menuprin, true);
             
             try{
                 while(res.next()){
-                    asigpuntos.campoAsignarPuntos(res.getString("identidad"));
+                    String nombre = res.getString("pnombre")+" " + res.getString("snombre")+" " + res.getString("papellido")+" " + res.getString("sapellido");
+                    asigpuntos.recibirIdCliente(res.getInt("id_Cliente"));
+                    asigpuntos.recibirCliente(nombre);
                     asigpuntos.setVisible(true);
                     
                 }
@@ -339,15 +343,17 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             int row = getjTable1().getSelectedRow();
             String identidad = (String) getjTable1().getValueAt(row, 1);
 
-            ResultSet res = consulta("select * from Persona\n"
-                    + "where Persona.identidad = '"+identidad+"';");
+            ResultSet res = consulta("select * from Persona p\n"
+                    + "inner join Cliente c ON c.id_Persona = p.id_Persona "
+                    + "where p.identidad = '"+identidad+"';");
             
             frmMenuPrincipal menuprin = new frmMenuPrincipal();
             mdl_CanjeoPuntos canjeopuntos = new mdl_CanjeoPuntos(menuprin, true);
             
             try{
                 while(res.next()){
-                    canjeopuntos.campoCanjeoPuntos(res.getString("pnombre"),res.getString("snombre"),res.getString("papellido"),res.getString("sapellido"));
+                    canjeopuntos.recibirNombre(res.getString("pnombre"),res.getString("snombre"),res.getString("papellido"),res.getString("sapellido"));
+                    canjeopuntos.recibirId(res.getInt("id_Cliente"));
                     canjeopuntos.setVisible(true);
                 }
                 

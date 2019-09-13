@@ -23,13 +23,13 @@
 	<title>
 		<band height="70" splitType="Stretch">
 			<image>
-				<reportElement uuid="06a97367-de35-4e06-b58f-f7e93d45387b" x="266" y="0" width="300" height="64"/>
-				<imageExpression><![CDATA[this.getClass().getResource("/reportes/logo.png"]]></imageExpression>
+				<reportElement uuid="06a97367-de35-4e06-b58f-f7e93d45387b" x="334" y="0" width="221" height="68"/>
+				<imageExpression><![CDATA[this.getClass().getResource("/reportes/logo.png")]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement uuid="fac30c04-2df0-4e4f-b1a5-c038884f101b" style="Title" x="0" y="13" width="263" height="33"/>
+				<reportElement uuid="fac30c04-2df0-4e4f-b1a5-c038884f101b" style="Title" x="0" y="13" width="334" height="33"/>
 				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Reporte Clientes]]></text>
+				<text><![CDATA[Reporte Datos de Clientes]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="6b250a0c-59d1-40e2-9a61-b38fe3e67d35" style="SubTitle" x="27" y="46" width="247" height="22"/>

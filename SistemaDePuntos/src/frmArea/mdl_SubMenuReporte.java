@@ -8,7 +8,6 @@ package frmArea;
 import Conexion.Conexion;
 import java.awt.Toolkit;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -88,6 +87,11 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
 
         btn_graficas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/grafica.png"))); // NOI18N
         btn_graficas.setText("Graficas");
+        btn_graficas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_graficasActionPerformed(evt);
+            }
+        });
         jpanel_reporte.add(btn_graficas);
         btn_graficas.setBounds(220, 270, 160, 60);
 
@@ -131,7 +135,7 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
                     "Error de conexion", JOptionPane.ERROR_MESSAGE);
         }
         
-        URL archivo = this.getClass().getResource("/reportes/report_cliente_x_zona.jasper");
+        URL archivo = this.getClass().getResource("/reportes/report_cliente.jasper");
         
         
         try {
@@ -155,7 +159,35 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
     }//GEN-LAST:event_btn_clienteActionPerformed
 
     private void brn_puntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brn_puntosActionPerformed
+               // TODO add your handling code here:
+        Conexion con= new Conexion();
         
+        try{
+            con.getConexion();
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.getMessage(),
+                    "Error de conexion", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        URL archivo = this.getClass().getResource("/reportes/report_cliente_x_zona.jasper");
+        
+        
+        try {
+             
+            JasperReport jr = (JasperReport) JRLoader.loadObject(archivo);
+            JasperPrint jp = JasperFillManager.fillReport(jr,null, Conexion.getConexion());
+            JasperViewer jv = new JasperViewer(jp,false);
+            JDialog dialog = new JDialog(this);
+            dialog.setContentPane(jv.getContentPane());
+            dialog.setSize(jv.getSize());
+            dialog.setTitle("Visor de Reporte Farmacia Regis - Las Casitas");
+            dialog.setIconImage(Toolkit.getDefaultToolkit().getImage(
+            getClass().getResource("../imgSP/icono.png")));
+            dialog.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(mdl_SubMenuReporte.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
+        }
     }//GEN-LAST:event_brn_puntosActionPerformed
 
     private void brn_rangoDeEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brn_rangoDeEdadActionPerformed
@@ -163,6 +195,10 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         mdl_rangoEdad ver=new mdl_rangoEdad(frmMenuPrincipal,true);
         ver.setVisible(true); // visible ventana del objeto
     }//GEN-LAST:event_brn_rangoDeEdadActionPerformed
+
+    private void btn_graficasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_graficasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_graficasActionPerformed
 
     /**
      * @param args the command line arguments

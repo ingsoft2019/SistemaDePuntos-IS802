@@ -196,9 +196,9 @@ public class mdl_ImprimirDireccion extends java.awt.Dialog {
         try {
             generarPdf(txt_nombre.getText());
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(frmImprimirDireccion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(mdl_ImprimirDireccion.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DocumentException ex) {
-            Logger.getLogger(frmImprimirDireccion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(mdl_ImprimirDireccion.class.getName()).log(Level.SEVERE, null, ex);
         }
         abrir();
     }//GEN-LAST:event_jButton1ActionPerformed
