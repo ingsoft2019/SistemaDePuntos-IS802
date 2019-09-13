@@ -163,8 +163,7 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
     }//GEN-LAST:event_txtEdadFinalKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-      
+     
         Conexion con= new Conexion();
 
         
@@ -183,9 +182,7 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Error" + e.getMessage(),
                     "Error de conexion", JOptionPane.ERROR_MESSAGE);
         }
-        int edadInicial = Integer.parseInt(getTxtEdadInicial().getText());
-        int edadFinal = Integer.parseInt(getTxtEdadFinal().getText());
-        
+     
         //JOptionPane.showMessageDialog(null, edadInicial +" de " +edadFinal);
         
         parametros.put("EdadInicial", edadInicial);
