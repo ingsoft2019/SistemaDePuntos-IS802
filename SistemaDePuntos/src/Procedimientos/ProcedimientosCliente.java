@@ -50,10 +50,10 @@ public class ProcedimientosCliente {
                                       String identidad, String correo, String sexo, Date fecha_nacimiento, 
                                       String telefono1,String telefono2,String telefono3, int zona, 
                                       String detalle_direccion, int puntos_actuales, String fechavencimiento,
-                                      int puntos_rifa)throws SQLException{
+                                      int puntos_rifa, int id)throws SQLException{
         
         //Llamamos al procedimiento almacenado GuardarPersonas
-        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{call SP_actualizarCliente (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{call SP_actualizarCliente (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
         entrada.setString(1,pnombre);
         entrada.setString(2,snombre);
         entrada.setString(3,papellido);
@@ -70,7 +70,21 @@ public class ProcedimientosCliente {
         entrada.setInt(14,puntos_actuales);
         entrada.setString(15,fechavencimiento);
         entrada.setInt(16,puntos_rifa);
+        entrada.setInt(17,id);
         entrada.execute();
         
     }
+    
+    public static void deshabilitarCliente(int idPersona) throws SQLException{
+        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{Call SP_deshabilitarCliente(?)}");
+        entrada.setInt(1, idPersona);
+        entrada.execute();
+    }
+    
+    public static void habilitarCliente(int idPersona)throws SQLException{
+        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{Call SP_habilitarCliente(?)}");
+        entrada.setInt(1, idPersona);
+        entrada.execute();
+    }
+    
 }

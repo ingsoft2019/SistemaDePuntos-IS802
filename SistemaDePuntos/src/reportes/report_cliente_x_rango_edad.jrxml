@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2bd58914-03df-47aa-92d5-c0821971e149">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="EdadIncial" class="java.lang.Integer"/>
+	<parameter name="EdadFinal" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT * FROM Cliente c 
+INNER JOIN Persona p ON p.id_persona = c.id_persona
+WHERE $P{EdadIncial} <= DATEDIFF(YEAR,  p.fecha_nacimiento, GETDATE()) AND $P{EdadFinal} >= DATEDIFF(YEAR,  p.fecha_nacimiento, GETDATE())]]>
+	</queryString>
+	<field name="id_cliente" class="java.lang.Integer"/>
+	<field name="fecha_registro" class="java.sql.Date"/>
+	<field name="id_persona" class="java.lang.Integer"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="puntos_actuales" class="java.lang.Integer"/>
+	<field name="puntos_rifa_actuales" class="java.lang.Integer"/>
+	<field name="fecha_vencimiento_puntos" class="java.sql.Date"/>
+	<field name="pnombre" class="java.lang.String"/>
+	<field name="snombre" class="java.lang.String"/>
+	<field name="papellido" class="java.lang.String"/>
+	<field name="sapellido" class="java.lang.String"/>
+	<field name="identidad" class="java.lang.String"/>
+	<field name="correo" class="java.lang.String"/>
+	<field name="sexo" class="java.lang.String"/>
+	<field name="fecha_nacimiento" class="java.sql.Date"/>
+	<field name="id_zona" class="java.lang.Integer"/>
+	<field name="detalle_direccion" class="java.lang.String"/>
+	<field name="telefono1" class="java.lang.String"/>
+	<field name="telefono2" class="java.lang.String"/>
+	<field name="telefono3" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement uuid="468ba1ce-e046-486c-a088-1afaca185aae" x="263" y="0" width="292" height="68"/>
+				<imageExpression><![CDATA[this.getClass().getResource("/reportes/logo.png")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="0a2ea681-8dfb-4441-82fe-aba204097873" style="Title" x="0" y="13" width="263" height="33"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Reporte por Edades]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d06a4b17-016c-4c30-8ac4-779f30b85186" style="SubTitle" x="22" y="46" width="241" height="22"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Farmacia Regis "Las Casitas"]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement uuid="5c5a303d-f115-4e37-903a-c371be5c7726" positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="0c240bf8-a0f4-4968-923e-d7e187ac3d38" style="Column header" x="0" y="19" width="92" height="15"/>
+				<textElement/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="524eb4e4-829d-4caa-b66e-6129868d30ed" style="Column header" x="92" y="19" width="92" height="15"/>
+				<textElement/>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6b323ed-3961-47ed-859e-a9f2f0181858" style="Column header" x="184" y="19" width="92" height="15"/>
+				<textElement/>
+				<text><![CDATA[Identidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0fda635b-053c-4e04-a2de-728c6de7790e" style="Column header" x="263" y="19" width="105" height="15"/>
+				<textElement/>
+				<text><![CDATA[Fecha Nacimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="adc10efb-7bbf-45ac-bfb0-4eb3c5475bab" style="Column header" x="368" y="19" width="92" height="15"/>
+				<textElement/>
+				<text><![CDATA[PuntosActuales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3d06278a-885d-4545-856f-35a1cc30fa0b" style="Column header" x="460" y="19" width="92" height="15"/>
+				<textElement/>
+				<text><![CDATA[PuntosRifaActuales]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="0a16a153-a5be-49ec-9d7f-18ebbb54b2b7" positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="7ef7c8ac-1d63-44ef-a5c3-6c209b989fad" style="Detail" x="0" y="0" width="92" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pnombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cce515c4-dd31-426e-a808-ae25feda505f" style="Detail" x="92" y="0" width="92" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{papellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="df22a5ca-9ade-4f03-a0fb-8bd78a317a6c" style="Detail" x="184" y="0" width="92" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{identidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ddf6a22d-2a90-4f01-99ed-656fd7dc9651" style="Detail" x="276" y="0" width="92" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fecha_nacimiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d3b6bcf0-0509-43f3-95fb-a1e70db9fca3" style="Detail" x="368" y="0" width="92" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{puntos_actuales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2b54acfe-c137-4256-a30b-d6d0e0168e08" style="Detail" x="460" y="0" width="92" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{puntos_rifa_actuales}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement uuid="6a6a83b5-b5f4-4744-89db-67c4a5e020db" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="41f4c490-0e02-4868-a2e4-c0cb8b35d08f" style="Column header" x="433" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="d09a8f78-cfc3-4476-9a8b-ae1e3337c84e" style="Column header" x="513" y="0" width="40" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="4b0caffd-ce79-43a8-96aa-453fca05c48e" style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -6,7 +6,7 @@ PRINT(CONCAT('Mensaje: ',@pv_mensaje1));
 END;
 
 --Inicio del procedimiento
-CREATE PROCEDURE SP_CANJEAR_PUNTOS(
+CREATE PROCEDURE [dbo].[SP_CANJEAR_PUNTOS](
 	@pi_id_cliente INT,
 	@pi_puntos_canjear INT,
 	@pi_GEN_USR_id NVARCHAR(50),
@@ -104,13 +104,15 @@ BEGIN
 				,@vi_id_tipo_movimiento
 				,@pi_GEN_USR_id
 				,null);
+		
+		--Encontrar porcentaje de puntos y duracion de puntos
+		SELECT @vi_duracion_puntos = duracion_puntos FROM Configuracion;
 
 		--actualizacion de los puntos actuales y la fecha de vencimiento de puntos.
 		UPDATE [dbo].[Cliente]
 		SET [puntos_actuales] = @vi_puntos_actuales - @pi_puntos_canjear,
 			[fecha_vencimiento_puntos] = DATEADD(month, @vi_duracion_puntos, GETDATE())--Preguntar si se actualiza fecha
 		WHERE id_cliente = @pi_id_cliente;
-
 	
 		--Obtner los puntos actuales despues del movimiento
 		SELECT @vi_puntos_actuales = puntos_actuales FROM Cliente

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="88ce78c8-87ff-49ca-a3e9-423767e62f13">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="edad_inicial" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="edad_final" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT CONCAT(p.pnombre, ' ', p.papellido) Nombre, p.identidad, c.puntos_actuales, CONCAT (p.telefono1 ,' ', p.telefono2 ,' ',p.telefono3) Telefono FROM Cliente c 
+INNER JOIN Persona p ON p.id_persona = c.id_persona
+WHERE 1 <= DATEDIFF(YEAR,  p.fecha_nacimiento, GETDATE()) AND 30 >= DATEDIFF(YEAR,  p.fecha_nacimiento, GETDATE())]]>
+	</queryString>
+	<field name="Nombre" class="java.lang.String"/>
+	<field name="identidad" class="java.lang.String"/>
+	<field name="puntos_actuales" class="java.lang.Integer"/>
+	<field name="Telefono" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement uuid="8e253890-efdd-441d-90bb-2227863ed405" x="311" y="0" width="274" height="51"/>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="0f4f7eac-468e-4026-b8ff-e48001da287b" style="Title" x="0" y="13" width="301" height="33"/>
+				<textElement verticalAlignment="Middle">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Reporte Rango de Edad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="35368369-aef1-4d4f-bbf5-06c87604ac04" style="SubTitle" x="46" y="46" width="255" height="22"/>
+				<textElement/>
+				<text><![CDATA[Farmacia Regis "Las Casitas"]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement uuid="d4b3c8ea-018f-4c0f-9b61-1ac130abd798" positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="bdd54fea-3000-4539-828e-bf274ec4bb29" style="Column header" x="0" y="19" width="197" height="15"/>
+				<textElement/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8653de31-8076-43e3-8072-f794bb31daee" style="Column header" x="197" y="19" width="124" height="15"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Identidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="be393766-2244-447a-b584-4294a4f2c8a1" style="Column header" x="321" y="19" width="93" height="15"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Puntos ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3901deb4-ec68-4182-b6ae-8ada5c9c388e" style="Column header" x="414" y="19" width="138" height="15"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="16234d33-2acc-403e-ad47-f50fd5ba1a16" positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="9253d1fe-659d-4df7-b4a3-3e0af58e12e6" style="Detail" x="0" y="0" width="197" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a9035c74-b633-453a-a25f-e20837139997" style="Detail" x="197" y="1" width="114" height="15"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{identidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="03b6f7da-0507-474b-8c7f-cc8cac615e4a" style="Detail" x="321" y="0" width="93" height="15"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{puntos_actuales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2c148f92-579a-4f99-93d0-065f52082579" style="Detail" x="414" y="0" width="138" height="15"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Telefono}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement uuid="f5e79e7a-0677-4ab5-ae68-422a6e93def3" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="58ece0ab-1c06-4890-9569-281dcff34b10" style="Column header" x="433" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="1b8151f8-3895-4b4d-b977-a25408945c90" style="Column header" x="513" y="0" width="40" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="91a841d0-852d-4fcc-9217-6f1e4b0eab1e" style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
