@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Clases.Validar;
 import static Conexion.Conexion.consulta;
+import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 
 public class mdl_ConsultarCliente extends java.awt.Dialog {
@@ -129,6 +130,11 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
         jScrollPane1.setBounds(6, 54, 737, 368);
 
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
         jPanel1.add(jTextField1);
         jTextField1.setBounds(6, 8, 448, 27);
 
@@ -163,7 +169,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             }
         });
         jPanel1.add(jCheckBoxBuscarInactivos);
-        jCheckBoxBuscarInactivos.setBounds(610, 9, 130, 24);
+        jCheckBoxBuscarInactivos.setBounds(610, 9, 130, 23);
 
         add(jPanel1);
         jPanel1.setBounds(0, 30, 750, 490);
@@ -341,7 +347,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
 
             }
         } catch (Exception e) {
-
+            JOptionPane.showMessageDialog(null, "Busque y seleccione un registro");
         }
 
         /*frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
@@ -372,6 +378,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
 
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Busque y seleccione un registro");
 
         }
 
@@ -390,6 +397,52 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
 
         }
     }//GEN-LAST:event_jCheckBoxBuscarInactivosActionPerformed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+        if(jTextField1.getText().isEmpty() && evt.getKeyCode()==KeyEvent.VK_ENTER){
+            JOptionPane.showMessageDialog(null, "Campo de busqueda vacio");
+            jCheckBoxBuscarInactivos.setSelected(false);
+        }else if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            try {
+                setResultado1(Conexion.Conexion.consulta("select count(Persona.identidad) from Persona inner join cliente on \n"
+                        + "Cliente.id_persona = Persona.id_persona\n"
+                        + "where concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
+                        + "Persona.sapellido) like '%" + getjTextField1().getText() + "%' or Persona.identidad like '%" + getjTextField1().getText() + "%' \n" + "or Persona.telefono1 like '%" + getjTextField1().getText() + "%' "));
+                setResultado2(Conexion.Conexion.consulta("select count(Persona.identidad) from Persona inner join cliente on \n"
+                        + "Cliente.id_persona = Persona.id_persona\n"
+                        + "where (concat(Persona.pnombre,' ',Persona.snombre,' ',Persona.papellido,' ',\n"
+                        + "Persona.sapellido) like '%" + getjTextField1().getText() + "%' or Persona.identidad like '%" + getjTextField1().getText() + "%' \n" + "or Persona.telefono1 like '%" + getjTextField1().getText() + "%') and Cliente.estado = 'i';"));
+                try {
+                    while (getResultado1().next()) {
+                        setContador1(getResultado1().getInt(1));
+                    }
+                    while (getResultado2().next()) {
+                        setContador2(getResultado2().getInt(1));
+                    }
+                    if (getjCheckBoxBuscarInactivos().isSelected()) {
+                        buscarClienteInactivo();
+                        getjCheckBoxBuscarInactivos().setSelected(false);
+                        jTextField1.setText("");
+                    } else if (getContador1() >= 1) {
+                        buscarCliente();
+                        CanjearPuntos.setEnabled(true);
+                        AsignarPuntos.setEnabled(true);
+                        jTextField1.setText("");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "El registro que busca no existe");
+                    }
+                } catch (SQLException e) {
+
+                }
+
+            } catch (Exception e) {
+
+            }
+
+            
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
 
     /**
      * @param args the command line arguments
