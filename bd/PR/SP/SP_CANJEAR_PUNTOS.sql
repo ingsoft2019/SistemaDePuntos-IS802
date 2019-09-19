@@ -18,6 +18,7 @@ BEGIN
 	DECLARE @vi_puntos_actuales INT;
 	DECLARE @vi_id_tipo_movimiento INT;
 	DECLARE @vi_duracion_puntos INT;
+	DECLARE @vd_fecha_vencimiento DATE;
 	
 	SET @vc_temp_mensaje = '';
 
@@ -71,6 +72,14 @@ BEGIN
 
 	IF @pi_puntos_canjear > @vi_puntos_actuales BEGIN
 		SET @vc_temp_mensaje = CONCAT (@vc_temp_mensaje, 'Los puntos que desea canjear son mayores a los acumulados. ');
+	END;
+
+	--Verificar la fecha de vencimiento de puntos actuales del cliente
+	SELECT @vd_fecha_vencimiento = fecha_vencimiento_puntos FROM Cliente
+	WHERE id_cliente = @pi_id_cliente;
+
+	IF GETDATE() >= @vd_fecha_vencimiento  BEGIN
+		SET @vc_temp_mensaje = CONCAT (@vc_temp_mensaje, 'Los puntos actuales estan vencidos. ');
 	END;
 
 	IF @vc_temp_mensaje <> '' BEGIN

@@ -80,6 +80,11 @@ public class mdl_consultar_por_rango_de_edad extends java.awt.Dialog {
                 txtfechainicioActionPerformed(evt);
             }
         });
+        txtfechainicio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtfechainicioKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtfechainicio);
         txtfechainicio.setBounds(141, 90, 90, 24);
 
@@ -91,6 +96,11 @@ public class mdl_consultar_por_rango_de_edad extends java.awt.Dialog {
         txtfechafin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtfechafinActionPerformed(evt);
+            }
+        });
+        txtfechafin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtfechafinKeyTyped(evt);
             }
         });
         jPanel1.add(txtfechafin);
@@ -152,6 +162,9 @@ public class mdl_consultar_por_rango_de_edad extends java.awt.Dialog {
         if (txtfechainicio.getText().isEmpty() || txtfechafin.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe de Ingresar un Fecha Valida");
         } else {
+            if (Integer.parseInt(txtfechainicio.getText()) > Integer.parseInt(txtfechafin.getText())){
+                JOptionPane.showMessageDialog(null, "La edad inicial debe ser menor a la edad final");
+            }
             try {
                 resultado1 = Conexion.Conexion.consulta(" select count (*) from (\n" +
                     "  select  (select (cast(datediff(dd,p.fecha_nacimiento,GETDATE()) / 365.25 as int))) as edad\n" +
@@ -180,6 +193,18 @@ public class mdl_consultar_por_rango_de_edad extends java.awt.Dialog {
         }
 
     }//GEN-LAST:event_btnGenerarConsultaActionPerformed
+
+    private void txtfechainicioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtfechainicioKeyTyped
+        char c = evt.getKeyChar();
+
+        if (c< '0'|| c>'9') evt.consume();
+    }//GEN-LAST:event_txtfechainicioKeyTyped
+
+    private void txtfechafinKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtfechafinKeyTyped
+        char c = evt.getKeyChar();
+
+        if (c< '0'|| c>'9') evt.consume();
+    }//GEN-LAST:event_txtfechafinKeyTyped
 
     
     public void buscarCliente() throws SQLException {
