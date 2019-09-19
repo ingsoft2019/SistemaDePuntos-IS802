@@ -42,9 +42,12 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         btn_reinicioPuntos = new javax.swing.JButton();
         btn_PorcentajePuntos = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btn_recuperar = new javax.swing.JButton();
+        btn_tamano_papel = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
-        setMaximumSize(new java.awt.Dimension(587, 383));
-        setMinimumSize(new java.awt.Dimension(587, 383));
+        setMaximumSize(new java.awt.Dimension(699, 383));
+        setMinimumSize(new java.awt.Dimension(699, 383));
         setModal(true);
         setTitle("Configuración del Sistema");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -64,7 +67,7 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
             }
         });
         jPanel2.add(btn_realizarRifa);
-        btn_realizarRifa.setBounds(190, 120, 190, 60);
+        btn_realizarRifa.setBounds(30, 110, 190, 60);
 
         btn_reinicioPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
         btn_reinicioPuntos.setText("Reinicio de Puntos");
@@ -74,7 +77,7 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
             }
         });
         jPanel2.add(btn_reinicioPuntos);
-        btn_reinicioPuntos.setBounds(190, 200, 190, 60);
+        btn_reinicioPuntos.setBounds(250, 110, 190, 60);
 
         btn_PorcentajePuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato puntos.png"))); // NOI18N
         btn_PorcentajePuntos.setText("Porcentaje de Puntos");
@@ -84,15 +87,40 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
             }
         });
         jPanel2.add(btn_PorcentajePuntos);
-        btn_PorcentajePuntos.setBounds(190, 290, 190, 60);
+        btn_PorcentajePuntos.setBounds(480, 110, 190, 60);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Configuración del Sistema");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(130, 50, 340, 40);
+        jLabel2.setBounds(210, 30, 340, 40);
+
+        btn_recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/pass-contrasena.png"))); // NOI18N
+        btn_recuperar.setText("Cambiar");
+        btn_recuperar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_recuperarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_recuperar);
+        btn_recuperar.setBounds(30, 230, 190, 60);
+        btn_recuperar.getAccessibleContext().setAccessibleName("Cambiar ");
+
+        btn_tamano_papel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato puntos.png"))); // NOI18N
+        btn_tamano_papel.setText("Tamaño de papel ");
+        btn_tamano_papel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_tamano_papelActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_tamano_papel);
+        btn_tamano_papel.setBounds(250, 230, 190, 60);
+
+        jButton1.setText("Notificaciones");
+        jPanel2.add(jButton1);
+        jButton1.setBounds(480, 230, 190, 60);
 
         add(jPanel2);
-        jPanel2.setBounds(0, 0, 600, 390);
+        jPanel2.setBounds(0, 0, 700, 390);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -133,6 +161,21 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         ver.setVisible(true); // visible ventana del objeto
     }//GEN-LAST:event_btn_PorcentajePuntosActionPerformed
 
+    private void btn_recuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recuperarActionPerformed
+      frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
+        mdl_cambiar_contrasena  ver=new mdl_cambiar_contrasena(frmMenuPrincipal,true);
+        ver.setVisible(true); // visible ventana del objeto
+        
+    }//GEN-LAST:event_btn_recuperarActionPerformed
+
+    private void btn_tamano_papelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tamano_papelActionPerformed
+        // TODO add your handling code here:
+        frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
+        mdl_tamano_papel  ver=new mdl_tamano_papel(frmMenuPrincipal,true);
+        ver.setVisible(true); // visible ventana del objeto
+        
+    }//GEN-LAST:event_btn_tamano_papelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -154,7 +197,10 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_PorcentajePuntos;
     private javax.swing.JButton btn_realizarRifa;
+    private javax.swing.JButton btn_recuperar;
     private javax.swing.JButton btn_reinicioPuntos;
+    private javax.swing.JButton btn_tamano_papel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
