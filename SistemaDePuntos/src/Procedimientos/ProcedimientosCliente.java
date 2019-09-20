@@ -87,4 +87,10 @@ public class ProcedimientosCliente {
         entrada.execute();
     }
     
+    public static void eliminarZona(int idzona)throws SQLException{
+        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{Call SP_eliminarZona(?)}");
+        entrada.setInt(1, idzona);
+        entrada.execute();
+    }
+    
 }

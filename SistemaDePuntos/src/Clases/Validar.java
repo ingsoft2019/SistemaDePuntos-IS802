@@ -6,13 +6,17 @@
 package Clases;
 
 import com.toedter.calendar.JDateChooser;
+import groovy.sql.Sql;
+import java.awt.Button;
 import java.awt.TextField;
 import java.awt.event.KeyAdapter;
 import javax.swing.JTextField;
 import java.awt.event.KeyEvent;
+import java.beans.PropertyChangeEvent;
 import java.sql.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
@@ -98,15 +102,14 @@ public class Validar {
 
         Matcher mather = pattern.matcher((CharSequence) correo.getText());
         return mather.find();
-        
+
     }
-    
-    public void validarEspacios(JTextField campo){
-       //JOptionPane.showMessageDialog(null, "No se permite espacios en blanco", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+
+    public void validarEspacios(JTextField campo) {
+        //JOptionPane.showMessageDialog(null, "No se permite espacios en blanco", "Informacion", JOptionPane.INFORMATION_MESSAGE);
         campo.setText(campo.getText().trim());
         campo.requestFocus();
     }
-    
 
     public void ValidarBusqueda(JTextField campo) {
         campo.addKeyListener(new KeyAdapter() {
@@ -127,4 +130,13 @@ public class Validar {
         });
     }
 
+    public void validarModificacionFecha(JDateChooser fecha, JButton editarCliente) {
+        fecha.getDateEditor().getUiComponent().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editarCliente.setEnabled(true);
+            }
+        });
+    }
+    
 }
