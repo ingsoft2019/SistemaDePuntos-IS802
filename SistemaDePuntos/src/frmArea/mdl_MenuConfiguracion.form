@@ -90,7 +90,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="480" y="110" width="190" height="60"/>
+              <AbsoluteConstraints x="470" y="110" width="190" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -142,13 +142,16 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btnVencimientoPuntos">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Notificaciones"/>
+            <Property name="text" type="java.lang.String" value="Vencimiento de Puntos"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVencimientoPuntosActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="480" y="230" width="190" height="60"/>
+              <AbsoluteConstraints x="470" y="230" width="190" height="60"/>
             </Constraint>
           </Constraints>
         </Component>

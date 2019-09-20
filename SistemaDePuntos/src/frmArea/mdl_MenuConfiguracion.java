@@ -44,7 +44,7 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         jLabel2 = new javax.swing.JLabel();
         btn_recuperar = new javax.swing.JButton();
         btn_tamano_papel = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnVencimientoPuntos = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(699, 383));
         setMinimumSize(new java.awt.Dimension(699, 383));
@@ -87,7 +87,7 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
             }
         });
         jPanel2.add(btn_PorcentajePuntos);
-        btn_PorcentajePuntos.setBounds(480, 110, 190, 60);
+        btn_PorcentajePuntos.setBounds(470, 110, 190, 60);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Configuración del Sistema");
@@ -115,9 +115,14 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         jPanel2.add(btn_tamano_papel);
         btn_tamano_papel.setBounds(250, 230, 190, 60);
 
-        jButton1.setText("Notificaciones");
-        jPanel2.add(jButton1);
-        jButton1.setBounds(480, 230, 190, 60);
+        btnVencimientoPuntos.setText("Vencimiento de Puntos");
+        btnVencimientoPuntos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVencimientoPuntosActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnVencimientoPuntos);
+        btnVencimientoPuntos.setBounds(470, 230, 190, 60);
 
         add(jPanel2);
         jPanel2.setBounds(0, 0, 700, 390);
@@ -176,6 +181,12 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         
     }//GEN-LAST:event_btn_tamano_papelActionPerformed
 
+    private void btnVencimientoPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVencimientoPuntosActionPerformed
+        frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
+        mdl_VencimientoPuntos ver=new mdl_VencimientoPuntos(frmMenuPrincipal,true);
+        ver.setVisible(true); // visible ventana del objeto
+    }//GEN-LAST:event_btnVencimientoPuntosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -195,12 +206,12 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVencimientoPuntos;
     private javax.swing.JButton btn_PorcentajePuntos;
     private javax.swing.JButton btn_realizarRifa;
     private javax.swing.JButton btn_recuperar;
     private javax.swing.JButton btn_reinicioPuntos;
     private javax.swing.JButton btn_tamano_papel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

@@ -69,4 +69,11 @@ public class ProcedimientoAsignacionPuntos {
             JOptionPane.showMessageDialog(null, mensaje, "Informacion", JOptionPane.INFORMATION_MESSAGE);
         }
     }
+    public static void eliminarPuntosVencidos() throws SQLException{
+        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{call SP_VENCIMIENTO_PUNTOS (?)}");
+        entrada.registerOutParameter(1, java.sql.Types.VARCHAR);
+        entrada.execute();
+        String mensaje = entrada.getString(1);
+        JOptionPane.showMessageDialog(null, mensaje, "Sorteo", JOptionPane.INFORMATION_MESSAGE);
+    }
 }
