@@ -24,7 +24,7 @@ public class mdl_ConfiguracionPorcentajePuntos extends java.awt.Dialog {
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
         mostrarPorcentaje();
         btnGuardar.setVisible(false);
-        ValidarIdentidad(txtPorcentajeActual);
+        ValidarPorcentaje(txtPorcentajeActual);
    }
 
     /**
@@ -183,7 +183,7 @@ public class mdl_ConfiguracionPorcentajePuntos extends java.awt.Dialog {
         }
     }
     
-    public void ValidarIdentidad(JTextField campo){
+    public void ValidarPorcentaje(JTextField campo){
         campo.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e){
                 char c = e.getKeyChar();
@@ -264,6 +264,7 @@ public class mdl_ConfiguracionPorcentajePuntos extends java.awt.Dialog {
             if (codigo==JOptionPane.YES_OPTION){
                 double porcentaje=Double.parseDouble(getTxtPorcentajeActual().getText()) ;
                 Procedimientos.ProcedimientoEditarConfiguracion.editarConfiguracion(porcentaje/100, Integer.parseInt(getTxtDuracionPuntos().getText()));
+                mostrarPorcentaje();
             }
         } catch (SQLException ex) {
             Logger.getLogger(mdl_ConfiguracionPorcentajePuntos.class.getName()).log(Level.SEVERE, null, ex);

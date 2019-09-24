@@ -118,32 +118,32 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         SegundoNombre.setText("Segundo Nombre:");
         SegundoNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(SegundoNombre);
-        SegundoNombre.setBounds(10, 60, 110, 22);
+        SegundoNombre.setBounds(10, 60, 110, 20);
 
         PrimerApellido.setText("Primer Apellido:");
         PrimerApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(PrimerApellido);
-        PrimerApellido.setBounds(10, 90, 110, 22);
+        PrimerApellido.setBounds(10, 90, 110, 20);
 
         SegundoApelliido.setText("Segundo Apellido:");
         SegundoApelliido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(SegundoApelliido);
-        SegundoApelliido.setBounds(10, 120, 110, 22);
+        SegundoApelliido.setBounds(10, 120, 110, 20);
 
         NoIdentidad.setText("No. Identidad:");
         NoIdentidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(NoIdentidad);
-        NoIdentidad.setBounds(10, 150, 110, 22);
+        NoIdentidad.setBounds(10, 150, 110, 20);
 
         Telefono2.setText("Teléfono 3:");
         Telefono2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(Telefono2);
-        Telefono2.setBounds(10, 240, 110, 22);
+        Telefono2.setBounds(10, 240, 110, 20);
 
         CorreoElectronico.setText("Email:");
         CorreoElectronico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(CorreoElectronico);
-        CorreoElectronico.setBounds(10, 270, 110, 22);
+        CorreoElectronico.setBounds(10, 270, 110, 20);
 
         txt_primerNombre.setMinimumSize(new java.awt.Dimension(8, 22));
         txt_primerNombre.setPreferredSize(new java.awt.Dimension(8, 24));
@@ -228,7 +228,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         PrimerNombre.setText("Primer Nombre:");
         PrimerNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(PrimerNombre);
-        PrimerNombre.setBounds(10, 30, 110, 22);
+        PrimerNombre.setBounds(10, 30, 110, 20);
 
         txt_correoElectronico.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -279,7 +279,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP2_DatosCliente.add(RB_masculino);
-        RB_masculino.setBounds(130, 0, 40, 28);
+        RB_masculino.setBounds(130, 0, 40, 23);
 
         grupo_genero.add(RB_femenino);
         RB_femenino.setText("F");
@@ -294,7 +294,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP2_DatosCliente.add(RB_femenino);
-        RB_femenino.setBounds(180, 0, 38, 28);
+        RB_femenino.setBounds(180, 0, 31, 23);
 
         jP1_DatosCliente.add(jP2_DatosCliente);
         jP2_DatosCliente.setBounds(10, 300, 450, 69);
@@ -332,12 +332,12 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         jL_TituloDireccion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jL_TituloDireccion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jP_DatosDireccion.add(jL_TituloDireccion);
-        jL_TituloDireccion.setBounds(10, 0, 413, 22);
+        jL_TituloDireccion.setBounds(10, 0, 413, 20);
 
         jL_DetalleDirecion.setText("Detalle:");
         jL_DetalleDirecion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP_DatosDireccion.add(jL_DetalleDirecion);
-        jL_DetalleDirecion.setBounds(10, 52, 76, 22);
+        jL_DetalleDirecion.setBounds(10, 52, 76, 20);
 
         descripcion.setColumns(20);
         descripcion.setRows(5);
@@ -349,12 +349,12 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         jScrollPane1.setViewportView(descripcion);
 
         jP_DatosDireccion.add(jScrollPane1);
-        jScrollPane1.setBounds(90, 52, 333, 83);
+        jScrollPane1.setBounds(90, 52, 333, 96);
 
         jL_Zona.setText("Zona:");
         jL_Zona.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP_DatosDireccion.add(jL_Zona);
-        jL_Zona.setBounds(10, 26, 76, 22);
+        jL_Zona.setBounds(10, 26, 76, 20);
 
         jC_zona.setMinimumSize(new java.awt.Dimension(28, 24));
         jC_zona.setPreferredSize(new java.awt.Dimension(28, 24));
@@ -382,12 +382,12 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         Telefono1.setText("Teléfono 1:");
         Telefono1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(Telefono1);
-        Telefono1.setBounds(10, 180, 110, 22);
+        Telefono1.setBounds(10, 180, 110, 20);
 
         Telefono3.setText("Teléfono 2:");
         Telefono3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(Telefono3);
-        Telefono3.setBounds(10, 210, 110, 22);
+        Telefono3.setBounds(10, 210, 110, 20);
 
         panel_botonesBasicos.setLayout(null);
 

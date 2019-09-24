@@ -11,6 +11,9 @@ package frmArea;
  */
 import Clases.Validar;
 import Clases.Zona;
+import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JDayChooser;
+import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -27,6 +30,9 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
     private JTextField id = new JTextField();
     ResultSet res = null;
     int cont = 0;
+    //Variable para capturar el estado
+    String estado = "";
+  
 
     public mdl_SubMenuCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -35,6 +41,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
         //cargarZonas();
+
         v.ValidarSoloLetras(txt_primerNombre);
         v.ValidarSoloLetras(txt_segundoNombre);
         v.ValidarSoloLetras(txt_primerApellido);
@@ -47,6 +54,8 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         v.limitarCaracteres(txt_telefono2, 13);
         v.limitarCaracteres(txt_telefono3, 13);
         v.limitarCaracteres(txt_identidad, 15);
+        v.validarModificacionFecha(jD_fechaNac, btn_editarCliente);
+  
     }
 
     /**
@@ -384,6 +393,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         jpanel_datos2.add(jLabel3);
         jLabel3.setBounds(22, 11, 130, 14);
 
+        jD_fechaNac.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jD_fechaNacFocusGained(evt);
+            }
+        });
         jD_fechaNac.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jD_fechaNacMouseClicked(evt);
@@ -569,6 +583,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         }
     }//GEN-LAST:event_jRadioButtonFemeninoKeyPressed
 
+
     private void jRadioButtonMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMasculinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonMasculinoActionPerformed
@@ -591,7 +606,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
                     }
                 } catch (SQLException e) {
                 }
-                if (cont >1) {
+                if (cont > 1) {
                     JOptionPane.showMessageDialog(this, "Este numero de identidad ya está registrado", "Informacion", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     //PREPARO LA FECHA PARA ENVIARLA
@@ -723,9 +738,6 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
     }
 
-    //Variable para capturar el estado
-    String estado = "";
-
     //Metodo para llenar los campos     
     public void llenarCampos(String pnombre, String snombre, String papellido, String sapellido, String identidad,
             String sexo, String telefono1, String telefono2, String telefono3, String correo,
@@ -760,7 +772,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             btn_habilitarcliente.setVisible(true);
             btn_desactivarCliente.setVisible(false);
         }
-        System.out.println("A".equals(estado));
+
     }
 
     //Metodo para mostrar y ocultar botones de habilitar y desabilitar
@@ -871,6 +883,10 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         // TODO add your handling code here:
         btn_editarCliente.setEnabled(true);
     }//GEN-LAST:event_jRadioButtonFemeninoMouseClicked
+
+    private void jD_fechaNacFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jD_fechaNacFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jD_fechaNacFocusGained
 
     /**
      * @param args the command line arguments
