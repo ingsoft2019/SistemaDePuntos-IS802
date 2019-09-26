@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package frmArea;
 
-/**
- *
- * @author Luis Estrada
- */
 import Clases.Validar;
 import Clases.Zona;
 import com.toedter.calendar.JDateChooser;
