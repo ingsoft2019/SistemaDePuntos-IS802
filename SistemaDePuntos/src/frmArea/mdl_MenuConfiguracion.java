@@ -116,7 +116,8 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         jPanel2.add(btn_tamano_papel);
         btn_tamano_papel.setBounds(250, 200, 190, 60);
 
-        btnVencimientoPuntos.setText("Vencimiento de Puntos");
+        btnVencimientoPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/gestion_de_puntos.png"))); // NOI18N
+        btnVencimientoPuntos.setText("Puntos Vencidos");
         btnVencimientoPuntos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVencimientoPuntosActionPerformed(evt);

@@ -144,7 +144,10 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnVencimientoPuntos">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Vencimiento de Puntos"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imgSP/gestion_de_puntos.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Puntos Vencidos"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVencimientoPuntosActionPerformed"/>

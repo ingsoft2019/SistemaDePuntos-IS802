@@ -5,7 +5,10 @@
  */
 package frmArea;
 
+import java.awt.Color;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -29,9 +32,11 @@ public class mdl_VencimientoPuntos extends javax.swing.JDialog {
         this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario        
-   
+        
+        lblMensaje.setVisible(false);
+        cargarTabla();
     }
-
+    //static ResultSet respuesta;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,8 +48,9 @@ public class mdl_VencimientoPuntos extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblCliente = new javax.swing.JTable();
         btnEliminarPuntosVencidos = new javax.swing.JButton();
+        lblMensaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Eliminar Puntos Vencidos");
@@ -52,7 +58,7 @@ public class mdl_VencimientoPuntos extends javax.swing.JDialog {
         setMinimumSize(new java.awt.Dimension(633, 392));
         getContentPane().setLayout(null);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -63,7 +69,7 @@ public class mdl_VencimientoPuntos extends javax.swing.JDialog {
                 "Cliente", "Puntos Actuales", "Fecha Vencimiento"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblCliente);
 
         btnEliminarPuntosVencidos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
         btnEliminarPuntosVencidos.setText("Eliminar Puntos Vencidos");
@@ -76,6 +82,8 @@ public class mdl_VencimientoPuntos extends javax.swing.JDialog {
             }
         });
 
+        lblMensaje.setText("No hay clientes con puntos vencidos");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -83,17 +91,20 @@ public class mdl_VencimientoPuntos extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(212, 212, 212)
-                        .addComponent(btnEliminarPuntosVencidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnEliminarPuntosVencidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addComponent(lblMensaje)
+                .addGap(15, 15, 15)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(btnEliminarPuntosVencidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -105,12 +116,45 @@ public class mdl_VencimientoPuntos extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void cargarTabla(){
+        int contador= 0;
+        DefaultTableModel modelo = (DefaultTableModel) tblCliente.getModel();
+        modelo.setRowCount(0);
+        ResultSet respuesta = Conexion.Conexion.consulta("SELECT CONCAT(p.pnombre, ' ', p.snombre, ' ', p.papellido, ' ', p.sapellido) nombre, c.puntos_actuales, c.fecha_vencimiento_puntos "
+                                                       + "FROM Cliente c "
+                                                       + "INNER JOIN Persona p ON p.id_persona = c.id_persona "
+                                                       + "WHERE c.fecha_vencimiento_puntos <= GETDATE()");
+        try{
+            while (respuesta.next()){
+                Vector v  = new Vector();
+                v.add(respuesta.getString(1));
+                v.add(respuesta.getInt(2));
+                v.add(respuesta.getString(3));
+                modelo.addRow(v);
+                tblCliente.setModel(modelo);
+                contador+=1;
+            }
+            if(contador==0){
+                //JOptionPane.showMessageDialog(null, "No hay clientes con puntos vencidos");
+                lblMensaje.setVisible(true);
+                lblMensaje.setForeground(Color.RED);
+                btnEliminarPuntosVencidos.setEnabled(false);
+            }
+            //System.out.println(contador);
+        
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+    
+    }
+    
     private void btnEliminarPuntosVencidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPuntosVencidosActionPerformed
         try {
             int codigo=JOptionPane.showConfirmDialog(null, "¿Estas seguro de eliminar los puntos vencidos?", "Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
             if (codigo==JOptionPane.YES_OPTION){
             Procedimientos.ProcedimientoAsignacionPuntos.eliminarPuntosVencidos();
+            cargarTabla();
             }
         } catch (SQLException ex) {
             Logger.getLogger(mdl_VencimientoPuntos.class.getName()).log(Level.SEVERE, null, ex);
@@ -163,6 +207,7 @@ public class mdl_VencimientoPuntos extends javax.swing.JDialog {
     private javax.swing.JButton btnEliminarPuntosVencidos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblMensaje;
+    private javax.swing.JTable tblCliente;
     // End of variables declaration//GEN-END:variables
 }
