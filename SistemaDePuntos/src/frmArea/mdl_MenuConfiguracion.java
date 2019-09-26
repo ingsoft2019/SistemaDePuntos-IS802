@@ -176,9 +176,12 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
 
     private void btn_tamano_papelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tamano_papelActionPerformed
         // TODO add your handling code here:
-        frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
+        /*frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
         mdl_tamano_papel  ver=new mdl_tamano_papel(frmMenuPrincipal,true);
-        ver.setVisible(true); // visible ventana del objeto
+        ver.setVisible(true); // visible ventana del objeto*/
+        frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
+        mdl_ParametrosImpresion  ver=new mdl_ParametrosImpresion(frmMenuPrincipal,true);
+        ver.setVisible(true);
         
     }//GEN-LAST:event_btn_tamano_papelActionPerformed
 
