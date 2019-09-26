@@ -290,7 +290,6 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             try {
                 int row = getjTable1().getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
                 int id_persona = (int) getjTable1().getValueAt(row, 4); //OBTENGO EL VALOR DEL ID PERSONA
-                
                 //Consulto todos los datos relacioados con el ID
                 ResultSet res = consulta("Select * from Persona inner join Cliente on Persona.id_persona = Cliente.id_persona\n"
                         + "inner join zona on Persona.id_zona = Zona.id_zona where Persona.id_persona = '" + id_persona + "';");

@@ -5,6 +5,8 @@
  */
 package frmArea;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.ImageIcon;
@@ -17,7 +19,7 @@ public class mdl_NuevaZona extends java.awt.Dialog {
      */
     ResultSet res = null;
     int cont = 0;
-    
+
     public mdl_NuevaZona(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -119,11 +121,10 @@ public class mdl_NuevaZona extends java.awt.Dialog {
 
                 } else {
                     Procedimientos.ProcedimientosCliente.guardarZona(getTxt_nuevaZona().getText());
-              /*     mdl_RegistroClientes mdl_RegistroCliente = null;
-                     mdl_RegistroCliente.actulizarZonas();*/
                     JOptionPane.showMessageDialog(this, "Zona agregada");
                     txt_nuevaZona.setText("");
-                  //  dispose();//Para cerrar el formulario al agregar la zona
+                    new mdl_gestionZona(new frmMenuPrincipal(), true).mostrarZonasExistentes();
+                   
                 }
             } catch (SQLException e) {
             }

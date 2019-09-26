@@ -7,6 +7,15 @@ package frmArea;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+//librerias para encripotar e desenccriptar
+import java.security.MessageDigest;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import org.apache.commons.codec.binary.Base64;
 
 /**
  *
@@ -111,9 +120,23 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
     }//GEN-LAST:event_closeDialog
 
     private void btn_cambiar_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiar_passActionPerformed
-                // TODO add your handling code here:
-        String usuario, passActual, passNuevo, passNuevoConfirmacion;
-        
+               
+         String usuario, passActual, passNuevo, passNuevoConfirmacion;
+         
+         
+         //metodo para encriptar y desincriptar 
+        String encriptado = mdl_cambiar_contrasena.Encriptar("asd.456");
+        System.out.println(encriptado);
+        String desencriptado = null;
+        try {
+            desencriptado = mdl_cambiar_contrasena.Desencriptar(encriptado);
+        } catch (Exception ex) {
+            Logger.getLogger(mdl_cambiar_contrasena.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error " + ex);
+        }
+        System.out.println(desencriptado);
+                
+         /*INSERT INTO Admin VALUES ('root', 'asd.456'); */
         //String user= new String(getTxt_usuario().getText()); 
         usuario = "root";
        // passActual = "asd.456";
@@ -148,6 +171,58 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
     /**
      * @param args the command line arguments
      */
+    
+  public static String Encriptar(String texto) {
+ 
+        String secretKey = "qualityinfosolutions"; //llave para encriptar datos
+        String base64EncryptedString = "";
+ 
+        try {
+ 
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
+            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+ 
+            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+            Cipher cipher = Cipher.getInstance("DESede");
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+ 
+            byte[] plainTextBytes = texto.getBytes("utf-8");
+            byte[] buf = cipher.doFinal(plainTextBytes);
+            byte[] base64Bytes = Base64.encodeBase64(buf);
+            base64EncryptedString = new String(base64Bytes);
+ 
+        } catch (Exception ex) {
+        }
+        return base64EncryptedString;
+}
+    
+    public static String Desencriptar(String textoEncriptado) throws Exception {
+ 
+        String secretKey = "qualityinfosolutions"; //llave para desenciptar datos
+        String base64EncryptedString = "";
+ 
+        try {
+            byte[] message = Base64.decodeBase64(textoEncriptado.getBytes("utf-8"));
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
+            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+ 
+            Cipher decipher = Cipher.getInstance("DESede");
+            decipher.init(Cipher.DECRYPT_MODE, key);
+ 
+            byte[] plainText = decipher.doFinal(message);
+ 
+            base64EncryptedString = new String(plainText, "UTF-8");
+ 
+        } catch (Exception ex) {
+        }
+        return base64EncryptedString;
+}
+      
+    
+    
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

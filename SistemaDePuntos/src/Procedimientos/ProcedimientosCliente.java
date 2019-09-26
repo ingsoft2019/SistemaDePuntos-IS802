@@ -46,6 +46,29 @@ public class ProcedimientosCliente {
         entrada.execute();
     }
      
+    public static CallableStatement actualizarZona(int idZona,String zona)throws SQLException{
+        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{call SP_actualizarNombreZona (?,?)}");
+        entrada.setInt(1, idZona);
+        entrada.setString(2, zona);
+        entrada.execute();
+        return entrada;
+    } 
+    
+    public static CallableStatement deshabilitarZona(int idZona)throws SQLException{
+        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{call SP_deshabilitarZona (?)}");
+        entrada.setInt(1, idZona);
+        entrada.execute();
+        return entrada;
+    } 
+    
+    public static CallableStatement habilitarZona(int idZona)throws SQLException{
+        CallableStatement entrada = Conexion.Conexion.getConexion().prepareCall("{call SP_habilitarZona (?)}");
+        entrada.setInt(1, idZona);
+        entrada.execute();
+        return entrada;
+    } 
+     
+    
      public static void actualizarCliente(String pnombre, String snombre,String papellido, String sapellido, 
                                       String identidad, String correo, String sexo, Date fecha_nacimiento, 
                                       String telefono1,String telefono2,String telefono3, int zona, 

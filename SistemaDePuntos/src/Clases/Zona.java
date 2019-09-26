@@ -16,7 +16,7 @@ public class Zona{
 
     //Metdodo para las zonas en el combobox
     public static ResultSet mostrarZonas() {
-        String consulta = "Select * from Zona ORDER BY id_zona ASC";
+        String consulta = "Select * from Zona WHERE estado ='A' ORDER BY id_zona ASC";
         ResultSet res = Conexion.Conexion.consulta(consulta);
         return res;
         

@@ -45,6 +45,7 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         btn_recuperar = new javax.swing.JButton();
         btn_tamano_papel = new javax.swing.JButton();
         btnVencimientoPuntos = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(699, 383));
         setMinimumSize(new java.awt.Dimension(699, 383));
@@ -102,7 +103,7 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
             }
         });
         jPanel2.add(btn_recuperar);
-        btn_recuperar.setBounds(30, 230, 190, 60);
+        btn_recuperar.setBounds(30, 200, 190, 60);
         btn_recuperar.getAccessibleContext().setAccessibleName("Cambiar ");
 
         btn_tamano_papel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato puntos.png"))); // NOI18N
@@ -113,7 +114,7 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
             }
         });
         jPanel2.add(btn_tamano_papel);
-        btn_tamano_papel.setBounds(250, 230, 190, 60);
+        btn_tamano_papel.setBounds(250, 200, 190, 60);
 
         btnVencimientoPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/gestion_de_puntos.png"))); // NOI18N
         btnVencimientoPuntos.setText("Puntos Vencidos");
@@ -123,7 +124,16 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
             }
         });
         jPanel2.add(btnVencimientoPuntos);
-        btnVencimientoPuntos.setBounds(470, 230, 190, 60);
+        btnVencimientoPuntos.setBounds(470, 200, 190, 60);
+
+        jButton1.setText("Gestión zonas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1);
+        jButton1.setBounds(250, 290, 190, 60);
 
         add(jPanel2);
         jPanel2.setBounds(0, 0, 700, 390);
@@ -191,6 +201,13 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         ver.setVisible(true); // visible ventana del objeto
     }//GEN-LAST:event_btnVencimientoPuntosActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        mdl_gestionZona  gz = new mdl_gestionZona(new frmMenuPrincipal(), true);
+        gz.mostrarZonasExistentes();
+        gz.setVisible(true);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -216,6 +233,7 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
     private javax.swing.JButton btn_recuperar;
     private javax.swing.JButton btn_reinicioPuntos;
     private javax.swing.JButton btn_tamano_papel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
