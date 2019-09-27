@@ -66,6 +66,11 @@ public class mdl_ParametrosImpresion extends javax.swing.JDialog {
             }
         ));
         jScrollPane1.setViewportView(tblParametros);
+        if (tblParametros.getColumnModel().getColumnCount() > 0) {
+            tblParametros.getColumnModel().getColumn(3).setMinWidth(0);
+            tblParametros.getColumnModel().getColumn(3).setPreferredWidth(0);
+            tblParametros.getColumnModel().getColumn(3).setMaxWidth(0);
+        }
 
         lblMensaje.setText("No hay parametros de impresion para el tamaño de hoja.");
 

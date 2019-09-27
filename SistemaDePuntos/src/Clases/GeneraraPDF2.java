@@ -51,7 +51,7 @@ public class GeneraraPDF2 {
         Chunk cCliente = new Chunk("Cliente: "+ cliente, fuenteNormal);
         Chunk cPuntosActuales = new Chunk("Puntos actuales: "+ puntosActuales, fuenteNormal);
         Chunk cPuntosAnteriores = new Chunk("Puntos anteriores: "+ puntosAnteriores, fuenteNormal);
-        Chunk cPuntosAsignados = new Chunk("Puntos Asignados: "+ puntosAsignados, fuenteNormal);
+        Chunk cPuntosAsignados = new Chunk("Puntos asignados: "+ puntosAsignados, fuenteNormal);
         Chunk cSeparador = new Chunk("__________________________", fuenteNormal);
         Chunk cSaltoLinea = new Chunk(" ", fuenteNormal);
         Chunk cFooter = new Chunk(Fecha, fuenteItalica);

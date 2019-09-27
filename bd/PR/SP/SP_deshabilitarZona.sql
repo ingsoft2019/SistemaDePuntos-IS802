@@ -1,4 +1,4 @@
-CREATE PROCEDURE SP_habilitarZona(
+CREATE PROCEDURE SP_deshabilitarZona(
 @id_zona int)
 AS
 BEGIN

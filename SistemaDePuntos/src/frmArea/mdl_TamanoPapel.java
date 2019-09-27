@@ -160,7 +160,7 @@ public class mdl_TamanoPapel extends java.awt.Dialog {
     
     public void recibirId(int id){
         this.id = id;
-        JOptionPane.showMessageDialog(null, id);
+        
     }
     
     
