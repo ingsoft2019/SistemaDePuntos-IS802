@@ -10,8 +10,6 @@ import java.sql.Statement;
 
 public class Conexion {
     static Connection contacto = null;
-    static String user = "sa";
-    static String pass = "123";
     static String db = "PR";
     
     public static Connection getConexion(){
