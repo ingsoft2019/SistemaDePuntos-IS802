@@ -140,19 +140,17 @@ public class frmLogin extends javax.swing.JFrame {
                 frmMenuPrincipal ver=new frmMenuPrincipal();
                 ver.setVisible(true); 
                 this.setVisible(false); 
-                System.out.println("por aqui");
             }else{
-                JOptionPane.showMessageDialog(null, "Incorrecto");
-                System.out.println("hola");
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
             }
             con.close();
             
         }catch(SQLException e){
-            System.out.println("problema 1");
+            
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
-            System.err.println("problema2");
+            
         }
         /* String usuario= "is802";
         String contrasena= "asd.456";
