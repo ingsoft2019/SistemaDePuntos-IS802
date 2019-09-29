@@ -355,6 +355,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         jLabel9.setBounds(22, 214, 130, 14);
 
         txt_puntosRegis.setEditable(false);
+        txt_puntosRegis.setEnabled(false);
         txt_puntosRegis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_puntosRegisActionPerformed(evt);
@@ -368,6 +369,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         jL_vencimiento.setBounds(22, 244, 130, 14);
 
         txt_vencimiento.setEditable(false);
+        txt_vencimiento.setEnabled(false);
         txt_vencimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_vencimientoActionPerformed(evt);
@@ -381,6 +383,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         jLabel11.setBounds(22, 279, 120, 14);
 
         txt_puntoRifa.setEditable(false);
+        txt_puntoRifa.setEnabled(false);
         txt_puntoRifa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_puntoRifaActionPerformed(evt);

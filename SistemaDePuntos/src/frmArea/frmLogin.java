@@ -7,6 +7,13 @@ package frmArea;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -115,7 +122,35 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void btn_ingresarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarLoginActionPerformed
         // TODO add your handling code here:
-         String usuario= "is802";
+        try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=FA";
+            String user = "sa";
+            String pass = "123";
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "select * from GEN_USR where GEN_USR.nombre =?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, getTxt_usuario().getText());
+            ResultSet res = pst.executeQuery();
+            if(res.next()){
+                frmMenuPrincipal ver=new frmMenuPrincipal();
+                ver.setVisible(true); 
+                this.setVisible(false); 
+                System.out.println("por aqui");
+            }else{
+                JOptionPane.showMessageDialog(null, "Incorrecto");
+                System.out.println("hola");
+            }
+            con.close();
+            
+        }catch(SQLException e){
+            System.out.println("problema 1");
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("problema2");
+        }
+        /* String usuario= "is802";
         String contrasena= "asd.456";
         
         String pass= new String(getTxt_contrasena().getPassword());
@@ -129,7 +164,7 @@ public class frmLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta.  ");
             txt_contrasena.setText("");
         }
-        
+        */
         
     }//GEN-LAST:event_btn_ingresarLoginActionPerformed
 
