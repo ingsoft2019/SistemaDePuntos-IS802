@@ -128,8 +128,9 @@ public class frmLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=FA";
-            String user = "sa";
+            //String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=FA";
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=FA";
+            String user = "sa1";
             String pass = "123";
             Connection con = DriverManager.getConnection(url,user,pass);
             String sql = "select * from GEN_USR where GEN_USR.nombre =?";
