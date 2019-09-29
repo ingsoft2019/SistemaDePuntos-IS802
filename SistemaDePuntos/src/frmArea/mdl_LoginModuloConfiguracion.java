@@ -9,8 +9,11 @@ package frmArea;
  *
  * @author Luis Estrada
  */
+import Conexion.Conexion;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -20,6 +23,7 @@ public class mdl_LoginModuloConfiguracion extends java.awt.Dialog {
     /**
      * Creates new form mdl_LoginModuloConfiguracion
      */
+    
     public mdl_LoginModuloConfiguracion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -125,10 +129,14 @@ public class mdl_LoginModuloConfiguracion extends java.awt.Dialog {
         // TODO add your handling code here:
         String usuario= "root";
         String contrasena= "asd.456";
-
+        
         String pass= new String(getTxt_contrasena().getPassword());
         String user= new String(getTxt_usuario().getText());
-
+        
+        String consulta = "Select usuario, contrasena from Admin where usuario='" + pass + "' and contrasena ='" + user + "'";
+        ResultSet resp = Conexion.consulta(consulta);
+        
+  
         if (user.equals(usuario) && pass.equals(contrasena)){
             this.setVisible(false); // ocultar
             frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
