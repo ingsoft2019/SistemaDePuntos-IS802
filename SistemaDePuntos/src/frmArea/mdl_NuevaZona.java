@@ -41,9 +41,10 @@ public class mdl_NuevaZona extends java.awt.Dialog {
         JL_zona = new javax.swing.JLabel();
         txt_nuevaZona = new javax.swing.JTextField();
         btn_guardarZona = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(601, 85));
-        setMinimumSize(new java.awt.Dimension(601, 85));
+        setMaximumSize(new java.awt.Dimension(601, 159));
+        setMinimumSize(new java.awt.Dimension(601, 159));
         setTitle("Agregar Nueva Zona");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -56,17 +57,16 @@ public class mdl_NuevaZona extends java.awt.Dialog {
 
         JL_zona.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         JL_zona.setText("Zona:");
-        JL_zona.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JL_zona.setMaximumSize(new java.awt.Dimension(40, 240));
         JL_zona.setMinimumSize(new java.awt.Dimension(40, 240));
         jPanel1.add(JL_zona);
-        JL_zona.setBounds(10, 40, 90, 30);
+        JL_zona.setBounds(20, 90, 90, 40);
 
         txt_nuevaZona.setMaximumSize(new java.awt.Dimension(330, 24));
         txt_nuevaZona.setMinimumSize(new java.awt.Dimension(330, 24));
         txt_nuevaZona.setPreferredSize(new java.awt.Dimension(330, 24));
         jPanel1.add(txt_nuevaZona);
-        txt_nuevaZona.setBounds(100, 40, 320, 30);
+        txt_nuevaZona.setBounds(110, 90, 320, 40);
 
         btn_guardarZona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/guardar.png"))); // NOI18N
         btn_guardarZona.setText("Guardar");
@@ -84,10 +84,15 @@ public class mdl_NuevaZona extends java.awt.Dialog {
             }
         });
         jPanel1.add(btn_guardarZona);
-        btn_guardarZona.setBounds(450, 30, 140, 45);
+        btn_guardarZona.setBounds(440, 90, 140, 40);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("Agregar nueva zona");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(180, 40, 250, 40);
 
         add(jPanel1);
-        jPanel1.setBounds(0, 0, 610, 90);
+        jPanel1.setBounds(0, 0, 610, 170);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -152,6 +157,7 @@ public class mdl_NuevaZona extends java.awt.Dialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JL_zona;
     private javax.swing.JButton btn_guardarZona;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txt_nuevaZona;
     // End of variables declaration//GEN-END:variables

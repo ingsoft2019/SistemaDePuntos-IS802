@@ -47,8 +47,10 @@ public class mdl_TamanoPapel extends java.awt.Dialog {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(425, 285));
-        setMinimumSize(new java.awt.Dimension(425, 285));
+        setMaximumSize(new java.awt.Dimension(496, 272));
+        setMinimumSize(new java.awt.Dimension(496, 272));
+        setPreferredSize(new java.awt.Dimension(496, 272));
+        setTitle("Tamaño de papel para impresión");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -58,15 +60,15 @@ public class mdl_TamanoPapel extends java.awt.Dialog {
 
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Tamaño de papel para impresión");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(20, 20, 430, 40);
+        jLabel1.setBounds(60, 40, 390, 40);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Anchura");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(240, 110, 70, 19);
+        jLabel2.setBounds(290, 110, 70, 30);
 
         txtAnchura.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -74,7 +76,7 @@ public class mdl_TamanoPapel extends java.awt.Dialog {
             }
         });
         jPanel1.add(txtAnchura);
-        txtAnchura.setBounds(300, 110, 60, 24);
+        txtAnchura.setBounds(360, 110, 60, 30);
 
         txtAltura.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -82,12 +84,12 @@ public class mdl_TamanoPapel extends java.awt.Dialog {
             }
         });
         jPanel1.add(txtAltura);
-        txtAltura.setBounds(100, 110, 60, 24);
+        txtAltura.setBounds(140, 110, 60, 30);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Altura");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(50, 110, 50, 20);
+        jLabel3.setBounds(90, 110, 50, 30);
 
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/guardar.png"))); // NOI18N
         btnAgregar.setText("Guardar");
@@ -97,18 +99,18 @@ public class mdl_TamanoPapel extends java.awt.Dialog {
             }
         });
         jPanel1.add(btnAgregar);
-        btnAgregar.setBounds(140, 190, 160, 60);
+        btnAgregar.setBounds(180, 180, 140, 40);
 
         jLabel4.setText("MM");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(370, 110, 30, 20);
+        jLabel4.setBounds(420, 110, 30, 30);
 
         jLabel5.setText("MM");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(170, 110, 30, 20);
+        jLabel5.setBounds(200, 110, 30, 30);
 
         add(jPanel1);
-        jPanel1.setBounds(0, 0, 430, 290);
+        jPanel1.setBounds(0, 0, 500, 280);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

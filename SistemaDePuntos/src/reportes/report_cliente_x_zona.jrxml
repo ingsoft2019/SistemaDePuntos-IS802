@@ -34,7 +34,7 @@ WHERE c.puntos_actuales >5]]>
 			<staticText>
 				<reportElement uuid="743dbba0-46af-4fc9-a4e3-2de902159726" style="SubTitle" x="0" y="46" width="263" height="22"/>
 				<textElement textAlignment="Right"/>
-				<text><![CDATA[Farmacia Regis "Las Casistas"]]></text>
+				<text><![CDATA[Farmacia Regis]]></text>
 			</staticText>
 		</band>
 	</title>

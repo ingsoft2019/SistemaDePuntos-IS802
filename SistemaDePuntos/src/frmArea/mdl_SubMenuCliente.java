@@ -101,10 +101,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         txt_datalleDireccion = new javax.swing.JTextArea();
         jC_zona = new javax.swing.JComboBox<>();
         btn_habilitarcliente = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(700, 450));
         setMinimumSize(new java.awt.Dimension(700, 450));
-        setTitle("Gestion de Cliente");
+        setTitle("Gestión de Cliente");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -119,33 +120,33 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jpanel_datos1.setLayout(null);
 
-        jL_primerNombre.setText("Primer Nombre:");
+        jL_primerNombre.setText("Primer nombre:");
         jpanel_datos1.add(jL_primerNombre);
-        jL_primerNombre.setBounds(0, 10, 100, 14);
+        jL_primerNombre.setBounds(0, 10, 100, 16);
 
-        jL_segundoNombre.setText("Segundo Nombre:");
+        jL_segundoNombre.setText("Segundo nombre:");
         jpanel_datos1.add(jL_segundoNombre);
-        jL_segundoNombre.setBounds(0, 40, 109, 14);
+        jL_segundoNombre.setBounds(0, 40, 109, 16);
 
-        jL_primerApellido.setText("Primer Apellido:");
+        jL_primerApellido.setText("Primer apellido:");
         jpanel_datos1.add(jL_primerApellido);
-        jL_primerApellido.setBounds(0, 70, 100, 14);
+        jL_primerApellido.setBounds(0, 70, 100, 16);
 
-        jL_segundoApellido.setText("Segundo Apellido:");
+        jL_segundoApellido.setText("Segundo apellido:");
         jpanel_datos1.add(jL_segundoApellido);
-        jL_segundoApellido.setBounds(0, 100, 109, 14);
+        jL_segundoApellido.setBounds(0, 100, 109, 16);
 
         jL_identidad.setText("Identidad:");
         jpanel_datos1.add(jL_identidad);
-        jL_identidad.setBounds(0, 130, 100, 14);
+        jL_identidad.setBounds(0, 130, 100, 16);
 
         jL_sexo.setText("Sexo :");
         jpanel_datos1.add(jL_sexo);
-        jL_sexo.setBounds(0, 160, 100, 14);
+        jL_sexo.setBounds(0, 160, 100, 16);
 
-        jL_telefono.setText("Telefono 1:");
+        jL_telefono.setText("Teléfono 1:");
         jpanel_datos1.add(jL_telefono);
-        jL_telefono.setBounds(0, 190, 100, 14);
+        jL_telefono.setBounds(0, 190, 100, 16);
 
         txt_primerNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -208,13 +209,13 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         jpanel_datos1.add(txt_telefono1);
         txt_telefono1.setBounds(110, 190, 180, 24);
 
-        jLabel1.setText("Telefono 2:");
+        jLabel1.setText("Teléfono 2:");
         jpanel_datos1.add(jLabel1);
-        jLabel1.setBounds(0, 220, 100, 14);
+        jLabel1.setBounds(0, 220, 100, 16);
 
-        jLabel2.setText("Telefono 3:");
+        jLabel2.setText("Teléfono 3:");
         jpanel_datos1.add(jLabel2);
-        jLabel2.setBounds(0, 250, 100, 14);
+        jLabel2.setBounds(0, 250, 100, 16);
 
         txt_telefono2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -247,7 +248,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jL_email.setText("Email:");
         jpanel_datos1.add(jL_email);
-        jL_email.setBounds(0, 280, 100, 14);
+        jL_email.setBounds(0, 280, 100, 16);
 
         grupo_genero.add(jRadioButtonFemenino);
         jRadioButtonFemenino.setText("F");
@@ -263,7 +264,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_datos1.add(jRadioButtonFemenino);
-        jRadioButtonFemenino.setBounds(110, 160, 40, 23);
+        jRadioButtonFemenino.setBounds(110, 160, 40, 28);
 
         grupo_genero.add(jRadioButtonMasculino);
         jRadioButtonMasculino.setText("M");
@@ -278,10 +279,10 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_datos1.add(jRadioButtonMasculino);
-        jRadioButtonMasculino.setBounds(150, 160, 50, 23);
+        jRadioButtonMasculino.setBounds(150, 160, 50, 28);
 
         jpanel_AreaSubMenu.add(jpanel_datos1);
-        jpanel_datos1.setBounds(20, 90, 310, 350);
+        jpanel_datos1.setBounds(40, 130, 310, 320);
 
         btn_editarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/guardar.png"))); // NOI18N
         btn_editarCliente.setText("Guardar");
@@ -296,7 +297,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_editarCliente);
-        btn_editarCliente.setBounds(20, 30, 140, 40);
+        btn_editarCliente.setBounds(40, 70, 145, 40);
 
         btn_desactivarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/inhabilitar.png"))); // NOI18N
         btn_desactivarCliente.setText("Deshabilitar");
@@ -310,7 +311,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_desactivarCliente);
-        btn_desactivarCliente.setBounds(190, 30, 140, 40);
+        btn_desactivarCliente.setBounds(210, 70, 145, 40);
 
         btn_imprimirDireccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato entrega.png"))); // NOI18N
         btn_imprimirDireccion.setText("Imprimir dirección");
@@ -324,7 +325,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_imprimirDireccion);
-        btn_imprimirDireccion.setBounds(360, 30, 140, 40);
+        btn_imprimirDireccion.setBounds(370, 70, 145, 40);
 
         btn_imprimirPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato puntos.png"))); // NOI18N
         btn_imprimirPuntos.setText("Imprimir puntos");
@@ -338,15 +339,17 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_imprimirPuntos);
-        btn_imprimirPuntos.setBounds(530, 30, 140, 40);
+        btn_imprimirPuntos.setBounds(540, 70, 145, 40);
 
         jpanel_datos2.setLayout(null);
 
-        jLabel9.setText("Puntos Regis:");
+        jLabel9.setText("Puntos regis:");
+        jLabel9.setToolTipText("");
         jpanel_datos2.add(jLabel9);
-        jLabel9.setBounds(22, 214, 130, 14);
+        jLabel9.setBounds(22, 214, 130, 16);
 
         txt_puntosRegis.setEditable(false);
+        txt_puntosRegis.setEnabled(false);
         txt_puntosRegis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_puntosRegisActionPerformed(evt);
@@ -357,9 +360,10 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jL_vencimiento.setText("Vencimiento:");
         jpanel_datos2.add(jL_vencimiento);
-        jL_vencimiento.setBounds(22, 244, 130, 14);
+        jL_vencimiento.setBounds(22, 244, 130, 16);
 
         txt_vencimiento.setEditable(false);
+        txt_vencimiento.setEnabled(false);
         txt_vencimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_vencimientoActionPerformed(evt);
@@ -370,9 +374,10 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jLabel11.setText("Puntos rifa:");
         jpanel_datos2.add(jLabel11);
-        jLabel11.setBounds(22, 279, 120, 14);
+        jLabel11.setBounds(22, 279, 120, 16);
 
         txt_puntoRifa.setEditable(false);
+        txt_puntoRifa.setEnabled(false);
         txt_puntoRifa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_puntoRifaActionPerformed(evt);
@@ -381,9 +386,9 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         jpanel_datos2.add(txt_puntoRifa);
         txt_puntoRifa.setBounds(130, 270, 180, 24);
 
-        jLabel3.setText("Fecha Nacimiento:");
+        jLabel3.setText("Fecha nacimiento:");
         jpanel_datos2.add(jLabel3);
-        jLabel3.setBounds(22, 11, 130, 14);
+        jLabel3.setBounds(22, 11, 130, 16);
 
         jD_fechaNac.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -405,11 +410,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jLabel4.setText("Zona:");
         jpanel_datos2.add(jLabel4);
-        jLabel4.setBounds(22, 53, 130, 14);
+        jLabel4.setBounds(22, 53, 130, 16);
 
         jLabel5.setText("Dirección:");
         jpanel_datos2.add(jLabel5);
-        jLabel5.setBounds(20, 90, 130, 14);
+        jLabel5.setBounds(20, 90, 130, 16);
 
         txt_datalleDireccion.setColumns(20);
         txt_datalleDireccion.setRows(5);
@@ -421,7 +426,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         jScrollPane1.setViewportView(txt_datalleDireccion);
 
         jpanel_datos2.add(jScrollPane1);
-        jScrollPane1.setBounds(130, 90, 182, 96);
+        jScrollPane1.setBounds(130, 90, 182, 83);
 
         jC_zona.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -434,10 +439,10 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_datos2.add(jC_zona);
-        jC_zona.setBounds(130, 50, 182, 20);
+        jC_zona.setBounds(130, 50, 182, 26);
 
         jpanel_AreaSubMenu.add(jpanel_datos2);
-        jpanel_datos2.setBounds(360, 90, 320, 340);
+        jpanel_datos2.setBounds(360, 130, 320, 310);
 
         btn_habilitarcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/habilitar.png"))); // NOI18N
         btn_habilitarcliente.setText("Habilitar");
@@ -451,10 +456,15 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_AreaSubMenu.add(btn_habilitarcliente);
-        btn_habilitarcliente.setBounds(190, 30, 140, 40);
+        btn_habilitarcliente.setBounds(210, 70, 140, 40);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel6.setText("Gestión de cliente");
+        jpanel_AreaSubMenu.add(jLabel6);
+        jLabel6.setBounds(250, 30, 230, 29);
 
         add(jpanel_AreaSubMenu);
-        jpanel_AreaSubMenu.setBounds(0, 20, 700, 450);
+        jpanel_AreaSubMenu.setBounds(0, 0, 700, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -922,6 +932,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JRadioButton jRadioButtonFemenino;
     private javax.swing.JRadioButton jRadioButtonMasculino;

@@ -42,12 +42,12 @@ public class mdl_LoginModuloConfiguracion extends java.awt.Dialog {
         txt_usuario = new javax.swing.JTextField();
         jl_contrasena = new javax.swing.JLabel();
         btn_ingresarLogin = new javax.swing.JButton();
-        btn_recuperar = new javax.swing.JButton();
         txt_contrasena = new javax.swing.JPasswordField();
+        lblCanjeoPuntos = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(480, 192));
-        setMinimumSize(new java.awt.Dimension(480, 192));
-        setTitle("Login Modulo Configuración");
+        setMaximumSize(new java.awt.Dimension(480, 229));
+        setMinimumSize(new java.awt.Dimension(480, 229));
+        setTitle("Login módulo configuración");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -57,11 +57,10 @@ public class mdl_LoginModuloConfiguracion extends java.awt.Dialog {
 
         panel_login.setLayout(null);
 
-        jl_Usuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jl_Usuario.setText("Usuario");
-        jl_Usuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jl_Usuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jl_Usuario.setText("Usuario:");
         panel_login.add(jl_Usuario);
-        jl_Usuario.setBounds(20, 50, 100, 30);
+        jl_Usuario.setBounds(30, 70, 120, 30);
 
         txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -69,13 +68,12 @@ public class mdl_LoginModuloConfiguracion extends java.awt.Dialog {
             }
         });
         panel_login.add(txt_usuario);
-        txt_usuario.setBounds(120, 50, 312, 30);
+        txt_usuario.setBounds(150, 70, 312, 30);
 
-        jl_contrasena.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jl_contrasena.setText("Contraseña");
-        jl_contrasena.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jl_contrasena.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jl_contrasena.setText("Contraseña:");
         panel_login.add(jl_contrasena);
-        jl_contrasena.setBounds(20, 100, 100, 30);
+        jl_contrasena.setBounds(30, 120, 120, 30);
 
         btn_ingresarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/ingresar.png"))); // NOI18N
         btn_ingresarLogin.setText("Ingresar");
@@ -85,12 +83,7 @@ public class mdl_LoginModuloConfiguracion extends java.awt.Dialog {
             }
         });
         panel_login.add(btn_ingresarLogin);
-        btn_ingresarLogin.setBounds(30, 140, 190, 40);
-
-        btn_recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/pass-contrasena.png"))); // NOI18N
-        btn_recuperar.setText("Recuperar");
-        panel_login.add(btn_recuperar);
-        btn_recuperar.setBounds(240, 140, 190, 40);
+        btn_ingresarLogin.setBounds(170, 170, 150, 40);
 
         txt_contrasena.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -98,10 +91,15 @@ public class mdl_LoginModuloConfiguracion extends java.awt.Dialog {
             }
         });
         panel_login.add(txt_contrasena);
-        txt_contrasena.setBounds(122, 100, 310, 30);
+        txt_contrasena.setBounds(150, 120, 310, 30);
+
+        lblCanjeoPuntos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblCanjeoPuntos.setText("Login de configuración del sistema");
+        panel_login.add(lblCanjeoPuntos);
+        lblCanjeoPuntos.setBounds(30, 20, 420, 38);
 
         add(panel_login);
-        panel_login.setBounds(0, 0, 480, 200);
+        panel_login.setBounds(0, 10, 480, 210);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -174,9 +172,9 @@ public class mdl_LoginModuloConfiguracion extends java.awt.Dialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_ingresarLogin;
-    private javax.swing.JButton btn_recuperar;
     private javax.swing.JLabel jl_Usuario;
     private javax.swing.JLabel jl_contrasena;
+    private javax.swing.JLabel lblCanjeoPuntos;
     private java.awt.Panel panel_login;
     private javax.swing.JPasswordField txt_contrasena;
     private javax.swing.JTextField txt_usuario;

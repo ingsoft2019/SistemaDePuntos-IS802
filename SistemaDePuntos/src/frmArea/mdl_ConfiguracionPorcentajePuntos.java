@@ -49,7 +49,7 @@ public class mdl_ConfiguracionPorcentajePuntos extends java.awt.Dialog {
 
         setMaximumSize(new java.awt.Dimension(577, 346));
         setMinimumSize(new java.awt.Dimension(577, 346));
-        setTitle("Configuración de Porcentaje de Puntos");
+        setTitle("Configuración de porcentaje de puntos");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -60,6 +60,7 @@ public class mdl_ConfiguracionPorcentajePuntos extends java.awt.Dialog {
         jpanel_SubMenu.setMinimumSize(new java.awt.Dimension(680, 530));
         jpanel_SubMenu.setLayout(null);
 
+        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/modificar.png"))); // NOI18N
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -71,13 +72,14 @@ public class mdl_ConfiguracionPorcentajePuntos extends java.awt.Dialog {
         btnEditar.setBounds(230, 250, 140, 40);
 
         jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jl_TituloPrincipal.setText("Configuración de Porcentaje  Puntos");
+        jl_TituloPrincipal.setText("Configuración de porcentaje  puntos");
         jpanel_SubMenu.add(jl_TituloPrincipal);
         jl_TituloPrincipal.setBounds(70, 40, 450, 30);
 
-        lblFechaConfiguracion.setText("Fecha configuracion:");
+        lblFechaConfiguracion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblFechaConfiguracion.setText("Fecha configuración:");
         jpanel_SubMenu.add(lblFechaConfiguracion);
-        lblFechaConfiguracion.setBounds(80, 200, 130, 16);
+        lblFechaConfiguracion.setBounds(40, 200, 170, 30);
 
         txtDuracionPuntos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtDuracionPuntos.setEnabled(false);
@@ -95,11 +97,12 @@ public class mdl_ConfiguracionPorcentajePuntos extends java.awt.Dialog {
             }
         });
         jpanel_SubMenu.add(txtDuracionPuntos);
-        txtDuracionPuntos.setBounds(410, 100, 90, 30);
+        txtDuracionPuntos.setBounds(470, 110, 90, 30);
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("<html><center>Duracion de Puntos (Meses):");
         jpanel_SubMenu.add(jLabel1);
-        jLabel1.setBounds(310, 100, 100, 40);
+        jLabel1.setBounds(310, 110, 160, 30);
 
         txtFechaConfiguracion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtFechaConfiguracion.setEnabled(false);
@@ -109,11 +112,12 @@ public class mdl_ConfiguracionPorcentajePuntos extends java.awt.Dialog {
             }
         });
         jpanel_SubMenu.add(txtFechaConfiguracion);
-        txtFechaConfiguracion.setBounds(220, 190, 280, 30);
+        txtFechaConfiguracion.setBounds(210, 200, 280, 30);
 
+        lblPorcentajeActual1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblPorcentajeActual1.setText("Porcentaje Actual:");
         jpanel_SubMenu.add(lblPorcentajeActual1);
-        lblPorcentajeActual1.setBounds(40, 110, 110, 16);
+        lblPorcentajeActual1.setBounds(40, 110, 140, 30);
 
         txtPorcentajeActual.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtPorcentajeActual.setEnabled(false);
@@ -134,8 +138,9 @@ public class mdl_ConfiguracionPorcentajePuntos extends java.awt.Dialog {
             }
         });
         jpanel_SubMenu.add(txtPorcentajeActual);
-        txtPorcentajeActual.setBounds(150, 100, 60, 30);
+        txtPorcentajeActual.setBounds(180, 110, 60, 30);
 
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/guardar.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +154,7 @@ public class mdl_ConfiguracionPorcentajePuntos extends java.awt.Dialog {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         jLabel2.setText("%");
         jpanel_SubMenu.add(jLabel2);
-        jLabel2.setBounds(220, 90, 30, 40);
+        jLabel2.setBounds(240, 110, 30, 30);
 
         add(jpanel_SubMenu);
         jpanel_SubMenu.setBounds(0, 0, 580, 350);

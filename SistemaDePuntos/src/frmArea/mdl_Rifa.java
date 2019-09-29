@@ -46,7 +46,7 @@ String mensaje = "";
 
         setMaximumSize(new java.awt.Dimension(536, 404));
         setMinimumSize(new java.awt.Dimension(536, 404));
-        setTitle("Sorteo de Rifa Por Puntos");
+        setTitle("Sorteo de rifa por puntos");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -57,10 +57,11 @@ String mensaje = "";
         jPanel1.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("Sorteo De Rifa Por Puntos");
+        jLabel2.setText("Sorteo de rifa por puntos");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(110, 50, 360, 29);
+        jLabel2.setBounds(120, 40, 310, 29);
 
+        btnRealizarSorteo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/rifa.png"))); // NOI18N
         btnRealizarSorteo.setText("Realizar Sorteo");
         btnRealizarSorteo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,7 +69,7 @@ String mensaje = "";
             }
         });
         jPanel1.add(btnRealizarSorteo);
-        btnRealizarSorteo.setBounds(178, 120, 200, 80);
+        btnRealizarSorteo.setBounds(190, 110, 153, 60);
 
         lblGanador.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblGanador.setToolTipText("");
@@ -79,7 +80,7 @@ String mensaje = "";
             }
         });
         jPanel1.add(lblGanador);
-        lblGanador.setBounds(80, 240, 400, 150);
+        lblGanador.setBounds(50, 200, 430, 150);
 
         add(jPanel1);
         jPanel1.setBounds(0, 0, 540, 410);

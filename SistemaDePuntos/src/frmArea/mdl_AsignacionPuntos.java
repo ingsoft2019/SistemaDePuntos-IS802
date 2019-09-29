@@ -59,7 +59,7 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
 
         setMaximumSize(new java.awt.Dimension(478, 245));
         setMinimumSize(new java.awt.Dimension(478, 245));
-        setTitle("Asignación de Puntos ");
+        setTitle("Asignación de puntos ");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -70,15 +70,14 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
         jPanel2.setLayout(null);
 
         lblAsignacionPuntos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblAsignacionPuntos.setText("Asignación de Puntos");
+        lblAsignacionPuntos.setText("Asignación de puntos");
         jPanel2.add(lblAsignacionPuntos);
-        lblAsignacionPuntos.setBounds(110, 40, 270, 38);
+        lblAsignacionPuntos.setBounds(110, 20, 270, 38);
 
         lblIdFactura.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblIdFactura.setText("Id Facura:");
-        lblIdFactura.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(lblIdFactura);
-        lblIdFactura.setBounds(60, 140, 80, 30);
+        lblIdFactura.setBounds(60, 130, 80, 30);
 
         txtIdFactura.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -86,21 +85,21 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
             }
         });
         jPanel2.add(txtIdFactura);
-        txtIdFactura.setBounds(140, 140, 320, 30);
+        txtIdFactura.setBounds(140, 130, 320, 30);
 
+        txtNombreCliente.setEnabled(false);
         txtNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreClienteKeyTyped(evt);
             }
         });
         jPanel2.add(txtNombreCliente);
-        txtNombreCliente.setBounds(140, 100, 320, 30);
+        txtNombreCliente.setBounds(140, 80, 320, 30);
 
         lblNombreCliente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblNombreCliente.setText("Cliente:");
-        lblNombreCliente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(lblNombreCliente);
-        lblNombreCliente.setBounds(70, 100, 70, 30);
+        lblNombreCliente.setBounds(60, 80, 80, 30);
 
         btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
         btn_asignar.setText("Asignar");
@@ -110,7 +109,7 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
             }
         });
         jPanel2.add(btn_asignar);
-        btn_asignar.setBounds(170, 190, 140, 40);
+        btn_asignar.setBounds(180, 180, 140, 40);
 
         add(jPanel2);
         jPanel2.setBounds(0, 0, 490, 250);

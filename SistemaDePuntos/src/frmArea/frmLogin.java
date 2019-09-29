@@ -42,23 +42,23 @@ public class frmLogin extends javax.swing.JFrame {
         btn_ingresarLogin = new javax.swing.JButton();
         btn_SalirLogin = new javax.swing.JButton();
         txt_contrasena = new javax.swing.JPasswordField();
+        lblCanjeoPuntos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login Sistema De Puntos");
-        setMaximumSize(new java.awt.Dimension(490, 233));
-        setMinimumSize(new java.awt.Dimension(490, 233));
+        setTitle("Login sistema de puntos");
+        setMaximumSize(new java.awt.Dimension(489, 259));
+        setMinimumSize(new java.awt.Dimension(489, 259));
         setName("Loguin del Sistema de Puntos"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(490, 233));
+        setPreferredSize(new java.awt.Dimension(489, 259));
         setResizable(false);
         getContentPane().setLayout(null);
 
         panel_login_Principal.setLayout(null);
 
-        jl_Usuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jl_Usuario.setText("Usuario");
-        jl_Usuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jl_Usuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jl_Usuario.setText("Usuario:");
         panel_login_Principal.add(jl_Usuario);
-        jl_Usuario.setBounds(20, 20, 100, 30);
+        jl_Usuario.setBounds(20, 60, 100, 30);
 
         txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -66,13 +66,12 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         panel_login_Principal.add(txt_usuario);
-        txt_usuario.setBounds(120, 20, 312, 30);
+        txt_usuario.setBounds(120, 60, 312, 30);
 
-        jl_contrasena.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jl_contrasena.setText("Contraseña");
-        jl_contrasena.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jl_contrasena.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jl_contrasena.setText("Contraseña:");
         panel_login_Principal.add(jl_contrasena);
-        jl_contrasena.setBounds(20, 70, 100, 30);
+        jl_contrasena.setBounds(20, 100, 100, 30);
 
         btn_ingresarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/ingresar.png"))); // NOI18N
         btn_ingresarLogin.setText("Ingresar");
@@ -82,7 +81,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         panel_login_Principal.add(btn_ingresarLogin);
-        btn_ingresarLogin.setBounds(40, 130, 160, 40);
+        btn_ingresarLogin.setBounds(70, 150, 140, 40);
 
         btn_SalirLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/salir sistema.png"))); // NOI18N
         btn_SalirLogin.setText("Salir");
@@ -92,7 +91,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         panel_login_Principal.add(btn_SalirLogin);
-        btn_SalirLogin.setBounds(260, 130, 160, 40);
+        btn_SalirLogin.setBounds(260, 150, 140, 40);
 
         txt_contrasena.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -100,10 +99,15 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         panel_login_Principal.add(txt_contrasena);
-        txt_contrasena.setBounds(120, 70, 312, 30);
+        txt_contrasena.setBounds(120, 100, 312, 30);
+
+        lblCanjeoPuntos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblCanjeoPuntos.setText("Login sistema de puntos");
+        panel_login_Principal.add(lblCanjeoPuntos);
+        lblCanjeoPuntos.setBounds(90, 10, 310, 38);
 
         getContentPane().add(panel_login_Principal);
-        panel_login_Principal.setBounds(10, 20, 460, 190);
+        panel_login_Principal.setBounds(10, 20, 460, 220);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -192,6 +196,7 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JButton btn_ingresarLogin;
     private javax.swing.JLabel jl_Usuario;
     private javax.swing.JLabel jl_contrasena;
+    private javax.swing.JLabel lblCanjeoPuntos;
     private java.awt.Panel panel_login_Principal;
     private javax.swing.JPasswordField txt_contrasena;
     private javax.swing.JTextField txt_usuario;

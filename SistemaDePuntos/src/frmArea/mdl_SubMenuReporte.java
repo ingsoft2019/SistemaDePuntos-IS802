@@ -59,7 +59,7 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
 
         setMaximumSize(new java.awt.Dimension(577, 357));
         setMinimumSize(new java.awt.Dimension(577, 357));
-        setTitle("Menú de Reportes y Graficas");
+        setTitle("Menú de reportes y graficas");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -135,6 +135,7 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         jpanel_reporte.add(btn_report3);
         btn_report3.setBounds(40, 200, 160, 60);
 
+        btnGenerarExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/excel report.png"))); // NOI18N
         btnGenerarExcel.setText("Reporte Excel");
         btnGenerarExcel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

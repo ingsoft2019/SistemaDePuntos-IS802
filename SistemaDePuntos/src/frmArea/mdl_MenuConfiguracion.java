@@ -50,7 +50,7 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         setMaximumSize(new java.awt.Dimension(699, 383));
         setMinimumSize(new java.awt.Dimension(699, 383));
         setModal(true);
-        setTitle("Configuración del Sistema");
+        setTitle("Configuración del sistema de puntos ");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -61,7 +61,7 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         jPanel2.setLayout(null);
 
         btn_realizarRifa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/rifa.png"))); // NOI18N
-        btn_realizarRifa.setText("Realizar Rifa");
+        btn_realizarRifa.setText("Realizar rifa");
         btn_realizarRifa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_realizarRifaActionPerformed(evt);
@@ -71,7 +71,7 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         btn_realizarRifa.setBounds(30, 110, 190, 60);
 
         btn_reinicioPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/limpiar.png"))); // NOI18N
-        btn_reinicioPuntos.setText("Reinicio de Puntos");
+        btn_reinicioPuntos.setText("Reinicio de puntos");
         btn_reinicioPuntos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_reinicioPuntosActionPerformed(evt);
@@ -81,7 +81,7 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         btn_reinicioPuntos.setBounds(250, 110, 190, 60);
 
         btn_PorcentajePuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato puntos.png"))); // NOI18N
-        btn_PorcentajePuntos.setText("Porcentaje de Puntos");
+        btn_PorcentajePuntos.setText("Porcentaje de puntos");
         btn_PorcentajePuntos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_PorcentajePuntosActionPerformed(evt);
@@ -91,12 +91,12 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         btn_PorcentajePuntos.setBounds(470, 110, 190, 60);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("Configuración del Sistema");
+        jLabel2.setText("Configuración del sistema de puntos");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(210, 30, 340, 40);
+        jLabel2.setBounds(130, 30, 450, 40);
 
         btn_recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/pass-contrasena.png"))); // NOI18N
-        btn_recuperar.setText("Cambiar");
+        btn_recuperar.setText("Cambiar contraseña");
         btn_recuperar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_recuperarActionPerformed(evt);
@@ -117,7 +117,7 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         btn_tamano_papel.setBounds(250, 200, 190, 60);
 
         btnVencimientoPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/gestion_de_puntos.png"))); // NOI18N
-        btnVencimientoPuntos.setText("Puntos Vencidos");
+        btnVencimientoPuntos.setText("Puntos vencidos");
         btnVencimientoPuntos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVencimientoPuntosActionPerformed(evt);
@@ -126,6 +126,7 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         jPanel2.add(btnVencimientoPuntos);
         btnVencimientoPuntos.setBounds(470, 200, 190, 60);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/zona.png"))); // NOI18N
         jButton1.setText("Gestión zonas");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -51,7 +51,7 @@ WHERE $P{EdadIncial} <= DATEDIFF(YEAR,  p.fecha_nacimiento, GETDATE()) AND $P{Ed
 			<staticText>
 				<reportElement uuid="d06a4b17-016c-4c30-8ac4-779f30b85186" style="SubTitle" x="22" y="46" width="241" height="22"/>
 				<textElement textAlignment="Right"/>
-				<text><![CDATA[Farmacia Regis "Las Casitas"]]></text>
+				<text><![CDATA[Farmacia Regis]]></text>
 			</staticText>
 		</band>
 	</title>

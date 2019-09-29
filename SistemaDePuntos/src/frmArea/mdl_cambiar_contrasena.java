@@ -84,26 +84,26 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
         jPanel1.add(btn_cambiar_pass);
         btn_cambiar_pass.setBounds(250, 330, 140, 40);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Cambiar  Contraseña");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(210, 40, 260, 32);
+        jLabel1.setBounds(210, 40, 260, 29);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Contraseñan actual:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(40, 130, 230, 19);
+        jLabel2.setBounds(40, 130, 230, 17);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Contraseña nueva:");
         jLabel3.setToolTipText("");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(40, 190, 230, 20);
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Confirmar contraseña nueva: ");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(40, 250, 230, 19);
+        jLabel4.setBounds(40, 250, 230, 17);
 
         add(jPanel1);
         jPanel1.setBounds(0, 0, 650, 420);

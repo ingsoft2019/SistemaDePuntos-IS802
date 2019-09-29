@@ -53,7 +53,7 @@ public class mdl_CanjeoPuntos extends java.awt.Dialog {
 
         setMaximumSize(new java.awt.Dimension(478, 245));
         setMinimumSize(new java.awt.Dimension(478, 245));
-        setTitle("Canjeo de Puntos");
+        setTitle("Canjeo de puntos");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -71,7 +71,7 @@ public class mdl_CanjeoPuntos extends java.awt.Dialog {
             }
         });
         jPanel1.add(btn_asignar);
-        btn_asignar.setBounds(140, 190, 200, 40);
+        btn_asignar.setBounds(180, 180, 140, 40);
 
         txtPuntosCanjear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,20 +84,20 @@ public class mdl_CanjeoPuntos extends java.awt.Dialog {
             }
         });
         jPanel1.add(txtPuntosCanjear);
-        txtPuntosCanjear.setBounds(160, 150, 280, 30);
+        txtPuntosCanjear.setBounds(160, 130, 280, 30);
 
         lblPuntosCanjear.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblPuntosCanjear.setText("Puntos a canjear:");
-        lblPuntosCanjear.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(lblPuntosCanjear);
-        lblPuntosCanjear.setBounds(30, 150, 130, 30);
+        lblPuntosCanjear.setBounds(30, 130, 130, 30);
 
         lblCliente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblCliente.setText("Cliente:");
-        lblCliente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(lblCliente);
-        lblCliente.setBounds(30, 100, 130, 30);
+        lblCliente.setBounds(30, 80, 130, 30);
 
+        txtNombreCliente.setEditable(false);
+        txtNombreCliente.setEnabled(false);
         txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreClienteActionPerformed(evt);
@@ -109,12 +109,12 @@ public class mdl_CanjeoPuntos extends java.awt.Dialog {
             }
         });
         jPanel1.add(txtNombreCliente);
-        txtNombreCliente.setBounds(160, 100, 280, 30);
+        txtNombreCliente.setBounds(160, 80, 280, 30);
 
         lblCanjeoPuntos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblCanjeoPuntos.setText("Canjeo de Puntos");
+        lblCanjeoPuntos.setText("Canjeo de puntos");
         jPanel1.add(lblCanjeoPuntos);
-        lblCanjeoPuntos.setBounds(130, 50, 220, 38);
+        lblCanjeoPuntos.setBounds(140, 20, 220, 38);
 
         add(jPanel1);
         jPanel1.setBounds(0, 0, 490, 250);

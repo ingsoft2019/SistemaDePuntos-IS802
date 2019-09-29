@@ -103,9 +103,9 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(495, 632));
-        setMinimumSize(new java.awt.Dimension(495, 632));
-        setTitle("Registro de Cliente");
+        setMaximumSize(new java.awt.Dimension(470, 639));
+        setMinimumSize(new java.awt.Dimension(470, 639));
+        setTitle("Registro de cliente");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -115,35 +115,35 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
 
         jP1_DatosCliente.setLayout(null);
 
-        SegundoNombre.setText("Segundo Nombre:");
-        SegundoNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        SegundoNombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        SegundoNombre.setText("Segundo nombre:");
         jP1_DatosCliente.add(SegundoNombre);
-        SegundoNombre.setBounds(10, 60, 110, 20);
+        SegundoNombre.setBounds(20, 110, 160, 19);
 
-        PrimerApellido.setText("Primer Apellido:");
-        PrimerApellido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PrimerApellido.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        PrimerApellido.setText("Primer apellido:");
         jP1_DatosCliente.add(PrimerApellido);
-        PrimerApellido.setBounds(10, 90, 110, 20);
+        PrimerApellido.setBounds(20, 140, 160, 19);
 
-        SegundoApelliido.setText("Segundo Apellido:");
-        SegundoApelliido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        SegundoApelliido.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        SegundoApelliido.setText("Segundo apellido:");
         jP1_DatosCliente.add(SegundoApelliido);
-        SegundoApelliido.setBounds(10, 120, 110, 20);
+        SegundoApelliido.setBounds(20, 170, 160, 19);
 
+        NoIdentidad.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         NoIdentidad.setText("No. Identidad:");
-        NoIdentidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(NoIdentidad);
-        NoIdentidad.setBounds(10, 150, 110, 20);
+        NoIdentidad.setBounds(20, 200, 160, 19);
 
+        Telefono2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         Telefono2.setText("Teléfono 3:");
-        Telefono2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(Telefono2);
-        Telefono2.setBounds(10, 240, 110, 20);
+        Telefono2.setBounds(20, 290, 160, 19);
 
+        CorreoElectronico.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         CorreoElectronico.setText("Email:");
-        CorreoElectronico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(CorreoElectronico);
-        CorreoElectronico.setBounds(10, 270, 110, 20);
+        CorreoElectronico.setBounds(20, 320, 160, 19);
 
         txt_primerNombre.setMinimumSize(new java.awt.Dimension(8, 22));
         txt_primerNombre.setPreferredSize(new java.awt.Dimension(8, 24));
@@ -158,7 +158,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_primerNombre);
-        txt_primerNombre.setBounds(120, 30, 330, 24);
+        txt_primerNombre.setBounds(180, 80, 280, 24);
 
         txt_segundoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,7 +171,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_segundoNombre);
-        txt_segundoNombre.setBounds(120, 60, 330, 24);
+        txt_segundoNombre.setBounds(180, 110, 280, 24);
 
         txt_primerApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +184,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_primerApellido);
-        txt_primerApellido.setBounds(120, 90, 330, 24);
+        txt_primerApellido.setBounds(180, 140, 280, 24);
 
         txt_segundoApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,7 +197,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_segundoApellido);
-        txt_segundoApellido.setBounds(120, 120, 330, 24);
+        txt_segundoApellido.setBounds(180, 170, 280, 24);
 
         txt_noIdentidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,7 +210,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_noIdentidad);
-        txt_noIdentidad.setBounds(120, 150, 330, 24);
+        txt_noIdentidad.setBounds(180, 200, 280, 24);
 
         txt_telefono3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,12 +223,12 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_telefono3);
-        txt_telefono3.setBounds(120, 240, 330, 24);
+        txt_telefono3.setBounds(180, 290, 280, 24);
 
-        PrimerNombre.setText("Primer Nombre:");
-        PrimerNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PrimerNombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        PrimerNombre.setText("Primer nombre:");
         jP1_DatosCliente.add(PrimerNombre);
-        PrimerNombre.setBounds(10, 30, 110, 20);
+        PrimerNombre.setBounds(20, 80, 160, 19);
 
         txt_correoElectronico.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -241,20 +241,20 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_correoElectronico);
-        txt_correoElectronico.setBounds(120, 270, 330, 24);
+        txt_correoElectronico.setBounds(180, 320, 280, 24);
 
         jP2_DatosCliente.setLayout(null);
 
+        jL_Sexo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jL_Sexo.setText("Sexo:");
-        jL_Sexo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jL_Sexo.setPreferredSize(new java.awt.Dimension(98, 20));
         jP2_DatosCliente.add(jL_Sexo);
-        jL_Sexo.setBounds(0, 0, 110, 20);
+        jL_Sexo.setBounds(10, 0, 110, 20);
 
+        jL_fechaNacimiento.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jL_fechaNacimiento.setText("Fecha nacimiento dd-mm-yy :");
-        jL_fechaNacimiento.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP2_DatosCliente.add(jL_fechaNacimiento);
-        jL_fechaNacimiento.setBounds(0, 30, 200, 24);
+        jL_fechaNacimiento.setBounds(20, 30, 220, 24);
 
         jDC_fechaNacimiento.setMinimumSize(new java.awt.Dimension(27, 24));
         jDC_fechaNacimiento.setPreferredSize(new java.awt.Dimension(95, 24));
@@ -264,7 +264,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP2_DatosCliente.add(jDC_fechaNacimiento);
-        jDC_fechaNacimiento.setBounds(200, 30, 240, 24);
+        jDC_fechaNacimiento.setBounds(240, 30, 200, 24);
 
         grupo_genero.add(RB_masculino);
         RB_masculino.setText("M");
@@ -279,7 +279,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP2_DatosCliente.add(RB_masculino);
-        RB_masculino.setBounds(130, 0, 40, 23);
+        RB_masculino.setBounds(130, 0, 40, 28);
 
         grupo_genero.add(RB_femenino);
         RB_femenino.setText("F");
@@ -294,10 +294,10 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP2_DatosCliente.add(RB_femenino);
-        RB_femenino.setBounds(180, 0, 31, 23);
+        RB_femenino.setBounds(180, 0, 38, 28);
 
         jP1_DatosCliente.add(jP2_DatosCliente);
-        jP2_DatosCliente.setBounds(10, 300, 450, 69);
+        jP2_DatosCliente.setBounds(10, 370, 450, 69);
 
         txt_telefono1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,7 +310,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_telefono1);
-        txt_telefono1.setBounds(120, 180, 330, 24);
+        txt_telefono1.setBounds(180, 230, 280, 24);
 
         txt_telefono2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -323,21 +323,21 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP1_DatosCliente.add(txt_telefono2);
-        txt_telefono2.setBounds(120, 210, 330, 24);
+        txt_telefono2.setBounds(180, 260, 280, 24);
 
         jP_DatosDireccion.setLayout(null);
 
+        jL_TituloDireccion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jL_TituloDireccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jL_TituloDireccion.setText("Dirección");
-        jL_TituloDireccion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jL_TituloDireccion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jP_DatosDireccion.add(jL_TituloDireccion);
-        jL_TituloDireccion.setBounds(10, 0, 413, 20);
+        jL_TituloDireccion.setBounds(23, 0, 430, 19);
 
+        jL_DetalleDirecion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jL_DetalleDirecion.setText("Detalle:");
-        jL_DetalleDirecion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP_DatosDireccion.add(jL_DetalleDirecion);
-        jL_DetalleDirecion.setBounds(10, 52, 76, 20);
+        jL_DetalleDirecion.setBounds(20, 50, 70, 19);
 
         descripcion.setColumns(20);
         descripcion.setRows(5);
@@ -349,12 +349,12 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         jScrollPane1.setViewportView(descripcion);
 
         jP_DatosDireccion.add(jScrollPane1);
-        jScrollPane1.setBounds(90, 52, 333, 96);
+        jScrollPane1.setBounds(90, 52, 333, 83);
 
+        jL_Zona.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jL_Zona.setText("Zona:");
-        jL_Zona.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP_DatosDireccion.add(jL_Zona);
-        jL_Zona.setBounds(10, 26, 76, 20);
+        jL_Zona.setBounds(20, 20, 90, 19);
 
         jC_zona.setMinimumSize(new java.awt.Dimension(28, 24));
         jC_zona.setPreferredSize(new java.awt.Dimension(28, 24));
@@ -374,20 +374,20 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
             }
         });
         jP_DatosDireccion.add(jC_zona);
-        jC_zona.setBounds(90, 24, 180, 24);
+        jC_zona.setBounds(110, 20, 180, 24);
 
         jP1_DatosCliente.add(jP_DatosDireccion);
-        jP_DatosDireccion.setBounds(0, 370, 460, 160);
+        jP_DatosDireccion.setBounds(0, 440, 460, 140);
 
+        Telefono1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         Telefono1.setText("Teléfono 1:");
-        Telefono1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(Telefono1);
-        Telefono1.setBounds(10, 180, 110, 20);
+        Telefono1.setBounds(20, 230, 160, 19);
 
+        Telefono3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         Telefono3.setText("Teléfono 2:");
-        Telefono3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1_DatosCliente.add(Telefono3);
-        Telefono3.setBounds(10, 210, 110, 20);
+        Telefono3.setBounds(20, 260, 160, 19);
 
         panel_botonesBasicos.setLayout(null);
 
@@ -425,15 +425,15 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
         jButton1.setBounds(310, 10, 140, 40);
 
         jP1_DatosCliente.add(panel_botonesBasicos);
-        panel_botonesBasicos.setBounds(0, 520, 470, 70);
+        panel_botonesBasicos.setBounds(0, 570, 470, 60);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Registro de Cliente");
         jP1_DatosCliente.add(jLabel1);
-        jLabel1.setBounds(150, 0, 180, 22);
+        jLabel1.setBounds(130, 30, 230, 29);
 
         add(jP1_DatosCliente);
-        jP1_DatosCliente.setBounds(10, 30, 470, 610);
+        jP1_DatosCliente.setBounds(0, 0, 470, 640);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

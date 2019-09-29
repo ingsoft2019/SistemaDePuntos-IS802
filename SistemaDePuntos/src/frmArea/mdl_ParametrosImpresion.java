@@ -51,8 +51,14 @@ public class mdl_ParametrosImpresion extends javax.swing.JDialog {
         btnEditarParametros = new javax.swing.JButton();
         btnEliminarParametros = new javax.swing.JButton();
         btnActivarParametros = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Parametros para impresión");
+        setMaximumSize(new java.awt.Dimension(735, 320));
+        setMinimumSize(new java.awt.Dimension(735, 320));
+
+        pnlParametrosImpresion.setLayout(null);
 
         tblParametros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -72,7 +78,12 @@ public class mdl_ParametrosImpresion extends javax.swing.JDialog {
             tblParametros.getColumnModel().getColumn(3).setMaxWidth(0);
         }
 
+        pnlParametrosImpresion.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 92, 540, 210);
+
         lblMensaje.setText("No hay parametros de impresion para el tamaño de hoja.");
+        pnlParametrosImpresion.add(lblMensaje);
+        lblMensaje.setBounds(20, 60, 334, 16);
 
         btnAgregarParametros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/agregar.png"))); // NOI18N
         btnAgregarParametros.setText("Agregar");
@@ -81,6 +92,8 @@ public class mdl_ParametrosImpresion extends javax.swing.JDialog {
                 btnAgregarParametrosActionPerformed(evt);
             }
         });
+        pnlParametrosImpresion.add(btnAgregarParametros);
+        btnAgregarParametros.setBounds(560, 150, 140, 40);
 
         btnEditarParametros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/modificar.png"))); // NOI18N
         btnEditarParametros.setText("Editar");
@@ -89,6 +102,8 @@ public class mdl_ParametrosImpresion extends javax.swing.JDialog {
                 btnEditarParametrosActionPerformed(evt);
             }
         });
+        pnlParametrosImpresion.add(btnEditarParametros);
+        btnEditarParametros.setBounds(560, 200, 140, 40);
 
         btnEliminarParametros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/deshabilitar.png"))); // NOI18N
         btnEliminarParametros.setText("Eliminar");
@@ -97,6 +112,8 @@ public class mdl_ParametrosImpresion extends javax.swing.JDialog {
                 btnEliminarParametrosActionPerformed(evt);
             }
         });
+        pnlParametrosImpresion.add(btnEliminarParametros);
+        btnEliminarParametros.setBounds(560, 260, 140, 40);
 
         btnActivarParametros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
         btnActivarParametros.setText("Activar");
@@ -105,48 +122,13 @@ public class mdl_ParametrosImpresion extends javax.swing.JDialog {
                 btnActivarParametrosActionPerformed(evt);
             }
         });
+        pnlParametrosImpresion.add(btnActivarParametros);
+        btnActivarParametros.setBounds(560, 90, 140, 40);
 
-        javax.swing.GroupLayout pnlParametrosImpresionLayout = new javax.swing.GroupLayout(pnlParametrosImpresion);
-        pnlParametrosImpresion.setLayout(pnlParametrosImpresionLayout);
-        pnlParametrosImpresionLayout.setHorizontalGroup(
-            pnlParametrosImpresionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlParametrosImpresionLayout.createSequentialGroup()
-                .addGroup(pnlParametrosImpresionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlParametrosImpresionLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(192, 192, 192))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlParametrosImpresionLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(pnlParametrosImpresionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnEliminarParametros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAgregarParametros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnActivarParametros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEditarParametros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 11, Short.MAX_VALUE))
-        );
-        pnlParametrosImpresionLayout.setVerticalGroup(
-            pnlParametrosImpresionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlParametrosImpresionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlParametrosImpresionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlParametrosImpresionLayout.createSequentialGroup()
-                        .addComponent(btnActivarParametros)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAgregarParametros)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditarParametros)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEliminarParametros)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnlParametrosImpresionLayout.createSequentialGroup()
-                        .addComponent(lblMensaje)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("Parametros para impresión");
+        pnlParametrosImpresion.add(jLabel2);
+        jLabel2.setBounds(210, 20, 340, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,14 +136,14 @@ public class mdl_ParametrosImpresion extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(pnlParametrosImpresion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlParametrosImpresion, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlParametrosImpresion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlParametrosImpresion, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -313,6 +295,7 @@ public class mdl_ParametrosImpresion extends javax.swing.JDialog {
     private javax.swing.JButton btnAgregarParametros;
     private javax.swing.JButton btnEditarParametros;
     private javax.swing.JButton btnEliminarParametros;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMensaje;
     private javax.swing.JPanel pnlParametrosImpresion;

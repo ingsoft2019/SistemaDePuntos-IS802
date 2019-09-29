@@ -55,7 +55,7 @@ public class mdl_consultar_por_rango_de_edad extends java.awt.Dialog {
 
         setMaximumSize(new java.awt.Dimension(659, 403));
         setMinimumSize(new java.awt.Dimension(659, 403));
-        setTitle("Reporte de Rango de Edad de los clientes ");
+        setTitle("Reporte de rango de edad de los clientes ");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -66,14 +66,14 @@ public class mdl_consultar_por_rango_de_edad extends java.awt.Dialog {
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Ingrese el Rango de Edades");
+        jLabel1.setText("Ingrese el rango de edades");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(170, 30, 340, 31);
+        jLabel1.setBounds(180, 40, 340, 31);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Inicio :");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(50, 90, 80, 17);
+        jLabel3.setBounds(50, 90, 90, 17);
 
         txtfechainicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +91,7 @@ public class mdl_consultar_por_rango_de_edad extends java.awt.Dialog {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Hasta :");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(260, 90, 70, 17);
+        jLabel2.setBounds(260, 90, 90, 17);
 
         txtfechafin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +187,7 @@ public class mdl_consultar_por_rango_de_edad extends java.awt.Dialog {
                 try {
                     throw e;
                 } catch (Exception ex) {
-                    Logger.getLogger(frmConsultasxEdades.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(mdl_consultar_por_rango_de_edad.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }

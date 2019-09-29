@@ -40,7 +40,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         jl_tituloMenuPrincipal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Menu Principal del Sistema de Puntos");
+        setTitle("Menú principal");
         setMaximumSize(new java.awt.Dimension(679, 433));
         setMinimumSize(new java.awt.Dimension(679, 433));
         setName("Menu Princial Sistema de Puntos"); // NOI18N
@@ -83,7 +83,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         jl_tituloMenuPrincipal.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jl_tituloMenuPrincipal.setText("Sistema de Puntos Farmacia ");
         panel_menuPrincipal.add(jl_tituloMenuPrincipal);
-        jl_tituloMenuPrincipal.setBounds(50, 20, 526, 40);
+        jl_tituloMenuPrincipal.setBounds(50, 30, 526, 40);
 
         getContentPane().add(panel_menuPrincipal);
         panel_menuPrincipal.setBounds(40, 50, 600, 340);
@@ -94,19 +94,19 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
 
     private void btn_configuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_configuracionActionPerformed
         frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
-        mdl_LoginModuloConfiguracion ver=new mdl_LoginModuloConfiguracion(frmMenuPrincipal,true);
+        mdl_LoginModuloConfiguracion ver=new mdl_LoginModuloConfiguracion(frmMenuPrincipal,true);//envia el paramtro modal 
             ver.setVisible(true); // visible ventana del objeto
     }//GEN-LAST:event_btn_configuracionActionPerformed
 
     private void btn_ReportesMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ReportesMenuActionPerformed
         frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
-        mdl_SubMenuReporte ver=new mdl_SubMenuReporte(frmMenuPrincipal,true);
+        mdl_SubMenuReporte ver=new mdl_SubMenuReporte(frmMenuPrincipal,true);//envia el paramtro modal 
             ver.setVisible(true); // visible ventana del objeto
     }//GEN-LAST:event_btn_ReportesMenuActionPerformed
 
     private void btn_ClienteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClienteMenuActionPerformed
       frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
-        mdl_ConsultarCliente ver=new mdl_ConsultarCliente(frmMenuPrincipal,true);
+        mdl_ConsultarCliente ver=new mdl_ConsultarCliente(frmMenuPrincipal,true);//envia el paramtro modal 
         ver.setVisible(true); // visible ventana del objeto      
     }//GEN-LAST:event_btn_ClienteMenuActionPerformed
 

@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,8 +31,9 @@ public class mdl_gestionZona extends javax.swing.JDialog {
     public mdl_gestionZona(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.setLocationRelativeTo(null); //para ponerse en el centro         
+        this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
         btn_guardar.setVisible(false);
         btn_habilitar.setVisible(false);
 //        tbl_zonasExistentes.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -98,9 +100,12 @@ public class mdl_gestionZona extends javax.swing.JDialog {
         btn_deshabilitar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         cb_buscarInactivas = new javax.swing.JCheckBox();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestión zonas");
+        setMaximumSize(new java.awt.Dimension(470, 494));
+        setMinimumSize(new java.awt.Dimension(470, 494));
 
         jPanel1.setMaximumSize(new java.awt.Dimension(400, 400));
         jPanel1.setMinimumSize(new java.awt.Dimension(400, 400));
@@ -133,7 +138,7 @@ public class mdl_gestionZona extends javax.swing.JDialog {
         }
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 60, 370, 189);
+        jScrollPane1.setBounds(30, 160, 420, 189);
 
         btn_editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/modificar.png"))); // NOI18N
         btn_editar.setText("Editar");
@@ -144,7 +149,7 @@ public class mdl_gestionZona extends javax.swing.JDialog {
             }
         });
         jPanel1.add(btn_editar);
-        btn_editar.setBounds(0, 310, 120, 40);
+        btn_editar.setBounds(10, 420, 140, 40);
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/guardar.png"))); // NOI18N
         btn_guardar.setText("Guardar");
@@ -160,9 +165,9 @@ public class mdl_gestionZona extends javax.swing.JDialog {
             }
         });
         jPanel1.add(btn_guardar);
-        btn_guardar.setBounds(0, 310, 119, 40);
+        btn_guardar.setBounds(10, 420, 140, 40);
         jPanel1.add(txt_nombreZona);
-        txt_nombreZona.setBounds(50, 250, 330, 28);
+        txt_nombreZona.setBounds(80, 370, 370, 28);
 
         txt_buscarZona.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -170,7 +175,7 @@ public class mdl_gestionZona extends javax.swing.JDialog {
             }
         });
         jPanel1.add(txt_buscarZona);
-        txt_buscarZona.setBounds(10, 10, 180, 28);
+        txt_buscarZona.setBounds(30, 106, 200, 30);
 
         btn_buscarZona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/buscar.png"))); // NOI18N
         btn_buscarZona.setText("Buscar");
@@ -183,11 +188,12 @@ public class mdl_gestionZona extends javax.swing.JDialog {
             }
         });
         jPanel1.add(btn_buscarZona);
-        btn_buscarZona.setBounds(200, 10, 130, 28);
+        btn_buscarZona.setBounds(230, 100, 140, 40);
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Zona:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 250, 40, 30);
+        jLabel1.setBounds(20, 370, 60, 30);
 
         btn_habilitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/habilitar.png"))); // NOI18N
         btn_habilitar.setText("Habilitar");
@@ -198,7 +204,7 @@ public class mdl_gestionZona extends javax.swing.JDialog {
             }
         });
         jPanel1.add(btn_habilitar);
-        btn_habilitar.setBounds(130, 310, 120, 40);
+        btn_habilitar.setBounds(160, 420, 140, 40);
 
         btn_deshabilitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/deshabilitar.png"))); // NOI18N
         btn_deshabilitar.setText("Deshabilitar");
@@ -209,7 +215,7 @@ public class mdl_gestionZona extends javax.swing.JDialog {
             }
         });
         jPanel1.add(btn_deshabilitar);
-        btn_deshabilitar.setBounds(130, 310, 120, 40);
+        btn_deshabilitar.setBounds(160, 420, 140, 40);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/agregar.png"))); // NOI18N
         jButton1.setText("Nueva");
@@ -220,7 +226,7 @@ public class mdl_gestionZona extends javax.swing.JDialog {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(260, 310, 120, 40);
+        jButton1.setBounds(310, 420, 140, 40);
 
         cb_buscarInactivas.setText("Inactivas");
         cb_buscarInactivas.addActionListener(new java.awt.event.ActionListener() {
@@ -229,7 +235,12 @@ public class mdl_gestionZona extends javax.swing.JDialog {
             }
         });
         jPanel1.add(cb_buscarInactivas);
-        cb_buscarInactivas.setBounds(330, 10, 70, 23);
+        cb_buscarInactivas.setBounds(370, 110, 80, 24);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("Gestión de zona");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(130, 30, 200, 31);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -237,14 +248,14 @@ public class mdl_gestionZona extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -624,6 +635,7 @@ public class mdl_gestionZona extends javax.swing.JDialog {
     private javax.swing.JCheckBox cb_buscarInactivas;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbl_zonasExistentes;

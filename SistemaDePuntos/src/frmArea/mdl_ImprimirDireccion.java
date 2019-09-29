@@ -59,7 +59,8 @@ public class mdl_ImprimirDireccion extends java.awt.Dialog {
         jButton1 = new javax.swing.JButton();
         jl_titulo = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(468, 342));
+        setMaximumSize(new java.awt.Dimension(468, 395));
+        setMinimumSize(new java.awt.Dimension(468, 395));
         setTitle("Imprimir dirección");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -70,21 +71,26 @@ public class mdl_ImprimirDireccion extends java.awt.Dialog {
 
         jPanel1.setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Nombre:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(50, 50, 60, 16);
+        jLabel1.setBounds(30, 60, 120, 30);
 
-        jLabel2.setText("Telefono:");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Teléfono:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 80, 60, 16);
+        jLabel2.setBounds(30, 110, 120, 30);
+        jLabel2.getAccessibleContext().setAccessibleName("Teléfono:");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Sexo:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(50, 110, 60, 16);
+        jLabel3.setBounds(30, 150, 120, 30);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Dirección:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(50, 140, 60, 20);
+        jLabel4.setBounds(30, 190, 120, 20);
 
         txt_nombre.setEditable(false);
         txt_nombre.setEnabled(false);
@@ -97,7 +103,7 @@ public class mdl_ImprimirDireccion extends java.awt.Dialog {
             }
         });
         jPanel1.add(txt_nombre);
-        txt_nombre.setBounds(120, 50, 280, 24);
+        txt_nombre.setBounds(150, 60, 280, 30);
 
         txt_telefono.setEditable(false);
         txt_telefono.setEnabled(false);
@@ -110,7 +116,7 @@ public class mdl_ImprimirDireccion extends java.awt.Dialog {
             }
         });
         jPanel1.add(txt_telefono);
-        txt_telefono.setBounds(120, 80, 280, 24);
+        txt_telefono.setBounds(150, 110, 280, 30);
 
         txt_sexo.setEditable(false);
         txt_sexo.setEnabled(false);
@@ -118,7 +124,7 @@ public class mdl_ImprimirDireccion extends java.awt.Dialog {
         txt_sexo.setMinimumSize(new java.awt.Dimension(8, 24));
         txt_sexo.setPreferredSize(new java.awt.Dimension(8, 24));
         jPanel1.add(txt_sexo);
-        txt_sexo.setBounds(120, 110, 280, 24);
+        txt_sexo.setBounds(150, 150, 280, 30);
 
         txt_direccion.setEditable(false);
         txt_direccion.setColumns(20);
@@ -127,7 +133,7 @@ public class mdl_ImprimirDireccion extends java.awt.Dialog {
         jScrollPane1.setViewportView(txt_direccion);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(120, 140, 280, 100);
+        jScrollPane1.setBounds(150, 190, 280, 100);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato entrega.png"))); // NOI18N
         jButton1.setText("Imprimir");
@@ -137,15 +143,15 @@ public class mdl_ImprimirDireccion extends java.awt.Dialog {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(170, 260, 150, 48);
+        jButton1.setBounds(160, 310, 140, 40);
 
-        jl_titulo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jl_titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jl_titulo.setText("Imprimir dirección ");
         jPanel1.add(jl_titulo);
-        jl_titulo.setBounds(170, 10, 190, 30);
+        jl_titulo.setBounds(120, 10, 250, 30);
 
         add(jPanel1);
-        jPanel1.setBounds(0, 20, 470, 320);
+        jPanel1.setBounds(0, 20, 470, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
