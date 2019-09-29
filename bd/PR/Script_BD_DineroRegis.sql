@@ -86,3 +86,10 @@ CREATE TABLE Configuracion (
   duracion_puntos INT NOT NULL,
   fecha_configuracion DATE NOT NULL
 );
+
+CREATE TABLE Parametro_Impresion(
+	id_parametro_impresion INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	altura DECIMAL(18,4) NOT NULL,
+	anchura DECIMAL(18,4) NOT NULL,
+	estado NVARCHAR(1) NOT NULL
+);

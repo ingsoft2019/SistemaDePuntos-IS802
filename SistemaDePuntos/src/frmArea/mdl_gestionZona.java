@@ -5,9 +5,16 @@
  */
 package frmArea;
 
+import static Conexion.Conexion.consulta;
+import java.awt.event.KeyEvent;
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,38 +23,60 @@ import javax.swing.table.DefaultTableModel;
  */
 public class mdl_gestionZona extends javax.swing.JDialog {
 
-    /**
-     * Creates new form mdl_gestionZona
-     */
     ResultSet resultado;
-    
+    ResultSet resultado1;
+    ResultSet resultado2;
+    int id_zona;
+
     public mdl_gestionZona(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
-        jTable1.getColumnModel().getColumn(0).setMinWidth(0);
-        jTable1.getColumnModel().getColumn(0).setPreferredWidth(0);
+        this.setLocationRelativeTo(null); //para ponerse en el centro
+        this.setResizable(false); //Desactivar botón maximizar de una ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
+        btn_guardar.setVisible(false);
+        btn_habilitar.setVisible(false);
+//        tbl_zonasExistentes.getColumnModel().getColumn(0).setMaxWidth(0);
+//        tbl_zonasExistentes.getColumnModel().getColumn(0).setMinWidth(0);
+//        tbl_zonasExistentes.getColumnModel().getColumn(0).setPreferredWidth(0);
         //new mdl_gestionZona(new frmMenuPrincipal(), true);
     }
-    
-    public void llenarZona(){
-        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+
+    public void mostrarZonasExistentes() {
+        DefaultTableModel modelo = (DefaultTableModel) tbl_zonasExistentes.getModel();
         modelo.setRowCount(0);
-        resultado = Conexion.Conexion.consulta("select * from Zona");
-        try{
-            while(resultado.next()){
+        resultado = (Conexion.Conexion.consulta("Select * from Zona where estado = 'A'"));
+        try {
+            while (resultado.next()) {
                 Vector v = new Vector();
                 v.add(resultado.getInt(1));
                 v.add(resultado.getString(2));
+                v.add(resultado.getString(3));
                 modelo.addRow(v);
-                jTable1.setModel(modelo);
+                tbl_zonasExistentes.setModel(modelo);
             }
-        }catch(SQLException e){
-            
+        } catch (SQLException e) {
+
         }
-        
     }
-    
+
+    public void mostrarZonasInactivas() {
+        DefaultTableModel modelo = (DefaultTableModel) tbl_zonasExistentes.getModel();
+        modelo.setRowCount(0);
+        resultado = (Conexion.Conexion.consulta("select * from Zona where estado = 'I'"));
+        try {
+            while (resultado.next()) {
+                Vector v = new Vector();
+                v.add(resultado.getInt(1));
+                v.add(resultado.getString(2));
+                v.add(resultado.getString(3));
+                modelo.addRow(v);
+                tbl_zonasExistentes.setModel(modelo);
+            }
+        } catch (SQLException e) {
+
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,63 +89,158 @@ public class mdl_gestionZona extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_zonasExistentes = new javax.swing.JTable();
+        btn_editar = new javax.swing.JButton();
+        btn_guardar = new javax.swing.JButton();
+        txt_nombreZona = new javax.swing.JTextField();
+        txt_buscarZona = new javax.swing.JTextField();
+        btn_buscarZona = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btn_habilitar = new javax.swing.JButton();
+        btn_deshabilitar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        cb_buscarInactivas = new javax.swing.JCheckBox();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Gestión zonas");
+        setMaximumSize(new java.awt.Dimension(470, 494));
+        setMinimumSize(new java.awt.Dimension(470, 494));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jPanel1.setMaximumSize(new java.awt.Dimension(400, 400));
+        jPanel1.setMinimumSize(new java.awt.Dimension(400, 400));
+        jPanel1.setPreferredSize(new java.awt.Dimension(400, 400));
+        jPanel1.setLayout(null);
+
+        tbl_zonasExistentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "id_zona", "Zona"
+                "id_zona", "ZONAS EXISTENTES", "Estado"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tbl_zonasExistentes.setColumnSelectionAllowed(true);
+        tbl_zonasExistentes.setMaximumSize(new java.awt.Dimension(400, 300));
+        tbl_zonasExistentes.setMinimumSize(new java.awt.Dimension(400, 300));
+        tbl_zonasExistentes.setPreferredSize(new java.awt.Dimension(400, 300));
+        jScrollPane1.setViewportView(tbl_zonasExistentes);
+        tbl_zonasExistentes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (tbl_zonasExistentes.getColumnModel().getColumnCount() > 0) {
+            tbl_zonasExistentes.getColumnModel().getColumn(0).setMinWidth(0);
+            tbl_zonasExistentes.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tbl_zonasExistentes.getColumnModel().getColumn(0).setMaxWidth(0);
+            tbl_zonasExistentes.getColumnModel().getColumn(2).setMinWidth(0);
+            tbl_zonasExistentes.getColumnModel().getColumn(2).setPreferredWidth(0);
+            tbl_zonasExistentes.getColumnModel().getColumn(2).setMaxWidth(0);
+        }
 
-        jButton1.setText("jButton1");
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(30, 160, 420, 189);
+
+        btn_editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/modificar.png"))); // NOI18N
+        btn_editar.setText("Editar");
+        btn_editar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_editar);
+        btn_editar.setBounds(10, 420, 140, 40);
+
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/guardar.png"))); // NOI18N
+        btn_guardar.setText("Guardar");
+        btn_guardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_guardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_guardarMouseClicked(evt);
+            }
+        });
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_guardar);
+        btn_guardar.setBounds(10, 420, 140, 40);
+        jPanel1.add(txt_nombreZona);
+        txt_nombreZona.setBounds(80, 370, 370, 28);
+
+        txt_buscarZona.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_buscarZonaKeyPressed(evt);
+            }
+        });
+        jPanel1.add(txt_buscarZona);
+        txt_buscarZona.setBounds(30, 106, 200, 30);
+
+        btn_buscarZona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/buscar.png"))); // NOI18N
+        btn_buscarZona.setText("Buscar");
+        btn_buscarZona.setMaximumSize(new java.awt.Dimension(130, 30));
+        btn_buscarZona.setMinimumSize(new java.awt.Dimension(130, 30));
+        btn_buscarZona.setPreferredSize(new java.awt.Dimension(130, 30));
+        btn_buscarZona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarZonaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_buscarZona);
+        btn_buscarZona.setBounds(230, 100, 140, 40);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setText("Zona:");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(20, 370, 60, 30);
+
+        btn_habilitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/habilitar.png"))); // NOI18N
+        btn_habilitar.setText("Habilitar");
+        btn_habilitar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_habilitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_habilitarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_habilitar);
+        btn_habilitar.setBounds(160, 420, 140, 40);
+
+        btn_deshabilitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/deshabilitar.png"))); // NOI18N
+        btn_deshabilitar.setText("Deshabilitar");
+        btn_deshabilitar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_deshabilitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deshabilitarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_deshabilitar);
+        btn_deshabilitar.setBounds(160, 420, 140, 40);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/agregar.png"))); // NOI18N
+        jButton1.setText("Nueva");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(310, 420, 140, 40);
 
-        jButton2.setText("jButton2");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cb_buscarInactivas.setText("Inactivas");
+        cb_buscarInactivas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_buscarInactivasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cb_buscarInactivas);
+        cb_buscarInactivas.setBounds(370, 110, 80, 24);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(177, 177, 177))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
-                .addGap(73, 73, 73))
-        );
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("Gestión de zona");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(130, 30, 200, 31);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,19 +248,341 @@ public class mdl_gestionZona extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_buscarZonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarZonaActionPerformed
+        if (cb_buscarInactivas.isSelected()) {
+            if ("".equals(txt_buscarZona.getText())) {
+                mostrarZonasInactivas();
+                this.btn_deshabilitar.setVisible(false);
+                this.btn_habilitar.setVisible(true);
+            } else {
+                this.buscarZonasInactivas();
+                this.btn_deshabilitar.setVisible(false);
+                this.btn_habilitar.setVisible(true);
+            }
+        } else {
+            this.buscarZonasActivas();
+            this.btn_deshabilitar.setVisible(true);
+            this.btn_habilitar.setVisible(false);
+        }
+    }//GEN-LAST:event_btn_buscarZonaActionPerformed
+
+    public void zonasInactivasExistentes() {
+        resultado1 = (Conexion.Conexion.consulta("Select count(Zona.zona) from Zona where estado = 'I' AND zona like'%" + txt_buscarZona.getText() + "%'"));
+        int contador = 0;
+        try {
+            while (resultado1.next()) {
+                contador += resultado1.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(mdl_gestionZona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        if (txt_buscarZona.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo de busqueda vacio");
+        } else if (contador == 0) {
+            JOptionPane.showMessageDialog(null, "Zona no encontrada");
+        } else {
+            DefaultTableModel modelo = (DefaultTableModel) tbl_zonasExistentes.getModel();
+            modelo.setRowCount(0);
+            resultado2 = (Conexion.Conexion.consulta("Select * from Zona where estado = 'I' AND zona like'%" + txt_buscarZona.getText() + "%'"));
+            try {
+                while (resultado2.next()) {
+                    Vector v = new Vector();
+                    v.add(resultado2.getInt(1));
+                    v.add(resultado2.getString(2));
+                    v.add(resultado2.getString(3));
+                    modelo.addRow(v);
+                    tbl_zonasExistentes.setModel(modelo);
+                }
+            } catch (SQLException e) {
+
+            }
+        }
+
+    }
+
+    public void buscarZonasInactivas() {
+        resultado1 = (Conexion.Conexion.consulta("Select count(Zona.zona) from Zona where estado = 'I' AND zona like'%" + txt_buscarZona.getText() + "%'"));
+        int contador = 0;
+        try {
+            while (resultado1.next()) {
+                contador += resultado1.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(mdl_gestionZona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        if (txt_buscarZona.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo de busqueda vacio");
+        } else if (contador == 0) {
+            JOptionPane.showMessageDialog(null, "Zona no encontrada");
+        } else {
+            DefaultTableModel modelo = (DefaultTableModel) tbl_zonasExistentes.getModel();
+            modelo.setRowCount(0);
+            resultado2 = (Conexion.Conexion.consulta("Select * from Zona where estado = 'I' AND zona like'%" + txt_buscarZona.getText() + "%'"));
+            try {
+                while (resultado2.next()) {
+                    Vector v = new Vector();
+                    v.add(resultado2.getInt(1));
+                    v.add(resultado2.getString(2));
+                    v.add(resultado2.getString(3));
+                    modelo.addRow(v);
+                    tbl_zonasExistentes.setModel(modelo);
+                }
+            } catch (SQLException e) {
+
+            }
+        }
+    }
+
+    public void buscarZonasActivas() {
+        resultado1 = (Conexion.Conexion.consulta("Select count(Zona.zona) from Zona where estado = 'A' AND zona like'%" + txt_buscarZona.getText() + "%'"));
+        int contador = 0;
+        try {
+            while (resultado1.next()) {
+                contador += resultado1.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(mdl_gestionZona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        if (txt_buscarZona.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo de busqueda vacio");
+        } else if (contador == 0) {
+            JOptionPane.showMessageDialog(null, "Zona no encontrada");
+        } else {
+            DefaultTableModel modelo = (DefaultTableModel) tbl_zonasExistentes.getModel();
+            modelo.setRowCount(0);
+            resultado2 = (Conexion.Conexion.consulta("Select * from Zona where estado = 'A' AND zona like'%" + txt_buscarZona.getText() + "%'"));
+            try {
+                while (resultado2.next()) {
+                    Vector v = new Vector();
+                    v.add(resultado2.getInt(1));
+                    v.add(resultado2.getString(2));
+                    v.add(resultado2.getString(3));
+                    modelo.addRow(v);
+                    tbl_zonasExistentes.setModel(modelo);
+                }
+            } catch (SQLException e) {
+
+            }
+        }
+    }
+
+    private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
+        this.editarZona();
+    }//GEN-LAST:event_btn_editarActionPerformed
+
+    public void editarZona() {
+        try {
+            DefaultTableModel tbl = (DefaultTableModel) tbl_zonasExistentes.getModel();
+            //aca capturo el primer dato de la celda seleccionada 
+            String dato = String.valueOf(tbl.getValueAt(tbl_zonasExistentes.getSelectedRow(), 0));
+
+            id_zona = Integer.parseInt(dato);
+            //Consulto al dato relacionado con el ID
+            ResultSet res = consulta("Select * from Zona where id_zona = '" + id_zona + "'");
+            try {
+                while (res.next()) {
+                    txt_nombreZona.setText(res.getString("zona"));
+                    btn_editar.setVisible(false);
+                    btn_guardar.setVisible(true);
+                    txt_nombreZona.requestFocus();
+                    if ("A".equals(res.getString("estado"))) {
+                        btn_deshabilitar.setVisible(true);
+                        btn_habilitar.setVisible(false);
+                    } else {
+                        btn_deshabilitar.setVisible(false);
+                        btn_habilitar.setVisible(true);
+                    }
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(mdl_gestionZona.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Busque y seleccione un registro");
+        }
+
+    }
+
+    private void btn_habilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_habilitarActionPerformed
+        try {
+            this.habilitarZona();
+        } catch (SQLException ex) {
+            Logger.getLogger(mdl_gestionZona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_habilitarActionPerformed
+
+    private void btn_deshabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deshabilitarActionPerformed
+        try {
+            this.deshabilitarZona();
+        } catch (SQLException ex) {
+            Logger.getLogger(mdl_gestionZona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_deshabilitarActionPerformed
+
+    public void deshabilitarZona() throws SQLException {
+        try {
+            DefaultTableModel tbl = (DefaultTableModel) tbl_zonasExistentes.getModel();
+            //aca capturo el primer dato de la celda seleccionada 
+            String dato = String.valueOf(tbl.getValueAt(tbl_zonasExistentes.getSelectedRow(), 0));
+            id_zona = Integer.parseInt(dato);
+            CallableStatement res = Procedimientos.ProcedimientosCliente.deshabilitarZona(id_zona);
+            System.out.println(res);
+            JOptionPane.showMessageDialog(null, "Zona deshabilitada correctamente");
+            DefaultTableModel modelo = (DefaultTableModel) tbl_zonasExistentes.getModel();
+            modelo.setRowCount(0);
+
+            resultado = (Conexion.Conexion.consulta("Select * from Zona where estado = 'A'"));
+            try {
+                while (resultado.next()) {
+                    Vector v = new Vector();
+                    v.add(resultado.getInt(1));
+                    v.add(resultado.getString(2));
+                    v.add(resultado.getString(3));
+                    modelo.addRow(v);
+                    tbl_zonasExistentes.setModel(modelo);
+                }
+            } catch (SQLException e) {
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Busque y seleccione un registro");
+        }
+    }
+
+    public void habilitarZona() throws SQLException {
+        try {
+            DefaultTableModel tbl = (DefaultTableModel) tbl_zonasExistentes.getModel();
+            //aca capturo el primer dato de la celda seleccionada 
+            String dato = String.valueOf(tbl.getValueAt(tbl_zonasExistentes.getSelectedRow(), 0));
+            id_zona = Integer.parseInt(dato);
+            CallableStatement res = Procedimientos.ProcedimientosCliente.habilitarZona(id_zona);
+            System.out.println(res);
+            JOptionPane.showMessageDialog(null, "Zona habilitada correctamente");
+            btn_habilitar.setVisible(false);
+            btn_deshabilitar.setVisible(true);
+            DefaultTableModel modelo = (DefaultTableModel) tbl_zonasExistentes.getModel();
+            modelo.setRowCount(0);
+
+            resultado = (Conexion.Conexion.consulta("Select * from Zona where estado = 'A'"));
+
+            try {
+                while (resultado.next()) {
+                    Vector v = new Vector();
+                    v.add(resultado.getInt(1));
+                    v.add(resultado.getString(2));
+                    v.add(resultado.getString(3));
+                    modelo.addRow(v);
+                    tbl_zonasExistentes.setModel(modelo);
+                }
+            } catch (SQLException e) {
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Busque y seleccione un registro");
+        }
+
+    }
+
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+        ResultSet conteo;
+        String existe = "";
+        conteo = Conexion.Conexion.consulta("SELECT Zona.zona from Zona where id_zona!='" + id_zona + "' AND Zona.zona = '" + txt_nombreZona.getText() + "';");
+
+        if (txt_nombreZona.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Escriba una zona");
+        } else {
+            try {
+                while (conteo.next()) {
+                    existe = conteo.getString("zona");
+                }
+                if (!existe.equals(txt_nombreZona.getText())) {
+                    try {
+                        Procedimientos.ProcedimientosCliente.actualizarZona(id_zona, txt_nombreZona.getText());
+                        btn_editar.setVisible(true);
+                        btn_guardar.setVisible(false);
+                        JOptionPane.showMessageDialog(null, "Zona modificada correctamente");
+                        txt_nombreZona.setText("");
+
+                        //Se actualiza la tabla nuevamente
+                        DefaultTableModel modelo = (DefaultTableModel) tbl_zonasExistentes.getModel();
+                        modelo.setRowCount(0);
+                        resultado = (Conexion.Conexion.consulta("Select * from Zona where estado = 'A'"));
+                        try {
+                            while (resultado.next()) {
+                                Vector v = new Vector();
+                                v.add(resultado.getInt(1));
+                                v.add(resultado.getString(2));
+                                v.add(resultado.getString(3));
+                                modelo.addRow(v);
+                                tbl_zonasExistentes.setModel(modelo);
+                            }
+                        } catch (SQLException e) {
+
+                        }
+                        /**/
+
+                    } catch (SQLException ex) {
+                        Logger.getLogger(mdl_gestionZona.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Zona ya existe");
+                    btn_editar.setVisible(false);
+                    btn_guardar.setVisible(true);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(mdl_gestionZona.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btn_guardarActionPerformed
+
+    private void btn_guardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_guardarMouseClicked
+
+    }//GEN-LAST:event_btn_guardarMouseClicked
+
+    //Agregar nueva zona
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        mdl_NuevaZona nz = new mdl_NuevaZona(new frmMenuPrincipal(), true);
+        nz.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txt_buscarZonaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscarZonaKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (cb_buscarInactivas.isSelected()) {
+                this.buscarZonasInactivas();
+                this.btn_deshabilitar.setVisible(false);
+                this.btn_habilitar.setVisible(true);
+            } else {
+                this.buscarZonasActivas();
+                this.btn_deshabilitar.setVisible(true);
+                this.btn_habilitar.setVisible(false);
+            }
+        }
+    }//GEN-LAST:event_txt_buscarZonaKeyPressed
+
+    private void cb_buscarInactivasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_buscarInactivasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_buscarInactivasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,11 +627,19 @@ public class mdl_gestionZona extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_buscarZona;
+    private javax.swing.JButton btn_deshabilitar;
+    private javax.swing.JButton btn_editar;
+    private javax.swing.JButton btn_guardar;
+    private javax.swing.JButton btn_habilitar;
+    private javax.swing.JCheckBox cb_buscarInactivas;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tbl_zonasExistentes;
+    private javax.swing.JTextField txt_buscarZona;
+    private javax.swing.JTextField txt_nombreZona;
     // End of variables declaration//GEN-END:variables
 }

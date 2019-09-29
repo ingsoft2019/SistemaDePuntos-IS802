@@ -5,15 +5,20 @@
  */
 package frmArea;
 
+import com.itextpdf.text.Chunk;
 import javax.swing.ImageIcon;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -54,7 +59,8 @@ public class mdl_ImprimirDireccion extends java.awt.Dialog {
         jButton1 = new javax.swing.JButton();
         jl_titulo = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(468, 342));
+        setMaximumSize(new java.awt.Dimension(468, 395));
+        setMinimumSize(new java.awt.Dimension(468, 395));
         setTitle("Imprimir dirección");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -65,23 +71,29 @@ public class mdl_ImprimirDireccion extends java.awt.Dialog {
 
         jPanel1.setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Nombre:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(50, 50, 60, 14);
+        jLabel1.setBounds(30, 60, 120, 30);
 
-        jLabel2.setText("Telefono:");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Teléfono:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 80, 60, 14);
+        jLabel2.setBounds(30, 110, 120, 30);
+        jLabel2.getAccessibleContext().setAccessibleName("Teléfono:");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Sexo:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(50, 110, 60, 14);
+        jLabel3.setBounds(30, 150, 120, 30);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Dirección:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(50, 140, 60, 20);
+        jLabel4.setBounds(30, 190, 120, 20);
 
         txt_nombre.setEditable(false);
+        txt_nombre.setEnabled(false);
         txt_nombre.setMaximumSize(new java.awt.Dimension(8, 24));
         txt_nombre.setMinimumSize(new java.awt.Dimension(8, 24));
         txt_nombre.setPreferredSize(new java.awt.Dimension(8, 24));
@@ -91,9 +103,10 @@ public class mdl_ImprimirDireccion extends java.awt.Dialog {
             }
         });
         jPanel1.add(txt_nombre);
-        txt_nombre.setBounds(120, 50, 280, 24);
+        txt_nombre.setBounds(150, 60, 280, 30);
 
         txt_telefono.setEditable(false);
+        txt_telefono.setEnabled(false);
         txt_telefono.setMaximumSize(new java.awt.Dimension(8, 24));
         txt_telefono.setMinimumSize(new java.awt.Dimension(8, 24));
         txt_telefono.setPreferredSize(new java.awt.Dimension(8, 24));
@@ -103,22 +116,24 @@ public class mdl_ImprimirDireccion extends java.awt.Dialog {
             }
         });
         jPanel1.add(txt_telefono);
-        txt_telefono.setBounds(120, 80, 280, 24);
+        txt_telefono.setBounds(150, 110, 280, 30);
 
         txt_sexo.setEditable(false);
+        txt_sexo.setEnabled(false);
         txt_sexo.setMaximumSize(new java.awt.Dimension(8, 24));
         txt_sexo.setMinimumSize(new java.awt.Dimension(8, 24));
         txt_sexo.setPreferredSize(new java.awt.Dimension(8, 24));
         jPanel1.add(txt_sexo);
-        txt_sexo.setBounds(120, 110, 280, 24);
+        txt_sexo.setBounds(150, 150, 280, 30);
 
         txt_direccion.setEditable(false);
         txt_direccion.setColumns(20);
         txt_direccion.setRows(5);
+        txt_direccion.setEnabled(false);
         jScrollPane1.setViewportView(txt_direccion);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(120, 140, 280, 100);
+        jScrollPane1.setBounds(150, 190, 280, 100);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato entrega.png"))); // NOI18N
         jButton1.setText("Imprimir");
@@ -128,35 +143,69 @@ public class mdl_ImprimirDireccion extends java.awt.Dialog {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(170, 260, 150, 41);
+        jButton1.setBounds(160, 310, 140, 40);
 
-        jl_titulo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jl_titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jl_titulo.setText("Imprimir dirección ");
         jPanel1.add(jl_titulo);
-        jl_titulo.setBounds(170, 10, 190, 30);
+        jl_titulo.setBounds(120, 10, 250, 30);
 
         add(jPanel1);
-        jPanel1.setBounds(0, 20, 470, 320);
+        jPanel1.setBounds(0, 20, 470, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public void generarPdf(String nombre) throws FileNotFoundException, DocumentException{
+        Integer valtura = 0;
+        Integer vanchura = 0;
+        int altura=0;
+        int anchura=0;
+        Font fuenteBolt = new Font(Font.FontFamily.COURIER,12,Font.BOLD);
+        Font fuenteNormal = new Font(Font.FontFamily.COURIER,10,Font.NORMAL);
+        Font fuenteItalica = new Font(Font.FontFamily.COURIER,10,Font.ITALIC);
+        
         if(txt_nombre.getText().isEmpty() || txt_telefono.getText().isEmpty() || txt_sexo.getText().isEmpty()
                 || txt_direccion.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Hay campos vacios", "Informacion",2);
-        }else{
-            FileOutputStream archivo =  new FileOutputStream("cliente.pdf");
-            Document documento = new Document();
-            PdfWriter.getInstance(documento, archivo);
-            documento.open();
             
-            Paragraph parrafo = new Paragraph();
-            documento.add(new Paragraph("Nombre: " + txt_nombre.getText()));
-            documento.add(new Paragraph("Telefono: " + txt_telefono.getText()));
-            documento.add(new Paragraph("Sexo: " + txt_sexo.getText()));
-            documento.add(new Paragraph("Direccion: " + txt_direccion.getText()));
-            documento.close();
-            JOptionPane.showMessageDialog(null, "Archivo creado correctamente", "Informacion",1);
+        }else{
+            ResultSet respuesta = Conexion.Conexion.consulta("SELECT altura, anchura FROM Parametro_Impresion\n" +
+                                                             "WHERE estado = 'A'");
+        
+            int contador = 0;
+            try{
+                while (respuesta.next()){
+                    valtura = (int) respuesta.getDouble(1);
+                    vanchura = (int) respuesta.getDouble(2);
+                    contador+=1;
+                }
+                if(contador==0){
+                    JOptionPane.showMessageDialog(null, "No hay parametros de impresion. \nDebe agregar parametros en el formulario Agegar Parametros");
+                }else{
+                    //convertir los milimetros a pulgadas y de pulgadas a puntos. Puntos es la unidad de puntos hoja
+                    altura = (int)(valtura/25.4)* 72;
+                    anchura = (int)(vanchura/25.4)* 72;
+                    
+                    FileOutputStream archivo =  new FileOutputStream("cliente.pdf");
+                    Rectangle tamanio = new Rectangle(anchura, altura);
+                    Document documento = new Document(tamanio, 5,5,2,2);
+                    PdfWriter.getInstance(documento, archivo);
+                    documento.open();
+
+                    Paragraph parrafo = new Paragraph();
+                    documento.add(new Paragraph(new Chunk ("Nombre: " + txt_nombre.getText(),fuenteBolt)));
+                    documento.add(new Paragraph(new Chunk ("Telefono: " + txt_telefono.getText(),fuenteNormal)));
+                    documento.add(new Paragraph(new Chunk ("Sexo: " + txt_sexo.getText(),fuenteNormal)));
+                    documento.add(new Paragraph(new Chunk ("Direccion: " + txt_direccion.getText(),fuenteNormal)));
+                    documento.close();
+                    JOptionPane.showMessageDialog(null, "Archivo creado correctamente", "Informacion",1);
+                    
+                    abrir();
+                }
+            }catch(SQLException e){
+                System.out.println(e);
+            }
+            
         }
     }
     

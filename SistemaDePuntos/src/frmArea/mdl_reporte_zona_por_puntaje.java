@@ -162,7 +162,7 @@ public class mdl_reporte_zona_por_puntaje extends java.awt.Dialog {
                 try {
                     throw e;
                 } catch (Exception ex) {
-                    Logger.getLogger(frmConsultasxEdades.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(mdl_consultar_por_rango_de_edad.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }

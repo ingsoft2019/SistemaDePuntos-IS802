@@ -24,7 +24,7 @@ CREATE PROCEDURE SP_ASIGNAR_PUNTOS (
 	@pi_puntos_actuales INT OUT,
 	@pi_puntos_anteriores INT OUT,
 	@pi_puntos_asignados INT OUT,
-	@pi_cliente VARCHAR(1000) OUT
+	@pi_cliente NVARCHAR(1000) OUT
 ) AS
 
 BEGIN
@@ -35,7 +35,7 @@ BEGIN
 	DECLARE @vi_id_tipo_movimiento INT;
 	DECLARE @vi_duracion_puntos INT;
 	DECLARE @vd_porcentaje_puntos DECIMAL(5,4);
-	DECLARE @vn_id_movimiento INT, @vi_puntos_actuales_rifa INT, @vn_cliente VARCHAR;
+	DECLARE @vn_id_movimiento INT, @vi_puntos_actuales_rifa INT, @vn_cliente VARCHAR(100);
 	
 	SET @vc_temp_mensaje = '';
 

@@ -5,15 +5,20 @@
  */
 package frmArea;
 
+import com.itextpdf.text.Chunk;
 import javax.swing.ImageIcon;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -63,27 +68,28 @@ public class mdl_ImprimirPuntos extends java.awt.Dialog {
 
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Nombre:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(50, 80, 140, 19);
+        jLabel1.setBounds(60, 80, 140, 30);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Puntos Regis: ");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 110, 140, 19);
+        jLabel2.setBounds(60, 120, 140, 30);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Puntos Rifa: ");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(50, 140, 140, 19);
+        jLabel3.setBounds(60, 160, 140, 30);
 
-        Vencimiento.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Vencimiento.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Vencimiento.setText("Vencimiento:");
         jPanel1.add(Vencimiento);
-        Vencimiento.setBounds(50, 180, 140, 20);
+        Vencimiento.setBounds(60, 200, 140, 30);
 
         txt_nombre.setEditable(false);
+        txt_nombre.setEnabled(false);
         txt_nombre.setMaximumSize(new java.awt.Dimension(8, 24));
         txt_nombre.setMinimumSize(new java.awt.Dimension(8, 24));
         txt_nombre.setPreferredSize(new java.awt.Dimension(8, 24));
@@ -93,9 +99,10 @@ public class mdl_ImprimirPuntos extends java.awt.Dialog {
             }
         });
         jPanel1.add(txt_nombre);
-        txt_nombre.setBounds(190, 80, 230, 24);
+        txt_nombre.setBounds(200, 80, 230, 30);
 
         txt_puntosRegis.setEditable(false);
+        txt_puntosRegis.setEnabled(false);
         txt_puntosRegis.setMaximumSize(new java.awt.Dimension(8, 24));
         txt_puntosRegis.setMinimumSize(new java.awt.Dimension(8, 24));
         txt_puntosRegis.setPreferredSize(new java.awt.Dimension(8, 24));
@@ -105,14 +112,15 @@ public class mdl_ImprimirPuntos extends java.awt.Dialog {
             }
         });
         jPanel1.add(txt_puntosRegis);
-        txt_puntosRegis.setBounds(190, 110, 230, 24);
+        txt_puntosRegis.setBounds(200, 120, 230, 30);
 
         txt_vencimiento.setEditable(false);
+        txt_vencimiento.setEnabled(false);
         txt_vencimiento.setMaximumSize(new java.awt.Dimension(8, 24));
         txt_vencimiento.setMinimumSize(new java.awt.Dimension(8, 24));
         txt_vencimiento.setPreferredSize(new java.awt.Dimension(8, 24));
         jPanel1.add(txt_vencimiento);
-        txt_vencimiento.setBounds(190, 180, 230, 24);
+        txt_vencimiento.setBounds(200, 200, 230, 30);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/dato entrega.png"))); // NOI18N
         jButton1.setText("Imprimir");
@@ -122,19 +130,20 @@ public class mdl_ImprimirPuntos extends java.awt.Dialog {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(170, 260, 150, 48);
+        jButton1.setBounds(180, 260, 140, 40);
 
-        jl_titulo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jl_titulo.setText("Imprimir Puntos ");
+        jl_titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jl_titulo.setText("Imprimir puntos ");
         jPanel1.add(jl_titulo);
-        jl_titulo.setBounds(180, 30, 190, 30);
+        jl_titulo.setBounds(130, 30, 240, 30);
 
         txt_puntoRifa.setEditable(false);
+        txt_puntoRifa.setEnabled(false);
         txt_puntoRifa.setMaximumSize(new java.awt.Dimension(8, 24));
         txt_puntoRifa.setMinimumSize(new java.awt.Dimension(8, 24));
         txt_puntoRifa.setPreferredSize(new java.awt.Dimension(8, 24));
         jPanel1.add(txt_puntoRifa);
-        txt_puntoRifa.setBounds(190, 140, 230, 24);
+        txt_puntoRifa.setBounds(200, 160, 230, 30);
 
         add(jPanel1);
         jPanel1.setBounds(0, 20, 470, 320);
@@ -142,21 +151,57 @@ public class mdl_ImprimirPuntos extends java.awt.Dialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public void generarPdf(String nombre) throws FileNotFoundException, DocumentException{
+        Integer valtura = 0;
+        Integer vanchura = 0;
+        int altura=0;
+        int anchura=0;
+        
+        Font fuenteBolt = new Font(Font.FontFamily.COURIER,12,Font.BOLD);
+        Font fuenteNormal = new Font(Font.FontFamily.COURIER,10,Font.NORMAL);
+        Font fuenteItalica = new Font(Font.FontFamily.COURIER,10,Font.ITALIC);
+        
         if(txt_nombre.getText().isEmpty() || txt_puntosRegis.getText().isEmpty() || txt_puntoRifa.getText().isEmpty()
                 || txt_vencimiento.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Hay campos vacios", "Informacion",2);
         }else{
-            FileOutputStream archivo =  new FileOutputStream("puntos.pdf");
-            Document documento = new Document();
-            PdfWriter.getInstance(documento, archivo);
-            documento.open();
-            Paragraph parrafo = new Paragraph();
-            documento.add(new Paragraph("Nombre: " + txt_nombre.getText()));
-            documento.add(new Paragraph("Puntos Regis: " + txt_puntosRegis.getText()));
-            documento.add(new Paragraph("Puntos Rifa: " + txt_puntoRifa.getText()));
-            documento.add(new Paragraph("Fecha de vencimiento: " + txt_vencimiento.getText()));
-            documento.close();
-            JOptionPane.showMessageDialog(null, "Archivo creado correctamente", "Informacion",1);
+            ResultSet respuesta = Conexion.Conexion.consulta("SELECT altura, anchura FROM Parametro_Impresion\n" +
+                                                             "WHERE estado = 'A'");
+        
+            int contador = 0;
+            
+            try{
+                while (respuesta.next()){
+                    valtura = (int) respuesta.getDouble(1);
+                    vanchura = (int) respuesta.getDouble(2);
+                    contador+=1;
+                }
+                if(contador==0){
+                    JOptionPane.showMessageDialog(null, "No hay parametros de impresion. \nDebe agregar parametros en el formulario Agegar Parametros");
+                }else{
+                    //convertir los milimetros a pulgadas y de pulgadas a puntos. Puntos es la unidad de puntos hoja
+                    altura = (int)(valtura/25.4)* 72;
+                    anchura = (int)(vanchura/25.4)* 72;
+                    FileOutputStream archivo =  new FileOutputStream("puntos.pdf");
+                    //Document documento = new Document();
+                    Rectangle tamanio = new Rectangle(anchura, altura);
+                    Document documento = new Document(tamanio, 5,5,2,2);
+                    PdfWriter.getInstance(documento, archivo);
+                    
+                    documento.open();
+                    documento.add(new Paragraph(new Chunk("Nombre: " + txt_nombre.getText(),fuenteBolt)));
+                    documento.add(new Paragraph(new Chunk("Puntos Regis: " + txt_puntosRegis.getText(),fuenteNormal)));
+                    documento.add(new Paragraph(new Chunk("Puntos Rifa: " + txt_puntoRifa.getText(),fuenteNormal )));
+                    documento.add(new Paragraph(new Chunk("Fecha de vencimiento: " + txt_vencimiento.getText(),fuenteNormal)));
+                    documento.close();
+                    JOptionPane.showMessageDialog(null, "Archivo creado correctamente", "Informacion",1);
+                    
+                    abrir();
+                }
+            }catch(SQLException e){
+                System.out.println(e);
+            }
+            
+            
         }
     }
     

@@ -57,9 +57,10 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
         AsignarPuntos = new javax.swing.JButton();
         CanjearPuntos = new javax.swing.JButton();
         jCheckBoxBuscarInactivos = new javax.swing.JCheckBox();
+        jl_TituloPrincipal = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(750, 523));
-        setMinimumSize(new java.awt.Dimension(750, 523));
+        setMaximumSize(new java.awt.Dimension(750, 581));
+        setMinimumSize(new java.awt.Dimension(750, 581));
         setTitle("Consultar Cliente");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -81,7 +82,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             }
         });
         jPanel1.add(btn_buscar);
-        btn_buscar.setBounds(472, 6, 130, 30);
+        btn_buscar.setBounds(460, 70, 140, 40);
 
         btn_agregarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/agregar.png"))); // NOI18N
         btn_agregarCliente.setText("Agregar");
@@ -92,10 +93,10 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             }
         });
         jPanel1.add(btn_agregarCliente);
-        btn_agregarCliente.setBounds(260, 440, 140, 40);
+        btn_agregarCliente.setBounds(210, 510, 140, 40);
 
         btn_clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/cliente.png"))); // NOI18N
-        btn_clientes.setText("Gestion Cliente");
+        btn_clientes.setText("Gestión cliente");
         btn_clientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_clientes.setMultiClickThreshhold(30L);
         btn_clientes.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +105,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             }
         });
         jPanel1.add(btn_clientes);
-        btn_clientes.setBounds(90, 440, 140, 40);
+        btn_clientes.setBounds(30, 510, 140, 40);
 
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -115,7 +116,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Nombre Cliente", "Identidad", "Telefono", "Puntos", "id_persona"
+                "Nombre Cliente", "Identidad", "Teléfono", "Puntos", "id_persona"
             }
         ));
         jTable1.setMaximumSize(new java.awt.Dimension(300, 64));
@@ -127,7 +128,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
         }
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(6, 54, 737, 368);
+        jScrollPane1.setBounds(17, 120, 720, 368);
 
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -136,10 +137,10 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             }
         });
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(6, 8, 448, 27);
+        jTextField1.setBounds(20, 70, 430, 40);
 
         AsignarPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
-        AsignarPuntos.setText("Asignar Puntos");
+        AsignarPuntos.setText("Asignar puntos");
         AsignarPuntos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         AsignarPuntos.setMaximumSize(new java.awt.Dimension(77, 35));
         AsignarPuntos.setMinimumSize(new java.awt.Dimension(77, 35));
@@ -149,10 +150,10 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             }
         });
         jPanel1.add(AsignarPuntos);
-        AsignarPuntos.setBounds(600, 440, 140, 40);
+        AsignarPuntos.setBounds(590, 510, 140, 40);
 
         CanjearPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/gestion_de_puntos.png"))); // NOI18N
-        CanjearPuntos.setText("Canjear Puntos");
+        CanjearPuntos.setText("Canjear puntos");
         CanjearPuntos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         CanjearPuntos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +161,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             }
         });
         jPanel1.add(CanjearPuntos);
-        CanjearPuntos.setBounds(430, 440, 140, 40);
+        CanjearPuntos.setBounds(390, 510, 140, 40);
 
         jCheckBoxBuscarInactivos.setText("Buscar Inactivos");
         jCheckBoxBuscarInactivos.addActionListener(new java.awt.event.ActionListener() {
@@ -169,10 +170,15 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
             }
         });
         jPanel1.add(jCheckBoxBuscarInactivos);
-        jCheckBoxBuscarInactivos.setBounds(610, 9, 130, 23);
+        jCheckBoxBuscarInactivos.setBounds(610, 70, 130, 40);
+
+        jl_TituloPrincipal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jl_TituloPrincipal.setText("Consultar clientes");
+        jPanel1.add(jl_TituloPrincipal);
+        jl_TituloPrincipal.setBounds(300, 20, 230, 30);
 
         add(jPanel1);
-        jPanel1.setBounds(0, 30, 750, 490);
+        jPanel1.setBounds(0, 10, 750, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -284,42 +290,38 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
     }//GEN-LAST:event_btn_agregarClienteActionPerformed
 
     private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
-        if ("".equals(jTextField1.getText())) {
-            JOptionPane.showMessageDialog(null, "Debe buscar un registro");
-        } else {
+        try {
+            int row = getjTable1().getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
+            int id_persona = (int) getjTable1().getValueAt(row, 4); //OBTENGO EL VALOR DEL ID PERSONA
+            //Consulto todos los datos relacioados con el ID
+            ResultSet res = consulta("Select * from Persona inner join Cliente on Persona.id_persona = Cliente.id_persona\n"
+                    + "inner join zona on Persona.id_zona = Zona.id_zona where Persona.id_persona = '" + id_persona + "';");
+            //Hago visible el formulario
+            frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
+            mdl_SubMenuCliente subMenuCli = new mdl_SubMenuCliente(frmMenuPrincipal, true);
+
             try {
-                int row = getjTable1().getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
-                int id_persona = (int) getjTable1().getValueAt(row, 4); //OBTENGO EL VALOR DEL ID PERSONA
-                
-                //Consulto todos los datos relacioados con el ID
-                ResultSet res = consulta("Select * from Persona inner join Cliente on Persona.id_persona = Cliente.id_persona\n"
-                        + "inner join zona on Persona.id_zona = Zona.id_zona where Persona.id_persona = '" + id_persona + "';");
-                //Hago visible el formulario
-                frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
-                mdl_SubMenuCliente subMenuCli = new mdl_SubMenuCliente(frmMenuPrincipal, true);
+                while (res.next()) {
+                    //Llamo al metodo para llenar los campos con los datos a editar
+                    subMenuCli.llenarCampos(res.getString("pnombre"), res.getString("snombre"), res.getString("papellido"),
+                            res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"), res.getString("telefono1"),
+                            res.getString("telefono2"), res.getString("telefono3"), res.getString("correo"),
+                            res.getDate("fecha_nacimiento"), res.getString("detalle_direccion"),
+                            res.getString("puntos_actuales"), res.getString("puntos_rifa_actuales"),
+                            res.getString("fecha_vencimiento_puntos"), res.getString("id_persona"), res.getString("estado"));
 
-                try {
-                    while (res.next()) {
-                        //Llamo al metodo para llenar los campos con los datos a editar
-                        subMenuCli.llenarCampos(res.getString("pnombre"), res.getString("snombre"), res.getString("papellido"),
-                                res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"), res.getString("telefono1"),
-                                res.getString("telefono2"), res.getString("telefono3"), res.getString("correo"),
-                                res.getDate("fecha_nacimiento"), res.getString("detalle_direccion"),
-                                res.getString("puntos_actuales"), res.getString("puntos_rifa_actuales"),
-                                res.getString("fecha_vencimiento_puntos"), res.getString("id_persona"), res.getString("estado"));
+                    subMenuCli.cargarZonas(res.getString("zona"));
+                    subMenuCli.setVisible(true); // visible ventana del objeto
 
-                        subMenuCli.cargarZonas(res.getString("zona"));
-                        subMenuCli.setVisible(true); // visible ventana del objeto
-
-                    }
-
-                } catch (SQLException ex) {
-                    Logger.getLogger(mdl_ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Busque y seleccione un registro");
+
+            } catch (SQLException ex) {
+                Logger.getLogger(mdl_ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Busque y seleccione un registro");
         }
+
     }//GEN-LAST:event_btn_clientesActionPerformed
 
     private void AsignarPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsignarPuntosActionPerformed
@@ -358,7 +360,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
     private void CanjearPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CanjearPuntosActionPerformed
         try {
             int row = getjTable1().getSelectedRow();
-            int id_persona = (int)getjTable1().getValueAt(row, 4);
+            int id_persona = (int) getjTable1().getValueAt(row, 4);
 
             ResultSet res = consulta("select * from Persona p\n"
                     + "inner join Cliente c ON c.id_Persona = p.id_Persona "
@@ -400,10 +402,10 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
         // TODO add your handling code here:
-        if(jTextField1.getText().isEmpty() && evt.getKeyCode()==KeyEvent.VK_ENTER){
+        if (jTextField1.getText().isEmpty() && evt.getKeyCode() == KeyEvent.VK_ENTER) {
             JOptionPane.showMessageDialog(null, "Campo de busqueda vacio");
             jCheckBoxBuscarInactivos.setSelected(false);
-        }else if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+        } else if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
                 setResultado1(Conexion.Conexion.consulta("select count(Persona.identidad) from Persona inner join cliente on \n"
                         + "Cliente.id_persona = Persona.id_persona\n"
@@ -423,12 +425,12 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
                     if (getjCheckBoxBuscarInactivos().isSelected()) {
                         buscarClienteInactivo();
                         getjCheckBoxBuscarInactivos().setSelected(false);
-                        jTextField1.setText("");
+                        //jTextField1.setText("");
                     } else if (getContador1() >= 1) {
                         buscarCliente();
                         CanjearPuntos.setEnabled(true);
                         AsignarPuntos.setEnabled(true);
-                        jTextField1.setText("");
+                        //jTextField1.setText("");
                     } else {
                         JOptionPane.showMessageDialog(null, "El registro que busca no existe");
                     }
@@ -440,7 +442,6 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
 
             }
 
-            
         }
     }//GEN-LAST:event_jTextField1KeyPressed
 
@@ -473,6 +474,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jl_TituloPrincipal;
     // End of variables declaration//GEN-END:variables
 
     /**

@@ -7,12 +7,14 @@ package frmArea;
 
 import Conexion.Conexion;
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import jxl.write.WriteException;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -53,10 +55,11 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         btn_graficas1 = new javax.swing.JButton();
         btn_report2 = new javax.swing.JButton();
         btn_report3 = new javax.swing.JButton();
+        btnGenerarExcel = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(577, 357));
         setMinimumSize(new java.awt.Dimension(577, 357));
-        setTitle("Menú de Reportes y Graficas");
+        setTitle("Menú de reportes y graficas");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -131,6 +134,16 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         });
         jpanel_reporte.add(btn_report3);
         btn_report3.setBounds(40, 200, 160, 60);
+
+        btnGenerarExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/excel report.png"))); // NOI18N
+        btnGenerarExcel.setText("Reporte Excel");
+        btnGenerarExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarExcelActionPerformed(evt);
+            }
+        });
+        jpanel_reporte.add(btnGenerarExcel);
+        btnGenerarExcel.setBounds(220, 280, 160, 60);
 
         add(jpanel_reporte);
         jpanel_reporte.setBounds(0, 0, 580, 360);
@@ -219,7 +232,9 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
     }//GEN-LAST:event_brn_rangoDeEdadActionPerformed
 
     private void btn_graficas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_graficas1ActionPerformed
-         
+        frmMenuPrincipal frmMenuPrincipal=new frmMenuPrincipal();
+        mdl_reporte_en_graficos ver=new mdl_reporte_en_graficos(frmMenuPrincipal,true);
+        ver.setVisible(true); // visible ventana del objeto
     }//GEN-LAST:event_btn_graficas1ActionPerformed
 
     private void btn_report2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_report2ActionPerformed
@@ -234,6 +249,16 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
             ver.setVisible(true); // visible ventana del objeto
             
     }//GEN-LAST:event_btn_report3ActionPerformed
+
+    private void btnGenerarExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarExcelActionPerformed
+        try {
+            Clases.GenerarExcel.WriteExcel();
+        } catch (IOException ex) {
+            Logger.getLogger(mdl_SubMenuReporte.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (WriteException ex) {
+            Logger.getLogger(mdl_SubMenuReporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnGenerarExcelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,6 +281,7 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brn_puntos;
     private javax.swing.JButton brn_rangoDeEdad;
+    private javax.swing.JButton btnGenerarExcel;
     private javax.swing.JButton btn_cliente;
     private javax.swing.JButton btn_graficas1;
     private javax.swing.JButton btn_report2;

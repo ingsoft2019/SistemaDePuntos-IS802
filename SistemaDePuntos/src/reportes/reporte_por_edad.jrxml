@@ -29,7 +29,7 @@ WHERE 1 <= DATEDIFF(YEAR,  p.fecha_nacimiento, GETDATE()) AND 30 >= DATEDIFF(YEA
 			<staticText>
 				<reportElement uuid="ca0a4808-dfcb-496a-91bd-1cb668458f89" style="SubTitle" x="35" y="46" width="239" height="22"/>
 				<textElement/>
-				<text><![CDATA[Farmacia Regis "Las Casitas"]]></text>
+				<text><![CDATA[Farmacia Regis ]]></text>
 			</staticText>
 		</band>
 	</title>

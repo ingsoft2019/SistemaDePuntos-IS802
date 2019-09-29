@@ -51,12 +51,15 @@ public class mdl_VencimientoPuntos extends javax.swing.JDialog {
         tblCliente = new javax.swing.JTable();
         btnEliminarPuntosVencidos = new javax.swing.JButton();
         lblMensaje = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Eliminar Puntos Vencidos");
+        setTitle("Eliminar puntos vencidos");
         setMaximumSize(new java.awt.Dimension(633, 392));
         setMinimumSize(new java.awt.Dimension(633, 392));
         getContentPane().setLayout(null);
+
+        jPanel1.setLayout(null);
 
         tblCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -71,8 +74,11 @@ public class mdl_VencimientoPuntos extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(tblCliente);
 
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(30, 70, 534, 217);
+
         btnEliminarPuntosVencidos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/asignar.png"))); // NOI18N
-        btnEliminarPuntosVencidos.setText("Eliminar Puntos Vencidos");
+        btnEliminarPuntosVencidos.setText("Eliminar puntos vencidos");
         btnEliminarPuntosVencidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnEliminarPuntosVencidos.setMaximumSize(new java.awt.Dimension(77, 35));
         btnEliminarPuntosVencidos.setMinimumSize(new java.awt.Dimension(77, 35));
@@ -81,38 +87,20 @@ public class mdl_VencimientoPuntos extends javax.swing.JDialog {
                 btnEliminarPuntosVencidosActionPerformed(evt);
             }
         });
+        jPanel1.add(btnEliminarPuntosVencidos);
+        btnEliminarPuntosVencidos.setBounds(210, 300, 180, 40);
 
         lblMensaje.setText("No hay clientes con puntos vencidos");
+        jPanel1.add(lblMensaje);
+        lblMensaje.setBounds(30, 40, 217, 16);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addComponent(btnEliminarPuntosVencidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(77, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(lblMensaje)
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(btnEliminarPuntosVencidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Puntos vencidos ");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(200, 0, 230, 40);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 20, 642, 355);
+        jPanel1.setBounds(20, 10, 600, 355);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -205,6 +193,7 @@ public class mdl_VencimientoPuntos extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminarPuntosVencidos;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMensaje;

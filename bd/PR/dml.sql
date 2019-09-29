@@ -113,3 +113,6 @@ insert into Tipo_Movimiento (descripcion) values ('Canjeo');
 
 insert into Configuracion (porcentaje_puntos, duracion_puntos, fecha_configuracion)
 values (0.02,6, '2019-08-22');
+
+insert into Parametro_Impresion 
+values (60,90,'A');

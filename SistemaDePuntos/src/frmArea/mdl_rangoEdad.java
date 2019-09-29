@@ -58,18 +58,28 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Reporte Rango Por Edad");
-        setMaximumSize(new java.awt.Dimension(578, 395));
-        setMinimumSize(new java.awt.Dimension(578, 395));
-        setPreferredSize(new java.awt.Dimension(578, 395));
+        setTitle("Reporte rango por edad");
+        setMaximumSize(new java.awt.Dimension(492, 266));
+        setMinimumSize(new java.awt.Dimension(492, 266));
+        setPreferredSize(new java.awt.Dimension(492, 266));
         getContentPane().setLayout(null);
 
-        lblRangoPorEdad.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        lblRangoPorEdad.setText("Rango Por Edad");
+        pnlRangoEdad.setLayout(null);
 
+        lblRangoPorEdad.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblRangoPorEdad.setText("Reporte por rango por edad");
+        pnlRangoEdad.add(lblRangoPorEdad);
+        lblRangoPorEdad.setBounds(60, 20, 380, 29);
+
+        lblEdadInicial.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblEdadInicial.setText("Edad Incial:");
+        pnlRangoEdad.add(lblEdadInicial);
+        lblEdadInicial.setBounds(54, 88, 110, 19);
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Edad Final:");
+        pnlRangoEdad.add(jLabel1);
+        jLabel1.setBounds(58, 130, 110, 19);
 
         txtEdadFinal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -79,6 +89,8 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
                 txtEdadFinalKeyTyped(evt);
             }
         });
+        pnlRangoEdad.add(txtEdadFinal);
+        txtEdadFinal.setBounds(166, 126, 270, 24);
 
         txtEdadInicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,59 +102,21 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
                 txtEdadInicialKeyTyped(evt);
             }
         });
+        pnlRangoEdad.add(txtEdadInicial);
+        txtEdadInicial.setBounds(166, 84, 270, 24);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/reportes.png"))); // NOI18N
-        jButton1.setText("Generar Reporte");
+        jButton1.setText("Generar reporte");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout pnlRangoEdadLayout = new javax.swing.GroupLayout(pnlRangoEdad);
-        pnlRangoEdad.setLayout(pnlRangoEdadLayout);
-        pnlRangoEdadLayout.setHorizontalGroup(
-            pnlRangoEdadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRangoEdadLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblRangoPorEdad)
-                .addGap(91, 91, 91))
-            .addGroup(pnlRangoEdadLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addGroup(pnlRangoEdadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlRangoEdadLayout.createSequentialGroup()
-                        .addGroup(pnlRangoEdadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(lblEdadInicial))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlRangoEdadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEdadFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEdadInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnlRangoEdadLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnlRangoEdadLayout.setVerticalGroup(
-            pnlRangoEdadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlRangoEdadLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lblRangoPorEdad)
-                .addGap(35, 35, 35)
-                .addGroup(pnlRangoEdadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEdadInicial)
-                    .addComponent(txtEdadInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlRangoEdadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtEdadFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
+        pnlRangoEdad.add(jButton1);
+        jButton1.setBounds(180, 180, 157, 40);
 
         getContentPane().add(pnlRangoEdad);
-        pnlRangoEdad.setBounds(120, 30, 330, 280);
+        pnlRangoEdad.setBounds(0, 0, 500, 280);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
