@@ -7,9 +7,11 @@ package frmArea;
 
 
 import java.awt.Dialog;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Vector;
 import javax.swing.ImageIcon;
 //Para la grafica
-import javax.swing.JFrame;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -24,15 +26,25 @@ import org.jfree.data.general.DefaultPieDataset;
 public class mdl_reporte_en_graficos extends java.awt.Dialog {
 
     /**
-     * Creates new form mdl_reporte_engraficas_proyecto
+     * Creates new form mdl_reporte_en_graficas_proyecto
      */
+    static ResultSet resultado;
+    static ResultSet resultado1;
+    static ResultSet resultado2;
+    JFreeChart grafico = null;
+    DefaultCategoryDataset datos = new DefaultCategoryDataset();
+    int cant_F=0 ;
+    int cant_M =0;
+
+
+
+    
     public mdl_reporte_en_graficos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro         
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
-    
     }
 
     /**
@@ -45,20 +57,14 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
 
         jPanel1 = new javax.swing.JPanel();
         lblRangoPorEdad = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        btn_tipo_grafico = new javax.swing.JComboBox();
+        combox_tipo_grafico = new javax.swing.JComboBox();
         btn_graficar = new javax.swing.JButton();
+        combox_datos_graficables = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(706, 296));
-        setMinimumSize(new java.awt.Dimension(706, 296));
+        setMaximumSize(new java.awt.Dimension(555, 296));
+        setMinimumSize(new java.awt.Dimension(555, 296));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -71,57 +77,23 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         lblRangoPorEdad.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblRangoPorEdad.setText("Grafico del sistema de puntos ");
         jPanel1.add(lblRangoPorEdad);
-        lblRangoPorEdad.setBounds(130, 20, 380, 29);
+        lblRangoPorEdad.setBounds(100, 30, 380, 29);
 
-        jLabel1.setText("DATO 1:");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(53, 130, 63, 16);
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(122, 126, 153, 24);
-
-        jLabel2.setText("DATO 2:");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(53, 161, 45, 16);
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField2);
-        jTextField2.setBounds(122, 157, 153, 24);
-
-        jLabel3.setText("DATO 3:");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(53, 191, 45, 16);
-
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField3);
-        jTextField3.setBounds(122, 187, 153, 24);
-
-        jLabel4.setText("DATO 4:");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(53, 225, 45, 16);
-        jPanel1.add(jTextField4);
-        jTextField4.setBounds(122, 221, 153, 24);
-
-        jLabel6.setText("TIPO DE GRAFICO:");
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setText("Tipo de grafico:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(366, 130, 101, 16);
+        jLabel6.setBounds(40, 100, 140, 20);
 
-        btn_tipo_grafico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Barras", "Lineal", "Pastel" }));
-        btn_tipo_grafico.addActionListener(new java.awt.event.ActionListener() {
+        combox_tipo_grafico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Eliga un tipo de grafico", "Barras", "Lineal", "Pastel" }));
+        combox_tipo_grafico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_tipo_graficoActionPerformed(evt);
+                combox_tipo_graficoActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_tipo_grafico);
-        btn_tipo_grafico.setBounds(494, 125, 144, 26);
+        jPanel1.add(combox_tipo_grafico);
+        combox_tipo_grafico.setBounds(180, 100, 260, 26);
 
+        btn_graficar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/grafica.png"))); // NOI18N
         btn_graficar.setText("GRAFICAR");
         btn_graficar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,10 +101,19 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
             }
         });
         jPanel1.add(btn_graficar);
-        btn_graficar.setBounds(366, 217, 272, 32);
+        btn_graficar.setBounds(200, 220, 140, 40);
+
+        combox_datos_graficables.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elegia un dato para graficar", "Sexo de los clientes ", "Cliente por zonas ", "Clientes con mayor puntaje  " }));
+        jPanel1.add(combox_datos_graficables);
+        combox_datos_graficables.setBounds(180, 160, 260, 26);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setText("Consulta:");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(40, 160, 140, 20);
 
         add(jPanel1);
-        jPanel1.setBounds(0, 0, 710, 300);
+        jPanel1.setBounds(0, 0, 560, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -145,59 +126,21 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         dispose();
     }//GEN-LAST:event_closeDialog
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void combox_tipo_graficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combox_tipo_graficoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void btn_tipo_graficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tipo_graficoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_tipo_graficoActionPerformed
+    }//GEN-LAST:event_combox_tipo_graficoActionPerformed
 
     private void btn_graficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_graficarActionPerformed
-        // TODO add your handling code here:
-
-        JFreeChart grafico = null;
-        DefaultCategoryDataset datos = new DefaultCategoryDataset();
-        int dato1 = Integer.parseInt(jTextField1.getText());
-        int dato2 = Integer.parseInt(jTextField2.getText());
-        int dato3 = Integer.parseInt(jTextField3.getText());
-        int dato4 = Integer.parseInt(jTextField4.getText());
-        datos.addValue(dato1,"Grafica 1","Uno");
-        datos.addValue(dato2,"Grafica 1","Dos");
-        datos.addValue(dato3,"Grafica 1","Tres");
-        datos.addValue(dato4,"Grafica 1","Cuatro");
-        String tipoGrafica = btn_tipo_grafico.getSelectedItem().toString();
-        if(tipoGrafica.equals("Barras")){
-            grafico = ChartFactory.createBarChart("Grafica Prueba", "Eje X", "Eje Y",datos ,PlotOrientation.VERTICAL, true, true, false);
+        //Area para consultas 
+        String tipo_grafica = combox_tipo_grafico.getSelectedItem().toString();
+        String tipo_consulta = combox_datos_graficables.getSelectedItem().toString();
+        
+        if(tipo_consulta.equals("Sexo de los clientes ")){
+            sexoCliente(tipo_grafica);
         }
-        if(tipoGrafica.equals("Lineal")){
-            grafico = ChartFactory.createLineChart("Grafica Prueba", "Eje X", "Eje Y",datos ,PlotOrientation.VERTICAL, true, true, false);
-        }
-        if(tipoGrafica.equals("Pastel")){
-            DefaultPieDataset datosPie = new DefaultPieDataset();
-            datosPie.setValue("Uno", dato1);
-            datosPie.setValue("Dos", dato2);
-            datosPie.setValue("Tres", dato3);
-            datosPie.setValue("Cuatro", dato4);
-            grafico = ChartFactory.createPieChart("Grafica Prueba", datosPie, true, true, false);
-        }
-
-        ChartPanel cPanel = new ChartPanel(grafico);
-        frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
-        Dialog informacion = new Dialog(frmMenuPrincipal,true);
-        informacion.add(cPanel);
-       // informacion.getContentPane().add(cPanel);
-        informacion.setLocationRelativeTo(null);
-        informacion.setResizable(false);
-        informacion.setTitle("Grafica");
-        informacion.setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage());
-        informacion.pack();
-        informacion.setVisible(true);
-
+        
+        
+ 
     }//GEN-LAST:event_btn_graficarActionPerformed
 
     /**
@@ -217,20 +160,78 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         });
     }
 
+    public  void sexoCliente(String tipo_grafica){
+        resultado = Conexion.Conexion.consulta("select sexo from Persona");
+            try {
+                while (resultado.next()) {
+                    Vector v = new Vector();
+                   // v.add(resultado.getString(1));
+                   // v.add(resultado.getString(2));
+                    System.out.println("El Valor dato 1: "+resultado.getString(1));
+                    if("M".equals(resultado.getString(1).toString())){
+                       cant_M++;
+                        System.out.println(cant_M);
+                    }
+                    
+                    if("F".equals(resultado.getString(1).toString())){
+                        cant_F++;
+                        System.out.println(cant_F);
+                    }
+               }
+        }catch (Exception ex) {
+                System.out.println("" + ex);  
+        }
+            
+                   int dato1 =cant_M;
+        int dato2 =cant_F;
+         System.out.println("M = " +cant_M + "  - - " +"F = " +cant_F );
+        
+   //     int dato3 = Integer.parseInt(jTextField3.getText());
+//        int dato4 = Integer.parseInt(jTextField4.getText());
+        datos.addValue(dato1,"Grafica Sexo","Masculino");
+        datos.addValue(dato2,"Grafica Sexo","Femenino");
+     /*   datos.addValue(dato3,"Grafica 1","Tres");
+        datos.addValue(dato4,"Grafica 1","Cuatro");*/
+        String tipoGrafica = combox_tipo_grafico.getSelectedItem().toString();
+
+        if(tipoGrafica.equals("Barras")){
+            grafico = ChartFactory.createBarChart("Grafica sexo de clientes", "Eje X - Tipo", "Eje Y - Cantidad",datos ,PlotOrientation.VERTICAL, true, true, false);
+        }
+        if(tipoGrafica.equals("Lineal")){
+            grafico = ChartFactory.createLineChart("Grafica sexo de clientes", "Eje X - Tipo", "Eje Y- Cantidad",datos ,PlotOrientation.VERTICAL, true, true, false);
+        }
+        if(tipoGrafica.equals("Pastel")){
+            DefaultPieDataset datosPie = new DefaultPieDataset();
+            datosPie.setValue("Masculino", dato1);
+            datosPie.setValue("Femenino", dato2);
+
+            grafico = ChartFactory.createPieChart("Grafica sexo de clientes", datosPie, true, true, false);
+        }
+
+        ChartPanel cPanel = new ChartPanel(grafico);
+        frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
+        Dialog informacion = new Dialog(frmMenuPrincipal,true);
+        informacion.add(cPanel);
+        //informacion.setResizable(false);
+        informacion.pack();
+        informacion.setLocationRelativeTo(null);
+        informacion.setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage());
+        informacion.setTitle("Grafica");
+        informacion.setVisible(true);
+        
+  
+       
+        
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_graficar;
-    private javax.swing.JComboBox btn_tipo_grafico;
+    private javax.swing.JComboBox<String> combox_datos_graficables;
+    private javax.swing.JComboBox combox_tipo_grafico;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lblRangoPorEdad;
     // End of variables declaration//GEN-END:variables
 }
