@@ -64,6 +64,16 @@ public class Validar {
             }
         });
     }
+    
+    public boolean validarFecha(java.util.Date fechaIngresada){
+        boolean fechaValida = true;
+        
+        java.util.Date fechaActual = new java.util.Date();
+        if(fechaActual.before(fechaIngresada)){
+            fechaValida = false;
+        }
+        return fechaValida;
+    }
 
     public void ValidarTelefono(JTextField campo) {
         campo.addKeyListener(new KeyAdapter() {

@@ -542,7 +542,7 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
     private void txt_correoElectronicoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_correoElectronicoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             RB_masculino.requestFocus();
-        }else if(evt.getKeyCode()== KeyEvent.VK_SPACE){
+        } else if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
             v.validarEspacios(txt_correoElectronico);
         }
     }//GEN-LAST:event_txt_correoElectronicoKeyPressed
@@ -618,67 +618,71 @@ public class mdl_RegistroClientes extends java.awt.Dialog {
                     JOptionPane.showMessageDialog(this, "Esta persona ya está registrada", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 
                 } else {
-                    //PREPARO LA FECHA PARA ENVIARLA
-                    java.sql.Date fechaNac = new java.sql.Date(jDC_fechaNacimiento.getDate().getTime());
+                    boolean fechaValida = new Validar().validarFecha(jDC_fechaNacimiento.getDate());
+                    if (!fechaValida) {
+                        JOptionPane.showMessageDialog(null, "Fecha no válida");
+                    } else {
+                        //PREPARO LA FECHA PARA ENVIARLA
+                        java.sql.Date fechaNac = new java.sql.Date(jDC_fechaNacimiento.getDate().getTime());
 
-                    //Consulto el id de la zona que eligio el usuario para registrarla en la tabla clientes
-                    ResultSet respuesta = Zona.consultarIdZona((String) jC_zona.getSelectedItem());
-                    int idZona = 0;
+                        //Consulto el id de la zona que eligio el usuario para registrarla en la tabla clientes
+                        ResultSet respuesta = Zona.consultarIdZona((String) jC_zona.getSelectedItem());
+                        int idZona = 0;
 
-                    while (respuesta.next()) {
-                        idZona = respuesta.getInt(1);
+                        while (respuesta.next()) {
+                            idZona = respuesta.getInt(1);
+                        }
+
+                        //Verificar el sexo seleccionado
+                        String sexo = "";
+                        if (RB_masculino.isSelected() == true) {
+                            sexo = "M";
+                        } else if (RB_femenino.isSelected() == true) {
+                            sexo = "F";
+                        }
+
+                        Procedimientos.ProcedimientosCliente.guardarPersona(txt_primerNombre.getText(), txt_segundoNombre.getText(),
+                                txt_primerApellido.getText(), txt_segundoApellido.getText(), txt_noIdentidad.getText(), txt_correoElectronico.getText(),
+                                sexo, fechaNac, idZona, descripcion.getText(), txt_telefono1.getText(), txt_telefono2.getText(),
+                                txt_telefono3.getText());
+
+                        //Limpiar los campos
+                        txt_primerNombre.setText("");
+                        txt_segundoNombre.setText("");
+                        txt_primerApellido.setText("");
+                        txt_segundoApellido.setText("");
+                        txt_noIdentidad.setText("");
+                        txt_correoElectronico.setText("");
+                        txt_telefono1.setText("");
+                        txt_telefono2.setText("");
+                        txt_telefono3.setText("");
+                        RB_masculino.setSelected(false);
+                        RB_femenino.setSelected(false);
+                        jDC_fechaNacimiento.setCalendar(null);
+                        jC_zona.setSelectedIndex(0);
+                        descripcion.setText("");
+                        txt_primerNombre.requestFocus();
+                        txt_segundoNombre.requestFocus();
+                        txt_primerApellido.requestFocus();
+                        txt_segundoApellido.requestFocus();
+                        txt_noIdentidad.requestFocus();
+                        txt_correoElectronico.requestFocus();
+                        txt_telefono1.requestFocus();
+                        txt_telefono2.requestFocus();
+                        txt_telefono3.requestFocus();
+                        jDC_fechaNacimiento.requestFocus();
+                        jC_zona.requestFocus();
+                        txt_primerNombre.requestFocus();
+
+                        //Obtener fecha del sistema para agregarla como fecha de registro del cliente
+                        java.util.Date fechaActual = new java.util.Date();
+                        java.sql.Date fechaRegistro = new java.sql.Date(fechaActual.getTime());//Convertir a fecha compatible con sql
+
+                        //Almancena el id de la persona en la tabla de clientes
+                        Procedimientos.ProcedimientosCliente.guardarCliente(fechaRegistro, Persona.UltimoRegistro());
+
+                        JOptionPane.showMessageDialog(this, "Registro guardado");
                     }
-
-                    //Verificar el sexo seleccionado
-                    String sexo = "";
-                    if (RB_masculino.isSelected() == true) {
-                        sexo = "M";
-                    } else if (RB_femenino.isSelected() == true) {
-                        sexo = "F";
-                    }
-
-                    Procedimientos.ProcedimientosCliente.guardarPersona(txt_primerNombre.getText(), txt_segundoNombre.getText(),
-                            txt_primerApellido.getText(), txt_segundoApellido.getText(), txt_noIdentidad.getText(), txt_correoElectronico.getText(),
-                            sexo, fechaNac, idZona, descripcion.getText(), txt_telefono1.getText(), txt_telefono2.getText(),
-                            txt_telefono3.getText());
-
-                    //Limpiar los campos
-                    txt_primerNombre.setText("");
-                    txt_segundoNombre.setText("");
-                    txt_primerApellido.setText("");
-                    txt_segundoApellido.setText("");
-                    txt_noIdentidad.setText("");
-                    txt_correoElectronico.setText("");
-                    txt_telefono1.setText("");
-                    txt_telefono2.setText("");
-                    txt_telefono3.setText("");
-                    RB_masculino.setSelected(false);
-                    RB_femenino.setSelected(false);
-                    jDC_fechaNacimiento.setCalendar(null);
-                    jC_zona.setSelectedIndex(0);
-                    descripcion.setText("");
-                    txt_primerNombre.requestFocus();
-                    txt_segundoNombre.requestFocus();
-                    txt_primerApellido.requestFocus();
-                    txt_segundoApellido.requestFocus();
-                    txt_noIdentidad.requestFocus();
-                    txt_correoElectronico.requestFocus();
-                    txt_telefono1.requestFocus();
-                    txt_telefono2.requestFocus();
-                    txt_telefono3.requestFocus();
-                    jDC_fechaNacimiento.requestFocus();
-                    jC_zona.requestFocus();
-                    txt_primerNombre.requestFocus();
-
-                    //Obtener fecha del sistema para agregarla como fecha de registro del cliente
-                    java.util.Date fechaActual = new java.util.Date();
-                    java.sql.Date fechaRegistro = new java.sql.Date(fechaActual.getTime());//Convertir a fecha compatible con sql
-
-                    //Almancena el id de la persona en la tabla de clientes
-                    Procedimientos.ProcedimientosCliente.guardarCliente(fechaRegistro, Persona.UltimoRegistro());
-
-                    JOptionPane.showMessageDialog(this, "Registro guardado");
-
                 }
             } catch (SQLException e) {
             }

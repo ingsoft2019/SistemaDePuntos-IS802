@@ -1,4 +1,3 @@
-
 package frmArea;
 
 import Clases.Validar;
@@ -10,6 +9,9 @@ import java.awt.event.KeyEvent;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -24,7 +26,6 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
     int cont = 0;
     //Variable para capturar el estado
     String estado = "";
-  
 
     public mdl_SubMenuCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -47,7 +48,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         v.limitarCaracteres(txt_telefono3, 13);
         v.limitarCaracteres(txt_identidad, 15);
         v.validarModificacionFecha(jD_fechaNac, btn_editarCliente);
-  
+
     }
 
     /**
@@ -103,7 +104,6 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         btn_habilitarcliente = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(700, 450));
         setMinimumSize(new java.awt.Dimension(700, 450));
         setTitle("Gestión de Cliente");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -122,31 +122,31 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jL_primerNombre.setText("Primer nombre:");
         jpanel_datos1.add(jL_primerNombre);
-        jL_primerNombre.setBounds(0, 10, 100, 16);
+        jL_primerNombre.setBounds(0, 10, 100, 14);
 
         jL_segundoNombre.setText("Segundo nombre:");
         jpanel_datos1.add(jL_segundoNombre);
-        jL_segundoNombre.setBounds(0, 40, 109, 16);
+        jL_segundoNombre.setBounds(0, 40, 109, 14);
 
         jL_primerApellido.setText("Primer apellido:");
         jpanel_datos1.add(jL_primerApellido);
-        jL_primerApellido.setBounds(0, 70, 100, 16);
+        jL_primerApellido.setBounds(0, 70, 100, 14);
 
         jL_segundoApellido.setText("Segundo apellido:");
         jpanel_datos1.add(jL_segundoApellido);
-        jL_segundoApellido.setBounds(0, 100, 109, 16);
+        jL_segundoApellido.setBounds(0, 100, 109, 14);
 
         jL_identidad.setText("Identidad:");
         jpanel_datos1.add(jL_identidad);
-        jL_identidad.setBounds(0, 130, 100, 16);
+        jL_identidad.setBounds(0, 130, 100, 14);
 
         jL_sexo.setText("Sexo :");
         jpanel_datos1.add(jL_sexo);
-        jL_sexo.setBounds(0, 160, 100, 16);
+        jL_sexo.setBounds(0, 160, 100, 14);
 
         jL_telefono.setText("Teléfono 1:");
         jpanel_datos1.add(jL_telefono);
-        jL_telefono.setBounds(0, 190, 100, 16);
+        jL_telefono.setBounds(0, 190, 100, 14);
 
         txt_primerNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -211,11 +211,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jLabel1.setText("Teléfono 2:");
         jpanel_datos1.add(jLabel1);
-        jLabel1.setBounds(0, 220, 100, 16);
+        jLabel1.setBounds(0, 220, 100, 14);
 
         jLabel2.setText("Teléfono 3:");
         jpanel_datos1.add(jLabel2);
-        jLabel2.setBounds(0, 250, 100, 16);
+        jLabel2.setBounds(0, 250, 100, 14);
 
         txt_telefono2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -248,7 +248,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jL_email.setText("Email:");
         jpanel_datos1.add(jL_email);
-        jL_email.setBounds(0, 280, 100, 16);
+        jL_email.setBounds(0, 280, 100, 14);
 
         grupo_genero.add(jRadioButtonFemenino);
         jRadioButtonFemenino.setText("F");
@@ -264,7 +264,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_datos1.add(jRadioButtonFemenino);
-        jRadioButtonFemenino.setBounds(110, 160, 40, 28);
+        jRadioButtonFemenino.setBounds(110, 160, 40, 23);
 
         grupo_genero.add(jRadioButtonMasculino);
         jRadioButtonMasculino.setText("M");
@@ -279,7 +279,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_datos1.add(jRadioButtonMasculino);
-        jRadioButtonMasculino.setBounds(150, 160, 50, 28);
+        jRadioButtonMasculino.setBounds(150, 160, 50, 23);
 
         jpanel_AreaSubMenu.add(jpanel_datos1);
         jpanel_datos1.setBounds(40, 130, 310, 320);
@@ -346,7 +346,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         jLabel9.setText("Puntos regis:");
         jLabel9.setToolTipText("");
         jpanel_datos2.add(jLabel9);
-        jLabel9.setBounds(22, 214, 130, 16);
+        jLabel9.setBounds(22, 214, 130, 14);
 
         txt_puntosRegis.setEditable(false);
         txt_puntosRegis.setEnabled(false);
@@ -360,7 +360,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jL_vencimiento.setText("Vencimiento:");
         jpanel_datos2.add(jL_vencimiento);
-        jL_vencimiento.setBounds(22, 244, 130, 16);
+        jL_vencimiento.setBounds(22, 244, 130, 14);
 
         txt_vencimiento.setEditable(false);
         txt_vencimiento.setEnabled(false);
@@ -374,7 +374,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jLabel11.setText("Puntos rifa:");
         jpanel_datos2.add(jLabel11);
-        jLabel11.setBounds(22, 279, 120, 16);
+        jLabel11.setBounds(22, 279, 120, 14);
 
         txt_puntoRifa.setEditable(false);
         txt_puntoRifa.setEnabled(false);
@@ -388,11 +388,14 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jLabel3.setText("Fecha nacimiento:");
         jpanel_datos2.add(jLabel3);
-        jLabel3.setBounds(22, 11, 130, 16);
+        jLabel3.setBounds(22, 11, 130, 14);
 
         jD_fechaNac.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jD_fechaNacFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jD_fechaNacFocusLost(evt);
             }
         });
         jD_fechaNac.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -410,11 +413,11 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
 
         jLabel4.setText("Zona:");
         jpanel_datos2.add(jLabel4);
-        jLabel4.setBounds(22, 53, 130, 16);
+        jLabel4.setBounds(22, 53, 130, 14);
 
         jLabel5.setText("Dirección:");
         jpanel_datos2.add(jLabel5);
-        jLabel5.setBounds(20, 90, 130, 16);
+        jLabel5.setBounds(20, 90, 130, 14);
 
         txt_datalleDireccion.setColumns(20);
         txt_datalleDireccion.setRows(5);
@@ -426,7 +429,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
         jScrollPane1.setViewportView(txt_datalleDireccion);
 
         jpanel_datos2.add(jScrollPane1);
-        jScrollPane1.setBounds(130, 90, 182, 83);
+        jScrollPane1.setBounds(130, 90, 182, 96);
 
         jC_zona.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -439,7 +442,7 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
             }
         });
         jpanel_datos2.add(jC_zona);
-        jC_zona.setBounds(130, 50, 182, 26);
+        jC_zona.setBounds(130, 50, 182, 20);
 
         jpanel_AreaSubMenu.add(jpanel_datos2);
         jpanel_datos2.setBounds(360, 130, 320, 310);
@@ -611,68 +614,80 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
                 if (cont > 1) {
                     JOptionPane.showMessageDialog(this, "Este numero de identidad ya está registrado", "Informacion", JOptionPane.INFORMATION_MESSAGE);
                 } else {
+
+                    /*------------------------------------------------------------------------------*/
                     //PREPARO LA FECHA PARA ENVIARLA
-                    java.sql.Date fechaNac = new java.sql.Date(jD_fechaNac.getDate().getTime());
+                    boolean fechaValida = new Validar().validarFecha(jD_fechaNac.getDate());
 
-                    //Consulto el id de la zona que eligio el usuario para registrarla en la tabla clientes
-                    ResultSet respuesta = Zona.consultarIdZona((String) jC_zona.getSelectedItem());
-                    int idZona = 0;
+                    if (!fechaValida) {
+                        JOptionPane.showMessageDialog(null, "Fecha no válida");
+                    } else {
 
-                    while (respuesta.next()) {
-                        idZona = respuesta.getInt(1);
+                        java.sql.Date fechaNac = new java.sql.Date(jD_fechaNac.getDate().getTime());
+
+
+                        /*------------------------------------------------------------------------------*/
+                        //Consulto el id de la zona que eligio el usuario para registrarla en la tabla clientes
+                        ResultSet respuesta = Zona.consultarIdZona((String) jC_zona.getSelectedItem());
+                        int idZona = 0;
+
+                        while (respuesta.next()) {
+                            idZona = respuesta.getInt(1);
+                        }
+
+                        //Verificar el sexo seleccionado
+                        String sexo = "";
+                        if (jRadioButtonMasculino.isSelected() == true) {
+                            sexo = "M";
+                        } else if (jRadioButtonFemenino.isSelected() == true) {
+                            sexo = "F";
+                        }
+
+                        Procedimientos.ProcedimientosCliente.actualizarCliente(getTxt_primerNombre().getText(), getTxt_segundoNombre().getText(),
+                                getTxt_primerApellido().getText(), getTxt_segundoApellido().getText(), getTxt_identidad().getText(), getTxt_email().getText(),
+                                sexo, fechaNac, getTxt_telefono1().getText(), getTxt_telefono2().getText(), getTxt_telefono3().getText(),
+                                idZona, getTxt_datalleDireccion().getText(), Integer.parseInt(getTxt_puntosRegis().getText()),
+                                getTxt_vencimiento().getText(), Integer.parseInt(getTxt_puntoRifa().getText()),
+                                Integer.parseInt(getId().getText())
+                        );
+
+                        //Limpiar los campos
+                        getTxt_primerNombre().setText("");
+                        getTxt_segundoNombre().setText("");
+                        getTxt_primerApellido().setText("");
+                        getTxt_segundoApellido().setText("");
+                        getTxt_identidad().setText("");
+                        getTxt_email().setText("");
+                        getTxt_telefono1().setText("");
+                        getTxt_telefono2().setText("");
+                        getTxt_telefono3().setText("");
+                        jRadioButtonMasculino.setSelected(false);
+                        jRadioButtonFemenino.setSelected(false);
+                        jD_fechaNac.setCalendar(null);
+                        jC_zona.setSelectedIndex(0);
+                        getTxt_datalleDireccion().setText("");
+                        getTxt_primerNombre().requestFocus();
+                        getTxt_segundoNombre().requestFocus();
+                        getTxt_primerApellido().requestFocus();
+                        getTxt_segundoApellido().requestFocus();
+                        getTxt_identidad().requestFocus();
+                        getTxt_email().requestFocus();
+                        getTxt_telefono1().requestFocus();
+                        getTxt_telefono2().requestFocus();
+                        getTxt_telefono3().requestFocus();
+                        jD_fechaNac.requestFocus();
+                        jC_zona.requestFocus();
+                        getTxt_primerNombre().requestFocus();
+
+                        JOptionPane.showMessageDialog(this, "Registro actualizado");
+                        res.close();//Cierro la conexio a la base de datos
                     }
-
-                    //Verificar el sexo seleccionado
-                    String sexo = "";
-                    if (jRadioButtonMasculino.isSelected() == true) {
-                        sexo = "M";
-                    } else if (jRadioButtonFemenino.isSelected() == true) {
-                        sexo = "F";
-                    }
-
-                    Procedimientos.ProcedimientosCliente.actualizarCliente(getTxt_primerNombre().getText(), getTxt_segundoNombre().getText(),
-                            getTxt_primerApellido().getText(), getTxt_segundoApellido().getText(), getTxt_identidad().getText(), getTxt_email().getText(),
-                            sexo, fechaNac, getTxt_telefono1().getText(), getTxt_telefono2().getText(), getTxt_telefono3().getText(),
-                            idZona, getTxt_datalleDireccion().getText(), Integer.parseInt(getTxt_puntosRegis().getText()),
-                            getTxt_vencimiento().getText(), Integer.parseInt(getTxt_puntoRifa().getText()),
-                            Integer.parseInt(getId().getText())
-                    );
-
-                    //Limpiar los campos
-                    getTxt_primerNombre().setText("");
-                    getTxt_segundoNombre().setText("");
-                    getTxt_primerApellido().setText("");
-                    getTxt_segundoApellido().setText("");
-                    getTxt_identidad().setText("");
-                    getTxt_email().setText("");
-                    getTxt_telefono1().setText("");
-                    getTxt_telefono2().setText("");
-                    getTxt_telefono3().setText("");
-                    jRadioButtonMasculino.setSelected(false);
-                    jRadioButtonFemenino.setSelected(false);
-                    jD_fechaNac.setCalendar(null);
-                    jC_zona.setSelectedIndex(0);
-                    getTxt_datalleDireccion().setText("");
-                    getTxt_primerNombre().requestFocus();
-                    getTxt_segundoNombre().requestFocus();
-                    getTxt_primerApellido().requestFocus();
-                    getTxt_segundoApellido().requestFocus();
-                    getTxt_identidad().requestFocus();
-                    getTxt_email().requestFocus();
-                    getTxt_telefono1().requestFocus();
-                    getTxt_telefono2().requestFocus();
-                    getTxt_telefono3().requestFocus();
-                    jD_fechaNac.requestFocus();
-                    jC_zona.requestFocus();
-                    getTxt_primerNombre().requestFocus();
-
-                    JOptionPane.showMessageDialog(this, "Registro actualizado");
-                    res.close();//Cierro la conexio a la base de datos
                 }
             } catch (SQLException e) {
+
             }
-        }
     }//GEN-LAST:event_btn_editarClienteActionPerformed
+    }
 
     private void btn_desactivarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_desactivarClienteActionPerformed
         int pregunta = JOptionPane.showConfirmDialog(null, "¿Realmente desea deshabilitar este cliente?");
@@ -889,6 +904,10 @@ public class mdl_SubMenuCliente extends java.awt.Dialog {
     private void jD_fechaNacFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jD_fechaNacFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_jD_fechaNacFocusGained
+
+    private void jD_fechaNacFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jD_fechaNacFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jD_fechaNacFocusLost
 
     /**
      * @param args the command line arguments

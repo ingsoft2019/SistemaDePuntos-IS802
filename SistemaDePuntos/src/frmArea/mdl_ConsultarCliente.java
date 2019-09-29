@@ -290,41 +290,38 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
     }//GEN-LAST:event_btn_agregarClienteActionPerformed
 
     private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
-        if ("".equals(jTextField1.getText())) {
-            JOptionPane.showMessageDialog(null, "Debe buscar un registro");
-        } else {
+        try {
+            int row = getjTable1().getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
+            int id_persona = (int) getjTable1().getValueAt(row, 4); //OBTENGO EL VALOR DEL ID PERSONA
+            //Consulto todos los datos relacioados con el ID
+            ResultSet res = consulta("Select * from Persona inner join Cliente on Persona.id_persona = Cliente.id_persona\n"
+                    + "inner join zona on Persona.id_zona = Zona.id_zona where Persona.id_persona = '" + id_persona + "';");
+            //Hago visible el formulario
+            frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
+            mdl_SubMenuCliente subMenuCli = new mdl_SubMenuCliente(frmMenuPrincipal, true);
+
             try {
-                int row = getjTable1().getSelectedRow(); //OBTENGO LA FILA SELECCIONADA
-                int id_persona = (int) getjTable1().getValueAt(row, 4); //OBTENGO EL VALOR DEL ID PERSONA
-                //Consulto todos los datos relacioados con el ID
-                ResultSet res = consulta("Select * from Persona inner join Cliente on Persona.id_persona = Cliente.id_persona\n"
-                        + "inner join zona on Persona.id_zona = Zona.id_zona where Persona.id_persona = '" + id_persona + "';");
-                //Hago visible el formulario
-                frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
-                mdl_SubMenuCliente subMenuCli = new mdl_SubMenuCliente(frmMenuPrincipal, true);
+                while (res.next()) {
+                    //Llamo al metodo para llenar los campos con los datos a editar
+                    subMenuCli.llenarCampos(res.getString("pnombre"), res.getString("snombre"), res.getString("papellido"),
+                            res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"), res.getString("telefono1"),
+                            res.getString("telefono2"), res.getString("telefono3"), res.getString("correo"),
+                            res.getDate("fecha_nacimiento"), res.getString("detalle_direccion"),
+                            res.getString("puntos_actuales"), res.getString("puntos_rifa_actuales"),
+                            res.getString("fecha_vencimiento_puntos"), res.getString("id_persona"), res.getString("estado"));
 
-                try {
-                    while (res.next()) {
-                        //Llamo al metodo para llenar los campos con los datos a editar
-                        subMenuCli.llenarCampos(res.getString("pnombre"), res.getString("snombre"), res.getString("papellido"),
-                                res.getString("sapellido"), res.getString("identidad"), res.getString("sexo"), res.getString("telefono1"),
-                                res.getString("telefono2"), res.getString("telefono3"), res.getString("correo"),
-                                res.getDate("fecha_nacimiento"), res.getString("detalle_direccion"),
-                                res.getString("puntos_actuales"), res.getString("puntos_rifa_actuales"),
-                                res.getString("fecha_vencimiento_puntos"), res.getString("id_persona"), res.getString("estado"));
+                    subMenuCli.cargarZonas(res.getString("zona"));
+                    subMenuCli.setVisible(true); // visible ventana del objeto
 
-                        subMenuCli.cargarZonas(res.getString("zona"));
-                        subMenuCli.setVisible(true); // visible ventana del objeto
-
-                    }
-
-                } catch (SQLException ex) {
-                    Logger.getLogger(mdl_ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Busque y seleccione un registro");
+
+            } catch (SQLException ex) {
+                Logger.getLogger(mdl_ConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Busque y seleccione un registro");
         }
+
     }//GEN-LAST:event_btn_clientesActionPerformed
 
     private void AsignarPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsignarPuntosActionPerformed
@@ -363,7 +360,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
     private void CanjearPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CanjearPuntosActionPerformed
         try {
             int row = getjTable1().getSelectedRow();
-            int id_persona = (int)getjTable1().getValueAt(row, 4);
+            int id_persona = (int) getjTable1().getValueAt(row, 4);
 
             ResultSet res = consulta("select * from Persona p\n"
                     + "inner join Cliente c ON c.id_Persona = p.id_Persona "
@@ -405,10 +402,10 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
         // TODO add your handling code here:
-        if(jTextField1.getText().isEmpty() && evt.getKeyCode()==KeyEvent.VK_ENTER){
+        if (jTextField1.getText().isEmpty() && evt.getKeyCode() == KeyEvent.VK_ENTER) {
             JOptionPane.showMessageDialog(null, "Campo de busqueda vacio");
             jCheckBoxBuscarInactivos.setSelected(false);
-        }else if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+        } else if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
                 setResultado1(Conexion.Conexion.consulta("select count(Persona.identidad) from Persona inner join cliente on \n"
                         + "Cliente.id_persona = Persona.id_persona\n"
@@ -428,12 +425,12 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
                     if (getjCheckBoxBuscarInactivos().isSelected()) {
                         buscarClienteInactivo();
                         getjCheckBoxBuscarInactivos().setSelected(false);
-                        jTextField1.setText("");
+                        //jTextField1.setText("");
                     } else if (getContador1() >= 1) {
                         buscarCliente();
                         CanjearPuntos.setEnabled(true);
                         AsignarPuntos.setEnabled(true);
-                        jTextField1.setText("");
+                        //jTextField1.setText("");
                     } else {
                         JOptionPane.showMessageDialog(null, "El registro que busca no existe");
                     }
@@ -445,7 +442,6 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
 
             }
 
-            
         }
     }//GEN-LAST:event_jTextField1KeyPressed
 
