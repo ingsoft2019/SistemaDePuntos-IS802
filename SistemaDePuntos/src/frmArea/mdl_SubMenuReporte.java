@@ -232,7 +232,9 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
     }//GEN-LAST:event_brn_rangoDeEdadActionPerformed
 
     private void btn_graficas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_graficas1ActionPerformed
-         
+        frmMenuPrincipal frmMenuPrincipal=new frmMenuPrincipal();
+        mdl_reporte_en_graficos ver=new mdl_reporte_en_graficos(frmMenuPrincipal,true);
+        ver.setVisible(true); // visible ventana del objeto
     }//GEN-LAST:event_btn_graficas1ActionPerformed
 
     private void btn_report2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_report2ActionPerformed
