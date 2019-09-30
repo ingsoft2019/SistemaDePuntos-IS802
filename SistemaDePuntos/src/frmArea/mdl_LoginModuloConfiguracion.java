@@ -165,7 +165,7 @@ public class mdl_LoginModuloConfiguracion extends java.awt.Dialog {
             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta.  ");
             getTxt_contrasena().setText("");
         }
-
+        */
     }//GEN-LAST:event_btn_ingresarLoginActionPerformed
 
     private void txt_contrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_contrasenaKeyPressed

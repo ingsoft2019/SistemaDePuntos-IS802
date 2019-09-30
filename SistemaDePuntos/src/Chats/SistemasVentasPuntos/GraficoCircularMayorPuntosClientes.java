@@ -1,9 +1,7 @@
 package Chats.SistemasVentasPuntos;
-/*
 import java.awt.Font;
 
 import javax.swing.JPanel;
-/*
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -70,4 +68,4 @@ public class GraficoCircularMayorPuntosClientes extends ApplicationFrame {
 
     }
 
-}*/
+}
