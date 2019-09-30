@@ -12,8 +12,11 @@ package frmArea;
 import Conexion.Conexion;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -126,24 +129,39 @@ public class mdl_LoginModuloConfiguracion extends java.awt.Dialog {
     }//GEN-LAST:event_txt_usuarioKeyPressed
 
     private void btn_ingresarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarLoginActionPerformed
-        // TODO add your handling code here:
-        String usuario= "root";
-        String contrasena= "asd.456";
+        int conteo = 1;
+        //admin - asd.456
+        String pass="";
+        try {
+            pass = Clases.encriptarContrasena.encriptar(String.valueOf( getTxt_contrasena().getPassword()));
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(mdl_LoginModuloConfiguracion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String user= getTxt_usuario().getText();
+        //System.out.println(pass);
         
-        String pass= new String(getTxt_contrasena().getPassword());
-        String user= new String(getTxt_usuario().getText());
-        
-        String consulta = "Select usuario, contrasena from Admin where usuario='" + pass + "' and contrasena ='" + user + "'";
+        String consulta = "Select COUNT(*) from Admin where usuario='" + user + "' and contrasena ='" 
+                + pass + "'";
         ResultSet resp = Conexion.consulta(consulta);
         
-  
-        if (user.equals(usuario) && pass.equals(contrasena)){
+        try{
+            while (resp.next()){
+                conteo = resp.getInt(1);
+            }            
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        //System.out.println(conteo);
+        
+        if (conteo == 1){
             this.setVisible(false); // ocultar
             frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
             mdl_MenuConfiguracion ver=new mdl_MenuConfiguracion(frmMenuPrincipal,true);
-            ver.setVisible(true); // visible ventana del objeto
             
-        } else {
+            ver.recibirUsuario(user);
+            
+            ver.setVisible(true); // visible ventana del objeto
+        }else{
             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta.  ");
             getTxt_contrasena().setText("");
         }

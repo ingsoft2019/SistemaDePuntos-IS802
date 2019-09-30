@@ -5,10 +5,15 @@
  */
 package frmArea;
 
+import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 //librerias para encripotar e desenccriptar
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +27,7 @@ import org.apache.commons.codec.binary.Base64;
  * @author Luis Estrada
  */
 public class mdl_cambiar_contrasena extends java.awt.Dialog {
-
+    private String usuario;
     /**
      * Creates new form mdl_cambiar_contrasena
      */
@@ -32,7 +37,9 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
         this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
-   
+        lblConfirmacion.setVisible(false);
+        lblConfirmacion2.setVisible(false);
+        
     }
 
     /**
@@ -52,6 +59,8 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        lblConfirmacion = new javax.swing.JLabel();
+        lblConfirmacion2 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(648, 417));
         setMinimumSize(new java.awt.Dimension(648, 417));
@@ -105,6 +114,14 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
         jPanel1.add(jLabel4);
         jLabel4.setBounds(40, 250, 230, 17);
 
+        lblConfirmacion.setText("No coinciden las contraseñas");
+        jPanel1.add(lblConfirmacion);
+        lblConfirmacion.setBounds(270, 280, 310, 16);
+
+        lblConfirmacion2.setText("Contraseña actual no coincide");
+        jPanel1.add(lblConfirmacion2);
+        lblConfirmacion2.setBounds(270, 160, 260, 16);
+
         add(jPanel1);
         jPanel1.setBounds(0, 0, 650, 420);
 
@@ -120,108 +137,98 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
     }//GEN-LAST:event_closeDialog
 
     private void btn_cambiar_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiar_passActionPerformed
-               
-         String usuario, passActual, passNuevo, passNuevoConfirmacion;
-         
-         
-         //metodo para encriptar y desincriptar 
-        String encriptado = mdl_cambiar_contrasena.Encriptar("asd.456");
-        System.out.println(encriptado);
-        String desencriptado = null;
+        String contrasenaNueva="";
+        String contrasenaActual="";
+        boolean respuesta=false;
+        
         try {
-            desencriptado = mdl_cambiar_contrasena.Desencriptar(encriptado);
-        } catch (Exception ex) {
+            contrasenaNueva = String.valueOf(Clases.encriptarContrasena.encriptar(txt_pass_nuevo.getText()));
+        } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(mdl_cambiar_contrasena.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Error " + ex);
         }
-        System.out.println(desencriptado);
+        try {
+            contrasenaActual = String.valueOf(Clases.encriptarContrasena.encriptar(txt_pass_actual.getText()));
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(mdl_cambiar_contrasena.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        if( txt_pass_nuevo.getText().equals(txt_pass_nuevo_confirmar.getText()) ){
+            try {
+                respuesta = verificarContraseniaActual(contrasenaActual);
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(mdl_cambiar_contrasena.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (respuesta){
+                //String sql="";
+                String sql = "UPDATE Admin\n" +
+                    "SET contrasena = '"+ contrasenaNueva +"'\n" +
+                    "WHERE usuario = '"+ this.usuario +"' ";
+                int filasAfectadas=0;
+                try {
+                    //realizar el UPDATE sin problemas
+                    Statement s = Conexion.Conexion.getConexion().createStatement();
+                    //Guardamos las filas afectadas por el UPDATE
+                    filasAfectadas = s.executeUpdate(sql);
+                    //Realizamos commit de la instruccion SQL
+                    Conexion.Conexion.getConexion().commit();
+                    //Cerramos la conexion
+                    s.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(mdl_cambiar_contrasena.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if (filasAfectadas == 1){
+                    JOptionPane.showMessageDialog(this, "La contraseña ha sido actualizada.");
+                } else{
+                    JOptionPane.showMessageDialog(this, "No se ha podido actualizar la contraseña.");
+                }
+            }else {
+                lblConfirmacion2.setVisible(true);
+                lblConfirmacion2.setForeground(Color.red);
+            }
+            
+        }else {
+            lblConfirmacion.setVisible(true);
+            lblConfirmacion.setForeground(Color.red);
+        }
+        
+        
                 
-         /*INSERT INTO Admin VALUES ('root', 'asd.456'); */
-        //String user= new String(getTxt_usuario().getText()); 
-        usuario = "root";
-       // passActual = "asd.456";
-        passActual=  new String(getTxt_pass_actual().getText());
-        passNuevo= new String(getTxt_pass_nuevo().getText()); 
-        passNuevoConfirmacion = new String(getTxt_pass_nuevo_confirmar().getText());
-        
-        
-       // String pass= new String(getTxt_contrasena().getPassword());
-
-        if (passNuevo.equals(passNuevo) && passNuevoConfirmacion.equals(passNuevoConfirmacion)){
-            frmMenuPrincipal ver=new frmMenuPrincipal();
-            ver.setVisible(true); // visible ventana del objeto
-            this.setVisible(false); // ocultar
-        } else {
-            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta.  ");
-          //  txt_contrasena.setText("");
-          txt_pass_actual.setText(" ");
-          txt_pass_nuevo.setText(" ");
-          txt_pass_nuevo_confirmar.setText(" ");
-        }
-        
-        
-
-        
-        
-        
-        
-        // TODO add your handling code here:
     }//GEN-LAST:event_btn_cambiar_passActionPerformed
 
+    public void recibirUsuario(String user){
+        this.usuario = user;
+    }
+    
+    
+    
+    public boolean verificarContraseniaActual(String pass) throws NoSuchAlgorithmException{
+        int conteo = 0;
+        boolean c = false;
+        String sql = "Select COUNT(*) from Admin where usuario='" + this.usuario + "' and contrasena ='" 
+                +pass + "';";
+        ResultSet res = Conexion.Conexion.consulta(sql);
+        try{
+            while (res.next()){
+                conteo = res.getInt(1);
+            }            
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        
+        if (conteo !=1){
+            c = false;
+            JOptionPane.showMessageDialog(null, "La contraseña actual no es valida.");
+        }
+        else if (conteo == 1 ){
+             c = true;
+        }
+        return c;
+    }
+    
     /**
      * @param args the command line arguments
      */
-    
-  public static String Encriptar(String texto) {
- 
-        String secretKey = "qualityinfosolutions"; //llave para encriptar datos
-        String base64EncryptedString = "";
- 
-        try {
- 
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
-            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
- 
-            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
-            Cipher cipher = Cipher.getInstance("DESede");
-            cipher.init(Cipher.ENCRYPT_MODE, key);
- 
-            byte[] plainTextBytes = texto.getBytes("utf-8");
-            byte[] buf = cipher.doFinal(plainTextBytes);
-            byte[] base64Bytes = Base64.encodeBase64(buf);
-            base64EncryptedString = new String(base64Bytes);
- 
-        } catch (Exception ex) {
-        }
-        return base64EncryptedString;
-}
-    
-    public static String Desencriptar(String textoEncriptado) throws Exception {
- 
-        String secretKey = "qualityinfosolutions"; //llave para desenciptar datos
-        String base64EncryptedString = "";
- 
-        try {
-            byte[] message = Base64.decodeBase64(textoEncriptado.getBytes("utf-8"));
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
-            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
-            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
- 
-            Cipher decipher = Cipher.getInstance("DESede");
-            decipher.init(Cipher.DECRYPT_MODE, key);
- 
-            byte[] plainText = decipher.doFinal(message);
- 
-            base64EncryptedString = new String(plainText, "UTF-8");
- 
-        } catch (Exception ex) {
-        }
-        return base64EncryptedString;
-}
-      
-    
     
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -239,12 +246,16 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnAgregar1;
     private javax.swing.JButton btn_cambiar_pass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblConfirmacion;
+    private javax.swing.JLabel lblConfirmacion2;
     private javax.swing.JTextField txt_pass_actual;
     private javax.swing.JTextField txt_pass_nuevo;
     private javax.swing.JTextField txt_pass_nuevo_confirmar;
