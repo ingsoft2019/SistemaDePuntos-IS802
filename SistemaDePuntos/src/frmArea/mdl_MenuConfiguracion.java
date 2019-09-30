@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author Luis Estrada
  */
 public class mdl_MenuConfiguracion extends java.awt.Dialog {
-
+    private String usuario;
     /**
      * Creates new form mdl_MenuConfiguracion
      */
@@ -149,6 +149,10 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         dispose();
     }//GEN-LAST:event_closeDialog
 
+    public void recibirUsuario(String user){
+        this.usuario = user;
+    }
+    
     private void btn_realizarRifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_realizarRifaActionPerformed
         frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
         mdl_Rifa ver=new mdl_Rifa(frmMenuPrincipal,true);
@@ -180,6 +184,10 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
     private void btn_recuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recuperarActionPerformed
       frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
         mdl_cambiar_contrasena  ver=new mdl_cambiar_contrasena(frmMenuPrincipal,true);
+        
+        //escribir codigo para enviar el parametro de usuario
+        ver.recibirUsuario(this.usuario);
+        
         ver.setVisible(true); // visible ventana del objeto
     }//GEN-LAST:event_btn_recuperarActionPerformed
 

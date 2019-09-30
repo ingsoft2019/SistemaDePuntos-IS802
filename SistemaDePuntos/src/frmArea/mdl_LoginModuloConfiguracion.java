@@ -12,9 +12,7 @@ package frmArea;
 import Conexion.Conexion;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -131,53 +129,39 @@ public class mdl_LoginModuloConfiguracion extends java.awt.Dialog {
     }//GEN-LAST:event_txt_usuarioKeyPressed
 
     private void btn_ingresarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarLoginActionPerformed
-        // TODO add your handling code here:
-         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //String url = "jdbc:sqlserver://DESKTOP-I8BIDCB\\SQLXPR2012:1433;databaseName=FA";
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=PR";
-            String user = "sa1";
-            String pass = "123";
-            Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = " select *from Admin  where Admin.usuario =?";
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, getTxt_usuario().getText());
-            ResultSet res = pst.executeQuery();
-            if(res.next()){
-                this.setVisible(false); // ocultar
-                frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
-                mdl_MenuConfiguracion ver=new mdl_MenuConfiguracion(frmMenuPrincipal,true);
-                ver.setVisible(true); // visible ventana del objeto
-            }else{
-                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
-                getTxt_contrasena().setText("");
-            }
-            con.close();
-            
-        }catch(SQLException e){
-            
-            
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
-            
+        int conteo = 1;
+        //admin - asd.456
+        String pass="";
+        try {
+            pass = Clases.encriptarContrasena.encriptar(String.valueOf( getTxt_contrasena().getPassword()));
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(mdl_LoginModuloConfiguracion.class.getName()).log(Level.SEVERE, null, ex);
         }
-      /* String usuario= "root";
-        String contrasena= "asd.456";
+        String user= getTxt_usuario().getText();
+        //System.out.println(pass);
         
-        String pass= new String(getTxt_contrasena().getPassword());
-        String user= new String(getTxt_usuario().getText());
-        
-        String consulta = "Select usuario, contrasena from Admin where usuario='" + pass + "' and contrasena ='" + user + "'";
+        String consulta = "Select COUNT(*) from Admin where usuario='" + user + "' and contrasena ='" 
+                + pass + "'";
         ResultSet resp = Conexion.consulta(consulta);
         
-  
-        if (user.equals(usuario) && pass.equals(contrasena)){
+        try{
+            while (resp.next()){
+                conteo = resp.getInt(1);
+            }            
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        //System.out.println(conteo);
+        
+        if (conteo == 1){
             this.setVisible(false); // ocultar
             frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
             mdl_MenuConfiguracion ver=new mdl_MenuConfiguracion(frmMenuPrincipal,true);
-            ver.setVisible(true); // visible ventana del objeto
             
-        } else {
+            ver.recibirUsuario(user);
+            
+            ver.setVisible(true); // visible ventana del objeto
+        }else{
             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecta.  ");
             getTxt_contrasena().setText("");
         }

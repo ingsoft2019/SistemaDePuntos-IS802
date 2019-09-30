@@ -19,16 +19,10 @@ public class CambioContrasenna {
         return resp;
     }
     
-    
-
     //Metdodo para cambiao de contraseña
     public static ResultSet cambioPass(String usuario, String pass) {
         String consulta ="UPDATE Admin SET usuario ='" + usuario + "',contrasena ='"+ pass +"' WHERE usuario ='"+ usuario +"'";
         ResultSet res = Conexion.Conexion.consulta(consulta);
         return res;
-        
-    
-    
-}
-
+    }
 }
