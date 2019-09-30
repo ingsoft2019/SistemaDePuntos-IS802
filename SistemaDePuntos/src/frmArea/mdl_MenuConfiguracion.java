@@ -26,7 +26,6 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario        
-   
     }
 
     /**
@@ -182,7 +181,6 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
       frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
         mdl_cambiar_contrasena  ver=new mdl_cambiar_contrasena(frmMenuPrincipal,true);
         ver.setVisible(true); // visible ventana del objeto
-        
     }//GEN-LAST:event_btn_recuperarActionPerformed
 
     private void btn_tamano_papelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tamano_papelActionPerformed
@@ -193,7 +191,6 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
         mdl_ParametrosImpresion  ver=new mdl_ParametrosImpresion(frmMenuPrincipal,true);
         ver.setVisible(true);
-        
     }//GEN-LAST:event_btn_tamano_papelActionPerformed
 
     private void btnVencimientoPuntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVencimientoPuntosActionPerformed
@@ -206,7 +203,6 @@ public class mdl_MenuConfiguracion extends java.awt.Dialog {
         mdl_gestionZona  gz = new mdl_gestionZona(new frmMenuPrincipal(), true);
         gz.mostrarZonasExistentes();
         gz.setVisible(true);
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
