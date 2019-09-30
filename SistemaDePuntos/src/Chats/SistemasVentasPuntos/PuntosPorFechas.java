@@ -1,5 +1,5 @@
 package Chats.SistemasVentasPuntos;
-import static Chats.SistemasVentasPuntos.GraficoCircularMayorPuntosClientes.resultado;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

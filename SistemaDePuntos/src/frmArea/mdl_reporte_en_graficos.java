@@ -6,10 +6,14 @@
 package frmArea;
 
 
+import Clases.Zona;
 import java.awt.Dialog;
+import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 //Para la grafica
 import org.jfree.chart.*;
@@ -33,18 +37,18 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
     static ResultSet resultado2;
     JFreeChart grafico = null;
     DefaultCategoryDataset datos = new DefaultCategoryDataset();
+    Vector v = new Vector();
     int cant_F=0 ;
     int cant_M =0;
 
 
-
-    
     public mdl_reporte_en_graficos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null); //para ponerse en el centro         
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
+        cargarZonas();//  Cargar las zonas en el combobox zonas
     }
 
     /**
@@ -62,6 +66,8 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         btn_graficar = new javax.swing.JButton();
         combox_datos_graficables = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jC_zona = new javax.swing.JComboBox<>();
 
         setMaximumSize(new java.awt.Dimension(555, 296));
         setMinimumSize(new java.awt.Dimension(555, 296));
@@ -77,12 +83,12 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         lblRangoPorEdad.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblRangoPorEdad.setText("Grafico del sistema de puntos ");
         jPanel1.add(lblRangoPorEdad);
-        lblRangoPorEdad.setBounds(100, 30, 380, 29);
+        lblRangoPorEdad.setBounds(90, 30, 380, 29);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Tipo de grafico:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(40, 100, 140, 20);
+        jLabel6.setBounds(40, 80, 180, 20);
 
         combox_tipo_grafico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Eliga un tipo de grafico", "Barras", "Lineal", "Pastel" }));
         combox_tipo_grafico.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +97,7 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
             }
         });
         jPanel1.add(combox_tipo_grafico);
-        combox_tipo_grafico.setBounds(180, 100, 260, 26);
+        combox_tipo_grafico.setBounds(220, 80, 260, 26);
 
         btn_graficar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/grafica.png"))); // NOI18N
         btn_graficar.setText("GRAFICAR");
@@ -101,16 +107,41 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
             }
         });
         jPanel1.add(btn_graficar);
-        btn_graficar.setBounds(200, 220, 140, 40);
+        btn_graficar.setBounds(210, 230, 140, 40);
 
-        combox_datos_graficables.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elegia un dato para graficar", "Sexo de los clientes ", "Cliente por zonas ", "Clientes con mayor puntaje  " }));
+        combox_datos_graficables.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elegia un dato para graficar", "Sexo de los clientes", "Clientes con mayor puntaje", "Cliente por zonas", " " }));
         jPanel1.add(combox_datos_graficables);
-        combox_datos_graficables.setBounds(180, 160, 260, 26);
+        combox_datos_graficables.setBounds(220, 130, 260, 26);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Consulta:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(40, 160, 140, 20);
+        jLabel1.setBounds(50, 130, 170, 20);
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setText("Zona");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(60, 180, 34, 19);
+
+        jC_zona.setMinimumSize(new java.awt.Dimension(28, 24));
+        jC_zona.setPreferredSize(new java.awt.Dimension(28, 24));
+        jC_zona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jC_zonaMouseClicked(evt);
+            }
+        });
+        jC_zona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jC_zonaActionPerformed(evt);
+            }
+        });
+        jC_zona.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jC_zonaKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jC_zona);
+        jC_zona.setBounds(220, 180, 260, 24);
 
         add(jPanel1);
         jPanel1.setBounds(0, 0, 560, 300);
@@ -134,14 +165,32 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         //Area para consultas 
         String tipo_grafica = combox_tipo_grafico.getSelectedItem().toString();
         String tipo_consulta = combox_datos_graficables.getSelectedItem().toString();
+        String zona = jC_zona.getSelectedItem().toString();
         
-        if(tipo_consulta.equals("Sexo de los clientes ")){
+        if(tipo_consulta.equals("Sexo de los clientes")){
             sexoCliente(tipo_grafica);
         }
         
+        if(tipo_consulta.equals("Clientes con mayor puntaje")){
+            clienteMayorPuntaje(tipo_grafica,zona);
+        }
         
- 
+        
+        
+   
     }//GEN-LAST:event_btn_graficarActionPerformed
+
+    private void jC_zonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jC_zonaMouseClicked
+        actualizarZonas();
+    }//GEN-LAST:event_jC_zonaMouseClicked
+
+    private void jC_zonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jC_zonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jC_zonaActionPerformed
+
+    private void jC_zonaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jC_zonaKeyPressed
+        
+    }//GEN-LAST:event_jC_zonaKeyPressed
 
     /**
      * @param args the command line arguments
@@ -158,6 +207,43 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
                 dialog.setVisible(true);
             }
         });
+    }
+    
+    //Metodo para llenar el combobox zonas
+    public void cargarZonas() {
+        ResultSet zonas = Zona.mostrarZonas();
+        //LLenamos nuestro ComboBox
+        jC_zona.addItem("Elija un zona para el grafico");
+
+        try {
+            while (zonas.next()) {
+                jC_zona.addItem(zonas.getString("zona"));
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(mdl_RegistroClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+       public void actualizarZonas() {
+        ResultSet zonas = Zona.mostrarZonas();
+        System.out.println();
+
+        //LLenamos nuestro ComboBox
+        jC_zona.removeAllItems();
+        jC_zona.addItem("Elija un zona para el grafico");
+        try {
+            while (zonas.next()) {
+                jC_zona.addItem(zonas.getString("zona"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(mdl_RegistroClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void setZona(String zona) {
+        this.jC_zona.addItem(zona);
     }
 
     public  void sexoCliente(String tipo_grafica){
@@ -182,7 +268,7 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
                 System.out.println("" + ex);  
         }
             
-                   int dato1 =cant_M;
+        int dato1 =cant_M;
         int dato2 =cant_F;
          System.out.println("M = " +cant_M + "  - - " +"F = " +cant_F );
         
@@ -190,7 +276,7 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
 //        int dato4 = Integer.parseInt(jTextField4.getText());
         datos.addValue(dato1,"Grafica Sexo","Masculino");
         datos.addValue(dato2,"Grafica Sexo","Femenino");
-     /*   datos.addValue(dato3,"Grafica 1","Tres");
+     /*  datos.addValue(dato3,"Grafica 1","Tres");
         datos.addValue(dato4,"Grafica 1","Cuatro");*/
         String tipoGrafica = combox_tipo_grafico.getSelectedItem().toString();
 
@@ -212,26 +298,66 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
         Dialog informacion = new Dialog(frmMenuPrincipal,true);
         informacion.add(cPanel);
-        //informacion.setResizable(false);
         informacion.pack();
         informacion.setLocationRelativeTo(null);
+        informacion.setResizable(false);
         informacion.setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage());
-        informacion.setTitle("Grafica");
+        informacion.setTitle("Grafica");  //Se pone el titulo a la ventana
         informacion.setVisible(true);
-        
-  
-       
-        
+        informacion.dispose();
+       // informacion.setVisible(false);
+       // informacion.setDefaultCloseOperation();
     }
+    
+       private void clienteMayorPuntaje(String tipo_grafica, String zona) {
+                                        /*
+                                       select m.fecha_movimiento,sum (m.puntos_asignados) as puntos,z.zona
+                            from [PR].dbo.Cliente as c
+                            inner join [PR].dbo.Persona as p
+                            on c.id_persona = p.id_persona
+                            inner join [PR].dbo.Zona as z
+                            on p.id_zona = z.id_zona
+                            inner join [PR].dbo.Movimiento M on M.id_cliente = c.id_cliente
+                            and m.fecha_movimiento between '2019-09-01' and '2019-09-18'
+                            group by m.fecha_movimiento , z.zona
+                            order by m.fecha_movimiento;
+                                       */
+           resultado = Conexion.Conexion.consulta("select m.fecha_movimiento,sum (m.puntos_asignados) as puntos,z.zona\n" +
+                                                        "from [PR].dbo.Cliente as c\n" +
+                                                        "inner join [PR].dbo.Persona as p\n" +
+                                                        "on c.id_persona = p.id_persona\n" +
+                                                        "inner join [PR].dbo.Zona as z\n" +
+                                                        "on p.id_zona = z.id_zona\n" +
+                                                        "inner join [PR].dbo.Movimiento M on M.id_cliente = c.id_cliente\n" +
+                                                        "and m.fecha_movimiento between '2019-09-01' and '2019-09-18'\n" +
+                                                        "group by m.fecha_movimiento , z.zona\n" +
+                                                        "order by m.fecha_movimiento;");
+            try {
+                while (resultado.next()) {
+                    v.add(resultado.getString(3));
+                    v.add(resultado.getString(4));
+                 
+                    System.out.println("El Valor dato 1: "+resultado.getString(3));
+                    System.out.println("El Valor dato 1: "+resultado.getString(4));
+               }
+        }catch (Exception ex) {
+                System.out.println("" + ex);  
+        }
+              
+ }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_graficar;
     private javax.swing.JComboBox<String> combox_datos_graficables;
     private javax.swing.JComboBox combox_tipo_grafico;
+    private javax.swing.JComboBox<String> jC_zona;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblRangoPorEdad;
     // End of variables declaration//GEN-END:variables
+
+ 
 }
