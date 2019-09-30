@@ -171,7 +171,9 @@ public class mdl_rangoEdad extends javax.swing.JDialog {
             JasperReport jr = (JasperReport) JRLoader.loadObject(archivo);
             JasperPrint jp = JasperFillManager.fillReport(jr,null, Conexion.getConexion());
             JasperViewer jv = new JasperViewer(jp, false);
-            JDialog dialog = new JDialog(this);
+            frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
+            JDialog dialog = new JDialog(frmMenuPrincipal,true);
+              dialog.setLocationRelativeTo(null);
             dialog.setContentPane(jv.getContentPane());
             dialog.setSize(jv.getSize());
             dialog.setTitle("Visor de Reporte Farmacia Regis - Las Casitas");

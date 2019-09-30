@@ -8,12 +8,14 @@ package frmArea;
 import Chats.SistemasVentasPuntos.ClaseControllerGraficoCirculares;
 import Clases.Zona;
 import java.awt.Dialog;
+import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 //Para la grafica
 import org.jfree.chart.*;
 import org.jfree.chart.plot.PlotOrientation;
@@ -71,6 +73,7 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
 
         setMaximumSize(new java.awt.Dimension(555, 296));
         setMinimumSize(new java.awt.Dimension(555, 296));
+        setTitle("Grafico de sistema de puntos");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -81,7 +84,7 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         jPanel1.setLayout(null);
 
         lblRangoPorEdad.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblRangoPorEdad.setText("Grafico del sistema de puntos ");
+        lblRangoPorEdad.setText("Grafico de sistema de puntos ");
         jPanel1.add(lblRangoPorEdad);
         lblRangoPorEdad.setBounds(90, 30, 380, 29);
 
@@ -302,19 +305,17 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
             grafico = ChartFactory.createPieChart("Grafica sexo de clientes", datosPie, true, true, false);
         }
 
-        ChartPanel cPanel = new ChartPanel(grafico);
-        frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
-        Dialog informacion = new Dialog(frmMenuPrincipal,true);
-        informacion.add(cPanel);
-        informacion.pack();
-        informacion.setLocationRelativeTo(null);
-        informacion.setResizable(false);
-        informacion.setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage());
-        informacion.setTitle("Grafica");  //Se pone el titulo a la ventana
-        informacion.setVisible(true);
-        informacion.dispose();
-       // informacion.setVisible(false);
-       // informacion.setDefaultCloseOperation();
+            ChartPanel cPanel = new ChartPanel(grafico);
+            frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
+            JDialog dialog = new JDialog(frmMenuPrincipal,true);
+            dialog.setContentPane(cPanel);
+            dialog.pack();
+            dialog.setSize(cPanel.getSize());
+            dialog.setLocationRelativeTo(null);
+            dialog.setTitle("Grafica");
+            dialog.setIconImage(Toolkit.getDefaultToolkit().getImage(
+            getClass().getResource("../imgSP/icono.png")));
+            dialog.setVisible(true);
     }
     
       private void clientes(String tipo_grafica) throws Exception {
