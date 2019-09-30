@@ -38,7 +38,7 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
         lblConfirmacion.setVisible(false);
-        lblConfirmacion2.setVisible(false);
+        cbxContrasenaActual.setVisible(false);
         
     }
 
@@ -51,16 +51,19 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txt_pass_actual = new javax.swing.JTextField();
-        txt_pass_nuevo = new javax.swing.JTextField();
-        txt_pass_nuevo_confirmar = new javax.swing.JTextField();
         btn_cambiar_pass = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lblConfirmacion = new javax.swing.JLabel();
-        lblConfirmacion2 = new javax.swing.JLabel();
+        cbxContrasenaActual = new javax.swing.JLabel();
+        txt_pass_actual = new javax.swing.JPasswordField();
+        txt_pass_nuevo = new javax.swing.JPasswordField();
+        txt_pass_nuevo_confirmar = new javax.swing.JPasswordField();
+        cbxActual = new javax.swing.JCheckBox();
+        cbxNueva = new javax.swing.JCheckBox();
+        cbxNueva2 = new javax.swing.JCheckBox();
 
         setMaximumSize(new java.awt.Dimension(648, 417));
         setMinimumSize(new java.awt.Dimension(648, 417));
@@ -73,14 +76,6 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
         setLayout(null);
 
         jPanel1.setLayout(null);
-
-        txt_pass_actual.setToolTipText("");
-        jPanel1.add(txt_pass_actual);
-        txt_pass_actual.setBounds(270, 130, 320, 24);
-        jPanel1.add(txt_pass_nuevo);
-        txt_pass_nuevo.setBounds(270, 190, 320, 24);
-        jPanel1.add(txt_pass_nuevo_confirmar);
-        txt_pass_nuevo_confirmar.setBounds(270, 250, 320, 24);
 
         btn_cambiar_pass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/guardar.png"))); // NOI18N
         btn_cambiar_pass.setText("Cambiar ");
@@ -101,26 +96,59 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Contraseñan actual:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(40, 130, 230, 17);
+        jLabel2.setBounds(70, 130, 150, 17);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Contraseña nueva:");
         jLabel3.setToolTipText("");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(40, 190, 230, 20);
+        jLabel3.setBounds(80, 190, 140, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Confirmar contraseña nueva: ");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(40, 250, 230, 17);
+        jLabel4.setBounds(10, 250, 210, 17);
 
         lblConfirmacion.setText("No coinciden las contraseñas");
         jPanel1.add(lblConfirmacion);
         lblConfirmacion.setBounds(270, 280, 310, 16);
 
-        lblConfirmacion2.setText("Contraseña actual no coincide");
-        jPanel1.add(lblConfirmacion2);
-        lblConfirmacion2.setBounds(270, 160, 260, 16);
+        cbxContrasenaActual.setText("Contraseña actual no coincide");
+        jPanel1.add(cbxContrasenaActual);
+        cbxContrasenaActual.setBounds(270, 160, 200, 16);
+        jPanel1.add(txt_pass_actual);
+        txt_pass_actual.setBounds(220, 130, 320, 22);
+        jPanel1.add(txt_pass_nuevo);
+        txt_pass_nuevo.setBounds(220, 190, 320, 22);
+        jPanel1.add(txt_pass_nuevo_confirmar);
+        txt_pass_nuevo_confirmar.setBounds(220, 250, 320, 22);
+
+        cbxActual.setText("Ver");
+        cbxActual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxActualActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cbxActual);
+        cbxActual.setBounds(550, 130, 50, 24);
+
+        cbxNueva.setText("Ver");
+        cbxNueva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxNuevaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cbxNueva);
+        cbxNueva.setBounds(550, 190, 60, 24);
+
+        cbxNueva2.setText("Ver");
+        cbxNueva2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxNueva2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cbxNueva2);
+        cbxNueva2.setBounds(550, 250, 60, 24);
 
         add(jPanel1);
         jPanel1.setBounds(0, 0, 650, 420);
@@ -136,24 +164,43 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
         dispose();
     }//GEN-LAST:event_closeDialog
 
+    private boolean isPasswordCorrect(char[] j1,char[] j2) {
+        boolean valor = false;
+        int puntero = 0;
+        if (j1.length != j2.length){
+            valor = false;
+        }
+        else{
+            while((!valor)&&(puntero < j1.length)){
+                if (j1[puntero] != j2[puntero]){
+                valor = false;
+                }
+                else{
+                    valor = true;
+                }
+            }
+        }
+        return valor;
+    }
+    
     private void btn_cambiar_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiar_passActionPerformed
         String contrasenaNueva="";
         String contrasenaActual="";
         boolean respuesta=false;
         
         try {
-            contrasenaNueva = String.valueOf(Clases.encriptarContrasena.encriptar(txt_pass_nuevo.getText()));
+            contrasenaNueva = Clases.encriptarContrasena.encriptar(String.valueOf(txt_pass_nuevo.getPassword()));
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(mdl_cambiar_contrasena.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            contrasenaActual = String.valueOf(Clases.encriptarContrasena.encriptar(txt_pass_actual.getText()));
+            contrasenaActual = Clases.encriptarContrasena.encriptar(String.valueOf(txt_pass_actual.getPassword()));
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(mdl_cambiar_contrasena.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
-        if( txt_pass_nuevo.getText().equals(txt_pass_nuevo_confirmar.getText()) ){
+        if( isPasswordCorrect(txt_pass_nuevo.getPassword(),txt_pass_nuevo_confirmar.getPassword()) ){
             try {
                 respuesta = verificarContraseniaActual(contrasenaActual);
             } catch (NoSuchAlgorithmException ex) {
@@ -183,8 +230,8 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
                     JOptionPane.showMessageDialog(this, "No se ha podido actualizar la contraseña.");
                 }
             }else {
-                lblConfirmacion2.setVisible(true);
-                lblConfirmacion2.setForeground(Color.red);
+                cbxContrasenaActual.setVisible(true);
+                cbxContrasenaActual.setForeground(Color.red);
             }
             
         }else {
@@ -195,6 +242,39 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
         
                 
     }//GEN-LAST:event_btn_cambiar_passActionPerformed
+
+    private void cbxActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxActualActionPerformed
+        /*char i = txt_pass_actual.getEchoChar();
+        boolean a = true;
+        if (a) {  // a es una variable boolean en true
+            txt_pass_actual.setEchoChar((char)0); // este método es el que hace visible el texto del jPasswordField
+            a = false;
+        } else {
+            txt_pass_actual.setEchoChar(i); // i es el char
+            a = true;
+        }*/
+        if (cbxActual.isSelected()) {
+            txt_pass_actual.setEchoChar((char)0); //password = JPasswordField
+         } else {
+            txt_pass_actual.setEchoChar('*');
+         }
+    }//GEN-LAST:event_cbxActualActionPerformed
+
+    private void cbxNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxNuevaActionPerformed
+        if (cbxNueva.isSelected()) {
+            txt_pass_nuevo.setEchoChar((char)0); //password = JPasswordField
+         } else {
+            txt_pass_nuevo.setEchoChar('*');
+         }
+    }//GEN-LAST:event_cbxNuevaActionPerformed
+
+    private void cbxNueva2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxNueva2ActionPerformed
+        if (cbxNueva2.isSelected()) {
+            txt_pass_nuevo_confirmar.setEchoChar((char)0); //password = JPasswordField
+         } else {
+            txt_pass_nuevo_confirmar.setEchoChar('*');
+         }
+    }//GEN-LAST:event_cbxNueva2ActionPerformed
 
     public void recibirUsuario(String user){
         this.usuario = user;
@@ -246,60 +326,21 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnAgregar1;
     private javax.swing.JButton btn_cambiar_pass;
+    private javax.swing.JCheckBox cbxActual;
+    private javax.swing.JLabel cbxContrasenaActual;
+    private javax.swing.JCheckBox cbxNueva;
+    private javax.swing.JCheckBox cbxNueva2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblConfirmacion;
-    private javax.swing.JLabel lblConfirmacion2;
-    private javax.swing.JTextField txt_pass_actual;
-    private javax.swing.JTextField txt_pass_nuevo;
-    private javax.swing.JTextField txt_pass_nuevo_confirmar;
+    private javax.swing.JPasswordField txt_pass_actual;
+    private javax.swing.JPasswordField txt_pass_nuevo;
+    private javax.swing.JPasswordField txt_pass_nuevo_confirmar;
     // End of variables declaration//GEN-END:variables
 
-    /**
-     * @return the txt_pass_actual
-     */
-    public javax.swing.JTextField getTxt_pass_actual() {
-        return txt_pass_actual;
-    }
-
-    /**
-     * @param txt_pass_actual the txt_pass_actual to set
-     */
-    public void setTxt_pass_actual(javax.swing.JTextField txt_pass_actual) {
-        this.txt_pass_actual = txt_pass_actual;
-    }
-
-    /**
-     * @return the txt_pass_nuevo
-     */
-    public javax.swing.JTextField getTxt_pass_nuevo() {
-        return txt_pass_nuevo;
-    }
-
-    /**
-     * @param txt_pass_nuevo the txt_pass_nuevo to set
-     */
-    public void setTxt_pass_nuevo(javax.swing.JTextField txt_pass_nuevo) {
-        this.txt_pass_nuevo = txt_pass_nuevo;
-    }
-
-    /**
-     * @return the txt_pass_nuevo_confirmar
-     */
-    public javax.swing.JTextField getTxt_pass_nuevo_confirmar() {
-        return txt_pass_nuevo_confirmar;
-    }
-
-    /**
-     * @param txt_pass_nuevo_confirmar the txt_pass_nuevo_confirmar to set
-     */
-    public void setTxt_pass_nuevo_confirmar(javax.swing.JTextField txt_pass_nuevo_confirmar) {
-        this.txt_pass_nuevo_confirmar = txt_pass_nuevo_confirmar;
-    }
+    
 }
