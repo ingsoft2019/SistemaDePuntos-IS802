@@ -261,7 +261,6 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         resultado6 = Conexion.Conexion.consulta("select sexo from Persona");
             try {
                 while (resultado6.next()) {
-                    Vector v = new Vector();
                    // v.add(resultado.getString(1));
                    // v.add(resultado.getString(2));
                     System.out.println("El Valor dato 1: "+resultado6.getString(1));
@@ -282,9 +281,7 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         int dato1 =cant_M;
         int dato2 =cant_F;
          System.out.println("M = " +cant_M + "  - - " +"F = " +cant_F );
-        
-   //     int dato3 = Integer.parseInt(jTextField3.getText());
-//        int dato4 = Integer.parseInt(jTextField4.getText());
+
         datos.addValue(dato1,"Grafica Sexo","Masculino");
         datos.addValue(dato2,"Grafica Sexo","Femenino");
      /*  datos.addValue(dato3,"Grafica 1","Tres");
@@ -319,12 +316,7 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
     }
     
       private void clientes(String tipo_grafica) throws Exception {
-                        
-            // System.err.print("AQUI EMPIEZA");
-            System.out.println("AQUI EMPIEZA");
-            ClaseControllerGraficoCirculares Controller =  new ClaseControllerGraficoCirculares();
-            Controller.listarvalores(" ");
-      }
+    }
     
        private void clienteMayorPuntaje(String tipo_grafica, String zona) throws Exception {
                                     /*
@@ -349,17 +341,7 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
                                                         "and m.fecha_movimiento between '2019-09-01' and '2019-09-18'\n" +
                                                         "group by m.fecha_movimiento , z.zona\n" +
                                                         "order by m.fecha_movimiento;");
-            try {
-                while (resultado6.next()) {
-                    v.add(resultado6.getString(3));
-                    v.add(resultado6.getString(4));
-                 
-                    System.out.println("El Valor dato 1: "+resultado6.getString(3));
-                    System.out.println("El Valor dato 1: "+resultado6.getString(4));
-               }
-        }catch (Exception ex) {
-                System.out.println("" + ex);  
-        }
+         
               
  }
 
