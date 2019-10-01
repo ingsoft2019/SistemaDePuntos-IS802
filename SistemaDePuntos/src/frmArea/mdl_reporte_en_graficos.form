@@ -110,11 +110,10 @@
         <Component class="javax.swing.JComboBox" name="combox_datos_graficables">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
+              <StringArray count="3">
                 <StringItem index="0" value="Elegia un dato para graficar"/>
                 <StringItem index="1" value="Sexo de los clientes"/>
-                <StringItem index="2" value="Clientes con mayor puntaje"/>
-                <StringItem index="3" value="Cliente por zonas"/>
+                <StringItem index="2" value="Cantidad de clientes por zona"/>
               </StringArray>
             </Property>
           </Properties>

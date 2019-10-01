@@ -5,9 +5,9 @@
  */
 package frmArea;
 
-import Chats.SistemasVentasPuntos.ClaseControllerGraficoCirculares;
+
 import Clases.Zona;
-import java.awt.Dialog;
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,6 +42,7 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
     Vector v = new Vector();
     int cant_F=0 ;
     int cant_M =0;
+    int cant=0 ;
 
 
     public mdl_reporte_en_graficos(java.awt.Frame parent, boolean modal) {
@@ -112,7 +113,7 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         jPanel1.add(btn_graficar);
         btn_graficar.setBounds(210, 230, 140, 40);
 
-        combox_datos_graficables.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elegia un dato para graficar", "Sexo de los clientes", "Clientes con mayor puntaje", "Cliente por zonas" }));
+        combox_datos_graficables.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elegia un dato para graficar", "Sexo de los clientes", "Cantidad de clientes por zona" }));
         jPanel1.add(combox_datos_graficables);
         combox_datos_graficables.setBounds(220, 130, 260, 26);
 
@@ -175,12 +176,8 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
                             sexoCliente(tipo_grafica);
                         }
 
-                        if(tipo_consulta.equals("Clientes con mayor puntaje")){
-                            try {
-                                clienteMayorPuntaje(tipo_grafica,zona);
-                            } catch (Exception ex) {
-                                Logger.getLogger(mdl_reporte_en_graficos.class.getName()).log(Level.SEVERE, null, ex);
-                            }
+                        if(tipo_consulta.equals("Cantidad de clientes por zona")){
+                            cantidadDeClientePorZona(tipo_grafica,zona);
                         }
 
                         if(tipo_consulta.equals("Cliente por zonas")){
@@ -358,7 +355,145 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
     private javax.swing.JLabel lblRangoPorEdad;
     // End of variables declaration//GEN-END:variables
 
-  
+    private void cantidadDeClientePorZona(String tipo_grafica,String zona) {
+           resultado6 = Conexion.Conexion.consulta("SELECT z1.Zona, (SELECT COUNT(*) FROM Persona p WHERE p.id_zona = z1.id_zona) 'Cantidad de personas' FROM Zona z1");
+              String matriz[][]= new String[25][2];
+              
+            try {
+                
+                while (resultado6.next()) {
+                   v.add(matriz[cant][0]=resultado6.getString(1));
+                   v.add(matriz[cant][1]=resultado6.getString(2));
+                    System.out.println("");
+                    System.out.println("El Valor dato 1: "+ matriz[cant][0]);
+                    System.out.println("El Valor dato 2: "+matriz[cant][1]);
+                    System.out.println(""); 
+                    if(cant<=16 && resultado6 != null ){
+                        cant++;    
+                    }else{
+                        break;
+                    }                     
+               }
+                
+                int var1,var2,var3,var4,var5,var6,var7,var8,var9,var10,var11,var12,var13,var14,var15,var16;
+                String cad1,cad2,cad3,cad4,cad5,cad6,cad7,cad8,cad9,cad10,cad11,cad12,cad13,cad14,cad15,cad16;
+                
+                var1=Integer.parseInt(matriz[0][1]);
+                var2=Integer.parseInt(matriz[1][1]);
+                var3=Integer.parseInt(matriz[2][1]);
+                var4=Integer.parseInt(matriz[3][1]);
+                var5=Integer.parseInt(matriz[4][1]);
+                var6=Integer.parseInt(matriz[5][1]);
+                var7=Integer.parseInt(matriz[6][1]);
+                var8=Integer.parseInt(matriz[7][1]);
+                var9=Integer.parseInt(matriz[8][1]);
+                var10=Integer.parseInt(matriz[9][1]);
+                var11=Integer.parseInt(matriz[10][1]);
+                var12=Integer.parseInt(matriz[11][1]);
+                var13=Integer.parseInt(matriz[12][1]);
+                var14=Integer.parseInt(matriz[13][1]);
+                var15=Integer.parseInt(matriz[14][1]);
+                var16=Integer.parseInt(matriz[15][1]);
+                cad1=matriz[0][0];
+                cad2=matriz[1][0];
+                cad3=matriz[2][0];
+                cad4=matriz[3][0];
+                cad5=matriz[4][0];
+                cad6=matriz[5][0];
+                cad7=matriz[6][0];
+                cad8=matriz[7][0];
+                cad9=matriz[8][0];
+                cad10=matriz[9][0];
+                cad11=matriz[10][0];
+                cad12=matriz[11][0];
+                cad13=matriz[12][0];
+                cad14=matriz[13][0];
+                cad15=matriz[14][0];
+                cad16=matriz[15][0];
+                System.out.println("");
+                System.out.println("Nombre "+ cad1 + " puntos "+ var1);
+                System.out.println("Nombre "+ cad2 + " puntos "+ var2);
+                System.out.println("Nombre "+ cad3 + " puntos "+ var3);
+                System.out.println("Nombre "+ cad4 + " puntos "+ var4);
+                System.out.println("Nombre "+ cad5 + " puntos "+ var5);
+                System.out.println("Nombre "+ cad6 + " puntos "+ var6);
+                System.out.println("Nombre "+ cad7 + " puntos "+ var7);
+                System.out.println("Nombre "+ cad8 + " puntos "+ var8);
+                System.out.println("Nombre "+ cad9 + " puntos "+ var9);
+                System.out.println("Nombre "+ cad10 + " puntos "+ var10);
+                System.out.println("Nombre "+ cad11 + " puntos "+ var11);
+                System.out.println("Nombre "+ cad12 + " puntos "+ var12);
+                System.out.println("Nombre "+ cad13 + " puntos "+ var13);
+                System.out.println("Nombre "+ cad14 + " puntos "+ var14);
+                System.out.println("Nombre "+ cad15 + " puntos "+ var15);
+                System.out.println("Nombre "+ cad16 + " puntos "+ var16);
+                System.out.println("");
+               // System.out.println("Nombre "+ cad1 + " puntos "+ var1);
+                
+        datos.addValue(var1,"Grafica cantidad De Cliente Por Zona",cad1);
+        datos.addValue(var2,"Grafica cantidad De Cliente Por Zona",cad2);
+        datos.addValue(var3,"Grafica cantidad De Cliente Por Zona",cad3);
+        datos.addValue(var4,"Grafica cantidad De Cliente Por Zona",cad4);
+        datos.addValue(var5,"Grafica cantidad De Cliente Por Zona",cad5);
+        datos.addValue(var6,"Grafica cantidad De Cliente Por Zona",cad6);
+        datos.addValue(var7,"Grafica cantidad De Cliente Por Zona",cad7);
+        datos.addValue(var8,"Grafica cantidad De Cliente Por Zona",cad8);
+        datos.addValue(var9,"Grafica cantidad De Cliente Por Zona",cad9);
+        datos.addValue(var10,"Grafica cantidad De Cliente Por Zona",cad10);
+        datos.addValue(var11,"Grafica cantidad De Cliente Por Zona",cad11);
+        datos.addValue(var12,"Grafica cantidad De Cliente Por Zona",cad12);
+        datos.addValue(var13,"Grafica cantidad De Cliente Por Zona",cad13);
+        datos.addValue(var14,"Grafica cantidad De Cliente Por Zona",cad14);
+        datos.addValue(var15,"Grafica cantidad De Cliente Por Zona",cad15);
+        datos.addValue(var16,"Grafica cantidad De Cliente Por Zona",cad16);
+;
+       // datos.addValue(var1,"Grafica top 5",cad1);
 
- 
+        if(tipo_grafica.equals("Barras")){
+            grafico = ChartFactory.createBarChart("Grafica cantidad De Cliente Por Zona", "Eje X - Nombre", "Eje Y - Puntos",datos ,PlotOrientation.VERTICAL, true, true, false);
+        }
+        
+        if(tipo_grafica.equals("Lineal")){
+            grafico = ChartFactory.createLineChart("Grafica cantidad De Cliente Por Zona", "Eje X - Nombre", "Eje Y- Puntos",datos ,PlotOrientation.VERTICAL, true, true, false);
+        }
+        
+        if(tipo_grafica.equals("Pastel")){
+            DefaultPieDataset datosPie = new DefaultPieDataset();
+            datosPie.setValue(cad1, var1);
+            datosPie.setValue(cad2, var2);
+            datosPie.setValue(cad3, var3);
+            datosPie.setValue(cad4, var4);
+            datosPie.setValue(cad5, var5);
+            datosPie.setValue(cad6, var6);
+            datosPie.setValue(cad7, var7);
+            datosPie.setValue(cad8, var8);
+            datosPie.setValue(cad9, var9);
+            datosPie.setValue(cad10, var10);
+            datosPie.setValue(cad11, var11);
+            datosPie.setValue(cad12, var12);
+            datosPie.setValue(cad13, var13);
+            datosPie.setValue(cad14, var14);
+            datosPie.setValue(cad15, var15);
+            datosPie.setValue(cad16, var16);
+         //   datosPie.setValue(matriz[4][0], var1);
+
+            grafico = ChartFactory.createPieChart("Grafica cantidad De Cliente Por Zona", datosPie, true, true, false);
+        }
+
+            ChartPanel cPanel = new ChartPanel(grafico);
+            frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
+            JDialog dialog = new JDialog(frmMenuPrincipal,true);
+            dialog.setContentPane(cPanel);
+            dialog.pack();
+            dialog.setSize(cPanel.getSize());
+            dialog.setLocationRelativeTo(null);
+            dialog.setTitle("Grafica");
+            dialog.setIconImage(Toolkit.getDefaultToolkit().getImage(
+            getClass().getResource("../imgSP/icono.png")));
+            dialog.setVisible(true);
+      }catch (NumberFormatException | SQLException ex) {
+                System.out.println("Error " + ex);
+        }
+     
+    }
 }
