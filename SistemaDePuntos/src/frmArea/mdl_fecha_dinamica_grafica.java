@@ -203,7 +203,7 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
         try {
             //Area para consultas
             String tipo_grafica = combox_tipo_grafico.getSelectedItem().toString();
-             String tipo_consulta = combox_datos_graficables.getSelectedItem().toString();
+            String tipo_consulta = combox_datos_graficables.getSelectedItem().toString();
             String zona = jC_zona.getSelectedItem().toString();
 
             if(tipo_consulta.equals("Cliente por zona con mayor puntaje")){
@@ -299,54 +299,67 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
                     "edad, p.fecha_nacimiento from [PR].[dbo].[Persona] P  inner join [PR].[dbo].Zona Z on Z.id_zona = P.id_zona inner join \n" +
                     "[PR].[dbo].Cliente C on C.id_persona = P.id_persona where  (select (cast(datediff(dd,p.fecha_nacimiento,GETDATE()) / 365.25 as int))) > 5 and\n" +
                     "  Z.zona= '"+zona+"' order by C.puntos_actuales desc ) as fch where fch.edad BETWEEN 18  AND 100");
-              String matriz[][]= new String[4][5];
+              String matriz[][]= new String[5][2];
               
             try {
+                
                 while (resultado6.next()) {
                    v.add(matriz[cant][0]=resultado6.getString(1));
                    v.add(matriz[cant][1]=resultado6.getString(2));
-                   v.add(matriz[cant][2]=resultado6.getString(3));
-                   v.add(matriz[cant][3]=resultado6.getString(4));
                     System.out.println("");
                     System.out.println("El Valor dato 1: "+ matriz[cant][0]);
                     System.out.println("El Valor dato 2: "+matriz[cant][1]);
-                    System.out.println("El Valor dato 3: "+matriz[cant][2]);
-                    System.out.println("El Valor dato 4: "+matriz[cant][3]);
                     System.out.println(""); 
                     if(cant<=5){
                         cant++;    
                     }else{
                         break;
-                    }
-                      
+                    }                     
                }
-        }catch (Exception ex) {
-                //System.out.println("" + ex);
-        }
-     
-        datos.addValue(Integer.parseInt(matriz[0][1]),"Grafica top 5 cliente mayor puntaje por zona",matriz[0][0]);
-        datos.addValue(Integer.parseInt(matriz[1][1]),"Grafica top 5 cliente mayor puntaje por zona",matriz[1][0]);
-        datos.addValue(Integer.parseInt(matriz[2][1]),"Grafica top 5 cliente mayor puntaje por zona",matriz[2][0]);
-        datos.addValue(Integer.parseInt(matriz[3][1]),"Grafica top 5 cliente mayor puntaje por zona",matriz[3][0]);
-        datos.addValue(Integer.parseInt(matriz[4][1]),"Grafica top 5 cliente mayor puntaje por zona",matriz[4][0]);
+                
+                int var1,var2,var3,var4;
+                String cad1,cad2,cad3,cad4;
+                
+                var1=Integer.parseInt(matriz[0][1]);
+                var2=Integer.parseInt(matriz[1][1]);
+                var3=Integer.parseInt(matriz[2][1]);
+                var4=Integer.parseInt(matriz[3][1]);
+                
+                cad1=matriz[0][0];
+                cad2=matriz[1][0];
+                cad3=matriz[2][0];
+                cad4=matriz[3][0];
+                System.out.println("");
+                System.out.println("Nombre "+ cad1 + " puntos "+ var1);
+                System.out.println("Nombre "+ cad2 + " puntos "+ var2);
+                System.out.println("Nombre "+ cad3 + " puntos "+ var3);
+                System.out.println("Nombre "+ cad4 + " puntos "+ var4);
+                System.out.println("");
+               // System.out.println("Nombre "+ cad1 + " puntos "+ var1);
+                
+        datos.addValue(var1,"Grafica top 5 de la zona "+ zona,cad1);
+        datos.addValue(var2,"Grafica top 5 de la zona "+ zona,cad2);
+        datos.addValue(var3,"Grafica top 5 de la zona "+ zona,cad3);
+        datos.addValue(var4,"Grafica top 5 de la zona "+ zona,cad1);
+       // datos.addValue(var1,"Grafica top 5",cad1);
 
         if(tipo_grafica.equals("Barras")){
-            grafico = ChartFactory.createBarChart("Grafica top 5 cliente mayor puntaje por zona", "Eje X - Tipo", "Eje Y - Cantidad",datos ,PlotOrientation.VERTICAL, true, true, false);
+            grafico = ChartFactory.createBarChart("Grafica top 5 cliente mayor puntaje de la  zona "+zona, "Eje X - Nombre", "Eje Y - Puntos",datos ,PlotOrientation.VERTICAL, true, true, false);
         }
         
         if(tipo_grafica.equals("Lineal")){
-            grafico = ChartFactory.createLineChart("Grafica top 5 cliente mayor puntaje por zona", "Eje X - Tipo", "Eje Y- Cantidad",datos ,PlotOrientation.VERTICAL, true, true, false);
+            grafico = ChartFactory.createLineChart("Grafica top 5 cliente mayor puntaje de la  zona "+zona, "Eje X - Nombre", "Eje Y- Puntos",datos ,PlotOrientation.VERTICAL, true, true, false);
         }
         
         if(tipo_grafica.equals("Pastel")){
             DefaultPieDataset datosPie = new DefaultPieDataset();
-            datosPie.setValue(matriz[0][0], Integer.parseInt(matriz[0][1]));
-            datosPie.setValue(matriz[1][0], Integer.parseInt(matriz[1][1]));
-            datosPie.setValue(matriz[2][0], Integer.parseInt(matriz[2][1]));
-            datosPie.setValue(matriz[3][0], Integer.parseInt(matriz[3][1]));
-            datosPie.setValue(matriz[4][0], Integer.parseInt(matriz[4][1]));
+            datosPie.setValue(cad1, var1);
+            datosPie.setValue(cad2, var2);
+            datosPie.setValue(cad3, var3);
+            datosPie.setValue(cad4, var4);
+         //   datosPie.setValue(matriz[4][0], var1);
 
-            grafico = ChartFactory.createPieChart("Grafica top 5 cliente mayor puntaje por zona", datosPie, true, true, false);
+            grafico = ChartFactory.createPieChart("Grafica top 5 cliente mayor puntaje de la zona " + zona, datosPie, true, true, false);
         }
 
             ChartPanel cPanel = new ChartPanel(grafico);
@@ -360,6 +373,13 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
             dialog.setIconImage(Toolkit.getDefaultToolkit().getImage(
             getClass().getResource("../imgSP/icono.png")));
             dialog.setVisible(true);
+                
+                
+        }catch (NumberFormatException | SQLException ex) {
+                System.out.println("" + ex);
+        }
+     
+        
         }
     
    
