@@ -218,7 +218,7 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
                 
             }
         } catch (Exception ex) {
-            System.out.println("Error " + ex);
+            //System.out.println("Error " + ex);
         }
     }//GEN-LAST:event_btn_graficarActionPerformed
 
@@ -268,7 +268,7 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
 
             }
         } catch (SQLException ex) {
-            System.out.println("Error "+ ex);
+            //System.out.println("Error "+ ex);
         }
 
     }
@@ -285,7 +285,7 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
                 jC_zona.addItem(zonas.getString("zona"));
             }
         } catch (SQLException ex) {
-            System.out.println("Error "+ ex);
+            //System.out.println("Error "+ ex);
         }
     }
 
@@ -321,7 +321,7 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
                       
                }
         }catch (Exception ex) {
-                System.out.println("" + ex);
+                //System.out.println("" + ex);
         }
      
         datos.addValue(Integer.parseInt(matriz[0][1]),"Grafica top 5 cliente mayor puntaje por zona",matriz[0][0]);
