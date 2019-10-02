@@ -13,7 +13,8 @@ import javax.swing.ImageIcon;
  */
 
 public class frmMenuPrincipal extends javax.swing.JFrame {
-
+    private String idEmpleado;
+    private String nombre;
     /**
      * Creates new form frmMenuPrincipal
      */
@@ -22,8 +23,13 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null); //para ponerse en el centro
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
+        
     }
 
+    public void usuario(){
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,6 +44,8 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         btn_ReportesMenu = new javax.swing.JButton();
         btn_configuracion = new javax.swing.JButton();
         jl_tituloMenuPrincipal = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        btnCerrarSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú principal");
@@ -57,7 +65,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_ClienteMenu);
-        btn_ClienteMenu.setBounds(40, 110, 220, 60);
+        btn_ClienteMenu.setBounds(40, 150, 220, 60);
 
         btn_ReportesMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/reportes v2.png"))); // NOI18N
         btn_ReportesMenu.setText("Reportes");
@@ -67,7 +75,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_ReportesMenu);
-        btn_ReportesMenu.setBounds(330, 110, 220, 60);
+        btn_ReportesMenu.setBounds(330, 150, 220, 60);
 
         btn_configuracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/administrador.png"))); // NOI18N
         btn_configuracion.setText("Configuración");
@@ -78,15 +86,29 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btn_configuracion);
-        btn_configuracion.setBounds(190, 230, 220, 60);
+        btn_configuracion.setBounds(200, 260, 220, 60);
 
         jl_tituloMenuPrincipal.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jl_tituloMenuPrincipal.setText("Sistema de Puntos Farmacia ");
         panel_menuPrincipal.add(jl_tituloMenuPrincipal);
-        jl_tituloMenuPrincipal.setBounds(50, 30, 526, 40);
+        jl_tituloMenuPrincipal.setBounds(50, 80, 526, 40);
+
+        lblUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        panel_menuPrincipal.add(lblUsuario);
+        lblUsuario.setBounds(90, 10, 370, 40);
+
+        btnCerrarSesion.setText("Cerrar Sesion");
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
+        panel_menuPrincipal.add(btnCerrarSesion);
+        btnCerrarSesion.setBounds(470, 20, 120, 32);
 
         getContentPane().add(panel_menuPrincipal);
-        panel_menuPrincipal.setBounds(40, 50, 600, 340);
+        panel_menuPrincipal.setBounds(40, 30, 600, 360);
 
         pack();
         setLocationRelativeTo(null);
@@ -107,9 +129,22 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     private void btn_ClienteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClienteMenuActionPerformed
       frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
         mdl_ConsultarCliente ver=new mdl_ConsultarCliente(frmMenuPrincipal,true);//envia el paramtro modal 
+        ver.recibirIdEmpleado(this.idEmpleado);
         ver.setVisible(true); // visible ventana del objeto      
     }//GEN-LAST:event_btn_ClienteMenuActionPerformed
 
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        this.setVisible(false);
+        frmLogin login = new frmLogin();
+        login.setVisible(true);
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
+    
+    public void recibirIdEmpleado(String id, String nombre){
+        this.idEmpleado= id;
+        this.nombre= nombre;
+        lblUsuario.setText("Bienvenido(a): "+ nombre);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -146,10 +181,12 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btn_ClienteMenu;
     private javax.swing.JButton btn_ReportesMenu;
     private javax.swing.JButton btn_configuracion;
     private javax.swing.JLabel jl_tituloMenuPrincipal;
+    private javax.swing.JLabel lblUsuario;
     private java.awt.Panel panel_menuPrincipal;
     // End of variables declaration//GEN-END:variables
 }

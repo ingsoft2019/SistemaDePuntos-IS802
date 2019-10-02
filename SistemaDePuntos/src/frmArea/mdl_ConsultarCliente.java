@@ -19,7 +19,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 
 public class mdl_ConsultarCliente extends java.awt.Dialog {
-
+    private String idEmpleado;
+    
     private static ResultSet resultado;
     private static ResultSet resultado1;
     private static ResultSet resultado2;
@@ -183,6 +184,10 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void recibirIdEmpleado(String id){
+        this.idEmpleado= id;
+    }
+    
     public void buscarCliente() {
         DefaultTableModel modelo = (DefaultTableModel) getjTable1().getModel();
         modelo.setRowCount(0);
@@ -340,6 +345,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
                 while (res.next()) {
                     String nombre = res.getString("pnombre") + " " + res.getString("snombre") + " " + res.getString("papellido") + " " + res.getString("sapellido");
                     asigpuntos.recibirIdCliente(res.getInt("id_Cliente"));
+                    asigpuntos.recibirIdEmpleado(this.idEmpleado);
                     asigpuntos.recibirCliente(nombre);
                     asigpuntos.setVisible(true);
 
@@ -373,6 +379,7 @@ public class mdl_ConsultarCliente extends java.awt.Dialog {
                 while (res.next()) {
                     canjeopuntos.recibirNombre(res.getString("pnombre"), res.getString("snombre"), res.getString("papellido"), res.getString("sapellido"));
                     canjeopuntos.recibirId(res.getInt("id_Cliente"));
+                    canjeopuntos.recibirIdEmpleado(this.idEmpleado);
                     canjeopuntos.setVisible(true);
                 }
 

@@ -20,6 +20,8 @@ import javax.swing.JOptionPane;
 public class mdl_AsignacionPuntos extends java.awt.Dialog {
     private int id;
     private String cliente;
+    private String idEmpleado;
+    
     /**
      * Creates new form mdl_AsignacionPuntos
      */
@@ -30,6 +32,10 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
         txtNombreCliente.setEditable(false);
+    }
+    
+    public void recibirIdEmpleado(String id){
+        this.idEmpleado= id;
     }
     
     public void recibirIdCliente(int idCliente){
@@ -143,7 +149,7 @@ public class mdl_AsignacionPuntos extends java.awt.Dialog {
         } else {try {
             int codigo=JOptionPane.showConfirmDialog(null, "¿Estas seguro de asignar los puntos?", "Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
             if (codigo==JOptionPane.YES_OPTION){
-                Procedimientos.ProcedimientoAsignacionPuntos.guardarMovimiento(this.id, "ADMIN", Integer.parseInt(getTxtIdFactura().getText()) );
+                Procedimientos.ProcedimientoAsignacionPuntos.guardarMovimiento(this.id, this.idEmpleado, Integer.parseInt(getTxtIdFactura().getText()) );
             }
         } catch (SQLException ex) {
             Logger.getLogger(mdl_AsignacionPuntos.class.getName()).log(Level.SEVERE, null, ex);

@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 
 public class mdl_CanjeoPuntos extends java.awt.Dialog {
     private int id;
+    private String idEmpleado;
     
     /**
      * Creates new form mdl_CanjeoPuntos
@@ -26,6 +27,10 @@ public class mdl_CanjeoPuntos extends java.awt.Dialog {
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
         txtNombreCliente.setEditable(false);
+    }
+    
+    public void recibirIdEmpleado(String id){
+        this.idEmpleado = id;
     }
     
     public void recibirNombre(String pnombre, String snombre, String papellido, String sapellido){
@@ -137,7 +142,7 @@ public class mdl_CanjeoPuntos extends java.awt.Dialog {
         else {try {
             int codigo=JOptionPane.showConfirmDialog(null, "¿Estas seguro de canjear los puntos?", "Informacion", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
             if (codigo==JOptionPane.YES_OPTION){
-                Procedimientos.ProcedimientoCanjeoPuntos.guardarMovimiento(this.id, "ADMIN", Integer.parseInt(txtPuntosCanjear.getText()) );
+                Procedimientos.ProcedimientoCanjeoPuntos.guardarMovimiento(this.id, this.idEmpleado, Integer.parseInt(txtPuntosCanjear.getText()) );
             }
         } catch (SQLException ex) {
             Logger.getLogger(mdl_CanjeoPuntos.class.getName()).log(Level.SEVERE, null, ex);

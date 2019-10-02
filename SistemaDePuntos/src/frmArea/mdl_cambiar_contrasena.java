@@ -187,60 +187,61 @@ public class mdl_cambiar_contrasena extends java.awt.Dialog {
         String contrasenaNueva="";
         String contrasenaActual="";
         boolean respuesta=false;
-        
-        try {
-            contrasenaNueva = Clases.encriptarContrasena.encriptar(String.valueOf(txt_pass_nuevo.getPassword()));
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(mdl_cambiar_contrasena.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            contrasenaActual = Clases.encriptarContrasena.encriptar(String.valueOf(txt_pass_actual.getPassword()));
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(mdl_cambiar_contrasena.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        if( isPasswordCorrect(txt_pass_nuevo.getPassword(),txt_pass_nuevo_confirmar.getPassword()) ){
+        if (txt_pass_actual.getPassword().equals(null)|| txt_pass_nuevo.getPassword().equals(null) || txt_pass_nuevo_confirmar.getPassword().equals(null)){
+            JOptionPane.showMessageDialog(null, "No debe dejar campos vacios.");
+        }else{
+            
             try {
-                respuesta = verificarContraseniaActual(contrasenaActual);
+                contrasenaNueva = Clases.encriptarContrasena.encriptar(String.valueOf(txt_pass_nuevo.getPassword()));
             } catch (NoSuchAlgorithmException ex) {
                 Logger.getLogger(mdl_cambiar_contrasena.class.getName()).log(Level.SEVERE, null, ex);
             }
-            if (respuesta){
-                //String sql="";
-                String sql = "UPDATE Admin\n" +
-                    "SET contrasena = '"+ contrasenaNueva +"'\n" +
-                    "WHERE usuario = '"+ this.usuario +"' ";
-                int filasAfectadas=0;
+            try {
+                contrasenaActual = Clases.encriptarContrasena.encriptar(String.valueOf(txt_pass_actual.getPassword()));
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(mdl_cambiar_contrasena.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+
+            if( isPasswordCorrect(txt_pass_nuevo.getPassword(),txt_pass_nuevo_confirmar.getPassword()) ){
                 try {
-                    //realizar el UPDATE sin problemas
-                    Statement s = Conexion.Conexion.getConexion().createStatement();
-                    //Guardamos las filas afectadas por el UPDATE
-                    filasAfectadas = s.executeUpdate(sql);
-                    //Realizamos commit de la instruccion SQL
-                    Conexion.Conexion.getConexion().commit();
-                    //Cerramos la conexion
-                    s.close();
-                } catch (SQLException ex) {
+                    respuesta = verificarContraseniaActual(contrasenaActual);
+                } catch (NoSuchAlgorithmException ex) {
                     Logger.getLogger(mdl_cambiar_contrasena.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                if (filasAfectadas == 1){
-                    JOptionPane.showMessageDialog(this, "La contraseña ha sido actualizada.");
-                } else{
-                    JOptionPane.showMessageDialog(this, "No se ha podido actualizar la contraseña.");
+                if (respuesta){
+                    //String sql="";
+                    String sql = "UPDATE Admin\n" +
+                        "SET contrasena = '"+ contrasenaNueva +"'\n" +
+                        "WHERE usuario = '"+ this.usuario +"' ";
+                    int filasAfectadas=0;
+                    try {
+                        //realizar el UPDATE sin problemas
+                        Statement s = Conexion.Conexion.getConexion().createStatement();
+                        //Guardamos las filas afectadas por el UPDATE
+                        filasAfectadas = s.executeUpdate(sql);
+                        //Realizamos commit de la instruccion SQL
+                        Conexion.Conexion.getConexion().commit();
+                        //Cerramos la conexion
+                        s.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(mdl_cambiar_contrasena.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    if (filasAfectadas == 1){
+                        JOptionPane.showMessageDialog(this, "La contraseña ha sido actualizada.");
+                    } else{
+                        JOptionPane.showMessageDialog(this, "No se ha podido actualizar la contraseña.");
+                    }
+                }else {
+                    cbxContrasenaActual.setVisible(true);
+                    cbxContrasenaActual.setForeground(Color.red);
                 }
+
             }else {
-                cbxContrasenaActual.setVisible(true);
-                cbxContrasenaActual.setForeground(Color.red);
+                lblConfirmacion.setVisible(true);
+                lblConfirmacion.setForeground(Color.red);
             }
-            
-        }else {
-            lblConfirmacion.setVisible(true);
-            lblConfirmacion.setForeground(Color.red);
-        }
-        
-        
-                
+        }       
     }//GEN-LAST:event_btn_cambiar_passActionPerformed
 
     private void cbxActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxActualActionPerformed

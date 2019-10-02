@@ -133,12 +133,14 @@ public class frmLogin extends javax.swing.JFrame {
             String user = "sa1";
             String pass = "123";
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "select * from GEN_USR where GEN_USR.nombre =?";
+            String sql = "select * from GEN_USR where GEN_USR.id =?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, getTxt_usuario().getText());
             ResultSet res = pst.executeQuery();
             if(res.next()){
+                //JOptionPane.showMessageDialog(null, res.getString("id")+ " "+res.getString("nombre"));
                 frmMenuPrincipal ver=new frmMenuPrincipal();
+                ver.recibirIdEmpleado(res.getString("id"), res.getString("nombre"));
                 ver.setVisible(true); 
                 this.setVisible(false); 
             }else{
