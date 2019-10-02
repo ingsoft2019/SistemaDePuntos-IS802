@@ -71,6 +71,7 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
 
         setMaximumSize(new java.awt.Dimension(609, 390));
         setMinimumSize(new java.awt.Dimension(609, 390));
+        setTitle("Grafico de sistema de puntos ");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -315,30 +316,34 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
                     }                     
                }
                 
-                int var1,var2,var3,var4;
-                String cad1,cad2,cad3,cad4;
+                int var1,var2,var3,var4,var5;
+                String cad1,cad2,cad3,cad4,cad5;
                 
                 var1=Integer.parseInt(matriz[0][1]);
                 var2=Integer.parseInt(matriz[1][1]);
                 var3=Integer.parseInt(matriz[2][1]);
                 var4=Integer.parseInt(matriz[3][1]);
+                var5=Integer.parseInt(matriz[4][1]);
                 
                 cad1=matriz[0][0];
                 cad2=matriz[1][0];
                 cad3=matriz[2][0];
                 cad4=matriz[3][0];
+                cad5=matriz[4][0];
                 System.out.println("");
                 System.out.println("Nombre "+ cad1 + " puntos "+ var1);
                 System.out.println("Nombre "+ cad2 + " puntos "+ var2);
                 System.out.println("Nombre "+ cad3 + " puntos "+ var3);
                 System.out.println("Nombre "+ cad4 + " puntos "+ var4);
+                System.out.println("Nombre "+ cad5 + " puntos "+ var5);
                 System.out.println("");
                // System.out.println("Nombre "+ cad1 + " puntos "+ var1);
                 
         datos.addValue(var1,"Grafica top 5 de la zona "+ zona,cad1);
         datos.addValue(var2,"Grafica top 5 de la zona "+ zona,cad2);
         datos.addValue(var3,"Grafica top 5 de la zona "+ zona,cad3);
-        datos.addValue(var4,"Grafica top 5 de la zona "+ zona,cad1);
+        datos.addValue(var4,"Grafica top 5 de la zona "+ zona,cad4);
+        datos.addValue(var5,"Grafica top 5 de la zona "+ zona,cad5);
        // datos.addValue(var1,"Grafica top 5",cad1);
 
         if(tipo_grafica.equals("Barras")){
@@ -355,6 +360,7 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
             datosPie.setValue(cad2, var2);
             datosPie.setValue(cad3, var3);
             datosPie.setValue(cad4, var4);
+            datosPie.setValue(cad5, var5);
          //   datosPie.setValue(matriz[4][0], var1);
 
             grafico = ChartFactory.createPieChart("Grafica top 5 cliente mayor puntaje de la zona " + zona, datosPie, true, true, false);

@@ -7,7 +7,6 @@ package frmArea;
 
 
 import Clases.Zona;
-import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -367,8 +366,9 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
                     System.out.println("");
                     System.out.println("El Valor dato 1: "+ matriz[cant][0]);
                     System.out.println("El Valor dato 2: "+matriz[cant][1]);
-                    System.out.println(""); 
-                    if(cant<=16 && resultado6 != null ){
+                    System.out.println("Longitud de matriz" +matriz.length); 
+               
+                    if(cant<=15 && resultado6.getString(1) != null && resultado6.getString(2) != null){
                         cant++;    
                     }else{
                         break;
@@ -378,7 +378,175 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
                 int var1,var2,var3,var4,var5,var6,var7,var8,var9,var10,var11,var12,var13,var14,var15,var16;
                 String cad1,cad2,cad3,cad4,cad5,cad6,cad7,cad8,cad9,cad10,cad11,cad12,cad13,cad14,cad15,cad16;
                 
-                var1=Integer.parseInt(matriz[0][1]);
+                if(matriz[0][1] != null){
+                    var1=Integer.parseInt(matriz[0][1]);
+                }else{
+                    var1=0;
+                }
+                if(matriz[1][1] != null){
+                    var2=Integer.parseInt(matriz[1][1]);
+                }else{
+                    var2=0;
+                }
+               if(matriz[2][1] != null){
+                    var3=Integer.parseInt(matriz[2][1]);
+                }else{
+                    var3=0;
+                }
+                 if(matriz[3][1] != null){
+                    var4=Integer.parseInt(matriz[3][1]);
+                }else{
+                    var4=0;
+                }
+                if(matriz[4][1] != null){
+                    var5=Integer.parseInt(matriz[4][1]);
+                }else{
+                    var5=0;
+                }
+                if(matriz[5][1] != null){
+                    var6=Integer.parseInt(matriz[5][1]);
+                }else{
+                    var6=0;
+                }
+                if(matriz[6][1] != null){
+                    var7=Integer.parseInt(matriz[6][1]);
+                }else{
+                    var7=0;
+                }
+               if(matriz[7][1] != null){
+                    var8=Integer.parseInt(matriz[7][1]);
+                }else{
+                    var8=0;
+                }
+                 if(matriz[8][1] != null){
+                    var9=Integer.parseInt(matriz[8][1]);
+                }else{
+                    var9=0;
+                }
+                if(matriz[9][1] != null){
+                    var10=Integer.parseInt(matriz[9][1]);
+                }else{
+                    var10=0;
+                }
+                if(matriz[10][1] != null){
+                    var11=Integer.parseInt(matriz[10][1]);
+                }else{
+                    var11=0;
+                }
+                if(matriz[11][1] != null){
+                    var12=Integer.parseInt(matriz[11][1]);
+                }else{
+                    var12=0;
+                }
+               if(matriz[12][1] != null){
+                    var13=Integer.parseInt(matriz[12][1]);
+                }else{
+                    var13=0;
+                }
+                 if(matriz[13][1] != null){
+                    var14=Integer.parseInt(matriz[13][1]);
+                }else{
+                    var14=0;
+                }
+                if(matriz[14][1] != null){
+                    var15=Integer.parseInt(matriz[14][1]);
+                }else{
+                    var15=0;
+                }
+                if(matriz[15][1] != null){
+                    var16=Integer.parseInt(matriz[15][1]);
+                }else{
+                    var16=0;
+                }
+                
+                /*/*/
+                if(matriz[0][0] != null){
+                    cad1=matriz[0][0];
+                }else{
+                    cad1="Vacio";
+                }
+                if(matriz[1][0] != null){
+                     cad2=matriz[1][0];
+                }else{
+                     cad2="Vacio";
+                }
+               if(matriz[2][0] != null){
+                     cad3=matriz[2][0];
+                }else{
+                     cad3="Vacio";
+                }
+                 if(matriz[3][0] != null){
+                    cad3=matriz[3][0];
+                }else{
+                     cad3="Vacio";
+                }
+                if(matriz[4][0] != null){
+                     cad4=matriz[4][0];
+                }else{
+                     cad4="Vacio";
+                }
+                if(matriz[5][0] != null){
+                     cad5=matriz[5][0];
+                }else{
+                     cad5="Vacio";
+                }
+                if(matriz[6][0] != null){
+                     cad6=matriz[6][0];
+                }else{
+                     cad6="Vacio";
+                }
+               if(matriz[7][0] != null){
+                    cad7=matriz[7][0];
+                }else{
+                     cad7="Vacio";
+                }
+                 if(matriz[8][0] != null){
+                     cad8=matriz[8][0];
+                }else{
+                    cad8="Vacio";
+                }
+                if(matriz[9][0] != null){
+                     cad9=matriz[9][0];
+                }else{
+                     cad9="Vacio";
+                }
+                if(matriz[10][0] != null){
+                     cad10=matriz[10][0];
+                }else{
+                     cad10="Vacio";
+                }
+                if(matriz[11][0] != null){
+                    cad11=matriz[11][0];
+                }else{
+                     cad11="Vacio";
+                }
+               if(matriz[12][0] != null){
+                    cad12=matriz[12][0];
+                }else{
+                     cad12="Vacio";
+                }
+                 if(matriz[13][0] != null){
+                     cad13=matriz[13][0];
+                }else{
+                     cad13="Vacio";
+                }
+                if(matriz[14][0] != null){
+                     cad14=matriz[14][0];
+                }else{
+                     cad14="Vacio";
+                }
+                if(matriz[15][0] != null){
+                     cad15=matriz[15][0];
+                }else{
+                     cad15="Vacio";
+                }
+                if(matriz[16][0] != null){
+                     cad16=matriz[16][0];
+                }else{
+                     cad16="Vacio";
+                }
+                
+                /*
                 var2=Integer.parseInt(matriz[1][1]);
                 var3=Integer.parseInt(matriz[2][1]);
                 var4=Integer.parseInt(matriz[3][1]);
@@ -393,8 +561,8 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
                 var13=Integer.parseInt(matriz[12][1]);
                 var14=Integer.parseInt(matriz[13][1]);
                 var15=Integer.parseInt(matriz[14][1]);
-                var16=Integer.parseInt(matriz[15][1]);
-                cad1=matriz[0][0];
+                var16=Integer.parseInt(matriz[15][1]);*/
+               /* cad1=matriz[0][0];
                 cad2=matriz[1][0];
                 cad3=matriz[2][0];
                 cad4=matriz[3][0];
@@ -409,7 +577,7 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
                 cad13=matriz[12][0];
                 cad14=matriz[13][0];
                 cad15=matriz[14][0];
-                cad16=matriz[15][0];
+                cad16=matriz[15][0];*/
                 System.out.println("");
                 System.out.println("Nombre "+ cad1 + " puntos "+ var1);
                 System.out.println("Nombre "+ cad2 + " puntos "+ var2);
@@ -446,7 +614,6 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         datos.addValue(var14,"Grafica cantidad De Cliente Por Zona",cad14);
         datos.addValue(var15,"Grafica cantidad De Cliente Por Zona",cad15);
         datos.addValue(var16,"Grafica cantidad De Cliente Por Zona",cad16);
-;
        // datos.addValue(var1,"Grafica top 5",cad1);
 
         if(tipo_grafica.equals("Barras")){
