@@ -5,7 +5,6 @@
  */
 package frmArea;
 
-
 import Clases.Zona;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
@@ -21,8 +20,6 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
-
-
 /**
  *
  * @author Luis Estrada
@@ -35,13 +32,10 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
     static ResultSet resultado6;
     static ResultSet resultado1;
     static ResultSet resultado2;
-    
     JFreeChart grafico = null;
     DefaultCategoryDataset datos = new DefaultCategoryDataset();
     Vector v = new Vector();
-    int cant_F=0 ;
-    int cant_M =0;
-    int cant=0 ;
+
 
 
     public mdl_reporte_en_graficos(java.awt.Frame parent, boolean modal) {
@@ -50,7 +44,6 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         this.setLocationRelativeTo(null); //para ponerse en el centro         
         this.setResizable(false); //Desactivar botón maximizar de una ventana
         setIconImage(new ImageIcon(getClass().getResource("../imgSP/icono.png")).getImage()); //cambia el icono del formulario
-        cargarZonas();//  Cargar las zonas en el combobox zonas
     }
 
     /**
@@ -68,8 +61,6 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         btn_graficar = new javax.swing.JButton();
         combox_datos_graficables = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jC_zona = new javax.swing.JComboBox<>();
 
         setMaximumSize(new java.awt.Dimension(555, 296));
         setMinimumSize(new java.awt.Dimension(555, 296));
@@ -91,7 +82,7 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Tipo de grafico:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(40, 80, 180, 20);
+        jLabel6.setBounds(40, 100, 180, 20);
 
         combox_tipo_grafico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Eliga un tipo de grafico", "Barras", "Lineal", "Pastel" }));
         combox_tipo_grafico.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +91,7 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
             }
         });
         jPanel1.add(combox_tipo_grafico);
-        combox_tipo_grafico.setBounds(220, 80, 260, 26);
+        combox_tipo_grafico.setBounds(220, 100, 260, 26);
 
         btn_graficar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/grafica.png"))); // NOI18N
         btn_graficar.setText("GRAFICAR");
@@ -114,37 +105,12 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
 
         combox_datos_graficables.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elegia un dato para graficar", "Sexo de los clientes", "Cantidad de clientes por zona" }));
         jPanel1.add(combox_datos_graficables);
-        combox_datos_graficables.setBounds(220, 130, 260, 26);
+        combox_datos_graficables.setBounds(220, 150, 260, 26);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Consulta:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(50, 130, 170, 20);
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setText("Zona");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(60, 180, 34, 19);
-
-        jC_zona.setMinimumSize(new java.awt.Dimension(28, 24));
-        jC_zona.setPreferredSize(new java.awt.Dimension(28, 24));
-        jC_zona.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jC_zonaMouseClicked(evt);
-            }
-        });
-        jC_zona.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jC_zonaActionPerformed(evt);
-            }
-        });
-        jC_zona.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jC_zonaKeyPressed(evt);
-            }
-        });
-        jPanel1.add(jC_zona);
-        jC_zona.setBounds(220, 180, 260, 24);
+        jLabel1.setBounds(50, 150, 170, 20);
 
         add(jPanel1);
         jPanel1.setBounds(0, 0, 560, 300);
@@ -169,35 +135,20 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
                 //Area para consultas
                 String tipo_grafica = combox_tipo_grafico.getSelectedItem().toString();
                 String tipo_consulta = combox_datos_graficables.getSelectedItem().toString();
-                String zona = jC_zona.getSelectedItem().toString();
+
 
                         if(tipo_consulta.equals("Sexo de los clientes")){
                             sexoCliente(tipo_grafica);
                         }
 
                         if(tipo_consulta.equals("Cantidad de clientes por zona")){
-                            cantidadDeClientePorZona(tipo_grafica,zona);
+                            cantidadDeClientePorZona(tipo_grafica);
                         }
 
-                        if(tipo_consulta.equals("Cliente por zonas")){
-                            clientes(tipo_grafica);
-                        }
             } catch (Exception ex) {
                 System.out.println("Error " + ex);
             }
     }//GEN-LAST:event_btn_graficarActionPerformed
-
-    private void jC_zonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jC_zonaMouseClicked
-        actualizarZonas();
-    }//GEN-LAST:event_jC_zonaMouseClicked
-
-    private void jC_zonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jC_zonaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jC_zonaActionPerformed
-
-    private void jC_zonaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jC_zonaKeyPressed
-        
-    }//GEN-LAST:event_jC_zonaKeyPressed
 
     /**
      * @param args the command line arguments
@@ -216,44 +167,12 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
         });
     }
     
-    //Metodo para llenar el combobox zonas
-    public void cargarZonas() {
-        ResultSet zonas = Zona.mostrarZonas();
-        //LLenamos nuestro ComboBox
-        jC_zona.addItem("Elija un zona para el grafico");
-
-        try {
-            while (zonas.next()) {
-                jC_zona.addItem(zonas.getString("zona"));
-
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(mdl_RegistroClientes.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-    
-       public void actualizarZonas() {
-        ResultSet zonas = Zona.mostrarZonas();
-        System.out.println();
-
-        //LLenamos nuestro ComboBox
-        jC_zona.removeAllItems();
-        jC_zona.addItem("Elija un zona para el grafico");
-        try {
-            while (zonas.next()) {
-                jC_zona.addItem(zonas.getString("zona"));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(mdl_RegistroClientes.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public void setZona(String zona) {
-        this.jC_zona.addItem(zona);
-    }
+   
 
     public  void sexoCliente(String tipo_grafica){
+                int cant_F=0 ;
+                int cant_M =0;
+
         resultado6 = Conexion.Conexion.consulta("select sexo from Persona");
             try {
                 while (resultado6.next()) {
@@ -309,52 +228,25 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
             dialog.setIconImage(Toolkit.getDefaultToolkit().getImage(
             getClass().getResource("../imgSP/icono.png")));
             dialog.setVisible(true);
+            
+             cant_F=0 ;
+             cant_M =0;
     }
     
-      private void clientes(String tipo_grafica) throws Exception {
-    }
-    
-       private void clienteMayorPuntaje(String tipo_grafica, String zona) throws Exception {
-                                    /*
-                                       select m.fecha_movimiento,sum (m.puntos_asignados) as puntos,z.zona
-                            from [PR].dbo.Cliente as c
-                            inner join [PR].dbo.Persona as p
-                            on c.id_persona = p.id_persona
-                            inner join [PR].dbo.Zona as z
-                            on p.id_zona = z.id_zona
-                            inner join [PR].dbo.Movimiento M on M.id_cliente = c.id_cliente
-                            and m.fecha_movimiento between '2019-09-01' and '2019-09-18'
-                            group by m.fecha_movimiento , z.zona
-                            order by m.fecha_movimiento;
-                                       */
-           resultado6 = Conexion.Conexion.consulta("select m.fecha_movimiento,sum (m.puntos_asignados) as puntos,z.zona\n" +
-                                                        "from [PR].dbo.Cliente as c\n" +
-                                                        "inner join [PR].dbo.Persona as p\n" +
-                                                        "on c.id_persona = p.id_persona\n" +
-                                                        "inner join [PR].dbo.Zona as z\n" +
-                                                        "on p.id_zona = z.id_zona\n" +
-                                                        "inner join [PR].dbo.Movimiento M on M.id_cliente = c.id_cliente\n" +
-                                                        "and m.fecha_movimiento between '2019-09-01' and '2019-09-18'\n" +
-                                                        "group by m.fecha_movimiento , z.zona\n" +
-                                                        "order by m.fecha_movimiento;");
-         
-              
- }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_graficar;
     private javax.swing.JComboBox<String> combox_datos_graficables;
     private javax.swing.JComboBox combox_tipo_grafico;
-    private javax.swing.JComboBox<String> jC_zona;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblRangoPorEdad;
     // End of variables declaration//GEN-END:variables
 
-    private void cantidadDeClientePorZona(String tipo_grafica,String zona) {
+    private void cantidadDeClientePorZona(String tipo_grafica) {
+
+    int cant=0;
            resultado6 = Conexion.Conexion.consulta("SELECT z1.Zona, (SELECT COUNT(*) FROM Persona p WHERE p.id_zona = z1.id_zona) 'Cantidad de personas' FROM Zona z1");
               String matriz[][]= new String[25][2];
               
@@ -378,206 +270,120 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
                 int var1,var2,var3,var4,var5,var6,var7,var8,var9,var10,var11,var12,var13,var14,var15,var16;
                 String cad1,cad2,cad3,cad4,cad5,cad6,cad7,cad8,cad9,cad10,cad11,cad12,cad13,cad14,cad15,cad16;
                 
-                if(matriz[0][1] != null){
+               
+                if(matriz[0][1] != null && matriz[0][0] != null){
                     var1=Integer.parseInt(matriz[0][1]);
-                }else{
-                    var1=0;
-                }
-                if(matriz[1][1] != null){
-                    var2=Integer.parseInt(matriz[1][1]);
-                }else{
-                    var2=0;
-                }
-               if(matriz[2][1] != null){
-                    var3=Integer.parseInt(matriz[2][1]);
-                }else{
-                    var3=0;
-                }
-                 if(matriz[3][1] != null){
-                    var4=Integer.parseInt(matriz[3][1]);
-                }else{
-                    var4=0;
-                }
-                if(matriz[4][1] != null){
-                    var5=Integer.parseInt(matriz[4][1]);
-                }else{
-                    var5=0;
-                }
-                if(matriz[5][1] != null){
-                    var6=Integer.parseInt(matriz[5][1]);
-                }else{
-                    var6=0;
-                }
-                if(matriz[6][1] != null){
-                    var7=Integer.parseInt(matriz[6][1]);
-                }else{
-                    var7=0;
-                }
-               if(matriz[7][1] != null){
-                    var8=Integer.parseInt(matriz[7][1]);
-                }else{
-                    var8=0;
-                }
-                 if(matriz[8][1] != null){
-                    var9=Integer.parseInt(matriz[8][1]);
-                }else{
-                    var9=0;
-                }
-                if(matriz[9][1] != null){
-                    var10=Integer.parseInt(matriz[9][1]);
-                }else{
-                    var10=0;
-                }
-                if(matriz[10][1] != null){
-                    var11=Integer.parseInt(matriz[10][1]);
-                }else{
-                    var11=0;
-                }
-                if(matriz[11][1] != null){
-                    var12=Integer.parseInt(matriz[11][1]);
-                }else{
-                    var12=0;
-                }
-               if(matriz[12][1] != null){
-                    var13=Integer.parseInt(matriz[12][1]);
-                }else{
-                    var13=0;
-                }
-                 if(matriz[13][1] != null){
-                    var14=Integer.parseInt(matriz[13][1]);
-                }else{
-                    var14=0;
-                }
-                if(matriz[14][1] != null){
-                    var15=Integer.parseInt(matriz[14][1]);
-                }else{
-                    var15=0;
-                }
-                if(matriz[15][1] != null){
-                    var16=Integer.parseInt(matriz[15][1]);
-                }else{
-                    var16=0;
-                }
-                
-                /*/*/
-                if(matriz[0][0] != null){
                     cad1=matriz[0][0];
                 }else{
+                    var1=0;
                     cad1="Vacio";
                 }
-                if(matriz[1][0] != null){
-                     cad2=matriz[1][0];
+                if(matriz[1][1] != null&& matriz[1][0] != null){
+                    var2=Integer.parseInt(matriz[1][1]);
+                    cad2=matriz[1][0];
                 }else{
-                     cad2="Vacio";
+                    var2=0;
+                    cad2="Vacio";
                 }
-               if(matriz[2][0] != null){
-                     cad3=matriz[2][0];
+                if(matriz[2][1] != null&& matriz[2][0] != null){
+                    var3=Integer.parseInt(matriz[2][1]);
+                    cad3=matriz[2][0];
                 }else{
-                     cad3="Vacio";
+                    var3=0;
+                    cad3="Vacio";
                 }
-                 if(matriz[3][0] != null){
-                    cad3=matriz[3][0];
+                 if(matriz[3][1] != null&& matriz[3][0] != null){
+                    var4=Integer.parseInt(matriz[3][1]);
+                    cad4=matriz[3][0];
                 }else{
-                     cad3="Vacio";
+                    var4=0;
+                    cad4="Vacio";
                 }
-                if(matriz[4][0] != null){
-                     cad4=matriz[4][0];
+                if(matriz[4][1] != null&& matriz[4][0] != null){
+                    var5=Integer.parseInt(matriz[4][1]);
+                    cad5=matriz[4][0];
                 }else{
-                     cad4="Vacio";
+                    var5=0;
+                    cad5="Vacio";
                 }
-                if(matriz[5][0] != null){
-                     cad5=matriz[5][0];
+                if(matriz[5][1] != null&& matriz[5][0] != null){
+                    var6=Integer.parseInt(matriz[5][1]);
+                    cad6=matriz[5][0];
                 }else{
-                     cad5="Vacio";
+                    var6=0;
+                    cad6="Vacio";
                 }
-                if(matriz[6][0] != null){
-                     cad6=matriz[6][0];
+                if(matriz[6][1] != null&& matriz[6][0] != null){
+                    var7=Integer.parseInt(matriz[6][1]);
+                    cad7=matriz[6][0];
                 }else{
-                     cad6="Vacio";
+                    var7=0;
+                    cad7="Vacio";
                 }
-               if(matriz[7][0] != null){
-                    cad7=matriz[7][0];
+               if(matriz[7][1] != null&& matriz[7][0] != null){
+                    var8=Integer.parseInt(matriz[7][1]);
+                    cad8=matriz[7][0];
                 }else{
-                     cad7="Vacio";
-                }
-                 if(matriz[8][0] != null){
-                     cad8=matriz[8][0];
-                }else{
+                    var8=0;
                     cad8="Vacio";
                 }
-                if(matriz[9][0] != null){
-                     cad9=matriz[9][0];
+                 if(matriz[8][1] != null&& matriz[8][0] != null){
+                    var9=Integer.parseInt(matriz[8][1]);
+                    cad9=matriz[8][0];
                 }else{
-                     cad9="Vacio";
+                    var9=0;
+                    cad9="Vacio";
                 }
-                if(matriz[10][0] != null){
-                     cad10=matriz[10][0];
+                if(matriz[9][1] != null&& matriz[9][0] != null){
+                    var10=Integer.parseInt(matriz[9][1]);
+                    cad10=matriz[9][0];
                 }else{
-                     cad10="Vacio";
+                    var10=0;
+                    cad10="Vacio";
                 }
-                if(matriz[11][0] != null){
-                    cad11=matriz[11][0];
+                if(matriz[10][1] != null&& matriz[10][0] != null){
+                    var11=Integer.parseInt(matriz[10][1]);
+                    cad11=matriz[10][0];
                 }else{
-                     cad11="Vacio";
+                    var11=0;
+                    cad11="Vacio";
                 }
-               if(matriz[12][0] != null){
-                    cad12=matriz[12][0];
+                if(matriz[11][1] != null&& matriz[11][0] != null){
+                    var12=Integer.parseInt(matriz[11][1]);
+                    cad12=matriz[11][0];
                 }else{
-                     cad12="Vacio";
+                    var12=0;
+                    cad12="Vacio";
                 }
-                 if(matriz[13][0] != null){
-                     cad13=matriz[13][0];
+                if(matriz[12][1] != null&& matriz[12][0] != null){
+                    var13=Integer.parseInt(matriz[12][1]);
+                    cad13=matriz[12][0];
                 }else{
-                     cad13="Vacio";
+                    var13=0;
+                    cad13="Vacio";
                 }
-                if(matriz[14][0] != null){
-                     cad14=matriz[14][0];
+                 if(matriz[13][1] != null&& matriz[13][0] != null){
+                    var14=Integer.parseInt(matriz[13][1]);
+                    cad14=matriz[13][0];
                 }else{
-                     cad14="Vacio";
+                    var14=0;
+                    cad14="Vacio";
                 }
-                if(matriz[15][0] != null){
-                     cad15=matriz[15][0];
+                if(matriz[14][1] != null&& matriz[14][0] != null){
+                    var15=Integer.parseInt(matriz[14][1]);
+                    cad15=matriz[14][0];
                 }else{
-                     cad15="Vacio";
+                    var15=0;
+                    cad15="Vacio";
                 }
-                if(matriz[16][0] != null){
-                     cad16=matriz[16][0];
+                if(matriz[15][1] != null&& matriz[15][0] != null){
+                    var16=Integer.parseInt(matriz[15][1]);
+                    cad16=matriz[15][0];
                 }else{
-                     cad16="Vacio";
+                    var16=0;
+                    cad16="Vacio";
                 }
                 
-                /*
-                var2=Integer.parseInt(matriz[1][1]);
-                var3=Integer.parseInt(matriz[2][1]);
-                var4=Integer.parseInt(matriz[3][1]);
-                var5=Integer.parseInt(matriz[4][1]);
-                var6=Integer.parseInt(matriz[5][1]);
-                var7=Integer.parseInt(matriz[6][1]);
-                var8=Integer.parseInt(matriz[7][1]);
-                var9=Integer.parseInt(matriz[8][1]);
-                var10=Integer.parseInt(matriz[9][1]);
-                var11=Integer.parseInt(matriz[10][1]);
-                var12=Integer.parseInt(matriz[11][1]);
-                var13=Integer.parseInt(matriz[12][1]);
-                var14=Integer.parseInt(matriz[13][1]);
-                var15=Integer.parseInt(matriz[14][1]);
-                var16=Integer.parseInt(matriz[15][1]);*/
-               /* cad1=matriz[0][0];
-                cad2=matriz[1][0];
-                cad3=matriz[2][0];
-                cad4=matriz[3][0];
-                cad5=matriz[4][0];
-                cad6=matriz[5][0];
-                cad7=matriz[6][0];
-                cad8=matriz[7][0];
-                cad9=matriz[8][0];
-                cad10=matriz[9][0];
-                cad11=matriz[10][0];
-                cad12=matriz[11][0];
-                cad13=matriz[12][0];
-                cad14=matriz[13][0];
-                cad15=matriz[14][0];
-                cad16=matriz[15][0];*/
                 System.out.println("");
                 System.out.println("Nombre "+ cad1 + " puntos "+ var1);
                 System.out.println("Nombre "+ cad2 + " puntos "+ var2);
@@ -598,69 +404,71 @@ public class mdl_reporte_en_graficos extends java.awt.Dialog {
                 System.out.println("");
                // System.out.println("Nombre "+ cad1 + " puntos "+ var1);
                 
-        datos.addValue(var1,"Grafica cantidad De Cliente Por Zona",cad1);
-        datos.addValue(var2,"Grafica cantidad De Cliente Por Zona",cad2);
-        datos.addValue(var3,"Grafica cantidad De Cliente Por Zona",cad3);
-        datos.addValue(var4,"Grafica cantidad De Cliente Por Zona",cad4);
-        datos.addValue(var5,"Grafica cantidad De Cliente Por Zona",cad5);
-        datos.addValue(var6,"Grafica cantidad De Cliente Por Zona",cad6);
-        datos.addValue(var7,"Grafica cantidad De Cliente Por Zona",cad7);
-        datos.addValue(var8,"Grafica cantidad De Cliente Por Zona",cad8);
-        datos.addValue(var9,"Grafica cantidad De Cliente Por Zona",cad9);
-        datos.addValue(var10,"Grafica cantidad De Cliente Por Zona",cad10);
-        datos.addValue(var11,"Grafica cantidad De Cliente Por Zona",cad11);
-        datos.addValue(var12,"Grafica cantidad De Cliente Por Zona",cad12);
-        datos.addValue(var13,"Grafica cantidad De Cliente Por Zona",cad13);
-        datos.addValue(var14,"Grafica cantidad De Cliente Por Zona",cad14);
-        datos.addValue(var15,"Grafica cantidad De Cliente Por Zona",cad15);
-        datos.addValue(var16,"Grafica cantidad De Cliente Por Zona",cad16);
-       // datos.addValue(var1,"Grafica top 5",cad1);
+                datos.addValue(var1,"Grafica cantidad De Cliente Por Zona",cad1);
+                datos.addValue(var2,"Grafica cantidad De Cliente Por Zona",cad2);
+                datos.addValue(var3,"Grafica cantidad De Cliente Por Zona",cad3);
+                datos.addValue(var4,"Grafica cantidad De Cliente Por Zona",cad4);
+                datos.addValue(var5,"Grafica cantidad De Cliente Por Zona",cad5);
+                datos.addValue(var6,"Grafica cantidad De Cliente Por Zona",cad6);
+                datos.addValue(var7,"Grafica cantidad De Cliente Por Zona",cad7);
+                datos.addValue(var8,"Grafica cantidad De Cliente Por Zona",cad8);
+                datos.addValue(var9,"Grafica cantidad De Cliente Por Zona",cad9);
+                datos.addValue(var10,"Grafica cantidad De Cliente Por Zona",cad10);
+                datos.addValue(var11,"Grafica cantidad De Cliente Por Zona",cad11);
+                datos.addValue(var12,"Grafica cantidad De Cliente Por Zona",cad12);
+                datos.addValue(var13,"Grafica cantidad De Cliente Por Zona",cad13);
+                datos.addValue(var14,"Grafica cantidad De Cliente Por Zona",cad14);
+                datos.addValue(var15,"Grafica cantidad De Cliente Por Zona",cad15);
+                datos.addValue(var16,"Grafica cantidad De Cliente Por Zona",cad16);
+               // datos.addValue(var1,"Grafica top 5",cad1);
 
-        if(tipo_grafica.equals("Barras")){
-            grafico = ChartFactory.createBarChart("Grafica cantidad De Cliente Por Zona", "Eje X - Nombre", "Eje Y - Puntos",datos ,PlotOrientation.VERTICAL, true, true, false);
-        }
-        
-        if(tipo_grafica.equals("Lineal")){
-            grafico = ChartFactory.createLineChart("Grafica cantidad De Cliente Por Zona", "Eje X - Nombre", "Eje Y- Puntos",datos ,PlotOrientation.VERTICAL, true, true, false);
-        }
-        
-        if(tipo_grafica.equals("Pastel")){
-            DefaultPieDataset datosPie = new DefaultPieDataset();
-            datosPie.setValue(cad1, var1);
-            datosPie.setValue(cad2, var2);
-            datosPie.setValue(cad3, var3);
-            datosPie.setValue(cad4, var4);
-            datosPie.setValue(cad5, var5);
-            datosPie.setValue(cad6, var6);
-            datosPie.setValue(cad7, var7);
-            datosPie.setValue(cad8, var8);
-            datosPie.setValue(cad9, var9);
-            datosPie.setValue(cad10, var10);
-            datosPie.setValue(cad11, var11);
-            datosPie.setValue(cad12, var12);
-            datosPie.setValue(cad13, var13);
-            datosPie.setValue(cad14, var14);
-            datosPie.setValue(cad15, var15);
-            datosPie.setValue(cad16, var16);
-         //   datosPie.setValue(matriz[4][0], var1);
+                if(tipo_grafica.equals("Barras")){
+                    grafico = ChartFactory.createBarChart("Grafica cantidad De Cliente Por Zona", "Eje X - Nombre", "Eje Y - Puntos",datos ,PlotOrientation.VERTICAL, true, true, false);
+                }
 
-            grafico = ChartFactory.createPieChart("Grafica cantidad De Cliente Por Zona", datosPie, true, true, false);
-        }
+                if(tipo_grafica.equals("Lineal")){
+                    grafico = ChartFactory.createLineChart("Grafica cantidad De Cliente Por Zona", "Eje X - Nombre", "Eje Y- Puntos",datos ,PlotOrientation.VERTICAL, true, true, false);
+                }
 
-            ChartPanel cPanel = new ChartPanel(grafico);
-            frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
-            JDialog dialog = new JDialog(frmMenuPrincipal,true);
-            dialog.setContentPane(cPanel);
-            dialog.pack();
-            dialog.setSize(cPanel.getSize());
-            dialog.setLocationRelativeTo(null);
-            dialog.setTitle("Grafica");
-            dialog.setIconImage(Toolkit.getDefaultToolkit().getImage(
-            getClass().getResource("../imgSP/icono.png")));
-            dialog.setVisible(true);
-      }catch (NumberFormatException | SQLException ex) {
-                System.out.println("Error " + ex);
-        }
-     
-    }
+                if(tipo_grafica.equals("Pastel")){
+                    DefaultPieDataset datosPie = new DefaultPieDataset();
+                    datosPie.setValue(cad1, var1);
+                    datosPie.setValue(cad2, var2);
+                    datosPie.setValue(cad3, var3);
+                    datosPie.setValue(cad4, var4);
+                    datosPie.setValue(cad5, var5);
+                    datosPie.setValue(cad6, var6);
+                    datosPie.setValue(cad7, var7);
+                    datosPie.setValue(cad8, var8);
+                    datosPie.setValue(cad9, var9);
+                    datosPie.setValue(cad10, var10);
+                    datosPie.setValue(cad11, var11);
+                    datosPie.setValue(cad12, var12);
+                    datosPie.setValue(cad13, var13);
+                    datosPie.setValue(cad14, var14);
+                    datosPie.setValue(cad15, var15);
+                    datosPie.setValue(cad16, var16);
+                 //   datosPie.setValue(matriz[4][0], var1);
+
+                    grafico = ChartFactory.createPieChart("Grafica cantidad De Cliente Por Zona", datosPie, true, true, false);
+                }
+
+                    ChartPanel cPanel = new ChartPanel(grafico);
+                    frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
+                    JDialog dialog = new JDialog(frmMenuPrincipal,true);
+                    dialog.setContentPane(cPanel);
+                    dialog.pack();
+                    dialog.setSize(cPanel.getSize());
+                    dialog.setLocationRelativeTo(null);
+                    dialog.setTitle("Grafica");
+                    dialog.setIconImage(Toolkit.getDefaultToolkit().getImage(
+                    getClass().getResource("../imgSP/icono.png")));
+                    dialog.setVisible(true);
+
+                                cant=0 ;
+
+                        }catch (NumberFormatException | SQLException ex) {
+                                  System.out.println("Error " + ex);
+                          }
+            }
 }
