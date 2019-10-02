@@ -26,7 +26,7 @@ WHERE 1 <= DATEDIFF(YEAR,  p.fecha_nacimiento, GETDATE()) AND 30 >= DATEDIFF(YEA
 	<title>
 		<band height="70" splitType="Stretch">
 			<image>
-				<reportElement uuid="8e253890-efdd-441d-90bb-2227863ed405" x="311" y="0" width="274" height="51"/>
+				<reportElement uuid="8e253890-efdd-441d-90bb-2227863ed405" x="311" y="0" width="265" height="51"/>
 				<imageExpression><![CDATA["logo.png"]]></imageExpression>
 			</image>
 			<staticText>
@@ -35,11 +35,6 @@ WHERE 1 <= DATEDIFF(YEAR,  p.fecha_nacimiento, GETDATE()) AND 30 >= DATEDIFF(YEA
 					<font size="26"/>
 				</textElement>
 				<text><![CDATA[Reporte Rango de Edad]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="35368369-aef1-4d4f-bbf5-06c87604ac04" style="SubTitle" x="46" y="46" width="255" height="22"/>
-				<textElement/>
-				<text><![CDATA[Farmacia Regis]]></text>
 			</staticText>
 		</band>
 	</title>

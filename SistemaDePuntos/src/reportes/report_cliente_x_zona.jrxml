@@ -24,17 +24,12 @@ WHERE c.puntos_actuales >5]]>
 		<band height="70" splitType="Stretch">
 			<image>
 				<reportElement uuid="adb3a372-aca0-4750-86ea-d8aa3389359d" x="275" y="0" width="300" height="64"/>
-				<imageExpression><![CDATA[]]></imageExpression>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement uuid="074c821b-e87d-4b9f-bc8f-af81cb0bd861" style="Title" x="0" y="13" width="263" height="33"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Reporte Cliente]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="743dbba0-46af-4fc9-a4e3-2de902159726" style="SubTitle" x="0" y="46" width="263" height="22"/>
-				<textElement textAlignment="Right"/>
-				<text><![CDATA[Farmacia Regis]]></text>
 			</staticText>
 		</band>
 	</title>
