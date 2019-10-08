@@ -1,11 +1,3 @@
---Llamado del procedimiento
-BEGIN 
-	DECLARE @vc_respuesta VARCHAR(500);
-	EXEC SP_SORTEO @vc_respuesta output;
-	PRINT CONCAT('Respuesta: ',@vc_respuesta);
-END;
-
---Incio del procedimiento
 CREATE PROCEDURE SP_SORTEO(
 	@pc_ganador VARCHAR(300) OUT
 )

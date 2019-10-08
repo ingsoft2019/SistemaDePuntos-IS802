@@ -46,10 +46,10 @@ public class mdl_TamanoPapel extends java.awt.Dialog {
         btnAgregar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(496, 272));
         setMinimumSize(new java.awt.Dimension(496, 272));
-        setPreferredSize(new java.awt.Dimension(496, 272));
         setTitle("Tamaño de papel para impresión");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -109,6 +109,11 @@ public class mdl_TamanoPapel extends java.awt.Dialog {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(200, 110, 30, 30);
 
+        jLabel6.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel6.setText("El rango para la impresion de parametros debe de estar desde 60 hasta 100 mm.");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(20, 150, 470, 16);
+
         add(jPanel1);
         jPanel1.setBounds(0, 0, 500, 280);
 
@@ -132,10 +137,27 @@ public class mdl_TamanoPapel extends java.awt.Dialog {
         char c = evt.getKeyChar();
         if (c< '0'|| c>'9') evt.consume();
     }//GEN-LAST:event_txtAlturaKeyTyped
-
+    
+    public boolean verificarRango(String altura, String anchura){
+        int valtura = Integer.parseInt(altura); 
+        int vanchura = Integer.parseInt(anchura);
+        boolean error= true;
+        
+        if (valtura>=60 && valtura<=100){
+            if(vanchura>=60 && vanchura<=100){
+                error= false;
+            }
+        }
+        
+        return error;
+    } 
+    
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         if(txtAnchura.getText().isEmpty() || txtAltura.getText().isEmpty() ){
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
+        } 
+        else if(verificarRango(txtAltura.getText(), txtAnchura.getText())){
+            JOptionPane.showMessageDialog(null, "Los parametros no se encuentran dentro del rango de impresion");
         }
         else {
             //1 pulg = 72 puntos// 1 pulg = 2.54 cm // 1 pulg = 25.4 milimetros
@@ -191,6 +213,7 @@ public class mdl_TamanoPapel extends java.awt.Dialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtAltura;
     private javax.swing.JTextField txtAnchura;

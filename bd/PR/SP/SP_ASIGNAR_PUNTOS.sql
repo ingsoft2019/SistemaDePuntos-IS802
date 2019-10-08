@@ -1,19 +1,3 @@
---Llamado del procedimiento
-BEGIN 
-DECLARE @pv_mensaje1 VARCHAR(5000);
-DECLARE @pi_codigo1 INT;
-EXEC SP_ASIGNAR_PUNTOS 54,'ADMIN',478 ,@pv_mensaje1 output, @pi_codigo1 output;
-PRINT(CONCAT('Mensaje: ',@pv_mensaje1, ', Codigo: ' ,@pi_codigo1));
-END;
-
-SELECT * FROM Configuracion;
-DELEte Movimiento WHERE VEN_FAC_id= 478; 
-
-UPDATE FA.dbo.VEN_FAC 
-SET fec_act= GETDATE()
-WHERE id IN (477, 478, 512, 513, 514, 515);
-
-
 -- Inicio de Procedimiento
 CREATE PROCEDURE SP_ASIGNAR_PUNTOS (
 	@pi_id_cliente INT,

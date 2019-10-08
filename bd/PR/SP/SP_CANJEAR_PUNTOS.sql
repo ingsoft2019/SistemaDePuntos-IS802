@@ -1,11 +1,3 @@
---Llamado del procedimiento
-BEGIN 
-DECLARE @pv_mensaje1 VARCHAR(5000);
-EXEC SP_CANJEAR_PUNTOS 6, 10,'ADMIN' ,@pv_mensaje1 output;
-PRINT(CONCAT('Mensaje: ',@pv_mensaje1));
-END;
-
---Inicio del procedimiento
 CREATE PROCEDURE [dbo].[SP_CANJEAR_PUNTOS](
 	@pi_id_cliente INT,
 	@pi_puntos_canjear INT,

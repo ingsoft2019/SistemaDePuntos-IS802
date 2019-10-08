@@ -93,3 +93,12 @@ CREATE TABLE Parametro_Impresion(
 	anchura DECIMAL(18,4) NOT NULL,
 	estado NVARCHAR(1) NOT NULL
 );
+
+INSERT INTO Admin VALUES('admin', '3350f6fad3335484f5cf293f739973a1');--asd.456
+insert into Admin (usuario, contrasena) values('admin2', '81dc9bdb52d04dc20036dbd8313ed055');--1234
+
+insert into Configuracion (porcentaje_puntos, duracion_puntos, fecha_configuracion)
+values (0.02,6, '2019-08-22');
+
+insert into Parametro_Impresion 
+values (60,90,'A');
