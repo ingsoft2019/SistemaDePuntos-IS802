@@ -51,7 +51,6 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         btn_cliente = new javax.swing.JButton();
         brn_puntos = new javax.swing.JButton();
         jl_TituloPrincipal = new javax.swing.JLabel();
-        brn_rangoDeEdad = new javax.swing.JButton();
         btn_graficas1 = new javax.swing.JButton();
         btn_report2 = new javax.swing.JButton();
         btn_report3 = new javax.swing.JButton();
@@ -96,26 +95,15 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         jpanel_reporte.add(jl_TituloPrincipal);
         jl_TituloPrincipal.setBounds(180, 50, 230, 30);
 
-        brn_rangoDeEdad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/rango_Edad.png"))); // NOI18N
-        brn_rangoDeEdad.setText("Edad");
-        brn_rangoDeEdad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                brn_rangoDeEdadActionPerformed(evt);
-            }
-        });
-        jpanel_reporte.add(brn_rangoDeEdad);
-        brn_rangoDeEdad.setBounds(400, 120, 160, 60);
-
         btn_graficas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/grafica.png"))); // NOI18N
         btn_graficas1.setText("Grafica rango fecha");
-        btn_graficas1.setActionCommand("Grafica rango fecha");
         btn_graficas1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_graficas1ActionPerformed(evt);
             }
         });
         jpanel_reporte.add(btn_graficas1);
-        btn_graficas1.setBounds(300, 280, 180, 60);
+        btn_graficas1.setBounds(210, 280, 180, 60);
 
         btn_report2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/zona.png"))); // NOI18N
         btn_report2.setText("Zona");
@@ -135,7 +123,7 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
             }
         });
         jpanel_reporte.add(btn_report3);
-        btn_report3.setBounds(40, 200, 160, 60);
+        btn_report3.setBounds(400, 120, 160, 60);
 
         btnGenerarExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/excel report.png"))); // NOI18N
         btnGenerarExcel.setText("Reporte Excel");
@@ -155,7 +143,7 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
             }
         });
         jpanel_reporte.add(btn_graficas2);
-        btn_graficas2.setBounds(40, 280, 160, 60);
+        btn_graficas2.setBounds(40, 200, 160, 60);
 
         add(jpanel_reporte);
         jpanel_reporte.setBounds(0, 0, 580, 360);
@@ -237,12 +225,6 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         }
     }//GEN-LAST:event_brn_puntosActionPerformed
 
-    private void brn_rangoDeEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brn_rangoDeEdadActionPerformed
-/*        frmMenuPrincipal frmMenuPrincipal =  new frmMenuPrincipal();
-        mdl_consultar_por_rango_de_edad ver=new mdl_consultar_por_rango_de_edad(frmMenuPrincipal,true);
-        ver.setVisible(true); // visible ventana del objeto*/
-    }//GEN-LAST:event_brn_rangoDeEdadActionPerformed
-
     private void btn_graficas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_graficas1ActionPerformed
         frmMenuPrincipal frmMenuPrincipal=new frmMenuPrincipal();
         mdl_fecha_dinamica_grafica ver=new mdl_fecha_dinamica_grafica(frmMenuPrincipal,true);
@@ -299,7 +281,6 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brn_puntos;
-    private javax.swing.JButton brn_rangoDeEdad;
     private javax.swing.JButton btnGenerarExcel;
     private javax.swing.JButton btn_cliente;
     private javax.swing.JButton btn_graficas1;

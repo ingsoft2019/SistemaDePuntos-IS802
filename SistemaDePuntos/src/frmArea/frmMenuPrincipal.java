@@ -96,8 +96,9 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         lblUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         panel_menuPrincipal.add(lblUsuario);
-        lblUsuario.setBounds(90, 10, 370, 40);
+        lblUsuario.setBounds(60, 20, 370, 40);
 
+        btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/icono.png"))); // NOI18N
         btnCerrarSesion.setText("Cerrar Sesion");
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,7 +106,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         panel_menuPrincipal.add(btnCerrarSesion);
-        btnCerrarSesion.setBounds(470, 20, 120, 32);
+        btnCerrarSesion.setBounds(440, 20, 150, 48);
 
         getContentPane().add(panel_menuPrincipal);
         panel_menuPrincipal.setBounds(40, 30, 600, 360);
