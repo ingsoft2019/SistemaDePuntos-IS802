@@ -57,10 +57,6 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
 
         jPanel1 = new javax.swing.JPanel();
         lblRangoPorEdad = new javax.swing.JLabel();
-        jL_fechaNacimiento = new javax.swing.JLabel();
-        jDC_fechaNacimiento = new com.toedter.calendar.JDateChooser();
-        jL_fechaNacimiento1 = new javax.swing.JLabel();
-        jDC_fechaNacimiento1 = new com.toedter.calendar.JDateChooser();
         btn_graficar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jC_zona = new javax.swing.JComboBox<>();
@@ -69,8 +65,8 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
         jLabel1 = new javax.swing.JLabel();
         combox_datos_graficables = new javax.swing.JComboBox<>();
 
-        setMaximumSize(new java.awt.Dimension(609, 390));
-        setMinimumSize(new java.awt.Dimension(609, 390));
+        setMaximumSize(new java.awt.Dimension(606, 315));
+        setMinimumSize(new java.awt.Dimension(606, 315));
         setTitle("Grafico de sistema de puntos ");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -79,42 +75,15 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
         });
         setLayout(null);
 
+        jPanel1.setMaximumSize(new java.awt.Dimension(609, 308));
+        jPanel1.setMinimumSize(new java.awt.Dimension(609, 308));
+        jPanel1.setPreferredSize(new java.awt.Dimension(609, 308));
         jPanel1.setLayout(null);
 
         lblRangoPorEdad.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblRangoPorEdad.setText("Grafico del sistema de puntos ");
         jPanel1.add(lblRangoPorEdad);
         lblRangoPorEdad.setBounds(150, 40, 380, 30);
-
-        jL_fechaNacimiento.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jL_fechaNacimiento.setText("Fecha inicio dd-mm-yy :");
-        jPanel1.add(jL_fechaNacimiento);
-        jL_fechaNacimiento.setBounds(50, 180, 230, 24);
-
-        jDC_fechaNacimiento.setMinimumSize(new java.awt.Dimension(27, 24));
-        jDC_fechaNacimiento.setPreferredSize(new java.awt.Dimension(95, 24));
-        jDC_fechaNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jDC_fechaNacimientoKeyPressed(evt);
-            }
-        });
-        jPanel1.add(jDC_fechaNacimiento);
-        jDC_fechaNacimiento.setBounds(280, 180, 260, 24);
-
-        jL_fechaNacimiento1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jL_fechaNacimiento1.setText("Fecha final dd-mm-yy :");
-        jPanel1.add(jL_fechaNacimiento1);
-        jL_fechaNacimiento1.setBounds(50, 230, 230, 24);
-
-        jDC_fechaNacimiento1.setMinimumSize(new java.awt.Dimension(27, 24));
-        jDC_fechaNacimiento1.setPreferredSize(new java.awt.Dimension(95, 24));
-        jDC_fechaNacimiento1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jDC_fechaNacimiento1KeyPressed(evt);
-            }
-        });
-        jPanel1.add(jDC_fechaNacimiento1);
-        jDC_fechaNacimiento1.setBounds(280, 230, 260, 24);
 
         btn_graficar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/grafica.png"))); // NOI18N
         btn_graficar.setText("GRAFICAR");
@@ -124,12 +93,12 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
             }
         });
         jPanel1.add(btn_graficar);
-        btn_graficar.setBounds(260, 330, 140, 40);
+        btn_graficar.setBounds(240, 250, 140, 40);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Zona");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 280, 230, 19);
+        jLabel2.setBounds(50, 180, 230, 19);
 
         jC_zona.setMinimumSize(new java.awt.Dimension(28, 24));
         jC_zona.setPreferredSize(new java.awt.Dimension(28, 24));
@@ -149,7 +118,7 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
             }
         });
         jPanel1.add(jC_zona);
-        jC_zona.setBounds(280, 280, 260, 24);
+        jC_zona.setBounds(280, 180, 260, 24);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Tipo de grafico:");
@@ -175,7 +144,7 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
         combox_datos_graficables.setBounds(280, 130, 260, 26);
 
         add(jPanel1);
-        jPanel1.setBounds(-10, 0, 620, 400);
+        jPanel1.setBounds(0, 10, 620, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -185,18 +154,6 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
         setVisible(false);
         dispose();
     }//GEN-LAST:event_closeDialog
-
-    private void jDC_fechaNacimientoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDC_fechaNacimientoKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jC_zona.requestFocus();
-        }
-    }//GEN-LAST:event_jDC_fechaNacimientoKeyPressed
-
-    private void jDC_fechaNacimiento1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDC_fechaNacimiento1KeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jC_zona.requestFocus();
-        }
-    }//GEN-LAST:event_jDC_fechaNacimiento1KeyPressed
 
     private void btn_graficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_graficarActionPerformed
         try {
@@ -394,10 +351,6 @@ public class mdl_fecha_dinamica_grafica extends java.awt.Dialog {
     private javax.swing.JComboBox<String> combox_datos_graficables;
     private javax.swing.JComboBox combox_tipo_grafico;
     private javax.swing.JComboBox<String> jC_zona;
-    private com.toedter.calendar.JDateChooser jDC_fechaNacimiento;
-    private com.toedter.calendar.JDateChooser jDC_fechaNacimiento1;
-    private javax.swing.JLabel jL_fechaNacimiento;
-    private javax.swing.JLabel jL_fechaNacimiento1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;

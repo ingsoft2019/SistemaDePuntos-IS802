@@ -52,7 +52,6 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         brn_puntos = new javax.swing.JButton();
         jl_TituloPrincipal = new javax.swing.JLabel();
         btn_graficas1 = new javax.swing.JButton();
-        btn_report2 = new javax.swing.JButton();
         btn_report3 = new javax.swing.JButton();
         btnGenerarExcel = new javax.swing.JButton();
         btn_graficas2 = new javax.swing.JButton();
@@ -96,24 +95,14 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         jl_TituloPrincipal.setBounds(180, 50, 230, 30);
 
         btn_graficas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/grafica.png"))); // NOI18N
-        btn_graficas1.setText("Grafica rango fecha");
+        btn_graficas1.setText("Grafica de Puntos");
         btn_graficas1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_graficas1ActionPerformed(evt);
             }
         });
         jpanel_reporte.add(btn_graficas1);
-        btn_graficas1.setBounds(210, 280, 180, 60);
-
-        btn_report2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/zona.png"))); // NOI18N
-        btn_report2.setText("Zona");
-        btn_report2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_report2ActionPerformed(evt);
-            }
-        });
-        jpanel_reporte.add(btn_report2);
-        btn_report2.setBounds(220, 200, 160, 60);
+        btn_graficas1.setBounds(210, 200, 180, 60);
 
         btn_report3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgSP/rango_tipo_Edad.png"))); // NOI18N
         btn_report3.setText("Rango por Edad");
@@ -231,12 +220,6 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
         ver.setVisible(true); // visible ventana del objeto
     }//GEN-LAST:event_btn_graficas1ActionPerformed
 
-    private void btn_report2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_report2ActionPerformed
-        frmMenuPrincipal frmMenuPrincipal=new frmMenuPrincipal();
-        mdl_reporte_zona_por_puntaje ver=new mdl_reporte_zona_por_puntaje(frmMenuPrincipal,true);
-        ver.setVisible(true); // visible ventana del objeto
-    }//GEN-LAST:event_btn_report2ActionPerformed
-
     private void btn_report3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_report3ActionPerformed
          frmMenuPrincipal frmMenuPrincipal=new frmMenuPrincipal();
         mdl_consultar_por_rango_de_edad ver=new mdl_consultar_por_rango_de_edad(frmMenuPrincipal,true);
@@ -285,7 +268,6 @@ public class mdl_SubMenuReporte extends java.awt.Dialog {
     private javax.swing.JButton btn_cliente;
     private javax.swing.JButton btn_graficas1;
     private javax.swing.JButton btn_graficas2;
-    private javax.swing.JButton btn_report2;
     private javax.swing.JButton btn_report3;
     private javax.swing.JLabel jl_TituloPrincipal;
     private javax.swing.JPanel jpanel_reporte;
